@@ -16,6 +16,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+        <script src="jquery-1.11.1.min.js"></script>
+        <script src="jquery-ui.min.js"></script>
+        <script src="jquery.select-to-autocomplete.js"></script>
+        <!-- May want to put the below in our Javascript. For sure want to change the alert. -->
+        <script>
+            (function($){
+              $(function(){
+                $('select').selectToAutocomplete();
+                $('form').submit(function(){
+                  alert( $(this).serialize() );
+                  return false;
+                });
+              });
+            })(jQuery);
+          </script>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -89,59 +104,62 @@
                     <h4>Select a Location</h4>
                     <div class="row">
                         <div class="col-12">
-                            <select name="Country" id="state-dropdown">
-                                <option value=''>All States</option>
-                                <option value="al">Alabama</option>
-                                <option value="ak">Alaska</option>
-                                <option value="az">Arizona</option>
-                                <option value="as">Arkansas</option>
-                                <option value="ca">California</option>
-                                <option value="co">Colorado</option>
-                                <option value="ct">Connecticut</option>
-                                <option value="de">Delaware</option>
-                                <option value="fl">Florida</option>
-                                <option value="ga">Georgia</option>
-                                <option value="hi">Hawaii</option>
-                                <option value="id">Idaho</option>
-                                <option value="il">Illinois</option>
-                                <option value="in">Indiana</option>
-                                <option value="ia">Iowa</option>
-                                <option value="ks">Kansas</option>
-                                <option value="ky">Kentucky</option>
-                                <option value="la">Louisiana</option>
-                                <option value="me">Maine</option>
-                                <option value="md">Maryland</option>
-                                <option value="ma">Massachusetts</option>
-                                <option value="mi">Michigan</option>
-                                <option value="mn">Minnesota</option>
-                                <option value="ms">Mississippi</option>
-                                <option value="mo">Missouri</option>
-                                <option value="mt">Montana</option>
-                                <option value="ne">Nebraska</option>
-                                <option value="nv">Nevada</option>
-                                <option value="nh">New Hampshire</option>
-                                <option value="nj">New Jersey</option>
-                                <option value="nm">New Mexico</option>
-                                <option value="ny">New York</option>
-                                <option value="nc">North Carolina</option>
-                                <option value="nd">North Dakota</option>
-                                <option value="oh">Ohio</option>
-                                <option value="ok">Oklahoma</option>
-                                <option value="or">Oregon</option>
-                                <option value="pa">Pennsylvania</option>
-                                <option value="ri">Rhode Island</option>
-                                <option value="sc">South Carolina</option>
-                                <option value="sd">South Dakota</option>
-                                <option value="tn">Tennessee</option>
-                                <option value="tx">Texas</option>
-                                <option value="ut">Utah</option>
-                                <option value="vt">Vermont</option>
-                                <option value="va">Virginia</option>
-                                <option value="wa">Washington</option>
-                                <option value="wv">West Virginia</option>
-                                <option value="wi">Wisconsin</option>
-                                <option value="wy">Wyoing</option>
+                            <form>
+                            <select name="State" class='selector' id="state-selector" autofocus="autofocus" autocorrect="off" autocomplete="off" placeholder='Enter a State'>
+                                <option value=''data-alternative-spellings='US'>All States</option>
+                                <option value='us'data-alternative-spellings='US'>All States</option>
+                                <option value="al" data-alternative-spellings='AL'>Alabama</option>
+                                <option value="ak" data-alternative-spellings= 'AK'>Alaska</option>
+                                <option value="az" data-alternative-spellings='AZ'>Arizona</option>
+                                <option value="as" data-alternative-spellings='AS'>Arkansas</option>
+                                <option value="ca" data-alternative-spellings='CA'>California</option>
+                                <option value="co" data-alternative-spellings='CO'>Colorado</option>
+                                <option value="ct" data-alternative-spellings='CT'>Connecticut</option>
+                                <option value="de" data-alternative-spellings='DE'>Delaware</option>
+                                <option value="fl" data-alternative-spellings='FL'>Florida</option>
+                                <option value="ga" data-alternative-spellings='GA'>Georgia</option>
+                                <option value="hi" data-alternative-spellings='HI'>Hawaii</option>
+                                <option value="id" data-alternative-spellings='ID'>Idaho</option>
+                                <option value="il" data-alternative-spellings='IL'>Illinois</option>
+                                <option value="in" data-alternative-spellings='IN'>Indiana</option>
+                                <option value="ia" data-alternative-spellings='IA'>Iowa</option>
+                                <option value="ks" data-alternative-spellings='KS'>Kansas</option>
+                                <option value="ky" data-alternative-spellings='KY'>Kentucky</option>
+                                <option value="la" data-alternative-spellings='LA'>Louisiana</option>
+                                <option value="me" data-alternative-spellings='ME'>Maine</option>
+                                <option value="md" data-alternative-spellings='MD'>Maryland</option>
+                                <option value="ma" data-alternative-spellings='MA'>Massachusetts</option>
+                                <option value="mi" data-alternative-spellings='MI'>Michigan</option>
+                                <option value="mn" data-alternative-spellings='MN'>Minnesota</option>
+                                <option value="ms" data-alternative-spellings='MS'>Mississippi</option>
+                                <option value="mo" data-alternative-spellings='MO'>Missouri</option>
+                                <option value="mt" data-alternative-spellings='MT'>Montana</option>
+                                <option value="ne" data-alternative-spellings='NE'>Nebraska</option>
+                                <option value="nv" data-alternative-spellings='NV'>Nevada</option>
+                                <option value="nh" data-alternative-spellings='NH'>New Hampshire</option>
+                                <option value="nj" data-alternative-spellings='NJ'>New Jersey</option>
+                                <option value="nm" data-alternative-spellings='NM'>New Mexico</option>
+                                <option value="ny" data-alternative-spellings='NY'>New York</option>
+                                <option value="nc" data-alternative-spellings='NC'>North Carolina</option>
+                                <option value="nd" data-alternative-spellings='ND'>North Dakota</option>
+                                <option value="oh" data-alternative-spellings='OH'>Ohio</option>
+                                <option value="ok" data-alternative-spellings='OK'>Oklahoma</option>
+                                <option value="or" data-alternative-spellings='OR'>Oregon</option>
+                                <option value="pa" data-alternative-spellings='PA'>Pennsylvania</option>
+                                <option value="ri" data-alternative-spellings='RI'>Rhode Island</option>
+                                <option value="sc" data-alternative-spellings='SC'>South Carolina</option>
+                                <option value="sd" data-alternative-spellings='SD'>South Dakota</option>
+                                <option value="tn" data-alternative-spellings='TN'>Tennessee</option>
+                                <option value="tx" data-alternative-spellings='TX'>Texas</option>
+                                <option value="ut" data-alternative-spellings='UT'>Utah</option>
+                                <option value="vt" data-alternative-spellings='VT'>Vermont</option>
+                                <option value="va" data-alternative-spellings='VA'>Virginia</option>
+                                <option value="wa" data-alternative-spellings='WA'>Washington</option>
+                                <option value="wv" data-alternative-spellings='WV'>West Virginia</option>
+                                <option value="wi" data-alternative-spellings='WI'>Wisconsin</option>
+                                <option value="wy" data-alternative-spellings='WY'>Wyoing</option>
                             </select>
+                            </form>
                         </div>
                     </div>
                 </div>
