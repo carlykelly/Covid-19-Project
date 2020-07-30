@@ -31,7 +31,8 @@ with open('state_county_pop.json') as f:
     file_data1 = json.load(f)
 collection_county.insert_many(file_data1)
 
-
+nyt_db = client['nyt_covid_db']
+collection_state_nyt= nyt_db['nyt_state_covid']
 with open('nyt_covid_states.json') as f:
     file_data_nyt = json.load(f)
 collection_state_nyt.insert_many(file_data_nyt)
