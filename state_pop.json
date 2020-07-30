@@ -1,0 +1,262 @@
+[
+    {
+        "NAME": "Puerto Rico",
+        "B01003_001E": 3468963.0,
+        "state": "72"
+    },
+    {
+        "NAME": "Alabama",
+        "B01003_001E": 4850771.0,
+        "state": "01"
+    },
+    {
+        "NAME": "Alaska",
+        "B01003_001E": 738565.0,
+        "state": "02"
+    },
+    {
+        "NAME": "Arizona",
+        "B01003_001E": 6809946.0,
+        "state": "04"
+    },
+    {
+        "NAME": "Arkansas",
+        "B01003_001E": 2977944.0,
+        "state": "05"
+    },
+    {
+        "NAME": "California",
+        "B01003_001E": 38982847.0,
+        "state": "06"
+    },
+    {
+        "NAME": "Colorado",
+        "B01003_001E": 5436519.0,
+        "state": "08"
+    },
+    {
+        "NAME": "Connecticut",
+        "B01003_001E": 3594478.0,
+        "state": "09"
+    },
+    {
+        "NAME": "District of Columbia",
+        "B01003_001E": 672391.0,
+        "state": "11"
+    },
+    {
+        "NAME": "Delaware",
+        "B01003_001E": 943732.0,
+        "state": "10"
+    },
+    {
+        "NAME": "Florida",
+        "B01003_001E": 20278447.0,
+        "state": "12"
+    },
+    {
+        "NAME": "Georgia",
+        "B01003_001E": 10201635.0,
+        "state": "13"
+    },
+    {
+        "NAME": "Hawaii",
+        "B01003_001E": 1421658.0,
+        "state": "15"
+    },
+    {
+        "NAME": "Idaho",
+        "B01003_001E": 1657375.0,
+        "state": "16"
+    },
+    {
+        "NAME": "Illinois",
+        "B01003_001E": 12854526.0,
+        "state": "17"
+    },
+    {
+        "NAME": "Indiana",
+        "B01003_001E": 6614418.0,
+        "state": "18"
+    },
+    {
+        "NAME": "Iowa",
+        "B01003_001E": 3118102.0,
+        "state": "19"
+    },
+    {
+        "NAME": "Kansas",
+        "B01003_001E": 2903820.0,
+        "state": "20"
+    },
+    {
+        "NAME": "Kentucky",
+        "B01003_001E": 4424376.0,
+        "state": "21"
+    },
+    {
+        "NAME": "Maine",
+        "B01003_001E": 1330158.0,
+        "state": "23"
+    },
+    {
+        "NAME": "Louisiana",
+        "B01003_001E": 4663461.0,
+        "state": "22"
+    },
+    {
+        "NAME": "Massachusetts",
+        "B01003_001E": 6789319.0,
+        "state": "25"
+    },
+    {
+        "NAME": "Maryland",
+        "B01003_001E": 5996079.0,
+        "state": "24"
+    },
+    {
+        "NAME": "Michigan",
+        "B01003_001E": 9925568.0,
+        "state": "26"
+    },
+    {
+        "NAME": "Minnesota",
+        "B01003_001E": 5490726.0,
+        "state": "27"
+    },
+    {
+        "NAME": "Mississippi",
+        "B01003_001E": 2986220.0,
+        "state": "28"
+    },
+    {
+        "NAME": "Missouri",
+        "B01003_001E": 6075300.0,
+        "state": "29"
+    },
+    {
+        "NAME": "Montana",
+        "B01003_001E": 1029862.0,
+        "state": "30"
+    },
+    {
+        "NAME": "Nebraska",
+        "B01003_001E": 1893921.0,
+        "state": "31"
+    },
+    {
+        "NAME": "New Hampshire",
+        "B01003_001E": 1331848.0,
+        "state": "33"
+    },
+    {
+        "NAME": "Nevada",
+        "B01003_001E": 2887725.0,
+        "state": "32"
+    },
+    {
+        "NAME": "New Jersey",
+        "B01003_001E": 8960161.0,
+        "state": "34"
+    },
+    {
+        "NAME": "New Mexico",
+        "B01003_001E": 2084828.0,
+        "state": "35"
+    },
+    {
+        "NAME": "New York",
+        "B01003_001E": 19798228.0,
+        "state": "36"
+    },
+    {
+        "NAME": "North Carolina",
+        "B01003_001E": 10052564.0,
+        "state": "37"
+    },
+    {
+        "NAME": "North Dakota",
+        "B01003_001E": 745475.0,
+        "state": "38"
+    },
+    {
+        "NAME": "Ohio",
+        "B01003_001E": 11609756.0,
+        "state": "39"
+    },
+    {
+        "NAME": "Oklahoma",
+        "B01003_001E": 3896251.0,
+        "state": "40"
+    },
+    {
+        "NAME": "Oregon",
+        "B01003_001E": 4025127.0,
+        "state": "41"
+    },
+    {
+        "NAME": "Pennsylvania",
+        "B01003_001E": 12790505.0,
+        "state": "42"
+    },
+    {
+        "NAME": "Rhode Island",
+        "B01003_001E": 1056138.0,
+        "state": "44"
+    },
+    {
+        "NAME": "South Carolina",
+        "B01003_001E": 4893444.0,
+        "state": "45"
+    },
+    {
+        "NAME": "South Dakota",
+        "B01003_001E": 855444.0,
+        "state": "46"
+    },
+    {
+        "NAME": "Tennessee",
+        "B01003_001E": 6597381.0,
+        "state": "47"
+    },
+    {
+        "NAME": "Texas",
+        "B01003_001E": 27419612.0,
+        "state": "48"
+    },
+    {
+        "NAME": "Utah",
+        "B01003_001E": 2993941.0,
+        "state": "49"
+    },
+    {
+        "NAME": "Vermont",
+        "B01003_001E": 624636.0,
+        "state": "50"
+    },
+    {
+        "NAME": "Virginia",
+        "B01003_001E": 8365952.0,
+        "state": "51"
+    },
+    {
+        "NAME": "West Virginia",
+        "B01003_001E": 1836843.0,
+        "state": "54"
+    },
+    {
+        "NAME": "Washington",
+        "B01003_001E": 7169967.0,
+        "state": "53"
+    },
+    {
+        "NAME": "Wyoming",
+        "B01003_001E": 583200.0,
+        "state": "56"
+    },
+    {
+        "NAME": "Wisconsin",
+        "B01003_001E": 5763217.0,
+        "state": "55"
+    }
+]
