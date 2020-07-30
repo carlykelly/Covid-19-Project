@@ -30,15 +30,12 @@ collection_county = db['county_population']
 with open('state_county_pop.json') as f:
     file_data1 = json.load(f)
 collection_county.insert_many(file_data1)
-# Inserting into it's own MongoDB for now...
-nyt_db = client['nyt_covid_db']
-collection_state_nyt = nyt_db['nyt_state_covid']
+
 
 with open('nyt_covid_states.json') as f:
     file_data_nyt = json.load(f)
 collection_state_nyt.insert_many(file_data_nyt)
 
-client.close()
 
 from pymongo import MongoClient
 
@@ -74,9 +71,15 @@ def county_population():
 
 @app.route("/nyt_covid_state")
 def nytcovid():
-    states = mongo.db.records
+    nyt_db = client['nyt_covid_db']
+    collection_state_nyt = nyt_db['nyt_state_covid']
+    documents=collection_state_nyt.find()
+    df = pd.DataFrame(list(documents))
+    df_json = df.to_json(default_handler=str,orient='records') 
     
-            
+    client.close()
+    
+    return df_json
 
 if __name__ == "__main__":
     app.run(debug=True)
