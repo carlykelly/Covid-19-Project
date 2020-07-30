@@ -5,21 +5,27 @@ Created on Thu Jul 30 11:41:24 2020
 
 @author: Sarah
 """
-from flask import Flask, render_template, redirect
+import pandas as pd
+from flask import (
+    Flask,
+    render_template,
+    jsonify,
+    request,
+    redirect)
 from flask_pymongo import PyMongo
 import json
-import pandas as pd
 from pymongo import MongoClient
+
+app = Flask(__name__)
 
 # Read in the csv
 csv = pd.read_csv("../Resources/us-states.csv")
 states_df = pd.DataFrame(csv)
 
 # Called the .json records
-records = states_df.to_json(orient="records")
+json_states = states_df.to_json(orient='records')
 
-app = Flask(__name__)
-
+parsed = json.loads(json_states)
 # app.config["MONGO_URI"] = "mongodb://localhost:27017/nyt-data"
 # mongo = PyMongo(app)
 
@@ -29,11 +35,10 @@ client = MongoClient('localhost', 27017)
 db = client['nyt_covid_db']
 collection_state_nyt = db['nyt_state_covid']
 
-with open('records.json','a+') as f:
+with open('records.json') as f:
     file_data = json.load(f)
-    print(f.readlines())
-    f.write("test")
 collection_state_nyt.insert_many(file_data)
+client.close()
 
 @app.route("/")
 def index():
@@ -45,7 +50,9 @@ def nytcovid():
     states = mongo.db.records
     
     
-    
+
+if __name__ == "__main__":
+    app.run(debug=True)    
     
     
  
@@ -71,6 +78,4 @@ def nytcovid():
 #     return redirect("/", code=302)
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
 
