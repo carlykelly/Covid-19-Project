@@ -33,9 +33,33 @@ collection_county.insert_many(file_data1)
 
 client.close()
 
+from pymongo import MongoClient
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+@app.route("/api/state_population")
+def state_population():
+
+    db=client['population_db']
+    collection=db['state_population']
+    documents=collection.find()
+    return documents
+    
+        
+    
+    
+   
 
 
+# 
 
+#     conn.close()
+
+#     pets_df = pd.read_sql(query, con=conn)
+
+#     pets_json = pets_df.to_json(orient='records')
 # # Replace with our Mondgo
 # app.config["MONGO_URI"] = "mongodb://localhost:27017/population_db"
 # # mongo = PyMongo(app)
@@ -91,20 +115,7 @@ client.close()
 
 #     return pets_json
 
-# @app.route("/api/pals")
-# def pals():
-#     conn = engine.connect()
-    
-#     query = '''
-#         SELECT 
-#             *
-#         FROM
-#             pets
-#     ''' 
-
-#     pets_df = pd.read_sql(query, con=conn)
-
-#     pets_json = pets_df.to_json(orient='records')
+# 
 
 #     conn.close()
 
