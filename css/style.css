@@ -1,0 +1,210 @@
+body{
+    background-color: #E8E8E8;
+    font-family: "Montserrat","Segoe UI","Helvetica Neue", Arial, sans-serif;
+}
+
+h4 {
+    color: maroon;
+}
+
+/* styling for state dropdown */
+.ui-autocomplete {
+    padding: 0;
+    list-style: none;
+    background-color: #fff;
+    width: 146px;
+    border: 1px solid #B0BECA;
+    max-height: 350px;
+    overflow-x: hidden;
+  }
+  .ui-autocomplete .ui-menu-item {
+    border-top: 1px solid #B0BECA;
+    display: block;
+    padding: 4px 6px;
+    color: #353D44;
+    cursor: pointer;
+  }
+  .ui-autocomplete .ui-menu-item:first-child {
+    border-top: none;
+  }
+  .ui-autocomplete .ui-menu-item.ui-state-focus {
+    background-color: #D5E5F4;
+    color: #161A1C;
+  }
+
+  .selector {
+    width: 100%;
+}
+/* End of styling */
+
+.navbar {
+    background-color: white}
+.navbar-brand{
+    background-color:maroon;
+}
+
+.navbar-brand h1{
+    color:white;
+    font-size: 24px;
+    padding: 5px;
+    font-weight: bold;
+
+}
+
+#dropdownMenuButton{
+    background-color:white;
+    color: #6c757d;
+    border-color:white;
+    float:right;
+
+}
+
+.navbar-links{
+    color:  #6c757d;
+    margin-left: 15px;
+    float: right;
+}
+
+a:hover, #dropdownMenuButton:hover{
+    color: maroon;
+    text-decoration: none;
+  }
+
+.row {
+    margin-top: 20px;
+}
+
+.bi {
+    vertical-align: bottom;
+}
+
+.white{
+    background-color: white;
+    padding: 32px;
+}
+
+.viz{
+    width: 100%;
+
+}
+
+.border{
+    border: 3px solid maroon !important;
+}
+
+.page-header{
+    color: maroon;
+    font-size: 28px;
+    margin-top: 20px;
+    background-color:white;
+}
+
+.graph-left{
+    float:left;
+}
+
+p{
+    line-height: 1.5em;
+}
+
+.picture-link{
+    margin-left: 20px;
+    margin-bottom:20px;
+}
+
+.pic-header{
+    color: maroon;
+    font-size: 20px;
+    text-align: center;
+}
+
+table {
+    font-family: arial, sans-serif;
+    margin: 20px;
+    border:none;
+  }
+
+  
+  th {
+      text-align:left;
+      padding:8px;
+      border-bottom: solid lightgray 3px;
+      border-top:none;
+      border-left:none;
+      border-right:none
+  }
+
+  td {
+    border-bottom:solid lightgray 2px;
+    text-align: left;
+    border-left:none;
+    border-right:none;
+    border-top: none;
+    padding: 8px;
+  }
+
+  .glyphicon{
+      color:black;
+  }
+
+  .hamburger{
+      display:none;
+  }
+
+
+  @media (max-width: 768px) {
+      .hamburger{
+          display: flex;
+      }
+      .navbar{
+          background-color: maroon !important;
+          padding:0px;
+      } 
+      .navbar-brand{
+          color:white !important;
+          background-color: maroon;
+          font-weight: bold;
+          font-family: "Montserrat","Segoe UI","Helvetica Neue", Arial, sans-serif;
+          padding:20px
+      }
+
+      .navbar-toggler{
+          margin-right:20px;
+      }
+
+      .navhead{
+          background-color:maroon !important;
+      }
+
+      .navbar-toggler-icon{
+          width: 1em;
+          height:1.25em;
+      }
+
+      .dropdown-menu{
+          background-color: white;
+          border:none;
+      }
+      .navbar-collapse{
+          background-color: white;
+      }
+
+      .navbar-light, .navbar-toggler{
+          border-color:white !important;
+      }
+
+      .nav-item{
+          padding-left: 15px;
+      }
+
+      .nav-item:hover, .nav-link:hover{
+        color: maroon !important;
+        text-decoration: none;
+      }
+
+      .nonburger{
+          display: none;
+      }
+  }
+  
+

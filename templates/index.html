@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Covid in the USA</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.jpg">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+        <script src="jquery-1.11.1.min.js"></script>
+        <script src="jquery-ui.min.js"></script>
+        <script src="jquery.select-to-autocomplete.js"></script>
+        <!-- May want to put the below in our Javascript. For sure want to change the alert. -->
+        <script>
+            (function($){
+              $(function(){
+                $('select').selectToAutocomplete();
+                $('form').submit(function(){
+                  alert( $(this).serialize() );
+                  return false;
+                });
+              });
+            })(jQuery);
+          </script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <nav class="nonburger navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand mr-auto" href="#">
+            <h1 id="logo">Covid-19 in the USA</h1>
+        </a>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Plots
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="Temp-Page.html">Max Temperature</a>
+                <a class="dropdown-item" href="Cloudiness.html">Cloudiness</a>
+                <a class="dropdown-item" href="Humidity.html">Humidity</a>
+                <a class="dropdown-item" href="Windspeed.html">Wind Speed</a>
+            </div>
+        </div>
+        <a class="navbar-links" href="Comparison.html">Comparison</a>
+        <a class="navbar-links" href="Data.html">Data</a>
+    </nav>
+    <!-- Hamburger -->
+    <nav class="hamburger navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="WebDesignChallenge.html">Latitude</a>
+
+        <button class="hamburger navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <p class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Plots
+                    </p>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="Temp-Page.html">Max Temperature</a>
+                        <a class="dropdown-item" href="Cloudiness.html">Cloudiness</a>
+                        <a class="dropdown-item" href="Humidity.html">Humidity</a>
+                        <a class="dropdown-item" href="Windspeed.html">Wind Speed</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="Comparison.html">Comparison <span class="sr-only">(current)</span></a>
+                </li>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="Data.html">Data <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End Hamburger -->
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-9 col-12'>
+                <div class="white">
+                    <h1 class="page-header">Time Series Map</h1>
+                    <hr>
+                    <section class="figure timeseries" id='country-timeseries'>
+                        <p>US Country Time Series Map will go here
+                        </p>
+                    </section>
+                </div>
+            </div>
+            <!-- <div class='col-md-1'><br></div> -->
+            <div class='col-md-3 col-12'>
+                <div class="white">
+                    <h4>Select a Location</h4>
+                    <div class="row">
+                        <div class="col-12">
+                            <form>
+                            <select name="State" class='selector' id="state-selector" autofocus="autofocus" autocorrect="off" autocomplete="off" placeholder='Enter a State'>
+                                <option value=''data-alternative-spellings='US'>All States</option>
+                                <option value='us'data-alternative-spellings='US'>All States</option>
+                                <option value="al" data-alternative-spellings='AL'>Alabama</option>
+                                <option value="ak" data-alternative-spellings= 'AK'>Alaska</option>
+                                <option value="az" data-alternative-spellings='AZ'>Arizona</option>
+                                <option value="as" data-alternative-spellings='AS'>Arkansas</option>
+                                <option value="ca" data-alternative-spellings='CA'>California</option>
+                                <option value="co" data-alternative-spellings='CO'>Colorado</option>
+                                <option value="ct" data-alternative-spellings='CT'>Connecticut</option>
+                                <option value="de" data-alternative-spellings='DE'>Delaware</option>
+                                <option value="fl" data-alternative-spellings='FL'>Florida</option>
+                                <option value="ga" data-alternative-spellings='GA'>Georgia</option>
+                                <option value="hi" data-alternative-spellings='HI'>Hawaii</option>
+                                <option value="id" data-alternative-spellings='ID'>Idaho</option>
+                                <option value="il" data-alternative-spellings='IL'>Illinois</option>
+                                <option value="in" data-alternative-spellings='IN'>Indiana</option>
+                                <option value="ia" data-alternative-spellings='IA'>Iowa</option>
+                                <option value="ks" data-alternative-spellings='KS'>Kansas</option>
+                                <option value="ky" data-alternative-spellings='KY'>Kentucky</option>
+                                <option value="la" data-alternative-spellings='LA'>Louisiana</option>
+                                <option value="me" data-alternative-spellings='ME'>Maine</option>
+                                <option value="md" data-alternative-spellings='MD'>Maryland</option>
+                                <option value="ma" data-alternative-spellings='MA'>Massachusetts</option>
+                                <option value="mi" data-alternative-spellings='MI'>Michigan</option>
+                                <option value="mn" data-alternative-spellings='MN'>Minnesota</option>
+                                <option value="ms" data-alternative-spellings='MS'>Mississippi</option>
+                                <option value="mo" data-alternative-spellings='MO'>Missouri</option>
+                                <option value="mt" data-alternative-spellings='MT'>Montana</option>
+                                <option value="ne" data-alternative-spellings='NE'>Nebraska</option>
+                                <option value="nv" data-alternative-spellings='NV'>Nevada</option>
+                                <option value="nh" data-alternative-spellings='NH'>New Hampshire</option>
+                                <option value="nj" data-alternative-spellings='NJ'>New Jersey</option>
+                                <option value="nm" data-alternative-spellings='NM'>New Mexico</option>
+                                <option value="ny" data-alternative-spellings='NY'>New York</option>
+                                <option value="nc" data-alternative-spellings='NC'>North Carolina</option>
+                                <option value="nd" data-alternative-spellings='ND'>North Dakota</option>
+                                <option value="oh" data-alternative-spellings='OH'>Ohio</option>
+                                <option value="ok" data-alternative-spellings='OK'>Oklahoma</option>
+                                <option value="or" data-alternative-spellings='OR'>Oregon</option>
+                                <option value="pa" data-alternative-spellings='PA'>Pennsylvania</option>
+                                <option value="ri" data-alternative-spellings='RI'>Rhode Island</option>
+                                <option value="sc" data-alternative-spellings='SC'>South Carolina</option>
+                                <option value="sd" data-alternative-spellings='SD'>South Dakota</option>
+                                <option value="tn" data-alternative-spellings='TN'>Tennessee</option>
+                                <option value="tx" data-alternative-spellings='TX'>Texas</option>
+                                <option value="ut" data-alternative-spellings='UT'>Utah</option>
+                                <option value="vt" data-alternative-spellings='VT'>Vermont</option>
+                                <option value="va" data-alternative-spellings='VA'>Virginia</option>
+                                <option value="wa" data-alternative-spellings='WA'>Washington</option>
+                                <option value="wv" data-alternative-spellings='WV'>West Virginia</option>
+                                <option value="wi" data-alternative-spellings='WI'>Wisconsin</option>
+                                <option value="wy" data-alternative-spellings='WY'>Wyoing</option>
+                            </select>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- This row is only needed when a state is selected. Perhaps we need a media or listener to show this. -->
+        <div class="row">
+            <div class="col-md-9 col-12">
+                <div class = 'white'>
+                <h1 class="page-header">Time Series Map</h1>
+                <hr>
+                <section class="figure timeseries" id='state-timeseries'>
+                    <p>State Time Series Map will go here
+                    </p>
+                </section>
+                </div>
+            </div>
+            <div class="col-md-3 col-12">
+                <div class = 'white'>
+                <h1 class="page-header">Gauge</h1>
+                <hr>
+                <section class="figure" id='gauge'>
+                    <p>State Guage Map will go here
+                    </p>
+                </section>
+                </div>
+            </div>
+        </div>
+        <div class='row'>
+            <div class = "col-md-6 col-12">
+                <div class ='white'>
+                    <h1 class="page-header">Chloroplast Graph</h1>
+                    <hr>
+                    <section class ='figure' id = 'chloroplast'>
+                        <p>Chloroplast graph will go here.</p>
+                    </section>
+                </div>
+            </div>
+            <div class = "col-md-6 col-12">
+                <div class ='white'>
+                    <h1 class="page-header">Bubble Chart</h1>
+                    <hr>
+                    <section class ='figure' id = 'bubble'>
+                        <p>Bubble chart will go here.</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class ='row'>
+            <div class = "col-md-4 col-12">
+                <div class = 'white'>
+                    <h1 class = 'page-header'>Forecasting Info</h1>
+                    <hr>
+                    <p>Put forcasting info in here!</p>
+                </div>
+            </div>
+            <div class = "col-md-4 col-12">
+                <div class = 'white'>
+                    <h1 class = 'page-header'>Forecasting Info</h1>
+                    <hr>
+                    <p>Put forecasting info in here!</p>
+                </div>
+            </div>
+            <div class = "col-md-4 col-12">
+                <div class = 'white'>
+                    <h1 class = 'page-header'>Forecasting Info</h1>
+                    <hr>
+                    <p>Put forecasting info in here</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+    <!-- Start of footer -->
+    <footer class="footer navbar-fixed-bottom">
+        <div class="two-toned-footer-color"></div>
+        <p class="text-muted text-muted-footer text-center">
+          <br><br>
+        </p>
+      </footer>
+      <!-- End of footer -->
+
+</html>
