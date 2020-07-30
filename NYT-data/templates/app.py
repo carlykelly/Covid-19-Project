@@ -19,13 +19,13 @@ from pymongo import MongoClient
 app = Flask(__name__)
 
 # Read in the csv
-csv = pd.read_csv("../Resources/us-states.csv")
-states_df = pd.DataFrame(csv)
+# csv = pd.read_csv("../Resources/us-states.csv")
+# states_df = pd.DataFrame(csv)
 
 # Called the .json records
-json_states = states_df.to_json(orient='records')
+# json_states = states_df.to_json(orient='records')
 
-parsed = json.loads(json_states)
+# parsed = json.loads(json_states)
 # app.config["MONGO_URI"] = "mongodb://localhost:27017/nyt-data"
 # mongo = PyMongo(app)
 
@@ -35,8 +35,10 @@ client = MongoClient('localhost', 27017)
 db = client['nyt_covid_db']
 collection_state_nyt = db['nyt_state_covid']
 
-with open('records.json') as f:
+with open('../nyt_covid_states.json') as f:
     file_data = json.load(f)
+# with open('records.json') as f:
+    
 collection_state_nyt.insert_many(file_data)
 client.close()
 
