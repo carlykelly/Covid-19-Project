@@ -16,9 +16,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
-        <script src="jquery-1.11.1.min.js"></script>
-        <script src="jquery-ui.min.js"></script>
-        <script src="jquery.select-to-autocomplete.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+        <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.select-to-autocomplete.js') }}"></script>
+        <!-- <script src="jquery-ui.min.js"></script>
+        <script src="jquery.select-to-autocomplete.js"></script> -->
         <!-- May want to put the below in our Javascript. For sure want to change the alert. -->
         <script>
             (function($){
@@ -32,7 +36,7 @@
             })(jQuery);
           </script>
           <script src="https://code.highcharts.com/highcharts.js"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
@@ -251,7 +255,8 @@
             </div>
         </div>
     </div>
-    <script src="../StarterCode/static/js/app.js"></script>
+    <!-- <script src="../StarterCode/static/js/app.js"></script> -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 
     <!-- Start of footer -->
