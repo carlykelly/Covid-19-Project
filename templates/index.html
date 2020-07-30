@@ -31,6 +31,7 @@
               });
             })(jQuery);
           </script>
+          <script src="https://code.highcharts.com/highcharts.js"></script>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -232,8 +233,26 @@
                 </div>
             </div>
         </div>
+        <div class='row'>
+            <div class='col-md-2'>
+                <div class="well">
+                  </div>
+                  <div class="panel panel-primary">
+                    <div class="panel-heading" style="background-color:maroon; border-color:maroon">
+                      <span class="panel-title" style="color: white">State Bio</span>
+                    </div>
+                    <div id="sample-metadata" class="panel-body" style='background-color:white; border:1px solid maroon;'>
+                    <p id='state-name'>State: </p>
+                    <p id='population'>Population: </p>
+                    <p id='covid-tests'>Covid Tests: </p>
+                    <p id='covid-pos'>Positive Covid Tests: </p>
+                    <p id='covid-deaths'>Covid Deaths: </p>
+                  </div>
+                </div>
+            </div>
+        </div>
     </div>
-
+    <script src="static/js/plots.js"></script>
 </body>
 
     <!-- Start of footer -->
