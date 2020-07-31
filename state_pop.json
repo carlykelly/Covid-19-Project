@@ -1,262 +1,359 @@
 [
     {
-        "NAME": "Puerto Rico",
-        "B01003_001E": 3468963.0,
-        "state": "72"
+        "State": "Alabama",
+        "Population": 4850771.0,
+        "State_FIPS": "01",
+        "Latitude": 32.3182314,
+        "Longitude": -86.902298
     },
     {
-        "NAME": "Alabama",
-        "B01003_001E": 4850771.0,
-        "state": "01"
+        "State": "Alaska",
+        "Population": 738565.0,
+        "State_FIPS": "02",
+        "Latitude": 64.2008413,
+        "Longitude": -149.4936733
     },
     {
-        "NAME": "Alaska",
-        "B01003_001E": 738565.0,
-        "state": "02"
+        "State": "Arizona",
+        "Population": 6809946.0,
+        "State_FIPS": "04",
+        "Latitude": 34.0489281,
+        "Longitude": -111.0937311
     },
     {
-        "NAME": "Arizona",
-        "B01003_001E": 6809946.0,
-        "state": "04"
+        "State": "Arkansas",
+        "Population": 2977944.0,
+        "State_FIPS": "05",
+        "Latitude": 35.20105,
+        "Longitude": -91.8318334
     },
     {
-        "NAME": "Arkansas",
-        "B01003_001E": 2977944.0,
-        "state": "05"
+        "State": "California",
+        "Population": 38982847.0,
+        "State_FIPS": "06",
+        "Latitude": 36.778261,
+        "Longitude": -119.4179324
     },
     {
-        "NAME": "California",
-        "B01003_001E": 38982847.0,
-        "state": "06"
+        "State": "Colorado",
+        "Population": 5436519.0,
+        "State_FIPS": "08",
+        "Latitude": 39.5500507,
+        "Longitude": -105.7820674
     },
     {
-        "NAME": "Colorado",
-        "B01003_001E": 5436519.0,
-        "state": "08"
+        "State": "Connecticut",
+        "Population": 3594478.0,
+        "State_FIPS": "09",
+        "Latitude": 41.6032207,
+        "Longitude": -73.087749
     },
     {
-        "NAME": "Connecticut",
-        "B01003_001E": 3594478.0,
-        "state": "09"
+        "State": "District of Columbia",
+        "Population": 672391.0,
+        "State_FIPS": "11",
+        "Latitude": 38.9071923,
+        "Longitude": -77.0368707
     },
     {
-        "NAME": "District of Columbia",
-        "B01003_001E": 672391.0,
-        "state": "11"
+        "State": "Delaware",
+        "Population": 943732.0,
+        "State_FIPS": "10",
+        "Latitude": 38.9108325,
+        "Longitude": -75.5276699
     },
     {
-        "NAME": "Delaware",
-        "B01003_001E": 943732.0,
-        "state": "10"
+        "State": "Florida",
+        "Population": 20278447.0,
+        "State_FIPS": "12",
+        "Latitude": 27.6648274,
+        "Longitude": -81.5157535
     },
     {
-        "NAME": "Florida",
-        "B01003_001E": 20278447.0,
-        "state": "12"
+        "State": "Georgia",
+        "Population": 10201635.0,
+        "State_FIPS": "13",
+        "Latitude": 32.1656221,
+        "Longitude": -82.9000751
     },
     {
-        "NAME": "Georgia",
-        "B01003_001E": 10201635.0,
-        "state": "13"
+        "State": "Hawaii",
+        "Population": 1421658.0,
+        "State_FIPS": "15",
+        "Latitude": 19.8967662,
+        "Longitude": -155.5827818
     },
     {
-        "NAME": "Hawaii",
-        "B01003_001E": 1421658.0,
-        "state": "15"
+        "State": "Idaho",
+        "Population": 1657375.0,
+        "State_FIPS": "16",
+        "Latitude": 44.0682019,
+        "Longitude": -114.7420408
     },
     {
-        "NAME": "Idaho",
-        "B01003_001E": 1657375.0,
-        "state": "16"
+        "State": "Illinois",
+        "Population": 12854526.0,
+        "State_FIPS": "17",
+        "Latitude": 40.6331249,
+        "Longitude": -89.3985283
     },
     {
-        "NAME": "Illinois",
-        "B01003_001E": 12854526.0,
-        "state": "17"
+        "State": "Indiana",
+        "Population": 6614418.0,
+        "State_FIPS": "18",
+        "Latitude": 40.2671941,
+        "Longitude": -86.1349019
     },
     {
-        "NAME": "Indiana",
-        "B01003_001E": 6614418.0,
-        "state": "18"
+        "State": "Iowa",
+        "Population": 3118102.0,
+        "State_FIPS": "19",
+        "Latitude": 41.8780025,
+        "Longitude": -93.097702
     },
     {
-        "NAME": "Iowa",
-        "B01003_001E": 3118102.0,
-        "state": "19"
+        "State": "Kansas",
+        "Population": 2903820.0,
+        "State_FIPS": "20",
+        "Latitude": 39.011902,
+        "Longitude": -98.4842465
     },
     {
-        "NAME": "Kansas",
-        "B01003_001E": 2903820.0,
-        "state": "20"
+        "State": "Kentucky",
+        "Population": 4424376.0,
+        "State_FIPS": "21",
+        "Latitude": 37.8393332,
+        "Longitude": -84.2700179
     },
     {
-        "NAME": "Kentucky",
-        "B01003_001E": 4424376.0,
-        "state": "21"
+        "State": "Maine",
+        "Population": 1330158.0,
+        "State_FIPS": "23",
+        "Latitude": 45.253783,
+        "Longitude": -69.4454689
     },
     {
-        "NAME": "Maine",
-        "B01003_001E": 1330158.0,
-        "state": "23"
+        "State": "Louisiana",
+        "Population": 4663461.0,
+        "State_FIPS": "22",
+        "Latitude": 30.9842977,
+        "Longitude": -91.9623327
     },
     {
-        "NAME": "Louisiana",
-        "B01003_001E": 4663461.0,
-        "state": "22"
+        "State": "Massachusetts",
+        "Population": 6789319.0,
+        "State_FIPS": "25",
+        "Latitude": 42.4072107,
+        "Longitude": -71.3824374
     },
     {
-        "NAME": "Massachusetts",
-        "B01003_001E": 6789319.0,
-        "state": "25"
+        "State": "Maryland",
+        "Population": 5996079.0,
+        "State_FIPS": "24",
+        "Latitude": 39.0457549,
+        "Longitude": -76.6412712
     },
     {
-        "NAME": "Maryland",
-        "B01003_001E": 5996079.0,
-        "state": "24"
+        "State": "Michigan",
+        "Population": 9925568.0,
+        "State_FIPS": "26",
+        "Latitude": 44.3148443,
+        "Longitude": -85.6023643
     },
     {
-        "NAME": "Michigan",
-        "B01003_001E": 9925568.0,
-        "state": "26"
+        "State": "Minnesota",
+        "Population": 5490726.0,
+        "State_FIPS": "27",
+        "Latitude": 46.729553,
+        "Longitude": -94.6858998
     },
     {
-        "NAME": "Minnesota",
-        "B01003_001E": 5490726.0,
-        "state": "27"
+        "State": "Mississippi",
+        "Population": 2986220.0,
+        "State_FIPS": "28",
+        "Latitude": 32.3546679,
+        "Longitude": -89.3985283
     },
     {
-        "NAME": "Mississippi",
-        "B01003_001E": 2986220.0,
-        "state": "28"
+        "State": "Missouri",
+        "Population": 6075300.0,
+        "State_FIPS": "29",
+        "Latitude": 37.9642529,
+        "Longitude": -91.8318334
     },
     {
-        "NAME": "Missouri",
-        "B01003_001E": 6075300.0,
-        "state": "29"
+        "State": "Montana",
+        "Population": 1029862.0,
+        "State_FIPS": "30",
+        "Latitude": 46.8796822,
+        "Longitude": -110.3625658
     },
     {
-        "NAME": "Montana",
-        "B01003_001E": 1029862.0,
-        "state": "30"
+        "State": "Nebraska",
+        "Population": 1893921.0,
+        "State_FIPS": "31",
+        "Latitude": 41.4925374,
+        "Longitude": -99.9018131
     },
     {
-        "NAME": "Nebraska",
-        "B01003_001E": 1893921.0,
-        "state": "31"
+        "State": "New Hampshire",
+        "Population": 1331848.0,
+        "State_FIPS": "33",
+        "Latitude": 43.1938516,
+        "Longitude": -71.5723953
     },
     {
-        "NAME": "New Hampshire",
-        "B01003_001E": 1331848.0,
-        "state": "33"
+        "State": "Nevada",
+        "Population": 2887725.0,
+        "State_FIPS": "32",
+        "Latitude": 38.8026097,
+        "Longitude": -116.419389
     },
     {
-        "NAME": "Nevada",
-        "B01003_001E": 2887725.0,
-        "state": "32"
+        "State": "New Jersey",
+        "Population": 8960161.0,
+        "State_FIPS": "34",
+        "Latitude": 40.0583238,
+        "Longitude": -74.4056612
     },
     {
-        "NAME": "New Jersey",
-        "B01003_001E": 8960161.0,
-        "state": "34"
+        "State": "New Mexico",
+        "Population": 2084828.0,
+        "State_FIPS": "35",
+        "Latitude": 34.5199402,
+        "Longitude": -105.8700901
     },
     {
-        "NAME": "New Mexico",
-        "B01003_001E": 2084828.0,
-        "state": "35"
+        "State": "New York",
+        "Population": 19798228.0,
+        "State_FIPS": "36",
+        "Latitude": 40.7127753,
+        "Longitude": -74.0059728
     },
     {
-        "NAME": "New York",
-        "B01003_001E": 19798228.0,
-        "state": "36"
+        "State": "North Carolina",
+        "Population": 10052564.0,
+        "State_FIPS": "37",
+        "Latitude": 35.7595731,
+        "Longitude": -79.0192997
     },
     {
-        "NAME": "North Carolina",
-        "B01003_001E": 10052564.0,
-        "state": "37"
+        "State": "North Dakota",
+        "Population": 745475.0,
+        "State_FIPS": "38",
+        "Latitude": 47.5514926,
+        "Longitude": -101.0020119
     },
     {
-        "NAME": "North Dakota",
-        "B01003_001E": 745475.0,
-        "state": "38"
+        "State": "Ohio",
+        "Population": 11609756.0,
+        "State_FIPS": "39",
+        "Latitude": 40.4172871,
+        "Longitude": -82.907123
     },
     {
-        "NAME": "Ohio",
-        "B01003_001E": 11609756.0,
-        "state": "39"
+        "State": "Oklahoma",
+        "Population": 3896251.0,
+        "State_FIPS": "40",
+        "Latitude": 35.4675602,
+        "Longitude": -97.5164276
     },
     {
-        "NAME": "Oklahoma",
-        "B01003_001E": 3896251.0,
-        "state": "40"
+        "State": "Oregon",
+        "Population": 4025127.0,
+        "State_FIPS": "41",
+        "Latitude": 43.8041334,
+        "Longitude": -120.5542012
     },
     {
-        "NAME": "Oregon",
-        "B01003_001E": 4025127.0,
-        "state": "41"
+        "State": "Pennsylvania",
+        "Population": 12790505.0,
+        "State_FIPS": "42",
+        "Latitude": 41.2033216,
+        "Longitude": -77.1945247
     },
     {
-        "NAME": "Pennsylvania",
-        "B01003_001E": 12790505.0,
-        "state": "42"
+        "State": "Rhode Island",
+        "Population": 1056138.0,
+        "State_FIPS": "44",
+        "Latitude": 41.5800945,
+        "Longitude": -71.4774291
     },
     {
-        "NAME": "Rhode Island",
-        "B01003_001E": 1056138.0,
-        "state": "44"
+        "State": "South Carolina",
+        "Population": 4893444.0,
+        "State_FIPS": "45",
+        "Latitude": 33.836081,
+        "Longitude": -81.1637245
     },
     {
-        "NAME": "South Carolina",
-        "B01003_001E": 4893444.0,
-        "state": "45"
+        "State": "South Dakota",
+        "Population": 855444.0,
+        "State_FIPS": "46",
+        "Latitude": 43.9695148,
+        "Longitude": -99.9018131
     },
     {
-        "NAME": "South Dakota",
-        "B01003_001E": 855444.0,
-        "state": "46"
+        "State": "Tennessee",
+        "Population": 6597381.0,
+        "State_FIPS": "47",
+        "Latitude": 35.5174913,
+        "Longitude": -86.5804473
     },
     {
-        "NAME": "Tennessee",
-        "B01003_001E": 6597381.0,
-        "state": "47"
+        "State": "Texas",
+        "Population": 27419612.0,
+        "State_FIPS": "48",
+        "Latitude": 31.9685988,
+        "Longitude": -99.9018131
     },
     {
-        "NAME": "Texas",
-        "B01003_001E": 27419612.0,
-        "state": "48"
+        "State": "Utah",
+        "Population": 2993941.0,
+        "State_FIPS": "49",
+        "Latitude": 39.3209801,
+        "Longitude": -111.0937311
     },
     {
-        "NAME": "Utah",
-        "B01003_001E": 2993941.0,
-        "state": "49"
+        "State": "Vermont",
+        "Population": 624636.0,
+        "State_FIPS": "50",
+        "Latitude": 44.5588028,
+        "Longitude": -72.5778415
     },
     {
-        "NAME": "Vermont",
-        "B01003_001E": 624636.0,
-        "state": "50"
+        "State": "Virginia",
+        "Population": 8365952.0,
+        "State_FIPS": "51",
+        "Latitude": 37.4315734,
+        "Longitude": -78.6568942
     },
     {
-        "NAME": "Virginia",
-        "B01003_001E": 8365952.0,
-        "state": "51"
+        "State": "West Virginia",
+        "Population": 1836843.0,
+        "State_FIPS": "54",
+        "Latitude": 38.5976262,
+        "Longitude": -80.4549026
     },
     {
-        "NAME": "West Virginia",
-        "B01003_001E": 1836843.0,
-        "state": "54"
+        "State": "Washington",
+        "Population": 7169967.0,
+        "State_FIPS": "53",
+        "Latitude": 47.7510741,
+        "Longitude": -120.7401385
     },
     {
-        "NAME": "Washington",
-        "B01003_001E": 7169967.0,
-        "state": "53"
+        "State": "Wyoming",
+        "Population": 583200.0,
+        "State_FIPS": "56",
+        "Latitude": 43.0759678,
+        "Longitude": -107.2902839
     },
     {
-        "NAME": "Wyoming",
-        "B01003_001E": 583200.0,
-        "state": "56"
-    },
-    {
-        "NAME": "Wisconsin",
-        "B01003_001E": 5763217.0,
-        "state": "55"
+        "State": "Wisconsin",
+        "Population": 5763217.0,
+        "State_FIPS": "55",
+        "Latitude": 43.7844397,
+        "Longitude": -88.7878678
     }
 ]

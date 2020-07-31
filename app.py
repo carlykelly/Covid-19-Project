@@ -27,7 +27,7 @@ collection_state.insert_many(file_data)
 
 # Inserting county data
 collection_county = db['county_population']
-with open('state_county_pop.json') as f:
+with open('county_pop.json') as f:
     file_data1 = json.load(f)
 collection_county.insert_many(file_data1)
 
