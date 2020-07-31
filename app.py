@@ -41,9 +41,15 @@ nyt_db = client['nyt_covid_db']
 
 collection_state_nyt= nyt_db['nyt_state_covid']
 collection_state_nyt.remove({})
-with open('nyt_covid_states.json') as f:
+with open('state_covid_daily.json') as f:
     file_data_nyt = json.load(f)
 collection_state_nyt.insert_many(file_data_nyt)
+
+collection_county_nyt= nyt_db['nyt_county_covid']
+collection_county_nyt.remove({})
+with open('county_nyt_daily.json') as f:
+    file_data_nyt_county = json.load(f)
+collection_county_nyt.insert_many(file_data_nyt_county)
 
 
 from pymongo import MongoClient
@@ -83,6 +89,18 @@ def nytcovid():
     nyt_db = client['nyt_covid_db']
     collection_state_nyt = nyt_db['nyt_state_covid']
     documents=collection_state_nyt.find()
+    df = pd.DataFrame(list(documents))
+    df_json = df.to_json(default_handler=str,orient='records') 
+    
+    client.close()
+    
+    return df_json
+
+@app.route("/nyt_covid_county")
+def nytcovidcounty():
+    nyt_db = client['nyt_covid_db']
+    collection_county_nyt = nyt_db['nyt_county_covid']
+    documents=collection_county_nyt.find()
     df = pd.DataFrame(list(documents))
     df_json = df.to_json(default_handler=str,orient='records') 
     
