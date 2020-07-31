@@ -45,7 +45,7 @@ function updateDash(){
     d3.json(county_url).then((data)=>{
         console.log(data)
 
-        mapboxgl.accessToken = API_KEY;
+        mapboxgl.accessToken =mapbox_pk;
 
         var map = new mapboxgl.Map({
         container:'state-timeseries', // container element id
