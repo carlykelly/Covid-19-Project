@@ -9,10 +9,19 @@ function updateDash(){
         var State_Population = data
         console.log(State_Population)
 
-        d3.select("select").on("change",function(d){
+        
+        
 
-            var  userSelection=d3.select("#state-selector").node().value;
+        d3.select('form').on('change',function(d){
+            var userSelection=d3.select("#state-selector").node().value;
             console.log(userSelection)
+        });
+      
+        //d3.select("select").on("change",function(d){
+        //userSelection.on("change",function(){
+        
+            //var newSelection=d3.event.target.value;
+            //console.log(newSelection)
 
             //saving keys to variables
             var StateName = State_Population[0].State
@@ -25,8 +34,15 @@ function updateDash(){
             d3.select("#state-name").text(`State: ${StateName}`).style("color","blue")
             d3.select("#population").text(`Population: ${StatePopulation}`).style("color","blue")
 
-        })
 
+            // Gauge
+            //var rate_of_spread=NumTests/NumCases
+        //})
+
+
+    })
+
+    d3.json(county_url).then((data)=>{
 
     })
 }
