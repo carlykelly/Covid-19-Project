@@ -1,3 +1,3 @@
 
-// API key
-const API_KEY = "sk.eyJ1IjoiY2xlbWlibGFjIiwiYSI6ImNrY3pkZWJidzBpcTAycXJ5N3hjZzNsaDMifQ.zDv-qU_BgSuqGTnZjWNk9Q";
+// Public API key not secret API
+const API_KEY = "pk.eyJ1IjoiY2xlbWlibGFjIiwiYSI6ImNrY3hmc2dsejBhdzYydm52dmhzZGZiZ2gifQ.DnkwfJVTUWXNHYznsqonaw";
