@@ -21,6 +21,9 @@
         <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
         <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
         <script src="{{ url_for('static', filename='js/jquery.select-to-autocomplete.js') }}"></script>
+        <!--For Mapbox GL to work -->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css' rel='stylesheet' />
         <!-- <script src="jquery-ui.min.js"></script>
         <script src="jquery.select-to-autocomplete.js"></script> -->
         <!-- May want to put the below in our Javascript. For sure want to change the alert. -->
@@ -256,6 +259,7 @@
         </div>
     </div>
     <!-- <script src="../StarterCode/static/js/app.js"></script> -->
+    <script src="{{ url_for('static', filename='js/config.js') }}"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 
