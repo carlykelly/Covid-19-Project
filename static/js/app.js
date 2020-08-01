@@ -5,12 +5,22 @@ function updateDash(){
     var county_url="/api/county_population";
     var covid_url="/nyt_covid_state";
 
-    d3.json(state_url).then((data)=>{
-        var State_Population = data
-        console.log(State_Population)
+    mapboxgl.accessToken =mapbox_pk;
+
+        var map = new mapboxgl.Map({
+            container:'state-timeseries', // container element id
+            style: 'mapbox://styles/mapbox/light-v10',
+            center: [-74.0059, 40.7128], // initial map center in [lon, lat]
+            zoom: 12
+        });
 
 
-        d3.select('form').on('change',function(d){
+    d3.select('form').on('change',function(d){
+
+        d3.json(state_url).then((data)=>{
+            var State_Population = data
+            console.log(State_Population)
+
             var userSelection=d3.select("#state-selector").node().value;
             console.log(userSelection)
             statePop=State_Population.filter(s=>s.State==userSelection)
@@ -23,49 +33,57 @@ function updateDash(){
             var StateLatitude = statePop[0].Latitude
             var StateLongitude = statePop[0].Longitude
 
-           
-
             //State Bio Div
             d3.select("#state-name").text(`State: ${StateName}`).style("color","blue")
             d3.select("#population").text(`Population: ${StatePopulation}`).style("color","blue")
 
-
-            
         })
 
 
-    })
+        // d3.json(county_url).then((data)=>{
+                //console.log(data)
 
-    d3.json(county_url).then((data)=>{
-        console.log(data)
+        //})
 
-    })
+        d3.json("/nyt_covid_state").then((d2)=>{
+            
+            covid_data=d2
+            console.log(covid_data)
 
+            var userSelection=d3.select("#state-selector").node().value;
+            console.log(userSelection)
+            selectedCovid=covid_data.filter(c=>c.State==userSelection)
+            console.log(selectedCovid)
+            selectedCovid
 
-    d3.json(county_url).then((data)=>{
-        console.log(data)
+            // Sum of Covid Cases for slected state
+            var stateTotals = selectedCovid.reduce(function(previousValue, currentValue) {
+                return {
+                  cases: previousValue.cases + currentValue.cases,
+                  deaths: previousValue.deaths + currentValue.deaths
+                }
+            });
+            console.log(stateTotals.cases);
+            d3.select("#covid-pos").text(`Positive Tests: ${stateTotals.cases}`).style("color","blue")
+            d3.select("#covid-deaths").text(`Covid Deaths: ${stateTotals.deaths}`).style("color","blue")
 
-        mapboxgl.accessToken =mapbox_pk;
+            
 
-        var map = new mapboxgl.Map({
-        container:'state-timeseries', // container element id
-        style: 'mapbox://styles/mapbox/light-v10',
-        center: [-74.0059, 40.7128], // initial map center in [lon, lat]
-        zoom: 12
-        });
+            mapboxgl.accessToken =mapbox_pk;
+            var map = new mapboxgl.Map({
+                container:'state-timeseries', // container element id
+                style: 'mapbox://styles/mapbox/light-v10',
+                center: [-74.0059, 40.7128], // initial map center in [lon, lat]
+                zoom: 12
+            });
 
+            // Gauge
+                //var rate_of_spread=NumTests/NumCases
+            //State Bio Div
+            //d3.select("#state-name").text(`State: ${StateName}`).style("color","blue")
+            //d3.select("#population").text(`Population: ${StatePopulation}`).style("color","blue")
 
-
-
-
-
-
-
-        // Gauge
-            //var rate_of_spread=NumTests/NumCases
-        //State Bio Div
-        //d3.select("#state-name").text(`State: ${StateName}`).style("color","blue")
-        //d3.select("#population").text(`Population: ${StatePopulation}`).style("color","blue")
+        })
 
     })
 }
