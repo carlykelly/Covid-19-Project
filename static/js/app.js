@@ -77,12 +77,33 @@ function updateDash(){
                 zoom: 12
             });
 
-            // Gauge
-                //var rate_of_spread=NumTests/NumCases
-            //State Bio Div
-            //d3.select("#state-name").text(`State: ${StateName}`).style("color","blue")
-            //d3.select("#population").text(`Population: ${StatePopulation}`).style("color","blue")
-
+            // Rate of death of those tested
+            RateOfDeath=stateTotals.deaths/stateTotals.cases
+            var gaugedata = [
+                {
+                  type: "indicator",
+                  mode: "gauge+number",
+                  value: RateOfDeath*100,
+                  title: { text: "Rate of Death of Tested Population (%)", font: { size: 16 } },
+                  gauge: {
+                    axis: { range: [null, 100], tickwidth: 10, tickcolor: "darkblue" },
+                    bar: { color: "red" },
+                    bgcolor: "white",
+                    borderwidth: 2,
+                    bordercolor: "gray",
+                  }
+                }
+              ];
+              
+              var layout = {
+                width: 500,
+                height: 400,
+                margin: { t: 25, r: 25, l: 25, b: 25 },
+                paper_bgcolor: "lavender",
+                font: { color: "darkblue", family: "Arial" }
+              };
+              
+              Plotly.newPlot('gauge', gaugedata, layout);
         })
 
     })
