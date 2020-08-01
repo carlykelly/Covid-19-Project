@@ -462,12 +462,12 @@ function updateDash(){
 
         d3.json(state_url).then((data)=>{
             var State_Population = data
-            console.log(State_Population)
+            //console.log(State_Population)
 
             var userSelection=d3.select("#state-selector").node().value;
             console.log(userSelection)
             statePop=State_Population.filter(s=>s.State==userSelection)
-            console.log(statePop)
+            //console.log(statePop)
 
             //saving keys to variables
             var StateName = statePop[0].State
@@ -484,14 +484,15 @@ function updateDash(){
 
 
          d3.json(covid_county_url).then((data)=>{
-            console.log("-----COUNTY DATA---LOOK AT ME-----")
+            //console.log("-----COUNTY DATA---LOOK AT ME-----")
             covid_county_data=data
-            console.log(covid_county_data)
+            //console.log(covid_county_data)
             var userSelection=d3.select("#state-selector").node().value;
-            console.log(userSelection)
+            //console.log(userSelection)
             selectedCovid=covid_county_data.filter(c=>c.state==userSelection)
-            console.log(selectedCovid)
+            //console.log(selectedCovid)
 
+            /// Total Cases by County
             var casesCountyTotals = [];
 
             selectedCovid.reduce(function(res, value) {
@@ -504,37 +505,170 @@ function updateDash(){
             }, {});
             console.log("Total cases by county");
             console.log(casesCountyTotals);
-            var bar_labels=casesCountyTotals.map(s=>s.County)
-            var bar_values=casesCountyTotals.map(s=>s.cases)
+
+            // Sorting dictionary
+            function compare(a, b) {
+                const caseA = a.cases;
+                const caseB = b.cases;
+              
+                let comparison = 0;
+                if (caseA > caseB) {
+                  comparison = 1;
+                } else if (caseA < caseB) {
+                  comparison = -1;
+                }
+                return comparison * -1;
+            }
+              
+            var sort_cases_desc=casesCountyTotals.sort(compare)
+            console.log("Sort by case") 
+            console.log(sort_cases_desc);
+
+            var top_ten_counties=sort_cases_desc.slice(0,11)
+            console.log(top_ten_counties)
+
+
+            var bar_labels=top_ten_counties.map(s=>s.County)
+            var bar_values=top_ten_counties.map(s=>s.cases)
 
             console.log(bar_labels);
             console.log(bar_values);
 
              //  Create  trace.
-             var hbar_data = [{
+             var data = [{
                 type: 'bar',
-                x: bar_values.slice(0,11),
-                y:bar_labels.slice(0,11),
+                x: bar_values,
+                y: bar_labels,
+                orientation: 'h',
                 transforms: [{
                     type: 'sort',
                     target: 'x',
                     order: 'ascending'
-                },{
-                    type: 'filter',
-                    target: 'x',
-                    operation: '>',
-                    value: 1
-                }], 
-            }];
-            // 7. Define our plot layout
+                  }]
+              }];
             var layout = {
                 title: `Top 10 counties by total number of cases`,
-                xaxis: {title:"Total number of cases"},
-                yaxis: {title:"counties"}
+                xaxis: {title:"Total number of cases",size: 18},
+                yaxis: {title:"counties",automargin: true,},
+                autosize: false,
+                width: 800,
+                height: 500,
+                margin: {
+                    l: 250,
+                    r: 50,
+                    b: 100,
+                    t: 100,
+                    pad: 4
+                }
             };
-            // 8. Plot the chart to a div tag with id "bar-plot"
-            Plotly.newPlot('top-cases', hbar_data, layout);
+            var config = {responsive: true}           
+            Plotly.newPlot('top-cases', data,layout,config);
 
+
+            /// Total deaths by County
+            var deathCountyTotals = [];
+
+            selectedCovid.reduce(function(res, value) {
+            if (!res[value.County]) {
+                res[value.County] = { County: value.County, deaths: 0 };
+                deathCountyTotals.push(res[value.County])
+            }
+            res[value.County].deaths += value.deaths;
+            return res;
+            }, {});
+            console.log("Total deaths by county");
+            console.log(deathCountyTotals);
+
+            // Sorting dictionary
+            function compare(a, b) {
+                const deathA = a.deaths;
+                const deathB = b.deaths;
+              
+                let comparison = 0;
+                if (deathA > deathB) {
+                  comparison = 1;
+                } else if (deathA < deathB) {
+                  comparison = -1;
+                }
+                return comparison * -1;
+            }
+              
+            var sort_deaths_desc=deathCountyTotals.sort(compare)
+            console.log("Sort by death") 
+            console.log(sort_deaths_desc);
+
+            var top_ten_counties_deaths=sort_deaths_desc.slice(0,11)
+            console.log(top_ten_counties_deaths)
+
+
+            var bar_labels=top_ten_counties_deaths.map(s=>s.County)
+            var bar_values=top_ten_counties_deaths.map(s=>s.deaths)
+
+            console.log(bar_labels);
+            console.log(bar_values);
+
+             //  Create  trace.
+             var data = [{
+                type: 'bar',
+                x: bar_values,
+                y: bar_labels,
+                orientation: 'h',
+                transforms: [{
+                    type: 'sort',
+                    target: 'x',
+                    order: 'ascending'
+                  }]
+              }];
+            var layout = {
+                title: `Top 10 counties by total number of deaths`,
+                xaxis: {title:"Total number of deaths",size: 18},
+                yaxis: {title:"counties",automargin: true,},
+                autosize: false,
+                width: 800,
+                height: 500,
+                margin: {
+                    l: 250,
+                    r: 50,
+                    b: 100,
+                    t: 100,
+                    pad: 4
+                }
+            };
+            var config = {responsive: true}
+            Plotly.newPlot('top-deaths', data,layout,config);
+
+            /// Total cases by State
+            var casesStateTotals = [];
+
+            covid_county_data.reduce(function(res, value) {
+            if (!res[value.state]) {
+                res[value.state] = { state: value.state, cases: 0 };
+                casesStateTotals.push(res[value.state])
+            }
+            res[value.state].cases += value.cases;
+            return res;
+            }, {});
+
+            // Sorting dictionary
+            function compare(a, b) {
+                const stateCasesA = a.cases;
+                const stateCasesB = b.cases;
+              
+                let comparison = 0;
+                if (stateCasesA > stateCasesB) {
+                  comparison = 1;
+                } else if (stateCasesA < stateCasesB) {
+                  comparison = -1;
+                }
+                return comparison;
+            }
+            //Using this for honey comb
+            var sort_cases_asc=casesStateTotals.sort(compare)
+            console.log("Total cases by State");
+            console.log(sort_cases_asc);
+
+
+              
 
         })
 
@@ -546,7 +680,7 @@ function updateDash(){
             var userSelection=d3.select("#state-selector").node().value;
             console.log(userSelection)
             selectedCovid=covid_data.filter(c=>c.State==userSelection)
-            console.log(selectedCovid)
+            //console.log(selectedCovid)
             //selectedCovid
 
             // Sum of Covid Cases for slected state
@@ -599,13 +733,16 @@ function updateDash(){
               
             Plotly.newPlot('gauge', gaugedata, layout);
 
+            var stateTotals = selectedCovid.reduce(function(previousValue, currentValue) {
+                return {
+                  cases: previousValue.cases + currentValue.cases,
+                  deaths: previousValue.deaths + currentValue.deaths
+                }
+            });
 
 
 
-
-            
-
-            
+                        
         })
 
 
