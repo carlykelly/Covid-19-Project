@@ -53,6 +53,11 @@ client = MongoClient(mongoURL)
 #     file_data_nyt_county = json.load(f)
 # collection_county_nyt.insert_many(file_data_nyt_county)
 
+# collection_state_atlantic= nyt_db['atlantic_covid']
+# with open('atlantic_covid_daily.json') as f:
+#     file_data_atlantic_state = json.load(f)
+# collection_state_atlantic.insert_many(file_data_atlantic_state)
+
 
 from pymongo import MongoClient
 
@@ -103,6 +108,18 @@ def nytcovidcounty():
     nyt_db = client['nyt_covid_db']
     collection_county_nyt = nyt_db['nyt_county_covid']
     documents=collection_county_nyt.find()
+    df = pd.DataFrame(list(documents))
+    df_json = df.to_json(default_handler=str,orient='records') 
+    
+    client.close()
+    
+    return df_json
+
+@app.route("/atlantic_covid")
+def atlanticcovid():
+    nyt_db = client['nyt_covid_db']
+    collection_state_atlantic = nyt_db['atlantic_state_covid']
+    documents=collection_state_atlantic.find()
     df = pd.DataFrame(list(documents))
     df_json = df.to_json(default_handler=str,orient='records') 
     
