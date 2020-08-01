@@ -58,6 +58,19 @@ client = MongoClient(mongoURL)
 #     file_data_atlantic_state = json.load(f)
 # collection_state_atlantic.insert_many(file_data_atlantic_state)
 
+# unemp_db = client['unemp_db']
+# collection_unemp = unemp_db['st_unemp']
+# # Inserting state data
+# with open('st_unemp_json.json') as f:
+#     st_unemp_file_data = json.load(f)
+# collection_unemp.insert_many(set(st_unemp_file_data))
+
+# unemp_db = client['unemp_db']
+# collection_unemp = unemp_db['county_unemp']
+# # Inserting state data
+# with open('county_unemp_json.json') as f:
+#     county_unemp_file_data = json.load(f)
+# set(collection_unemp.insert_many(county_unemp_file_data))
 
 from pymongo import MongoClient
 
@@ -125,6 +138,30 @@ def atlanticcovid():
     
     client.close()
     
+    return df_json
+
+@app.route("/unemployment_by_state")
+def stateUnemp():
+    st_unemp_db = client['unemp_db']
+    collection_st_unemp = st_unemp_db['unemp_by_state']
+    documents=collection_st_unemp.find()
+    df = pd.DataFrame(list(documents))
+    df_json = df.to_json(default_handler=str,orient='records')
+
+    client.close()
+
+    return df_json
+
+@app.route("/unemployment_by_county")
+def countyUnemp():
+    county_unemp_db = client['unemp_db']
+    collection_county_unemp = county_unemp_db['unemp_by_county']
+    documents=collection_county_unemp.find()
+    df = pd.DataFrame(list(documents))
+    df_json = df.to_json(default_handler=str,orient='records')
+
+    client.close()
+
     return df_json
 
 if __name__ == "__main__":

@@ -1,0 +1,470 @@
+[
+    {
+        "State": "Alabama",
+        "January2020": 2.7,
+        "February2020": 2.7,
+        "March2020": "3.0",
+        "April2020": "13.8",
+        "May2020": "9.6",
+        "June2020": "7.5"
+    },
+    {
+        "State": "Alaska",
+        "January2020": 6.0,
+        "February2020": 5.8,
+        "March2020": "5.2",
+        "April2020": "13.5",
+        "May2020": "12.7",
+        "June2020": "12.4"
+    },
+    {
+        "State": "Arizona",
+        "January2020": 4.5,
+        "February2020": 4.5,
+        "March2020": "6.1",
+        "April2020": "13.4",
+        "May2020": "9.0",
+        "June2020": "10.0"
+    },
+    {
+        "State": "Arkansas",
+        "January2020": 3.5,
+        "February2020": 3.5,
+        "March2020": "5.0",
+        "April2020": "10.8",
+        "May2020": "9.6",
+        "June2020": "8.0"
+    },
+    {
+        "State": "California",
+        "January2020": 3.9,
+        "February2020": 3.9,
+        "March2020": "5.5",
+        "April2020": "16.4",
+        "May2020": "16.4",
+        "June2020": "14.9"
+    },
+    {
+        "State": "Colorado",
+        "January2020": 2.5,
+        "February2020": 2.5,
+        "March2020": "5.2",
+        "April2020": "12.2",
+        "May2020": "10.2",
+        "June2020": "10.5"
+    },
+    {
+        "State": "Connecticut",
+        "January2020": 3.7,
+        "February2020": 3.8,
+        "March2020": "3.4",
+        "April2020": "8.3",
+        "May2020": "9.6",
+        "June2020": "9.8"
+    },
+    {
+        "State": "Delaware",
+        "January2020": 4.0,
+        "February2020": 3.9,
+        "March2020": "5.0",
+        "April2020": "14.9",
+        "May2020": "15.9",
+        "June2020": "12.5"
+    },
+    {
+        "State": "District of Columbia",
+        "January2020": 5.2,
+        "February2020": 5.1,
+        "March2020": "6.0",
+        "April2020": "11.7",
+        "May2020": "8.8",
+        "June2020": "8.6"
+    },
+    {
+        "State": "Florida",
+        "January2020": 2.8,
+        "February2020": 2.8,
+        "March2020": "4.4",
+        "April2020": "13.8",
+        "May2020": "13.7",
+        "June2020": "10.4"
+    },
+    {
+        "State": "Georgia",
+        "January2020": 3.1,
+        "February2020": 3.1,
+        "March2020": "4.6",
+        "April2020": "12.6",
+        "May2020": "9.4",
+        "June2020": "7.6"
+    },
+    {
+        "State": "Hawaii",
+        "January2020": 2.7,
+        "February2020": 2.7,
+        "March2020": "2.4",
+        "April2020": "23.8",
+        "May2020": "23.5",
+        "June2020": "13.9"
+    },
+    {
+        "State": "Idaho",
+        "January2020": 2.8,
+        "February2020": 2.7,
+        "March2020": "2.5",
+        "April2020": "11.8",
+        "May2020": "9.0",
+        "June2020": "5.6"
+    },
+    {
+        "State": "Illinois",
+        "January2020": 3.5,
+        "February2020": 3.4,
+        "March2020": "4.2",
+        "April2020": "17.2",
+        "May2020": "15.3",
+        "June2020": "14.6"
+    },
+    {
+        "State": "Indiana",
+        "January2020": 3.1,
+        "February2020": 3.1,
+        "March2020": "3.0",
+        "April2020": "17.5",
+        "May2020": "12.3",
+        "June2020": "11.2"
+    },
+    {
+        "State": "Iowa",
+        "January2020": 2.8,
+        "February2020": 2.8,
+        "March2020": "3.3",
+        "April2020": "11.0",
+        "May2020": "10.2",
+        "June2020": "8.0"
+    },
+    {
+        "State": "Kansas",
+        "January2020": 3.1,
+        "February2020": 3.1,
+        "March2020": "2.8",
+        "April2020": "11.9",
+        "May2020": "10.0",
+        "June2020": "7.5"
+    },
+    {
+        "State": "Kentucky",
+        "January2020": 4.3,
+        "February2020": 4.2,
+        "March2020": "5.2",
+        "April2020": "16.6",
+        "May2020": "10.9",
+        "June2020": "4.3"
+    },
+    {
+        "State": "Louisiana",
+        "January2020": 5.3,
+        "February2020": 5.2,
+        "March2020": "6.7",
+        "April2020": "15.1",
+        "May2020": "14.2",
+        "June2020": "9.7"
+    },
+    {
+        "State": "Maine",
+        "January2020": 3.1,
+        "February2020": 3.2,
+        "March2020": "3.0",
+        "April2020": "10.4",
+        "May2020": "9.4",
+        "June2020": "6.6"
+    },
+    {
+        "State": "Maryland",
+        "January2020": 3.3,
+        "February2020": 3.3,
+        "March2020": "3.3",
+        "April2020": "10.1",
+        "May2020": "10.0",
+        "June2020": "8.0"
+    },
+    {
+        "State": "Massachusetts",
+        "January2020": 2.8,
+        "February2020": 2.8,
+        "March2020": "2.8",
+        "April2020": "16.2",
+        "May2020": "16.6",
+        "June2020": "17.4"
+    },
+    {
+        "State": "Michigan",
+        "January2020": 3.8,
+        "February2020": 3.6,
+        "March2020": "4.3",
+        "April2020": "24.0",
+        "May2020": "21.3",
+        "June2020": "14.8"
+    },
+    {
+        "State": "Minnesota",
+        "January2020": 3.2,
+        "February2020": 3.1,
+        "March2020": "2.9",
+        "April2020": "8.7",
+        "May2020": "9.9",
+        "June2020": "8.6"
+    },
+    {
+        "State": "Mississippi",
+        "January2020": 5.5,
+        "February2020": 5.4,
+        "March2020": "5.1",
+        "April2020": "16.3",
+        "May2020": "10.5",
+        "June2020": "8.7"
+    },
+    {
+        "State": "Missouri",
+        "January2020": 3.5,
+        "February2020": 3.5,
+        "March2020": "3.9",
+        "April2020": "10.2",
+        "May2020": "10.1",
+        "June2020": "7.9"
+    },
+    {
+        "State": "Montana",
+        "January2020": 3.5,
+        "February2020": 3.5,
+        "March2020": "3.6",
+        "April2020": "11.9",
+        "May2020": "9.0",
+        "June2020": "7.1"
+    },
+    {
+        "State": "Nebraska",
+        "January2020": 2.9,
+        "February2020": 2.9,
+        "March2020": "4.0",
+        "April2020": "8.7",
+        "May2020": "5.3",
+        "June2020": "6.7"
+    },
+    {
+        "State": "Nevada",
+        "January2020": 3.6,
+        "February2020": 3.6,
+        "March2020": "6.9",
+        "April2020": "30.1",
+        "May2020": "25.3",
+        "June2020": "15.0"
+    },
+    {
+        "State": "New Hampshire",
+        "January2020": 2.6,
+        "February2020": 2.6,
+        "March2020": "2.4",
+        "April2020": "17.1",
+        "May2020": "15.4",
+        "June2020": "11.8"
+    },
+    {
+        "State": "New Jersey",
+        "January2020": 3.8,
+        "February2020": 3.8,
+        "March2020": "3.7",
+        "April2020": "16.3",
+        "May2020": "15.4",
+        "June2020": "16.6"
+    },
+    {
+        "State": "New Mexico",
+        "January2020": 4.8,
+        "February2020": 4.8,
+        "March2020": "6.3",
+        "April2020": "11.9",
+        "May2020": "9.1",
+        "June2020": "8.3"
+    },
+    {
+        "State": "New York",
+        "January2020": 3.8,
+        "February2020": 3.7,
+        "March2020": "4.1",
+        "April2020": "15.3",
+        "May2020": "14.5",
+        "June2020": "15.7"
+    },
+    {
+        "State": "North Carolina",
+        "January2020": 3.6,
+        "February2020": 3.6,
+        "March2020": "4.3",
+        "April2020": "12.9",
+        "May2020": "12.8",
+        "June2020": "7.6"
+    },
+    {
+        "State": "North Dakota",
+        "January2020": 2.3,
+        "February2020": 2.2,
+        "March2020": "2.0",
+        "April2020": "9.1",
+        "May2020": "9.1",
+        "June2020": "6.1"
+    },
+    {
+        "State": "Ohio",
+        "January2020": 4.1,
+        "February2020": 4.1,
+        "March2020": "5.8",
+        "April2020": "17.6",
+        "May2020": "13.9",
+        "June2020": "10.9"
+    },
+    {
+        "State": "Oklahoma",
+        "January2020": 3.3,
+        "February2020": 3.2,
+        "March2020": "2.9",
+        "April2020": "14.7",
+        "May2020": "12.6",
+        "June2020": "6.6"
+    },
+    {
+        "State": "Oregon",
+        "January2020": 3.3,
+        "February2020": 3.3,
+        "March2020": "3.5",
+        "April2020": "14.9",
+        "May2020": "14.3",
+        "June2020": "11.2"
+    },
+    {
+        "State": "Pennsylvania",
+        "January2020": 4.7,
+        "February2020": 4.7,
+        "March2020": "5.8",
+        "April2020": "16.1",
+        "May2020": "13.4",
+        "June2020": "13.0"
+    },
+    {
+        "State": "Puerto Rico",
+        "January2020": 8.9,
+        "February2020": 8.8,
+        "March2020": "-",
+        "April2020": "-",
+        "May2020": "-",
+        "June2020": "-"
+    },
+    {
+        "State": "Rhode Island",
+        "January2020": 3.4,
+        "February2020": 3.4,
+        "March2020": "4.7",
+        "April2020": "18.1",
+        "May2020": "16.4",
+        "June2020": "12.4"
+    },
+    {
+        "State": "South Carolina",
+        "January2020": 2.4,
+        "February2020": 2.5,
+        "March2020": "3.2",
+        "April2020": "12.8",
+        "May2020": "12.4",
+        "June2020": "8.7"
+    },
+    {
+        "State": "South Dakota",
+        "January2020": 3.4,
+        "February2020": 3.3,
+        "March2020": "3.1",
+        "April2020": "10.9",
+        "May2020": "9.4",
+        "June2020": "7.2"
+    },
+    {
+        "State": "Tennessee",
+        "January2020": 3.3,
+        "February2020": 3.4,
+        "March2020": "3.3",
+        "April2020": "15.5",
+        "May2020": "11.0",
+        "June2020": "9.7"
+    },
+    {
+        "State": "Texas",
+        "January2020": 3.5,
+        "February2020": 3.5,
+        "March2020": "5.1",
+        "April2020": "13.5",
+        "May2020": "13.0",
+        "June2020": "8.6"
+    },
+    {
+        "State": "Utah",
+        "January2020": 2.5,
+        "February2020": 2.5,
+        "March2020": "3.8",
+        "April2020": "10.4",
+        "May2020": "8.6",
+        "June2020": "5.1"
+    },
+    {
+        "State": "Vermont",
+        "January2020": 2.4,
+        "February2020": 2.4,
+        "March2020": "3.1",
+        "April2020": "16.5",
+        "May2020": "12.8",
+        "June2020": "9.4"
+    },
+    {
+        "State": "Virginia",
+        "January2020": 2.7,
+        "February2020": 2.6,
+        "March2020": "3.3",
+        "April2020": "11.2",
+        "May2020": "9.0",
+        "June2020": "8.4"
+    },
+    {
+        "State": "Washington",
+        "January2020": 3.9,
+        "February2020": 3.8,
+        "March2020": "5.1",
+        "April2020": "16.3",
+        "May2020": "15.1",
+        "June2020": "9.8"
+    },
+    {
+        "State": "West Virginia",
+        "January2020": 5.0,
+        "February2020": 4.9,
+        "March2020": "6.0",
+        "April2020": "15.9",
+        "May2020": "12.9",
+        "June2020": "10.4"
+    },
+    {
+        "State": "Wisconsin",
+        "January2020": 3.5,
+        "February2020": 3.5,
+        "March2020": "3.1",
+        "April2020": "13.6",
+        "May2020": "12.1",
+        "June2020": "8.5"
+    },
+    {
+        "State": "Wyoming",
+        "January2020": 3.7,
+        "February2020": 3.7,
+        "March2020": "3.8",
+        "April2020": "9.6",
+        "May2020": "8.8",
+        "June2020": "7.6"
+    }
+]
