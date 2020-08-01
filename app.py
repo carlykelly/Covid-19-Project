@@ -9,47 +9,49 @@ from flask import (
     redirect)
 
 from flask_pymongo import PyMongo
+from config import mongoURL 
 
 app = Flask(__name__)
 
 
 from pymongo import MongoClient
 import json
-client = MongoClient('localhost', 27017)
+# client = MongoClient('localhost', 27017)
+client = MongoClient(mongoURL)
 
 
 
-db = client['population_db']
-collection_state = db['state_population']
-#Drop collection everytime app.py is run
-collection_state.remove({})
-# Inserting state data
-with open('state_pop.json') as f:
-    file_data = json.load(f)
-collection_state.insert_many(file_data)
+# db = client['population_db']
+# collection_state = db['state_population']
+# #Drop collection everytime app.py is run
+# collection_state.remove({})
+# # Inserting state data
+# with open('state_pop.json') as f:
+#     file_data = json.load(f)
+# collection_state.insert_many(file_data)
 
-# Inserting county data
-collection_county = db['county_population']
-#Drop collection everytime app.py is run
-collection_county.remove({})
-with open('county_pop.json') as f:
-    file_data1 = json.load(f)
-collection_county.insert_many(file_data1)
+# # Inserting county data
+# collection_county = db['county_population']
+# #Drop collection everytime app.py is run
+# collection_county.remove({})
+# with open('county_pop.json') as f:
+#     file_data1 = json.load(f)
+# collection_county.insert_many(file_data1)
 
-nyt_db = client['nyt_covid_db']
-#Drop collection everytime app.py is run
+# nyt_db = client['nyt_covid_db']
+# #Drop collection everytime app.py is run
 
-collection_state_nyt= nyt_db['nyt_state_covid']
-collection_state_nyt.remove({})
-with open('state_covid_daily.json') as f:
-    file_data_nyt = json.load(f)
-collection_state_nyt.insert_many(file_data_nyt)
+# collection_state_nyt= nyt_db['nyt_state_covid']
+# collection_state_nyt.remove({})
+# with open('state_covid_daily.json') as f:
+#     file_data_nyt = json.load(f)
+# collection_state_nyt.insert_many(file_data_nyt)
 
-collection_county_nyt= nyt_db['nyt_county_covid']
-collection_county_nyt.remove({})
-with open('county_nyt_daily.json') as f:
-    file_data_nyt_county = json.load(f)
-collection_county_nyt.insert_many(file_data_nyt_county)
+# collection_county_nyt= nyt_db['nyt_county_covid']
+# collection_county_nyt.remove({})
+# with open('county_nyt_daily.json') as f:
+#     file_data_nyt_county = json.load(f)
+# collection_county_nyt.insert_many(file_data_nyt_county)
 
 
 from pymongo import MongoClient
