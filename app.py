@@ -38,7 +38,7 @@ client = MongoClient(mongoURL)
 #     file_data1 = json.load(f)
 # collection_county.insert_many(file_data1)
 
-nyt_db = client['nyt_covid_db']
+#nyt_db = client['nyt_covid_db']
 # #Drop collection everytime app.py is run
 
 # collection_state_nyt= nyt_db['nyt_state_covid']
@@ -72,22 +72,10 @@ nyt_db = client['nyt_covid_db']
 #     county_unemp_file_data = json.load(f)
 # set(collection_unemp.insert_many(county_unemp_file_data))
 
-<<<<<<< HEAD
 
 
-
-
-
-#from pymongo import MongoClient
-=======
-collection_dc_covid = nyt_db['dc_covid']
-# collection_dc_covid.remove({})
-with open('dc_covid_july31.json') as f:
-    file_data_dc = json.load(f)
-collection_dc_covid.update(file_data_dc)
 
 from pymongo import MongoClient
->>>>>>> bb100c2155a46a75bf7059026a6cd79bf7753651
 
 @app.route("/")
 def home():
@@ -179,7 +167,6 @@ def countyUnemp():
 
     return df_json
 
-<<<<<<< HEAD
 @app.route("/timeseries")
 def timeseries():
     timeseries_db = client['timeseries_db']
@@ -191,19 +178,6 @@ def timeseries():
     client.close()
 
     return df_json
-=======
-@app.route("/dc_covid_july31")
-def dccovid():
-    nyt_db = client['nyt_covid_db']
-    collection_dc_covid = nyt_covid_db['covid_july_31_dc']
-    documents=collection_dc_covid.find()
-    df = pd.DataFrame(list(documents))
-    df_json = df.to_json(default_handler=str,orient='records') 
-    
-    client.close()
-    
-    return df_json 
->>>>>>> bb100c2155a46a75bf7059026a6cd79bf7753651
 
 if __name__ == "__main__":
     app.run(debug=True)

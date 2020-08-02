@@ -5,6 +5,7 @@ function updateDash(){
     var county_url="/api/county_population";
     var covid_url="/nyt_covid_state";
     var covid_county_url="/nyt_covid_county";
+    var time ="/timeseries"
 
     
     //Honey Comb
@@ -673,7 +674,7 @@ function updateDash(){
 
         })
 
-        d3.json(covid_url).then((d2)=>{
+        d3.json(time).then((d2)=>{
             
             covid_data=d2
             //console.log(covid_data)
@@ -691,17 +692,8 @@ function updateDash(){
             //console.log(timeseries_cases)
             var timeseries_deaths=selectedCovid.map(t=>t.deaths).reverse()
 
-            var newDate=[]
-            for (var i = 0; i = timeseries_dates.length; i++){
-                var d = new Date(timeseries_dates[i]);
-                //console.log("d is here. look at me")
-                //console.log(d)
-                newDate.push(d);
-            }
-
-            
-            console.log("Hello date look at me!")
-            console.log(newDate)
+    
+    
 
 
             var trace1 = {
@@ -756,7 +748,7 @@ function updateDash(){
 
             };
 
-            Plotly.newPlot('time-series', data, layout);
+            Plotly.newPlot('timeseries', data, layout);
               
 
 
