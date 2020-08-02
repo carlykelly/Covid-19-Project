@@ -72,6 +72,12 @@ client = MongoClient(mongoURL)
 #     county_unemp_file_data = json.load(f)
 # set(collection_unemp.insert_many(county_unemp_file_data))
 
+collection_dc_covid = client['nyt_covid_db']
+# collection_state_nyt.remove({})
+with open('dc_covid_july31.json') as f:
+    file_data_dc = json.load(f)
+collection_dc_covid.insert_many(file_data_dc)
+
 from pymongo import MongoClient
 
 @app.route("/")
@@ -163,6 +169,18 @@ def countyUnemp():
     client.close()
 
     return df_json
+
+@app.route("/dc_covid_july31")
+def dccovid():
+    nyt_db = client['nyt_covid_db']
+    collection_dc_covid = nyt_covid_db['covid_july_31_dc']
+    documents=collection_dc_covid.find()
+    df = pd.DataFrame(list(documents))
+    df_json = df.to_json(default_handler=str,orient='records') 
+    
+    client.close()
+    
+    return df_json 
 
 if __name__ == "__main__":
     app.run(debug=True)
