@@ -18,9 +18,7 @@ function updateDash(){
         accessibility: {
             description: 'The tile map represents the states of the USA and their total number\
              of positive Corona virus cases.The hexagonal tiles are positioned to geographically\
-             echo the map of the USA. A color-coded legend states the positive case levels\
-             as below 1 million (beige), 1 to 5 million (orange),5 to 20 million (pink)\
-             and above 20 million (hot pink). The chart is interactive, and the individual\
+             echo the map of the USA.The chart is interactive, and the individual\
              state data points are displayed upon hovering.',
             screenReaderSection: {
                 beforeChartFormat:
@@ -35,7 +33,7 @@ function updateDash(){
         },
     
         title: {
-            text: 'U.S. states by total number of positve Corona virus cases.'
+            text: 'U.S. states by total number of positive Corona virus cases'
         },
 
     
@@ -51,28 +49,28 @@ function updateDash(){
             dataClasses: [{
                 from: 0,
                 to: 1000000,
-                color: '#F9EDB3',
+                color: '#B123FF',
                 name: '< 1M'
             }, {
                 from: 1000000,
                 to: 5000000,
-                color: '#FFC428',
+                color: '#FF2371',
                 name: '1M - 5M'
             }, {
                 from: 5000000,
-                to: 20000000,
-                color: '#FF7987',
-                name: '5M - 20M'
+                to: 15000000,
+                color: '#71FF23',
+                name: '5M - 15M'
             }, {
-                from: 20000000,
-                color: '#FF2371',
-                name: '> 20M'
+                from: 15000000,
+                color: '#23DFFF',
+                name: '> 15M'
             }]
         },
     
         tooltip: {
             headerFormat: '',
-            pointFormat: 'The population of <b> {point.name}</b> is <b>{point.value}</b>'
+            pointFormat: 'The number of positive Corona Virus cases in <b> {point.name}</b> is <b>{point.value}</b>'
         },
     
         plotOptions: {
@@ -222,7 +220,7 @@ function updateDash(){
                 region: 'South',
                 x: 6,
                 y: 5,
-                value: 57322696
+                value: 5732696
             }, {
                 'hc-a2': 'ME',
                 name: 'Maine',
