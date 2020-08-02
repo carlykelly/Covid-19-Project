@@ -676,15 +676,93 @@ function updateDash(){
         d3.json(covid_url).then((d2)=>{
             
             covid_data=d2
-            console.log(covid_data)
+            //console.log(covid_data)
+            //covid_data
 
             var userSelection=d3.select("#state-selector").node().value;
             console.log(userSelection)
             selectedCovid=covid_data.filter(c=>c.State==userSelection)
+            
+            console.log("Time series testing here")
             //console.log(selectedCovid)
-            //selectedCovid
+            var timeseries_dates=selectedCovid.map(t=>t.date).reverse()
+            console.log(timeseries_dates)
+            var timeseries_cases=selectedCovid.map(t=>t.cases).reverse()
+            //console.log(timeseries_cases)
+            var timeseries_deaths=selectedCovid.map(t=>t.deaths).reverse()
 
-            // Sum of Covid Cases for slected state
+            var newDate=[]
+            for (var i = 0; i = timeseries_dates.length; i++){
+                var d = new Date(timeseries_dates[i]);
+                //console.log("d is here. look at me")
+                //console.log(d)
+                newDate.push(d);
+            }
+
+            
+            console.log("Hello date look at me!")
+            console.log(newDate)
+
+
+            var trace1 = {
+                type: "scatter",
+                mode: "lines",
+                name: 'COVID cases',
+                x: timeseries_dates,
+                y: timeseries_cases,
+                line: {color: '#17BECF'}
+            }
+
+            var trace2 = {
+                type: "scatter",
+                mode: "lines",
+                name: 'COVID deaths',
+                x: timeseries_dates,
+                y: timeseries_deaths,
+                line: {color: '#7F7F7F'}
+            }
+
+            var data = [trace1,trace2];
+
+            var layout = {
+            title: 'Time Series of COVID Related Cases and deaths',
+            xaxis:{
+                autorange:true,
+                range:['03-05-2020','07-28-2020'],
+                rangeselector:{buttons:[
+                    {
+                        count:1,
+                        lanel:'1m',
+                        step:'month',
+                        stepmode:'backward'
+                    },
+                    {
+                        count:6,
+                        labels:'6m',
+                        step:'month',
+                        stepmode:'backward'
+                    },
+                    {step:'all'}
+                ]},
+                rangeslider:{range: ['03-05-2020','07-28-2020']},
+                type: 'date'
+            },
+            yaxis: {
+                autorange: true,
+                //range: [86.8700008333, 138.870004167],
+                type: 'linear'
+            }
+
+
+            };
+
+            Plotly.newPlot('time-series', data, layout);
+              
+
+
+
+
+            // Sum of Covid Cases for selected state
             var stateTotals = selectedCovid.reduce(function(previousValue, currentValue) {
                 return {
                   cases: previousValue.cases + currentValue.cases,
@@ -740,6 +818,9 @@ function updateDash(){
                   deaths: previousValue.deaths + currentValue.deaths
                 }
             });
+
+
+
 
 
 

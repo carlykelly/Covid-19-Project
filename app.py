@@ -72,6 +72,14 @@ nyt_db = client['nyt_covid_db']
 #     county_unemp_file_data = json.load(f)
 # set(collection_unemp.insert_many(county_unemp_file_data))
 
+<<<<<<< HEAD
+
+
+
+
+
+#from pymongo import MongoClient
+=======
 collection_dc_covid = nyt_db['dc_covid']
 # collection_dc_covid.remove({})
 with open('dc_covid_july31.json') as f:
@@ -79,6 +87,7 @@ with open('dc_covid_july31.json') as f:
 collection_dc_covid.update(file_data_dc)
 
 from pymongo import MongoClient
+>>>>>>> bb100c2155a46a75bf7059026a6cd79bf7753651
 
 @app.route("/")
 def home():
@@ -170,6 +179,19 @@ def countyUnemp():
 
     return df_json
 
+<<<<<<< HEAD
+@app.route("/timeseries")
+def timeseries():
+    timeseries_db = client['timeseries_db']
+    collection_timeseries = timeseries_db['timeseries_covid']
+    documents=collection_timeseries.find()
+    df = pd.DataFrame(list(documents))
+    df_json = df.to_json(default_handler=str,orient='records')
+
+    client.close()
+
+    return df_json
+=======
 @app.route("/dc_covid_july31")
 def dccovid():
     nyt_db = client['nyt_covid_db']
@@ -181,6 +203,7 @@ def dccovid():
     client.close()
     
     return df_json 
+>>>>>>> bb100c2155a46a75bf7059026a6cd79bf7753651
 
 if __name__ == "__main__":
     app.run(debug=True)
