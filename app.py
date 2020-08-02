@@ -38,7 +38,7 @@ client = MongoClient(mongoURL)
 #     file_data1 = json.load(f)
 # collection_county.insert_many(file_data1)
 
-# nyt_db = client['nyt_covid_db']
+nyt_db = client['nyt_covid_db']
 # #Drop collection everytime app.py is run
 
 # collection_state_nyt= nyt_db['nyt_state_covid']
@@ -72,11 +72,11 @@ client = MongoClient(mongoURL)
 #     county_unemp_file_data = json.load(f)
 # set(collection_unemp.insert_many(county_unemp_file_data))
 
-collection_dc_covid = client['nyt_covid_db']
-# collection_state_nyt.remove({})
+collection_dc_covid = nyt_db['dc_covid']
+# collection_dc_covid.remove({})
 with open('dc_covid_july31.json') as f:
     file_data_dc = json.load(f)
-collection_dc_covid.insert_many(file_data_dc)
+collection_dc_covid.update(file_data_dc)
 
 from pymongo import MongoClient
 
