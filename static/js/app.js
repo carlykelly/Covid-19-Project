@@ -8,23 +8,10 @@ function updateDash(){
     var time_nyt ="/timeseries";
     var time_covid ="/atlantic_covid";
 
-    d3.json(time_covid).then((atl_data)=>{
-        console.log("Atlantic data here")
-        console.log(atl_data)
-        var casesStateTotals = [];
-
-        atl_data.reduce(function(res, value) {
-            if (!res[value.State]) {
-                res[value.State] = { State: value.State, PositiveTests: 0 };
-                casesStateTotals.push(res[value.State])
-             }
-             res[value.State].PositiveTests += value.PositiveTests;
-             return res;
-             }, {});
-    })
-    console.log(casesStateTotals)
+   
 
     //////////////////////////// H o n e y  C o m b s ////////////////////////////////
+    //                       /// New York Times Honey Comb ///                     //
     Highcharts.chart('country-honeycomb', {
         chart: {
             type: 'tilemap',
@@ -466,8 +453,454 @@ function updateDash(){
         }]
     });
 
+    //                      /// Atlantic Honey Comb  ///                          //
+    Highcharts.chart('country-honeycomb', {
+        chart: {
+            type: 'tilemap',
+            inverted: true,
+            height: '80%'
+        },
+    
+        accessibility: {
+            description: 'The tile map represents the states of the USA and their total number\
+             of positive Corona virus cases.The hexagonal tiles are positioned to geographically\
+             echo the map of the USA.The chart is interactive, and the individual\
+             state data points are displayed upon hovering.',
+            screenReaderSection: {
+                beforeChartFormat:
+                    '<h5>{chartTitle}</h5>' +
+                    '<div>{chartSubtitle}</div>' +
+                    '<div>{chartLongdesc}</div>' +
+                    '<div>{viewTableButton}</div>'
+            },
+            point: {
+                valueDescriptionFormat: '{index}. {xDescription}, {point.value}.'
+            }
+        },
+    
+        title: {
+            text: 'U.S. states by total number of positive Corona virus cases (Atlantic)'
+        },
+
+    
+        xAxis: {
+            visible: false
+        },
+    
+        yAxis: {
+            visible: false
+        },
+    
+        colorAxis: {
+            dataClasses: [{
+                from: 0,
+                to: 1000000,
+                color: '#B123FF',
+                name: '< 1M'
+            }, {
+                from: 1000000,
+                to: 5000000,
+                color: '#FF2371',
+                name: '1M - 5M'
+            }, {
+                from: 5000000,
+                to: 15000000,
+                color: '#71FF23',
+                name: '5M - 15M'
+            }, {
+                from: 15000000,
+                color: '#23DFFF',
+                name: '> 15M'
+            }]
+        },
+    
+        tooltip: {
+            headerFormat: '',
+            pointFormat: 'The number of positive Corona Virus cases in <b> {point.name}</b> is <b>{point.value}</b>'
+        },
+    
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.hc-a2}',
+                    color: '#000000',
+                    style: {
+                        textOutline: false
+                    }
+                }
+            }
+        },
+    
+        series: [{
+            name: '',
+            data: [{
+                'hc-a2': 'AL',
+                name: 'Alabama',
+                region: 'South',
+                x: 6,
+                y: 7,
+                value: 3214467
+            }, {
+                'hc-a2': 'AK',
+                name: 'Alaska',
+                region: 'West',
+                x: 0,
+                y: 0,
+                value: 105383
+            }, {
+                'hc-a2': 'AZ',
+                name: 'Arizona',
+                region: 'West',
+                x: 5,
+                y: 3,
+                value: 5948197
+            }, {
+                'hc-a2': 'AR',
+                name: 'Arkansas',
+                region: 'South',
+                x: 5,
+                y: 6,
+                value: 1571691
+            }, {
+                'hc-a2': 'CA',
+                name: 'California',
+                region: 'West',
+                x: 5,
+                y: 2,
+                value: 19194335
+            }, {
+                'hc-a2': 'CO',
+                name: 'Colorado',
+                region: 'West',
+                x: 4,
+                y: 3,
+                value: 3001375
+            }, {
+                'hc-a2': 'CT',
+                name: 'Connecticut',
+                region: 'Northeast',
+                x: 3,
+                y: 11,
+                value: 4433724
+            }, {
+                'hc-a2': 'DE',
+                name: 'Delaware',
+                region: 'South',
+                x: 4,
+                y: 9,
+                value: 1020461
+            }, {
+                'hc-a2': 'DC',
+                name: 'District of Columbia',
+                region: 'South',
+                x: 4,
+                y: 10,
+                value: 926065
+            }, {
+                'hc-a2': 'FL',
+                name: 'Florida',
+                region: 'South',
+                x: 8,
+                y: 8,
+                value: 14474271
+            }, {
+                'hc-a2': 'GA',
+                name: 'Georgia',
+                region: 'South',
+                x: 7,
+                y: 8,
+                value: 7573441
+            }, {
+                'hc-a2': 'HI',
+                name: 'Hawaii',
+                region: 'West',
+                x: 8,
+                y: 0,
+                value: 98859
+            }, {
+                'hc-a2': 'ID',
+                name: 'Idaho',
+                region: 'West',
+                x: 3,
+                y: 2,
+                value: 627781
+            }, {
+                'hc-a2': 'IL',
+                name: 'Illinois',
+                region: 'Midwest',
+                x: 3,
+                y: 6,
+                value: 4051433
+            }, {
+                'hc-a2': 'IN',
+                name: 'Indiana',
+                region: 'Midwest',
+                x: 3,
+                y: 7,
+                value: 12638058
+            }, {
+                'hc-a2': 'IA',
+                name: 'Iowa',
+                region: 'Midwest',
+                x: 3,
+                y: 5,
+                value: 2400728
+            }, {
+                'hc-a2': 'KS',
+                name: 'Kansas',
+                region: 'Midwest',
+                x: 5,
+                y: 5,
+                value: 1298488
+            }, {
+                'hc-a2': 'KY',
+                name: 'Kentucky',
+                region: 'South',
+                x: 4,
+                y: 6,
+                value: 1361824
+            }, {
+                'hc-a2': 'LA',
+                name: 'Louisiana',
+                region: 'South',
+                x: 6,
+                y: 5,
+                value:  5837734
+            }, {
+                'hc-a2': 'ME',
+                name: 'Maine',
+                region: 'Northeast',
+                x: 0,
+                y: 11,
+                value: 272727
+            }, {
+                'hc-a2': 'MD',
+                name: 'Maryland',
+                region: 'South',
+                x: 4,
+                y: 8,
+                value: 5741174
+            }, {
+                'hc-a2': 'MA',
+                name: 'Massachusetts',
+                region: 'Northeast',
+                x: 2,
+                y: 10,
+                value: 10265722
+            }, {
+                'hc-a2': 'MI',
+                name: 'Michigan',
+                region: 'Midwest',
+                x: 2,
+                y: 7,
+                value: 7449198
+            }, {
+                'hc-a2': 'MN',
+                name: 'Minnesota',
+                region: 'Midwest',
+                x: 2,
+                y: 4,
+                value:2983658 
+            }, {
+                'hc-a2': 'MS',
+                name: 'Mississippi',
+                region: 'South',
+                x: 6,
+                y: 6,
+                value: 2350244
+            }, {
+                'hc-a2': 'MO',
+                name: 'Missouri',
+                region: 'Midwest',
+                x: 4,
+                y: 5,
+                value: 1988477
+            }, {
+                'hc-a2': 'MT',
+                name: 'Montana',
+                region: 'West',
+                x: 2,
+                y: 2,
+                value: 117433
+            }, {
+                'hc-a2': 'NE',
+                name: 'Nebraska',
+                region: 'Midwest',
+                x: 4,
+                y: 4,
+                value: 1523948
+            }, {
+                'hc-a2': 'NV',
+                name: 'Nevada',
+                region: 'West',
+                x: 4,
+                y: 2,
+                value: 1690278
+            }, {
+                'hc-a2': 'NH',
+                name: 'New Hampshire',
+                region: 'Northeast',
+                x: 1,
+                y: 11,
+                value: 493121
+            }, {
+                'hc-a2': 'NJ',
+                name: 'New Jersey',
+                region: 'Northeast',
+                x: 3,
+                y: 10,
+                value: 17228102
+            }, {
+                'hc-a2': 'NM',
+                name: 'New Mexico',
+                region: 'West',
+                x: 6,
+                y: 3,
+                value:  1011958
+            }, {
+                'hc-a2': 'NY',
+                name: 'New York',
+                region: 'Northeast',
+                x: 2,
+                y: 9,
+                value: 41437799
+            }, {
+                'hc-a2': 'NC',
+                name: 'North Carolina',
+                region: 'South',
+                x: 5,
+                y: 9,
+                value: 5026016
+            }, {
+                'hc-a2': 'ND',
+                name: 'North Dakota',
+                region: 'Midwest',
+                x: 2,
+                y: 3,
+                value: 315965
+            }, {
+                'hc-a2': 'OH',
+                name: 'Ohio',
+                region: 'Midwest',
+                x: 3,
+                y: 8,
+                value: 4630802
+            }, {
+                'hc-a2': 'OK',
+                name: 'Oklahoma',
+                region: 'South',
+                x: 6,
+                y: 4,
+                value: 1247362
+            }, {
+                'hc-a2': 'OR',
+                name: 'Oregon',
+                region: 'West',
+                x: 4,
+                y: 1,
+                value: 767220
+            }, {
+                'hc-a2': 'PA',
+                name: 'Pennsylvania',
+                region: 'Northeast',
+                x: 3,
+                y: 9,
+                value: 8161592
+            }, {
+                'hc-a2': 'RI',
+                name: 'Rhode Island',
+                region: 'Northeast',
+                x: 2,
+                y: 11,
+                value: 1559032
+            }, {
+                'hc-a2': 'SC',
+                name: 'South Carolina',
+                region: 'South',
+                x: 6,
+                y: 8,
+                value: 3000915
+            }, {
+                'hc-a2': 'SD',
+                name: 'South Dakota',
+                region: 'Midwest',
+                x: 3,
+                y: 4,
+                value: 573978
+            }, {
+                'hc-a2': 'TN',
+                name: 'Tennessee',
+                region: 'South',
+                x: 5,
+                y: 7,
+                value: 3958224
+            }, {
+                'hc-a2': 'TX',
+                name: 'Texas',
+                region: 'South',
+                x: 7,
+                y: 4,
+                value: 14042848
+            }, {
+                'hc-a2': 'UT',
+                name: 'Utah',
+                region: 'West',
+                x: 5,
+                y: 4,
+                value: 1755078
+            }, {
+                'hc-a2': 'VT',
+                name: 'Vermont',
+                region: 'Northeast',
+                x: 1,
+                y: 10,
+                value: 127628
+            }, {
+                'hc-a2': 'VA',
+                name: 'Virginia',
+                region: 'South',
+                x: 5,
+                y: 8,
+                value: 5131251
+            }, {
+                'hc-a2': 'WA',
+                name: 'Washington',
+                region: 'West',
+                x: 2,
+                y: 1,
+                value: 3296373
+            }, {
+                'hc-a2': 'WV',
+                name: 'West Virginia',
+                region: 'South',
+                x: 4,
+                y: 7,
+                value:  285208
+            }, {
+                'hc-a2': 'WI',
+                name: 'Wisconsin',
+                region: 'Midwest',
+                x: 2,
+                y: 5,
+                value: 2720483
+            }, {
+                'hc-a2': 'WY',
+                name: 'Wyoming',
+                region: 'West',
+                x: 3,
+                y: 3,
+                value: 129580
+            }]
+        }]
+    });
+
+
+    ///// s e l e c t  s t a t e  d a t a ////
 
     d3.select('form').on('change',function(d){
+
+        //////////////////////  N e w  Y o r k  T i m e s  D a t a //////////////////
 
         d3.json(state_url).then((data)=>{
             var State_Population = data
@@ -556,7 +989,7 @@ function updateDash(){
                   }]
               }];
             var layout = {
-                title: `Top 10 counties by total number of cases`,
+                title: `Top 10 counties by total number of cases (NYT)`,
                 xaxis: {title:"Total number of cases",size: 18},
                 yaxis: {title:"counties",automargin: true,},
                 autosize: false,
@@ -630,7 +1063,7 @@ function updateDash(){
                   }]
               }];
             var layout = {
-                title: `Top 10 counties by total number of deaths`,
+                title: `Top 10 counties by total number of deaths (NYT)`,
                 xaxis: {title:"Total number of deaths",size: 18},
                 yaxis: {title:"counties",automargin: true,},
                 autosize: false,
@@ -819,7 +1252,94 @@ function updateDash(){
         })
 
         ///////////////////////// A t l a n t i c  D a t a ///////////////////////
-       
+        d3.json(time_covid).then((atl_data)=>{
+            console.log("Atlantic data here")
+            console.log(atl_data)
+            var casesStateTotals = [];
+    
+            //Calculating to total positive cases by state
+            atl_data.reduce(function(res, value) {
+                if (!res[value.State]) {
+                    res[value.State] = { State: value.State, PositiveTests: 0 };
+                    casesStateTotals.push(res[value.State])
+                 }
+                 res[value.State].PositiveTests += value.PositiveTests;
+                 return res;
+            }, {});
+    
+         //console.log(casesStateTotals)
+
+
+         var userSelection=d3.select("#state-selector").node().value;
+         console.log(userSelection)
+         selectedCovid=atl_data.filter(c=>c.State==userSelection)
+         
+         console.log(" Atlantic Time series testing here")
+         //console.log(selectedCovid)
+         var timeseries_dates=selectedCovid.map(t=>t.Date).reverse()
+         console.log(timeseries_dates)
+         var timeseries_cases=selectedCovid.map(t=>t.PositiveTests).reverse()
+         //console.log(timeseries_cases)
+         var timeseries_deaths=selectedCovid.map(t=>t.Deaths).reverse()
+
+
+         var trace1 = {
+             type: "scatter",
+             mode: "lines",
+             name: 'COVID cases',
+             x: timeseries_dates,
+             y: timeseries_cases,
+             line: {color: '#17BECF'}
+         }
+
+         var trace2 = {
+             type: "scatter",
+             mode: "lines",
+             name: 'COVID deaths',
+             x: timeseries_dates,
+             y: timeseries_deaths,
+             line: {color: '#7F7F7F'}
+         }
+
+         var data = [trace1,trace2];
+
+         var layout = {
+         title: 'Time Series of COVID Related Cases and deaths (Atlantic)',
+         xaxis:{
+             autorange:true,
+             range:['03-05-2020','07-28-2020'],
+             rangeselector:{buttons:[
+                 {
+                     count:1,
+                     lanel:'1m',
+                     step:'month',
+                     stepmode:'backward'
+                 },
+                 {
+                     count:6,
+                     labels:'6m',
+                     step:'month',
+                     stepmode:'backward'
+                 },
+                 {step:'all'}
+             ]},
+             rangeslider:{range: ['03-05-2020','07-28-2020']},
+             type: 'date'
+         },
+         yaxis: {
+             autorange: true,
+             //range: [86.8700008333, 138.870004167],
+             type: 'linear'
+         }
+
+
+         };
+
+         Plotly.newPlot('timeseries', data, layout);
+    
+    
+        })
+        
 
 
 
