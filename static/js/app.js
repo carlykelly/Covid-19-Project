@@ -2,13 +2,29 @@ function updateDash(){
 
     /// route names for different data sets
     var state_url="/api/state_population";
-    var county_url="/api/county_population";
-    var covid_url="/nyt_covid_state";
+    //var county_url="/api/county_population";
+    //var covid_url="/nyt_covid_state";
     var covid_county_url="/nyt_covid_county";
-    var time ="/timeseries"
+    var time_nyt ="/timeseries";
+    var time_covid ="/atlantic_covid";
 
-    
-    //Honey Comb
+    d3.json(time_covid).then((atl_data)=>{
+        console.log("Atlantic data here")
+        console.log(atl_data)
+        var casesStateTotals = [];
+
+        atl_data.reduce(function(res, value) {
+            if (!res[value.State]) {
+                res[value.State] = { State: value.State, PositiveTests: 0 };
+                casesStateTotals.push(res[value.State])
+             }
+             res[value.State].PositiveTests += value.PositiveTests;
+             return res;
+             }, {});
+    })
+    console.log(casesStateTotals)
+
+    //////////////////////////// H o n e y  C o m b s ////////////////////////////////
     Highcharts.chart('country-honeycomb', {
         chart: {
             type: 'tilemap',
@@ -451,17 +467,6 @@ function updateDash(){
     });
 
 
-
-    mapboxgl.accessToken =mapbox_pk;
-
-        var map = new mapboxgl.Map({
-            container:'state-timeseries', // container element id
-            style: 'mapbox://styles/mapbox/light-v10',
-            center: [-74.0059, 40.7128], // initial map center in [lon, lat]
-            zoom: 12
-        });
-
-
     d3.select('form').on('change',function(d){
 
         d3.json(state_url).then((data)=>{
@@ -487,7 +492,7 @@ function updateDash(){
         })
 
 
-         d3.json(covid_county_url).then((data)=>{
+        d3.json(covid_county_url).then((data)=>{
             //console.log("-----COUNTY DATA---LOOK AT ME-----")
             covid_county_data=data
             //console.log(covid_county_data)
@@ -507,8 +512,8 @@ function updateDash(){
             res[value.County].cases += value.cases;
             return res;
             }, {});
-            console.log("Total cases by county");
-            console.log(casesCountyTotals);
+            //console.log("Total cases by county");
+            //console.log(casesCountyTotals);
 
             // Sorting dictionary
             function compare(a, b) {
@@ -525,18 +530,18 @@ function updateDash(){
             }
               
             var sort_cases_desc=casesCountyTotals.sort(compare)
-            console.log("Sort by case") 
-            console.log(sort_cases_desc);
+            //console.log("Sort by case") 
+            //console.log(sort_cases_desc);
 
             var top_ten_counties=sort_cases_desc.slice(0,11)
-            console.log(top_ten_counties)
+            //console.log(top_ten_counties)
 
 
             var bar_labels=top_ten_counties.map(s=>s.County)
             var bar_values=top_ten_counties.map(s=>s.cases)
 
-            console.log(bar_labels);
-            console.log(bar_values);
+            //console.log(bar_labels);
+            //console.log(bar_values);
 
              //  Create  trace.
              var data = [{
@@ -580,8 +585,8 @@ function updateDash(){
             res[value.County].deaths += value.deaths;
             return res;
             }, {});
-            console.log("Total deaths by county");
-            console.log(deathCountyTotals);
+            //console.log("Total deaths by county");
+            //console.log(deathCountyTotals);
 
             // Sorting dictionary
             function compare(a, b) {
@@ -598,24 +603,25 @@ function updateDash(){
             }
               
             var sort_deaths_desc=deathCountyTotals.sort(compare)
-            console.log("Sort by death") 
-            console.log(sort_deaths_desc);
+            //console.log("Sort by death") 
+            //console.log(sort_deaths_desc);
 
             var top_ten_counties_deaths=sort_deaths_desc.slice(0,11)
-            console.log(top_ten_counties_deaths)
+            //console.log(top_ten_counties_deaths)
 
 
             var bar_labels=top_ten_counties_deaths.map(s=>s.County)
             var bar_values=top_ten_counties_deaths.map(s=>s.deaths)
 
-            console.log(bar_labels);
-            console.log(bar_values);
+            //console.log(bar_labels);
+            //console.log(bar_values);
 
              //  Create  trace.
              var data = [{
                 type: 'bar',
                 x: bar_values,
                 y: bar_labels,
+                
                 orientation: 'h',
                 transforms: [{
                     type: 'sort',
@@ -668,13 +674,13 @@ function updateDash(){
             }
             //Using this for honey comb
             var sort_state_asc=casesStateTotals.sort(compare)
-            console.log("Total cases by State");
-            console.log(sort_state_asc);
+            //console.log("Total cases by State");
+            //console.log(sort_state_asc);
      
 
         })
 
-        d3.json(time).then((d2)=>{
+        d3.json(time_nyt).then((d2)=>{
             
             covid_data=d2
             //console.log(covid_data)
@@ -691,9 +697,6 @@ function updateDash(){
             var timeseries_cases=selectedCovid.map(t=>t.cases).reverse()
             //console.log(timeseries_cases)
             var timeseries_deaths=selectedCovid.map(t=>t.deaths).reverse()
-
-    
-    
 
 
             var trace1 = {
@@ -812,12 +815,11 @@ function updateDash(){
             });
 
 
-
-
-
-
                         
         })
+
+        ///////////////////////// A t l a n t i c  D a t a ///////////////////////
+       
 
 
 

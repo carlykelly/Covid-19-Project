@@ -133,8 +133,8 @@ def nytcovidcounty():
 
 @app.route("/atlantic_covid")
 def atlanticcovid():
-    nyt_db = client['nyt_covid_db']
-    collection_state_atlantic = nyt_db['atlantic_state_covid']
+    Atlantic_db = client['Atlantic_db']
+    collection_state_atlantic = Atlantic_db['Atlantic_covid']
     documents=collection_state_atlantic.find()
     df = pd.DataFrame(list(documents))
     df_json = df.to_json(default_handler=str,orient='records') 
