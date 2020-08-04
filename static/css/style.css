@@ -1,11 +1,13 @@
 body{
-    background-color: #E8E8E8;
+    background-color: rgb(83, 83, 83);
+    /* background-color: #E8E8E8; */
     font-family: "Montserrat","Segoe UI","Helvetica Neue", Arial, sans-serif;
 }
 
 h4 {
     color: maroon;
 }
+
 
 /* styling for state dropdown */
 .ui-autocomplete {
@@ -65,6 +67,12 @@ h4 {
     float: right;
 }
 
+.navbar-data-links{
+    color:  #6c757d;
+    margin-left: 15px;
+    float: left;
+}
+
 a:hover, #dropdownMenuButton:hover{
     color: maroon;
     text-decoration: none;
@@ -79,7 +87,7 @@ a:hover, #dropdownMenuButton:hover{
 }
 
 .white{
-    background-color: white;
+    background-color: rgb(83, 83, 83);
     padding: 32px;
 }
 
@@ -96,7 +104,7 @@ a:hover, #dropdownMenuButton:hover{
     color: maroon;
     font-size: 28px;
     margin-top: 20px;
-    background-color:white;
+    background-color:rgb(83, 83, 83);
 }
 
 .graph-left{
@@ -161,7 +169,7 @@ table {
           padding:0px;
       } 
       .navbar-brand{
-          color:white !important;
+          color:rgb(83, 83, 83) !important;
           background-color: maroon;
           font-weight: bold;
           font-family: "Montserrat","Segoe UI","Helvetica Neue", Arial, sans-serif;
