@@ -131,10 +131,22 @@ def nytcovidcounty():
     
     return df_json
 
-@app.route("/atlantic_covid")
+@app.route("/atlantic_covid_daily")
 def atlanticcovid():
     Atlantic_db = client['Atlantic_db']
-    collection_state_atlantic = Atlantic_db['Atlantic_covid']
+    collection_state_atlantic = Atlantic_db['Atlantic_covid_daily']
+    documents=collection_state_atlantic.find()
+    df = pd.DataFrame(list(documents))
+    df_json = df.to_json(default_handler=str,orient='records') 
+    
+    client.close()
+    
+    return df_json
+
+@app.route("/atlantic_covid_latest")
+def atlantic_covid_latest():
+    Atlantic_db = client['Atlantic_db']
+    collection_state_atlantic = Atlantic_db['Atlantic_covid_latest']
     documents=collection_state_atlantic.find()
     df = pd.DataFrame(list(documents))
     df_json = df.to_json(default_handler=str,orient='records') 

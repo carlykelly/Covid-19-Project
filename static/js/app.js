@@ -6,7 +6,9 @@ function updateDash(){
     //var covid_url="/nyt_covid_state";
     var covid_county_url="/nyt_covid_county";
     var time_nyt ="/timeseries";
-    var time_covid ="/atlantic_covid";
+    //var time_covid ="/atlantic_covid";
+    var honey_atlantic="/atlantic_covid_latest";
+    var time_atlantic="/atlantic_covid_daily"
 
    
 
@@ -454,7 +456,7 @@ function updateDash(){
     });
 
     //                      /// Atlantic Honey Comb  ///                          //
-    Highcharts.chart('country-honeycomb', {
+    Highcharts.chart('state-timeseries', {
         chart: {
             type: 'tilemap',
             inverted: true,
@@ -631,14 +633,14 @@ function updateDash(){
                 region: 'Midwest',
                 x: 3,
                 y: 6,
-                value: 4051433
+                value: 12638058
             }, {
                 'hc-a2': 'IN',
                 name: 'Indiana',
                 region: 'Midwest',
                 x: 3,
                 y: 7,
-                value: 12638058
+                value: 4051433
             }, {
                 'hc-a2': 'IA',
                 name: 'Iowa',
@@ -1204,13 +1206,13 @@ function updateDash(){
 
             
 
-            mapboxgl.accessToken =mapbox_pk;
-            var map = new mapboxgl.Map({
-                container:'state-timeseries', // container element id
-                style: 'mapbox://styles/mapbox/light-v10',
-                center: [-74.0059, 40.7128], // initial map center in [lon, lat]
-                zoom: 12
-            });
+            // mapboxgl.accessToken =mapbox_pk;
+            // var map = new mapboxgl.Map({
+            //     container:'state-timeseries', // container element id
+            //     style: 'mapbox://styles/mapbox/light-v10',
+            //     center: [-74.0059, 40.7128], // initial map center in [lon, lat]
+            //     zoom: 12
+            // });
 
             // Rate of death of those tested
             RateOfDeath=stateTotals.deaths/stateTotals.cases
@@ -1252,20 +1254,11 @@ function updateDash(){
         })
 
         ///////////////////////// A t l a n t i c  D a t a ///////////////////////
-        d3.json(time_covid).then((atl_data)=>{
+        d3.json(honey_atlantic).then((atl_data)=>{
             console.log("Atlantic data here")
+            console.log("Hello State")
             console.log(atl_data)
-            var casesStateTotals = [];
-    
-            //Calculating to total positive cases by state
-            atl_data.reduce(function(res, value) {
-                if (!res[value.State]) {
-                    res[value.State] = { State: value.State, PositiveTests: 0 };
-                    casesStateTotals.push(res[value.State])
-                 }
-                 res[value.State].PositiveTests += value.PositiveTests;
-                 return res;
-            }, {});
+         
     
          //console.log(casesStateTotals)
 
@@ -1339,8 +1332,116 @@ function updateDash(){
     
     
         })
-        
 
+        ///// Combining nyt and atlantic into one data set
+        d3.json(time_nyt).then(function(nyt){
+            console.log("Hello")
+            console.log(nyt)
+            d3.json(time_covid).then(function(atlantic){
+                console.log("GoodBye")
+                console.log(atlantic)
+        
+                //covid_data=d2
+                //console.log(covid_data)
+                //covid_data
+        
+                var userSelection=d3.select("#state-selector").node().value;
+                console.log(userSelection)
+                selectedCovidnyt=nyt.filter(c=>c.State==userSelection)
+                selectedCovid_atl=atlantic.filter(a=>a.State==userSelection)
+               
+                
+                console.log("Time series testing here")
+                //console.log(selectedCovid)
+                var nyt_timeseries_dates=selectedCovidnyt.map(t=>t.date).reverse()
+                console.log(nyt_timeseries_dates)
+                var nyt_timeseries_cases=selectedCovidnyt.map(t=>t.cases).reverse()
+                //console.log(timeseries_cases)
+                var nyt_timeseries_deaths=selectedCovidnyt.map(t=>t.deaths).reverse()
+        
+                //// Atlantic
+                console.log(" TWIN DATA LOOK AT ME ")
+                var atl_timeseries_dates=selectedCovid_atl.map(t=>t.Date).reverse()
+                console.log(atl_timeseries_dates)
+                var atl_timeseries_cases=selectedCovid_atl.map(t=>t.PositiveTests).reverse()
+                //console.log(timeseries_cases)
+                var atl_timeseries_deaths=selectedCovid_atl.map(t=>t.Deaths).reverse()
+        
+        
+                var trace1 = {
+                    type: "scatter",
+                    mode: "lines",
+                    name: 'COVID cases NYT',
+                    x: nyt_timeseries_dates,
+                    y: nyt_timeseries_cases,
+                    line: {color: '#B123FF'}
+                }
+        
+                var trace2 = {
+                    type: "scatter",
+                    mode: "lines",
+                    name: 'COVID Deaths NYT',
+                    x: nyt_timeseries_dates,
+                    y: nyt_timeseries_deaths,
+                    line: {color: '#FF2371'}
+                }
+        
+                var trace3 = {
+                    type: "scatter",
+                    mode: "lines",
+                    name: 'COVID Cases Atlantic',
+                    x: atl_timeseries_dates,
+                    y: atl_timeseries_cases,
+                    line: {color: '#71FF23'}
+                }
+        
+                var trace4 = {
+                    type: "scatter",
+                    mode: "lines",
+                    name: 'COVID Deaths Atlantic',
+                    x: atl_timeseries_dates,
+                    y: atl_timeseries_deaths,
+                    line: {color: '#23FFB1'}
+                }
+        
+                var data = [trace1,trace2,trace3,trace4];
+        
+                var layout = {
+                title: 'Time Series of COVID Related Cases and deaths',
+                xaxis:{
+                    autorange:true,
+                    range:['03-05-2020','07-28-2020'],
+                    rangeselector:{buttons:[
+                        {
+                            count:1,
+                            lanel:'1m',
+                            step:'month',
+                            stepmode:'backward'
+                        },
+                        {
+                            count:6,
+                            labels:'6m',
+                            step:'month',
+                            stepmode:'backward'
+                        },
+                        {step:'all'}
+                    ]},
+                    rangeslider:{range: ['03-05-2020','07-28-2020']},
+                    type: 'date'
+                },
+                yaxis: {
+                    autorange: true,
+                    //range: [86.8700008333, 138.870004167],
+                    type: 'linear'
+                }
+        
+        
+                };
+        
+                Plotly.newPlot('nyt-atl', data, layout);
+            })
+        })
+        
 
 
 
