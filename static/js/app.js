@@ -6,9 +6,9 @@ function updateDash(){
     //var covid_url="/nyt_covid_state";
     var covid_county_url="/nyt_covid_county";
     var time_nyt ="/timeseries";
-    //var time_covid ="/atlantic_covid";
+    var time_covid ="/atlantic_covid_daily"
     var honey_atlantic="/atlantic_covid_latest";
-    var time_atlantic="/atlantic_covid_daily"
+    //var time_atlantic="/atlantic_covid_daily"
 
    
 
@@ -456,6 +456,10 @@ function updateDash(){
     });
 
     //                      /// Atlantic Honey Comb  ///                          //
+    d3.json(honey_atlantic).then((data)=>{
+        console.log("Hello my Atlantic Honey Comb")
+        console.log(data)
+    })
     Highcharts.chart('state-timeseries', {
         chart: {
             type: 'tilemap',
@@ -496,23 +500,23 @@ function updateDash(){
         colorAxis: {
             dataClasses: [{
                 from: 0,
-                to: 1000000,
+                to: 10000,
                 color: '#B123FF',
-                name: '< 1M'
+                name: '< 10K'
             }, {
-                from: 1000000,
-                to: 5000000,
+                from: 10000,
+                to: 50000,
                 color: '#FF2371',
-                name: '1M - 5M'
+                name: '10K - 50K'
             }, {
-                from: 5000000,
-                to: 15000000,
+                from: 50000,
+                to: 100000,
                 color: '#71FF23',
-                name: '5M - 15M'
+                name: '50K - 100K'
             }, {
-                from: 15000000,
+                from: 100000,
                 color: '#23DFFF',
-                name: '> 15M'
+                name: '> 100K'
             }]
         },
     
@@ -542,357 +546,357 @@ function updateDash(){
                 region: 'South',
                 x: 6,
                 y: 7,
-                value: 3214467
+                value: 87723
             }, {
                 'hc-a2': 'AK',
                 name: 'Alaska',
                 region: 'West',
                 x: 0,
                 y: 0,
-                value: 105383
+                value: 3677
             }, {
                 'hc-a2': 'AZ',
                 name: 'Arizona',
                 region: 'West',
                 x: 5,
                 y: 3,
-                value: 5948197
+                value: 174010
             }, {
                 'hc-a2': 'AR',
                 name: 'Arkansas',
                 region: 'South',
                 x: 5,
                 y: 6,
-                value: 1571691
+                value: 42511
             }, {
                 'hc-a2': 'CA',
                 name: 'California',
                 region: 'West',
                 x: 5,
                 y: 2,
-                value: 19194335
+                value: 493588
             }, {
                 'hc-a2': 'CO',
                 name: 'Colorado',
                 region: 'West',
                 x: 4,
                 y: 3,
-                value: 3001375
+                value: 46204
             }, {
                 'hc-a2': 'CT',
                 name: 'Connecticut',
                 region: 'Northeast',
                 x: 3,
                 y: 11,
-                value: 4433724
+                value: 49810 
             }, {
                 'hc-a2': 'DE',
                 name: 'Delaware',
                 region: 'South',
                 x: 4,
                 y: 9,
-                value: 1020461
+                value: 14788
             }, {
                 'hc-a2': 'DC',
                 name: 'District of Columbia',
                 region: 'South',
                 x: 4,
                 y: 10,
-                value: 926065
+                value: 12126
             }, {
                 'hc-a2': 'FL',
                 name: 'Florida',
                 region: 'South',
                 x: 8,
                 y: 8,
-                value: 14474271
+                value: 470386
             }, {
                 'hc-a2': 'GA',
                 name: 'Georgia',
                 region: 'South',
                 x: 7,
                 y: 8,
-                value: 7573441
+                value: 186352
             }, {
                 'hc-a2': 'HI',
                 name: 'Hawaii',
                 region: 'West',
                 x: 8,
                 y: 0,
-                value: 98859
+                value: 1989
             }, {
                 'hc-a2': 'ID',
                 name: 'Idaho',
                 region: 'West',
                 x: 3,
                 y: 2,
-                value: 627781
+                value: 20246
             }, {
                 'hc-a2': 'IL',
                 name: 'Illinois',
                 region: 'Midwest',
                 x: 3,
                 y: 6,
-                value: 12638058
+                value: 66154
             }, {
                 'hc-a2': 'IN',
                 name: 'Indiana',
                 region: 'Midwest',
                 x: 3,
                 y: 7,
-                value: 4051433
+                value: 180118
             }, {
                 'hc-a2': 'IA',
                 name: 'Iowa',
                 region: 'Midwest',
                 x: 3,
                 y: 5,
-                value: 2400728
+                value:  44582
             }, {
                 'hc-a2': 'KS',
                 name: 'Kansas',
                 region: 'Midwest',
                 x: 5,
                 y: 5,
-                value: 1298488
+                value: 27812
             }, {
                 'hc-a2': 'KY',
                 name: 'Kentucky',
                 region: 'South',
                 x: 4,
                 y: 6,
-                value: 1361824
+                value: 30151
             }, {
                 'hc-a2': 'LA',
                 name: 'Louisiana',
                 region: 'South',
                 x: 6,
                 y: 5,
-                value:  5837734
+                value: 116280
             }, {
                 'hc-a2': 'ME',
                 name: 'Maine',
                 region: 'Northeast',
                 x: 0,
                 y: 11,
-                value: 272727
+                value: 3912
             }, {
                 'hc-a2': 'MD',
                 name: 'Maryland',
                 region: 'South',
                 x: 4,
                 y: 8,
-                value: 5741174
+                value:88346 
             }, {
                 'hc-a2': 'MA',
                 name: 'Massachusetts',
                 region: 'Northeast',
                 x: 2,
                 y: 10,
-                value: 10265722
+                value: 117612
             }, {
                 'hc-a2': 'MI',
                 name: 'Michigan',
                 region: 'Midwest',
                 x: 2,
                 y: 7,
-                value: 7449198
+                value: 90574
             }, {
                 'hc-a2': 'MN',
                 name: 'Minnesota',
                 region: 'Midwest',
                 x: 2,
                 y: 4,
-                value:2983658 
+                value:54463
             }, {
                 'hc-a2': 'MS',
                 name: 'Mississippi',
                 region: 'South',
                 x: 6,
                 y: 6,
-                value: 2350244
+                value: 58747
             }, {
                 'hc-a2': 'MO',
                 name: 'Missouri',
                 region: 'Midwest',
                 x: 4,
                 y: 5,
-                value: 1988477
+                value: 50323
             }, {
                 'hc-a2': 'MT',
                 name: 'Montana',
                 region: 'West',
                 x: 2,
                 y: 2,
-                value: 117433
+                value: 3965
             }, {
                 'hc-a2': 'NE',
                 name: 'Nebraska',
                 region: 'Midwest',
                 x: 4,
                 y: 4,
-                value: 1523948
+                value: 25766
             }, {
                 'hc-a2': 'NV',
                 name: 'Nevada',
                 region: 'West',
                 x: 4,
                 y: 2,
-                value: 1690278
+                value:  48088
             }, {
                 'hc-a2': 'NH',
                 name: 'New Hampshire',
                 region: 'Northeast',
                 x: 1,
                 y: 11,
-                value: 493121
+                value: 6544
             }, {
                 'hc-a2': 'NJ',
                 name: 'New Jersey',
                 region: 'Northeast',
                 x: 3,
                 y: 10,
-                value: 17228102
+                value: 181660
             }, {
                 'hc-a2': 'NM',
                 name: 'New Mexico',
                 region: 'West',
                 x: 6,
                 y: 3,
-                value:  1011958
+                value:  20388
             }, {
                 'hc-a2': 'NY',
                 name: 'New York',
                 region: 'Northeast',
                 x: 2,
                 y: 9,
-                value: 41437799
+                value: 415014
             }, {
                 'hc-a2': 'NC',
                 name: 'North Carolina',
                 region: 'South',
                 x: 5,
                 y: 9,
-                value: 5026016
+                value: 122148
             }, {
                 'hc-a2': 'ND',
                 name: 'North Dakota',
                 region: 'Midwest',
                 x: 2,
                 y: 3,
-                value: 315965
+                value: 6469
             }, {
                 'hc-a2': 'OH',
                 name: 'Ohio',
                 region: 'Midwest',
                 x: 3,
                 y: 8,
-                value: 4630802
+                value: 91159
             }, {
                 'hc-a2': 'OK',
                 name: 'Oklahoma',
                 region: 'South',
                 x: 6,
                 y: 4,
-                value: 1247362
+                value: 36487
             }, {
                 'hc-a2': 'OR',
                 name: 'Oregon',
                 region: 'West',
                 x: 4,
                 y: 1,
-                value: 767220
+                value: 18492
             }, {
                 'hc-a2': 'PA',
                 name: 'Pennsylvania',
                 region: 'Northeast',
                 x: 3,
                 y: 9,
-                value: 8161592
+                value: 112048
             }, {
                 'hc-a2': 'RI',
                 name: 'Rhode Island',
                 region: 'Northeast',
                 x: 2,
                 y: 11,
-                value: 1559032
+                value: 19022
             }, {
                 'hc-a2': 'SC',
                 name: 'South Carolina',
                 region: 'South',
                 x: 6,
                 y: 8,
-                value: 3000915
+                value: 89016
             }, {
                 'hc-a2': 'SD',
                 name: 'South Dakota',
                 region: 'Midwest',
                 x: 3,
                 y: 4,
-                value: 573978
+                value: 8764
             }, {
                 'hc-a2': 'TN',
                 name: 'Tennessee',
                 region: 'South',
                 x: 5,
                 y: 7,
-                value: 3958224
+                value: 105959
             }, {
                 'hc-a2': 'TX',
                 name: 'Texas',
                 region: 'South',
                 x: 7,
                 y: 4,
-                value: 14042848
+                value: 420946
             }, {
                 'hc-a2': 'UT',
                 name: 'Utah',
                 region: 'West',
                 x: 5,
                 y: 4,
-                value: 1755078
+                value: 40196
             }, {
                 'hc-a2': 'VT',
                 name: 'Vermont',
                 region: 'Northeast',
                 x: 1,
                 y: 10,
-                value: 127628
+                value: 1414
             }, {
                 'hc-a2': 'VA',
                 name: 'Virginia',
                 region: 'South',
                 x: 5,
                 y: 8,
-                value: 5131251
+                value: 89888 
             }, {
                 'hc-a2': 'WA',
                 name: 'Washington',
                 region: 'West',
                 x: 2,
                 y: 1,
-                value: 3296373
+                value: 55803
             }, {
                 'hc-a2': 'WV',
                 name: 'West Virginia',
                 region: 'South',
                 x: 4,
                 y: 7,
-                value:  285208
+                value:  6642
             }, {
                 'hc-a2': 'WI',
                 name: 'Wisconsin',
                 region: 'Midwest',
                 x: 2,
                 y: 5,
-                value: 2720483
+                value: 56934
             }, {
                 'hc-a2': 'WY',
                 name: 'Wyoming',
                 region: 'West',
                 x: 3,
                 y: 3,
-                value: 129580
+                value: 2726
             }]
         }]
     });
@@ -925,6 +929,8 @@ function updateDash(){
             d3.select("#population").text(`Population: ${StatePopulation}`).style("color","blue")
             
         })
+
+        
 
 
         d3.json(covid_county_url).then((data)=>{
@@ -1254,7 +1260,7 @@ function updateDash(){
         })
 
         ///////////////////////// A t l a n t i c  D a t a ///////////////////////
-        d3.json(honey_atlantic).then((atl_data)=>{
+        d3.json(time_covid).then((atl_data)=>{
             console.log("Atlantic data here")
             console.log("Hello State")
             console.log(atl_data)
@@ -1332,6 +1338,7 @@ function updateDash(){
     
     
         })
+
 
         ///// Combining nyt and atlantic into one data set
         d3.json(time_nyt).then(function(nyt){
