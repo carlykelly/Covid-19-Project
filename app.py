@@ -107,10 +107,22 @@ def county_population():
 
     return df_json
 
-@app.route("/nyt_covid_state")
-def nytcovid():
+@app.route("/nyt_covid_state_latest")
+def nytcovid_st_latest():
     nyt_db = client['nyt_covid_db']
-    collection_state_nyt = nyt_db['nyt_state_covid']
+    collection_state_nyt = nyt_db['nyt_state_covid_latest']
+    documents=collection_state_nyt.find()
+    df = pd.DataFrame(list(documents))
+    df_json = df.to_json(default_handler=str,orient='records') 
+    
+    client.close()
+    
+    return df_json
+
+@app.route("/nyt_covid_state_daily")
+def nytcovid_st_daily():
+    nyt_db = client['nyt_covid_db']
+    collection_state_nyt = nyt_db['nyt_state_covid_daily']
     documents=collection_state_nyt.find()
     df = pd.DataFrame(list(documents))
     df_json = df.to_json(default_handler=str,orient='records') 
@@ -123,6 +135,18 @@ def nytcovid():
 def nytcovidcounty():
     nyt_db = client['nyt_covid_db']
     collection_county_nyt = nyt_db['nyt_county_covid']
+    documents=collection_county_nyt.find()
+    df = pd.DataFrame(list(documents))
+    df_json = df.to_json(default_handler=str,orient='records') 
+    
+    client.close()
+    
+    return df_json
+
+@app.route("/nyt_covid_county_latest")
+def nytcovidcountylatest():
+    nyt_db = client['nyt_covid_db']
+    collection_county_nyt = nyt_db['nyt_county_json_latest']
     documents=collection_county_nyt.find()
     df = pd.DataFrame(list(documents))
     df_json = df.to_json(default_handler=str,orient='records') 
