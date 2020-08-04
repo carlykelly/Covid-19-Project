@@ -1,14 +1,18 @@
 function updateDash(){
 
     /// route names for different data sets
-    var state_url="/api/state_population";
-    //var county_url="/api/county_population";
-    //var covid_url="/nyt_covid_state";
-    var covid_county_url="/nyt_covid_county";
-    var time_nyt ="/timeseries";
-    var time_covid ="/atlantic_covid_daily"
+    var state_pop="/api/state_population";
+    var county_pop="/api/county_population";
+    
+    var honey_nyt="/nyt_covid_county_latest"
+    var nyt_daily="/nyt_covid_state_daily"
+    var nyt_covid_county="/nyt_covid_county";
+
+    var time_nyt ="/timeseries_nyt";
+
     var honey_atlantic="/atlantic_covid_latest";
-    //var time_atlantic="/atlantic_covid_daily"
+    var time_atlantic="/atlantic_covid_daily"
+    
 
    
 
