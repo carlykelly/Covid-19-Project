@@ -203,7 +203,7 @@ def countyUnemp():
 
     return df_json
 
-@app.route("/timeseries")
+@app.route("/timeseries_nyt")
 def timeseries():
     timeseries_db = client['timeseries_db']
     collection_timeseries = timeseries_db['timeseries_covid']
