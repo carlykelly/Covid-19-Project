@@ -1,0 +1,1186 @@
+[
+    {
+        "Date": 1583539200000,
+        "Total Overall Tested": null,
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "2",
+        "Number of Deaths": null,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1583625600000,
+        "Total Overall Tested": null,
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "2",
+        "Number of Deaths": null,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1583712000000,
+        "Total Overall Tested": null,
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "4",
+        "Number of Deaths": null,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1583798400000,
+        "Total Overall Tested": null,
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "4",
+        "Number of Deaths": null,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1583884800000,
+        "Total Overall Tested": null,
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "10",
+        "Number of Deaths": null,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1583971200000,
+        "Total Overall Tested": null,
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "10",
+        "Number of Deaths": null,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1584057600000,
+        "Total Overall Tested": "69",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "10",
+        "Number of Deaths": 0.0,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1584144000000,
+        "Total Overall Tested": "115",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "16",
+        "Number of Deaths": 0.0,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1584230400000,
+        "Total Overall Tested": "120",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "17",
+        "Number of Deaths": 0.0,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1584316800000,
+        "Total Overall Tested": "126",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "22",
+        "Number of Deaths": 0.0,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1584403200000,
+        "Total Overall Tested": "170",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "31",
+        "Number of Deaths": 0.0,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1584489600000,
+        "Total Overall Tested": "203",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "39",
+        "Number of Deaths": 0.0,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1584576000000,
+        "Total Overall Tested": "573",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "71",
+        "Number of Deaths": 0.0,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1584662400000,
+        "Total Overall Tested": null,
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "77",
+        "Number of Deaths": 1.0,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1584748800000,
+        "Total Overall Tested": "1055",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "98",
+        "Number of Deaths": 1.0,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1584835200000,
+        "Total Overall Tested": "1229",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "116",
+        "Number of Deaths": 2.0,
+        "Cleared From Isolation": null
+    },
+    {
+        "Date": 1584921600000,
+        "Total Overall Tested": "1334",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "137",
+        "Number of Deaths": 2.0,
+        "Cleared From Isolation": 17.0
+    },
+    {
+        "Date": 1585008000000,
+        "Total Overall Tested": "1609",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "183",
+        "Number of Deaths": 2.0,
+        "Cleared From Isolation": 17.0
+    },
+    {
+        "Date": 1585094400000,
+        "Total Overall Tested": "1858",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "231",
+        "Number of Deaths": 3.0,
+        "Cleared From Isolation": 21.0
+    },
+    {
+        "Date": 1585180800000,
+        "Total Overall Tested": "2166",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "267",
+        "Number of Deaths": 3.0,
+        "Cleared From Isolation": 49.0
+    },
+    {
+        "Date": 1585267200000,
+        "Total Overall Tested": "2516",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "304",
+        "Number of Deaths": 4.0,
+        "Cleared From Isolation": 51.0
+    },
+    {
+        "Date": 1585353600000,
+        "Total Overall Tested": "2812",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "342",
+        "Number of Deaths": 5.0,
+        "Cleared From Isolation": 66.0
+    },
+    {
+        "Date": 1585440000000,
+        "Total Overall Tested": "3085",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "401",
+        "Number of Deaths": 9.0,
+        "Cleared From Isolation": 106.0
+    },
+    {
+        "Date": 1585526400000,
+        "Total Overall Tested": "3759",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "495",
+        "Number of Deaths": 9.0,
+        "Cleared From Isolation": 121.0
+    },
+    {
+        "Date": 1585612800000,
+        "Total Overall Tested": "4398",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "586",
+        "Number of Deaths": 11.0,
+        "Cleared From Isolation": 142.0
+    },
+    {
+        "Date": 1585699200000,
+        "Total Overall Tested": "5070",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "653",
+        "Number of Deaths": 12.0,
+        "Cleared From Isolation": 173.0
+    },
+    {
+        "Date": 1585785600000,
+        "Total Overall Tested": "5584",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "757",
+        "Number of Deaths": 15.0,
+        "Cleared From Isolation": 206.0
+    },
+    {
+        "Date": 1585872000000,
+        "Total Overall Tested": "6438",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "902",
+        "Number of Deaths": 21.0,
+        "Cleared From Isolation": 235.0
+    },
+    {
+        "Date": 1585958400000,
+        "Total Overall Tested": "6834",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "998",
+        "Number of Deaths": 22.0,
+        "Cleared From Isolation": 258.0
+    },
+    {
+        "Date": 1586044800000,
+        "Total Overall Tested": "7453",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "1097",
+        "Number of Deaths": 24.0,
+        "Cleared From Isolation": 287.0
+    },
+    {
+        "Date": 1586131200000,
+        "Total Overall Tested": "7823",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "1211",
+        "Number of Deaths": 22.0,
+        "Cleared From Isolation": 318.0
+    },
+    {
+        "Date": 1586217600000,
+        "Total Overall Tested": "8283",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "1440",
+        "Number of Deaths": 27.0,
+        "Cleared From Isolation": 361.0
+    },
+    {
+        "Date": 1586304000000,
+        "Total Overall Tested": "8724",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "1523",
+        "Number of Deaths": 32.0,
+        "Cleared From Isolation": 393.0
+    },
+    {
+        "Date": 1586390400000,
+        "Total Overall Tested": "9355",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "1660",
+        "Number of Deaths": 38.0,
+        "Cleared From Isolation": 426.0
+    },
+    {
+        "Date": 1586476800000,
+        "Total Overall Tested": "10039",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "1778",
+        "Number of Deaths": 47.0,
+        "Cleared From Isolation": 447.0
+    },
+    {
+        "Date": 1586563200000,
+        "Total Overall Tested": "10640",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "1875",
+        "Number of Deaths": 50.0,
+        "Cleared From Isolation": 493.0
+    },
+    {
+        "Date": 1586649600000,
+        "Total Overall Tested": "10934",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "1955",
+        "Number of Deaths": 52.0,
+        "Cleared From Isolation": 507.0
+    },
+    {
+        "Date": 1586736000000,
+        "Total Overall Tested": "11,284",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "2,058",
+        "Number of Deaths": 67.0,
+        "Cleared From Isolation": 518.0
+    },
+    {
+        "Date": 1586822400000,
+        "Total Overall Tested": "11525",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "2197",
+        "Number of Deaths": 72.0,
+        "Cleared From Isolation": 530.0
+    },
+    {
+        "Date": 1586908800000,
+        "Total Overall Tested": "12150",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "2350",
+        "Number of Deaths": 81.0,
+        "Cleared From Isolation": 552.0
+    },
+    {
+        "Date": 1586995200000,
+        "Total Overall Tested": "12646",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "2476",
+        "Number of Deaths": 86.0,
+        "Cleared From Isolation": 573.0
+    },
+    {
+        "Date": 1587081600000,
+        "Total Overall Tested": "13268",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "2666",
+        "Number of Deaths": 91.0,
+        "Cleared From Isolation": 608.0
+    },
+    {
+        "Date": 1587168000000,
+        "Total Overall Tested": "13699",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "2793",
+        "Number of Deaths": 96.0,
+        "Cleared From Isolation": 622.0
+    },
+    {
+        "Date": 1587254400000,
+        "Total Overall Tested": "14113",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "2927",
+        "Number of Deaths": 105.0,
+        "Cleared From Isolation": 630.0
+    },
+    {
+        "Date": 1587340800000,
+        "Total Overall Tested": "14939",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "3098",
+        "Number of Deaths": 112.0,
+        "Cleared From Isolation": 636.0
+    },
+    {
+        "Date": 1587427200000,
+        "Total Overall Tested": "15502",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "3206",
+        "Number of Deaths": 127.0,
+        "Cleared From Isolation": 645.0
+    },
+    {
+        "Date": 1587513600000,
+        "Total Overall Tested": "15930",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "3361",
+        "Number of Deaths": 139.0,
+        "Cleared From Isolation": 648.0
+    },
+    {
+        "Date": 1587600000000,
+        "Total Overall Tested": "16533",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "3528",
+        "Number of Deaths": 153.0,
+        "Cleared From Isolation": 651.0
+    },
+    {
+        "Date": 1587686400000,
+        "Total Overall Tested": "17302",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "3699",
+        "Number of Deaths": 165.0,
+        "Cleared From Isolation": 652.0
+    },
+    {
+        "Date": 1587772800000,
+        "Total Overall Tested": "18068",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "3841",
+        "Number of Deaths": 178.0,
+        "Cleared From Isolation": 657.0
+    },
+    {
+        "Date": 1587859200000,
+        "Total Overall Tested": "18416",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "3892",
+        "Number of Deaths": 185.0,
+        "Cleared From Isolation": 659.0
+    },
+    {
+        "Date": 1587945600000,
+        "Total Overall Tested": "18885",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "3994",
+        "Number of Deaths": 190.0,
+        "Cleared From Isolation": 660.0
+    },
+    {
+        "Date": 1588032000000,
+        "Total Overall Tested": "19229",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "4106",
+        "Number of Deaths": 205.0,
+        "Cleared From Isolation": 660.0
+    },
+    {
+        "Date": 1588118400000,
+        "Total Overall Tested": "20079",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "4323",
+        "Number of Deaths": 224.0,
+        "Cleared From Isolation": 660.0
+    },
+    {
+        "Date": 1588204800000,
+        "Total Overall Tested": "21135",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "4658",
+        "Number of Deaths": 231.0,
+        "Cleared From Isolation": 666.0
+    },
+    {
+        "Date": 1588291200000,
+        "Total Overall Tested": "22004",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "4797",
+        "Number of Deaths": 240.0,
+        "Cleared From Isolation": 666.0
+    },
+    {
+        "Date": 1588377600000,
+        "Total Overall Tested": "23102",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "5016",
+        "Number of Deaths": 251.0,
+        "Cleared From Isolation": 666.0
+    },
+    {
+        "Date": 1588464000000,
+        "Total Overall Tested": "23795",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "5170",
+        "Number of Deaths": 258.0,
+        "Cleared From Isolation": 666.0
+    },
+    {
+        "Date": 1588550400000,
+        "Total Overall Tested": "24329",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "5322",
+        "Number of Deaths": 264.0,
+        "Cleared From Isolation": 667.0
+    },
+    {
+        "Date": 1588636800000,
+        "Total Overall Tested": "24984",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "5461",
+        "Number of Deaths": 277.0,
+        "Cleared From Isolation": 808.0
+    },
+    {
+        "Date": 1588723200000,
+        "Total Overall Tested": "25856",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "5654",
+        "Number of Deaths": 285.0,
+        "Cleared From Isolation": 825.0
+    },
+    {
+        "Date": 1588809600000,
+        "Total Overall Tested": "27115",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "5899",
+        "Number of Deaths": 304.0,
+        "Cleared From Isolation": 825.0
+    },
+    {
+        "Date": 1588896000000,
+        "Total Overall Tested": "28183",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "6102",
+        "Number of Deaths": 311.0,
+        "Cleared From Isolation": 879.0
+    },
+    {
+        "Date": 1588982400000,
+        "Total Overall Tested": "29570",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "6272",
+        "Number of Deaths": 323.0,
+        "Cleared From Isolation": 880.0
+    },
+    {
+        "Date": 1589068800000,
+        "Total Overall Tested": "30261",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "6389",
+        "Number of Deaths": 328.0,
+        "Cleared From Isolation": 881.0
+    },
+    {
+        "Date": 1589155200000,
+        "Total Overall Tested": "31050",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "6485",
+        "Number of Deaths": 336.0,
+        "Cleared From Isolation": 886.0
+    },
+    {
+        "Date": 1589241600000,
+        "Total Overall Tested": "31658",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "6584",
+        "Number of Deaths": 350.0,
+        "Cleared From Isolation": 934.0
+    },
+    {
+        "Date": 1589328000000,
+        "Total Overall Tested": "32999",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "6736",
+        "Number of Deaths": 358.0,
+        "Cleared From Isolation": 966.0
+    },
+    {
+        "Date": 1589414400000,
+        "Total Overall Tested": "34339",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "6871",
+        "Number of Deaths": 368.0,
+        "Cleared From Isolation": 975.0
+    },
+    {
+        "Date": 1589500800000,
+        "Total Overall Tested": "35532",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "7042",
+        "Number of Deaths": 375.0,
+        "Cleared From Isolation": 998.0
+    },
+    {
+        "Date": 1589587200000,
+        "Total Overall Tested": "36526",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "7123",
+        "Number of Deaths": 383.0,
+        "Cleared From Isolation": 1023.0
+    },
+    {
+        "Date": 1589673600000,
+        "Total Overall Tested": "37825",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "7270",
+        "Number of Deaths": 392.0,
+        "Cleared From Isolation": 1028.0
+    },
+    {
+        "Date": 1589760000000,
+        "Total Overall Tested": "39374",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "7434",
+        "Number of Deaths": 400.0,
+        "Cleared From Isolation": 1040.0
+    },
+    {
+        "Date": 1589846400000,
+        "Total Overall Tested": "40419",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "7551",
+        "Number of Deaths": 407.0,
+        "Cleared From Isolation": 1059.0
+    },
+    {
+        "Date": 1589932800000,
+        "Total Overall Tested": "41756",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "7788",
+        "Number of Deaths": 412.0,
+        "Cleared From Isolation": 1061.0
+    },
+    {
+        "Date": 1590019200000,
+        "Total Overall Tested": "42993",
+        "Total Number of DC Residents Tested": null,
+        "Total Positives": "7893",
+        "Number of Deaths": 418.0,
+        "Cleared From Isolation": 1069.0
+    },
+    {
+        "Date": 1590105600000,
+        "Total Overall Tested": "38928",
+        "Total Number of DC Residents Tested": "32735",
+        "Total Positives": "7966",
+        "Number of Deaths": 427.0,
+        "Cleared From Isolation": 1075.0
+    },
+    {
+        "Date": 1590192000000,
+        "Total Overall Tested": "40,003",
+        "Total Number of DC Residents Tested": "33,576",
+        "Total Positives": "8110",
+        "Number of Deaths": 432.0,
+        "Cleared From Isolation": 1080.0
+    },
+    {
+        "Date": 1590278400000,
+        "Total Overall Tested": "40803",
+        "Total Number of DC Residents Tested": "34194",
+        "Total Positives": "8225",
+        "Number of Deaths": 440.0,
+        "Cleared From Isolation": 1080.0
+    },
+    {
+        "Date": 1590364800000,
+        "Total Overall Tested": "42055",
+        "Total Number of DC Residents Tested": "35262",
+        "Total Positives": "8334",
+        "Number of Deaths": 440.0,
+        "Cleared From Isolation": 1080.0
+    },
+    {
+        "Date": 1590451200000,
+        "Total Overall Tested": "42697",
+        "Total Number of DC Residents Tested": "35682",
+        "Total Positives": "8406",
+        "Number of Deaths": 445.0,
+        "Cleared From Isolation": 1082.0
+    },
+    {
+        "Date": 1590537600000,
+        "Total Overall Tested": "43514",
+        "Total Number of DC Residents Tested": "36284",
+        "Total Positives": "8492",
+        "Number of Deaths": 453.0,
+        "Cleared From Isolation": 1082.0
+    },
+    {
+        "Date": 1590624000000,
+        "Total Overall Tested": "43858",
+        "Total Number of DC Residents Tested": "36511",
+        "Total Positives": "8538",
+        "Number of Deaths": 460.0,
+        "Cleared From Isolation": 1089.0
+    },
+    {
+        "Date": 1590710400000,
+        "Total Overall Tested": "45629",
+        "Total Number of DC Residents Tested": "37881",
+        "Total Positives": "8717",
+        "Number of Deaths": 462.0,
+        "Cleared From Isolation": 1100.0
+    },
+    {
+        "Date": 1590796800000,
+        "Total Overall Tested": "46483",
+        "Total Number of DC Residents Tested": "38413",
+        "Total Positives": "8801",
+        "Number of Deaths": 466.0,
+        "Cleared From Isolation": 1116.0
+    },
+    {
+        "Date": 1590883200000,
+        "Total Overall Tested": "47263",
+        "Total Number of DC Residents Tested": "38975",
+        "Total Positives": "8857",
+        "Number of Deaths": 468.0,
+        "Cleared From Isolation": 1126.0
+    },
+    {
+        "Date": 1590969600000,
+        "Total Overall Tested": "47701",
+        "Total Number of DC Residents Tested": "39251",
+        "Total Positives": "8886",
+        "Number of Deaths": 470.0,
+        "Cleared From Isolation": 1137.0
+    },
+    {
+        "Date": 1591056000000,
+        "Total Overall Tested": "49562",
+        "Total Number of DC Residents Tested": "40751",
+        "Total Positives": "9016",
+        "Number of Deaths": 473.0,
+        "Cleared From Isolation": 1138.0
+    },
+    {
+        "Date": 1591142400000,
+        "Total Overall Tested": "51096",
+        "Total Number of DC Residents Tested": "41571",
+        "Total Positives": "9120",
+        "Number of Deaths": 475.0,
+        "Cleared From Isolation": 1138.0
+    },
+    {
+        "Date": 1591228800000,
+        "Total Overall Tested": "51861",
+        "Total Number of DC Residents Tested": "41800",
+        "Total Positives": "9199",
+        "Number of Deaths": 479.0,
+        "Cleared From Isolation": 1138.0
+    },
+    {
+        "Date": 1591315200000,
+        "Total Overall Tested": "53678",
+        "Total Number of DC Residents Tested": "43528",
+        "Total Positives": "9269",
+        "Number of Deaths": 483.0,
+        "Cleared From Isolation": 1138.0
+    },
+    {
+        "Date": 1591401600000,
+        "Total Overall Tested": "54547",
+        "Total Number of DC Residents Tested": "44485",
+        "Total Positives": "9332",
+        "Number of Deaths": 489.0,
+        "Cleared From Isolation": 1143.0
+    },
+    {
+        "Date": 1591488000000,
+        "Total Overall Tested": "55766",
+        "Total Number of DC Residents Tested": "45362",
+        "Total Positives": "9389",
+        "Number of Deaths": 491.0,
+        "Cleared From Isolation": 1143.0
+    },
+    {
+        "Date": 1591574400000,
+        "Total Overall Tested": "57152",
+        "Total Number of DC Residents Tested": "46413",
+        "Total Positives": "9474",
+        "Number of Deaths": 495.0,
+        "Cleared From Isolation": 1143.0
+    },
+    {
+        "Date": 1591660800000,
+        "Total Overall Tested": "58192",
+        "Total Number of DC Residents Tested": "47148",
+        "Total Positives": "9537",
+        "Number of Deaths": 499.0,
+        "Cleared From Isolation": 1143.0
+    },
+    {
+        "Date": 1591747200000,
+        "Total Overall Tested": "59288",
+        "Total Number of DC Residents Tested": "47796",
+        "Total Positives": "9589",
+        "Number of Deaths": 502.0,
+        "Cleared From Isolation": 1143.0
+    },
+    {
+        "Date": 1591833600000,
+        "Total Overall Tested": "61953",
+        "Total Number of DC Residents Tested": "48702",
+        "Total Positives": "9654",
+        "Number of Deaths": 506.0,
+        "Cleared From Isolation": 1143.0
+    },
+    {
+        "Date": 1591920000000,
+        "Total Overall Tested": "63036",
+        "Total Number of DC Residents Tested": "50032",
+        "Total Positives": "9709",
+        "Number of Deaths": 511.0,
+        "Cleared From Isolation": 1143.0
+    },
+    {
+        "Date": 1592006400000,
+        "Total Overall Tested": "64530",
+        "Total Number of DC Residents Tested": "51360",
+        "Total Positives": "9767",
+        "Number of Deaths": 515.0,
+        "Cleared From Isolation": 1150.0
+    },
+    {
+        "Date": 1592092800000,
+        "Total Overall Tested": "65846",
+        "Total Number of DC Residents Tested": "52448",
+        "Total Positives": "9799",
+        "Number of Deaths": 515.0,
+        "Cleared From Isolation": 1150.0
+    },
+    {
+        "Date": 1592179200000,
+        "Total Overall Tested": "67126",
+        "Total Number of DC Residents Tested": "53458",
+        "Total Positives": "9818",
+        "Number of Deaths": 520.0,
+        "Cleared From Isolation": 1155.0
+    },
+    {
+        "Date": 1592265600000,
+        "Total Overall Tested": "70086",
+        "Total Number of DC Residents Tested": "56073",
+        "Total Positives": "9847",
+        "Number of Deaths": 523.0,
+        "Cleared From Isolation": 1155.0
+    },
+    {
+        "Date": 1592352000000,
+        "Total Overall Tested": "72199",
+        "Total Number of DC Residents Tested": "57867",
+        "Total Positives": "9903",
+        "Number of Deaths": 527.0,
+        "Cleared From Isolation": 1155.0
+    },
+    {
+        "Date": 1592438400000,
+        "Total Overall Tested": "73791",
+        "Total Number of DC Residents Tested": "59072",
+        "Total Positives": "9952",
+        "Number of Deaths": 530.0,
+        "Cleared From Isolation": 1162.0
+    },
+    {
+        "Date": 1592524800000,
+        "Total Overall Tested": "77953",
+        "Total Number of DC Residents Tested": "60752",
+        "Total Positives": "9984",
+        "Number of Deaths": 531.0,
+        "Cleared From Isolation": 1166.0
+    },
+    {
+        "Date": 1592611200000,
+        "Total Overall Tested": "79522",
+        "Total Number of DC Residents Tested": "62087",
+        "Total Positives": "10020",
+        "Number of Deaths": 533.0,
+        "Cleared From Isolation": 1172.0
+    },
+    {
+        "Date": 1592697600000,
+        "Total Overall Tested": "82004",
+        "Total Number of DC Residents Tested": "64071",
+        "Total Positives": "10058",
+        "Number of Deaths": 535.0,
+        "Cleared From Isolation": 1182.0
+    },
+    {
+        "Date": 1592784000000,
+        "Total Overall Tested": "82302",
+        "Total Number of DC Residents Tested": "65073",
+        "Total Positives": "10094",
+        "Number of Deaths": 537.0,
+        "Cleared From Isolation": 1182.0
+    },
+    {
+        "Date": 1592870400000,
+        "Total Overall Tested": "84173",
+        "Total Number of DC Residents Tested": "65726",
+        "Total Positives": "10128",
+        "Number of Deaths": 541.0,
+        "Cleared From Isolation": 1182.0
+    },
+    {
+        "Date": 1592956800000,
+        "Total Overall Tested": "86731",
+        "Total Number of DC Residents Tested": "67594",
+        "Total Positives": "10159",
+        "Number of Deaths": 543.0,
+        "Cleared From Isolation": 1182.0
+    },
+    {
+        "Date": 1593043200000,
+        "Total Overall Tested": "88123",
+        "Total Number of DC Residents Tested": "68668",
+        "Total Positives": "10185",
+        "Number of Deaths": 546.0,
+        "Cleared From Isolation": 1186.0
+    },
+    {
+        "Date": 1593129600000,
+        "Total Overall Tested": "89271",
+        "Total Number of DC Residents Tested": "69699",
+        "Total Positives": "10216",
+        "Number of Deaths": 548.0,
+        "Cleared From Isolation": 1194.0
+    },
+    {
+        "Date": 1593216000000,
+        "Total Overall Tested": "93132",
+        "Total Number of DC Residents Tested": "72783",
+        "Total Positives": "10248",
+        "Number of Deaths": 550.0,
+        "Cleared From Isolation": 1199.0
+    },
+    {
+        "Date": 1593302400000,
+        "Total Overall Tested": "95360",
+        "Total Number of DC Residents Tested": "74575",
+        "Total Positives": "10292",
+        "Number of Deaths": 551.0,
+        "Cleared From Isolation": 1200.0
+    },
+    {
+        "Date": 1593388800000,
+        "Total Overall Tested": "97295",
+        "Total Number of DC Residents Tested": "76112",
+        "Total Positives": "10327",
+        "Number of Deaths": 551.0,
+        "Cleared From Isolation": 1270.0
+    },
+    {
+        "Date": 1593475200000,
+        "Total Overall Tested": "100035",
+        "Total Number of DC Residents Tested": "77908",
+        "Total Positives": "10365",
+        "Number of Deaths": 553.0,
+        "Cleared From Isolation": 1451.0
+    },
+    {
+        "Date": 1593561600000,
+        "Total Overall Tested": "101063",
+        "Total Number of DC Residents Tested": "78600",
+        "Total Positives": "10390",
+        "Number of Deaths": 554.0,
+        "Cleared From Isolation": 1465.0
+    },
+    {
+        "Date": 1593648000000,
+        "Total Overall Tested": "102809",
+        "Total Number of DC Residents Tested": "79967",
+        "Total Positives": "10435",
+        "Number of Deaths": 555.0,
+        "Cleared From Isolation": 1497.0
+    },
+    {
+        "Date": 1593734400000,
+        "Total Overall Tested": "104554",
+        "Total Number of DC Residents Tested": "81330",
+        "Total Positives": "10447",
+        "Number of Deaths": 557.0,
+        "Cleared From Isolation": 1523.0
+    },
+    {
+        "Date": 1593820800000,
+        "Total Overall Tested": "105993",
+        "Total Number of DC Residents Tested": "82375",
+        "Total Positives": "10482",
+        "Number of Deaths": 559.0,
+        "Cleared From Isolation": 1542.0
+    },
+    {
+        "Date": 1593907200000,
+        "Total Overall Tested": "107650",
+        "Total Number of DC Residents Tested": "83332",
+        "Total Positives": "10515",
+        "Number of Deaths": 561.0,
+        "Cleared From Isolation": 1553.0
+    },
+    {
+        "Date": 1593993600000,
+        "Total Overall Tested": "110377",
+        "Total Number of DC Residents Tested": "85157",
+        "Total Positives": "10569",
+        "Number of Deaths": 561.0,
+        "Cleared From Isolation": 1574.0
+    },
+    {
+        "Date": 1594080000000,
+        "Total Overall Tested": "114289",
+        "Total Number of DC Residents Tested": "87086",
+        "Total Positives": "10642",
+        "Number of Deaths": 564.0,
+        "Cleared From Isolation": 1625.0
+    },
+    {
+        "Date": 1594166400000,
+        "Total Overall Tested": "115923",
+        "Total Number of DC Residents Tested": "88060",
+        "Total Positives": "10679",
+        "Number of Deaths": 568.0,
+        "Cleared From Isolation": 1662.0
+    },
+    {
+        "Date": 1594252800000,
+        "Total Overall Tested": "120884",
+        "Total Number of DC Residents Tested": "91143",
+        "Total Positives": "10743",
+        "Number of Deaths": 568.0,
+        "Cleared From Isolation": 1703.0
+    },
+    {
+        "Date": 1594339200000,
+        "Total Overall Tested": "124050",
+        "Total Number of DC Residents Tested": "93312",
+        "Total Positives": "10801",
+        "Number of Deaths": 568.0,
+        "Cleared From Isolation": 1717.0
+    },
+    {
+        "Date": 1594425600000,
+        "Total Overall Tested": "126883",
+        "Total Number of DC Residents Tested": "94567",
+        "Total Positives": "10847",
+        "Number of Deaths": 568.0,
+        "Cleared From Isolation": 1737.0
+    },
+    {
+        "Date": 1594512000000,
+        "Total Overall Tested": "130220",
+        "Total Number of DC Residents Tested": "96163",
+        "Total Positives": "10906",
+        "Number of Deaths": 568.0,
+        "Cleared From Isolation": 1756.0
+    },
+    {
+        "Date": 1594598400000,
+        "Total Overall Tested": "133916",
+        "Total Number of DC Residents Tested": "97908",
+        "Total Positives": "10946",
+        "Number of Deaths": 568.0,
+        "Cleared From Isolation": 1774.0
+    },
+    {
+        "Date": 1594684800000,
+        "Total Overall Tested": "137944",
+        "Total Number of DC Residents Tested": "100691",
+        "Total Positives": "11026",
+        "Number of Deaths": 571.0,
+        "Cleared From Isolation": 1809.0
+    },
+    {
+        "Date": 1594771200000,
+        "Total Overall Tested": "140242",
+        "Total Number of DC Residents Tested": "102058",
+        "Total Positives": "11076",
+        "Number of Deaths": 574.0,
+        "Cleared From Isolation": 1843.0
+    },
+    {
+        "Date": 1594857600000,
+        "Total Overall Tested": "141607",
+        "Total Number of DC Residents Tested": "103849",
+        "Total Positives": "11115",
+        "Number of Deaths": 577.0,
+        "Cleared From Isolation": 1863.0
+    },
+    {
+        "Date": 1594944000000,
+        "Total Overall Tested": "144955",
+        "Total Number of DC Residents Tested": "105271",
+        "Total Positives": "11194",
+        "Number of Deaths": 578.0,
+        "Cleared From Isolation": 1877.0
+    },
+    {
+        "Date": 1595030400000,
+        "Total Overall Tested": "147765",
+        "Total Number of DC Residents Tested": "106925",
+        "Total Positives": "11261",
+        "Number of Deaths": 578.0,
+        "Cleared From Isolation": 1886.0
+    },
+    {
+        "Date": 1595116800000,
+        "Total Overall Tested": "151740",
+        "Total Number of DC Residents Tested": "109067",
+        "Total Positives": "11339",
+        "Number of Deaths": 579.0,
+        "Cleared From Isolation": 1909.0
+    },
+    {
+        "Date": 1595203200000,
+        "Total Overall Tested": "155711",
+        "Total Number of DC Residents Tested": "111244",
+        "Total Positives": "11427",
+        "Number of Deaths": 580.0,
+        "Cleared From Isolation": 1932.0
+    },
+    {
+        "Date": 1595289600000,
+        "Total Overall Tested": "159572",
+        "Total Number of DC Residents Tested": "113858",
+        "Total Positives": "11529",
+        "Number of Deaths": 580.0,
+        "Cleared From Isolation": 1974.0
+    },
+    {
+        "Date": 1595376000000,
+        "Total Overall Tested": "162021",
+        "Total Number of DC Residents Tested": "115353",
+        "Total Positives": "11571",
+        "Number of Deaths": 581.0,
+        "Cleared From Isolation": 2020.0
+    },
+    {
+        "Date": 1595462400000,
+        "Total Overall Tested": "165260",
+        "Total Number of DC Residents Tested": "115353",
+        "Total Positives": "11649",
+        "Number of Deaths": 581.0,
+        "Cleared From Isolation": 9582.0
+    },
+    {
+        "Date": 1595548800000,
+        "Total Overall Tested": "169009",
+        "Total Number of DC Residents Tested": "119013",
+        "Total Positives": "11717",
+        "Number of Deaths": 581.0,
+        "Cleared From Isolation": 9603.0
+    },
+    {
+        "Date": 1595635200000,
+        "Total Overall Tested": "171598",
+        "Total Number of DC Residents Tested": "120259",
+        "Total Positives": "11780",
+        "Number of Deaths": 581.0,
+        "Cleared From Isolation": 9607.0
+    },
+    {
+        "Date": 1595721600000,
+        "Total Overall Tested": "174148",
+        "Total Number of DC Residents Tested": "121676",
+        "Total Positives": "11858",
+        "Number of Deaths": 582.0,
+        "Cleared From Isolation": 9639.0
+    },
+    {
+        "Date": 1595808000000,
+        "Total Overall Tested": "178022",
+        "Total Number of DC Residents Tested": "124027",
+        "Total Positives": "11945",
+        "Number of Deaths": 583.0,
+        "Cleared From Isolation": 9664.0
+    },
+    {
+        "Date": 1595894400000,
+        "Total Overall Tested": "180049",
+        "Total Number of DC Residents Tested": "125267",
+        "Total Positives": "11999",
+        "Number of Deaths": 584.0,
+        "Cleared From Isolation": 9723.0
+    },
+    {
+        "Date": 1595980800000,
+        "Total Overall Tested": "182990",
+        "Total Number of DC Residents Tested": "126874",
+        "Total Positives": "12057",
+        "Number of Deaths": 584.0,
+        "Cleared From Isolation": 9777.0
+    },
+    {
+        "Date": 1596067200000,
+        "Total Overall Tested": "188741",
+        "Total Number of DC Residents Tested": "129554",
+        "Total Positives": "12126",
+        "Number of Deaths": 585.0,
+        "Cleared From Isolation": 9816.0
+    },
+    {
+        "Date": 1596153600000,
+        "Total Overall Tested": "193781",
+        "Total Number of DC Residents Tested": "132031",
+        "Total Positives": "12205",
+        "Number of Deaths": 585.0,
+        "Cleared From Isolation": 9816.0
+    },
+    {
+        "Date": 1596240000000,
+        "Total Overall Tested": "197192",
+        "Total Number of DC Residents Tested": "133808",
+        "Total Positives": "12274",
+        "Number of Deaths": 586.0,
+        "Cleared From Isolation": 9870.0
+    }
+]
