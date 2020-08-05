@@ -1173,7 +1173,7 @@ function updateDash(){
                 }
             };
             var config = {responsive: true}           
-            Plotly.newPlot('nyt-10-counties', data,layout,config);
+            Plotly.newPlot('top-five-counties', data,layout,config);
 
 
             /// Total deaths by County
