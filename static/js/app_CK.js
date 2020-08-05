@@ -52,32 +52,54 @@ var myMap = L.map("total-county-cloropleth", {
     }).addTo(myMap);
   
     // Set up the legend
-    var legend = L.control({ position: "bottomright" });
-    legend.onAdd = function() {
-      var div = L.DomUtil.create("div", "info legend");
-      var limits = geojson.options.limits;
-      var colors = geojson.options.colors;
-      var labels = [];
+    // var legend = L.control({ position: "bottomright" });
+    // legend.onAdd = function() {
+    //   var div = L.DomUtil.create("div", "info legend");
+    //   var limits = geojson.options.limits;
+    //   var colors = geojson.options.colors;
+    //   var labels = [];
   
-      // Add min & max
-      var legendInfo = "<h3>Percentage of Residents Dying of Covid</h3>" +
-        "<div class=\"labels\">" +
-          "<div class=\"min\">" + limits[0] + "</div>" +
-          "<div class=\"max\">" + (limits[limits.length - 1]).toFixed(3) + "</div>" +
-        "</div>";
+    //   // Add min & max
+    //   var legendInfo = "<h3>Percentage of Residents Dying of Covid</h3>" +
+    //     "<div class=\"labels\">" +
+    //       "<div class=\"min\">" + limits[0] + "</div>" +
+    //       "<div class=\"max\">" + (limits[limits.length - 1]).toFixed(3) + "</div>" +
+    //     "</div>";
   
-      div.innerHTML = legendInfo;
+    //   div.innerHTML = legendInfo;
   
-      limits.forEach(function(limit, index) {
-        labels.push("<li style=\"background-color: " + colors[index] + "\"></li>");
-      });
+    //   limits.forEach(function(limit, index) {
+    //     labels.push("<li style=\"background-color: " + colors[index] + "\"></li>");
+    //   });
   
-      div.innerHTML += "<ul>" + labels.join("") + "</ul>";
-      return div;
+    //   div.innerHTML += "<ul>" + labels.join("") + "</ul>";
+    //   return div;
     
   
-    }
-    legend.addTo(myMap)
+    // }
+    // legend.addTo(myMap)
+    // Set up the legend
+  var legend = L.control({ position: "bottomright" });
+  legend.onAdd = function() {
+    var div = L.DomUtil.create("div", "info legend");
+    var limits = geojson.options.limits;
+    var colors = geojson.options.colors;
+    var labels = [];
+    // Add min & max
+    var legendInfo = "<h6>Percentage of Residents Dying of Covid</h6>" +
+      "<div class=\"labels\">" +
+        "<div class=\"min\">" + limits[0] + "</div>" +
+        "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
+      "</div>";
+    div.innerHTML = legendInfo;
+    limits.forEach(function(limit, index) {
+      labels.push("<li style=\"background-color: " + colors[index] + "\"></li>");
+    });
+    div.innerHTML += "<ul>" + labels.join("") + "</ul>";
+    return div;
+  };
+  // Adding legend to the map
+  legend.addTo(myMap);
   
   }).catch(function(err) {
       console.warn(err);
