@@ -668,14 +668,14 @@ function updateDash(){
                 region: 'Midwest',
                 x: 3,
                 y: 6,
-                value: 66154
+                value: 180118
             }, {
                 'hc-a2': 'IN',
                 name: 'Indiana',
                 region: 'Midwest',
                 x: 3,
                 y: 7,
-                value: 180118
+                value: 66154
             }, {
                 'hc-a2': 'IA',
                 name: 'Iowa',
