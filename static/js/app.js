@@ -4,7 +4,7 @@ function updateDash(){
     var state_pop="/api/state_population";
     var county_pop="/api/county_population";
     
-    var honey_nyt="/nyt_covid_county_latest"
+   
     var nyt_daily="/nyt_covid_state_daily"
     var nyt_covid_county="/nyt_covid_county";
 
@@ -12,13 +12,35 @@ function updateDash(){
 
     var honey_atlantic="/atlantic_covid_latest";
     var time_atlantic="/atlantic_covid_daily"
-    
 
-   
 
-    //////////////////////////// H o n e y  C o m b s ////////////////////////////////
+
+//////////////////////////// H o n e y  C o m b s ////////////////////////////////////////////////
     //                       /// New York Times Honey Comb ///                     //
-    Highcharts.chart('country-honeycomb', {
+    // Indian and Illinois are switch so get back to this and check both data sets
+    d3.json(nyt_daily).then((data)=>{
+        //console.log("NYT Honey Comb")
+        //console.log(data)
+
+        /*This pulls out only data from 07/30 which is the total cases and  deaths 
+        since the pandemic started as the data is cumulative for each day*/
+        latest_data=[]
+        for (var i = 0; i<data.length; i++){
+            if (data[i].date==="07/30/2020"){
+                latest_data.push(data[i])
+
+            }
+        }
+        //console.log(latest_data)
+
+        //Pull out only state and positive test keys for easier reading in console
+        var cases_by_state=latest_data.map(function(d){
+           // console.log( `State: ${d.State}, Positive cases: ${d.cases}`);
+        })  
+
+    })
+   
+    Highcharts.chart('nyt-country-honeycomb', {
         chart: {
             type: 'tilemap',
             inverted: true,
@@ -58,23 +80,23 @@ function updateDash(){
         colorAxis: {
             dataClasses: [{
                 from: 0,
-                to: 1000000,
+                to: 10000,
                 color: '#B123FF',
-                name: '< 1M'
+                name: '< 10K'
             }, {
-                from: 1000000,
-                to: 5000000,
+                from: 10000,
+                to: 50000,
                 color: '#FF2371',
-                name: '1M - 5M'
+                name: '10K - 50K'
             }, {
-                from: 5000000,
-                to: 15000000,
+                from: 50000,
+                to: 100000,
                 color: '#71FF23',
-                name: '5M - 15M'
+                name: '50K - 100K'
             }, {
-                from: 15000000,
+                from: 100000,
                 color: '#23DFFF',
-                name: '> 15M'
+                name: '> 100K'
             }]
         },
     
@@ -104,367 +126,372 @@ function updateDash(){
                 region: 'South',
                 x: 6,
                 y: 7,
-                value: 3134228
+                value: 85762
             }, {
                 'hc-a2': 'AK',
                 name: 'Alaska',
                 region: 'West',
                 x: 0,
                 y: 0,
-                value: 108299
+                value: 3557
             }, {
                 'hc-a2': 'AZ',
                 name: 'Arizona',
                 region: 'West',
                 x: 5,
                 y: 3,
-                value: 5780908
+                value: 170905
             }, {
                 'hc-a2': 'AR',
                 name: 'Arkansas',
                 region: 'South',
                 x: 5,
                 y: 6,
-                value: 1539705
+                value: 41759
             }, {
                 'hc-a2': 'CA',
                 name: 'California',
                 region: 'West',
                 x: 5,
                 y: 2,
-                value: 19207190
+                value: 494269
             }, {
                 'hc-a2': 'CO',
                 name: 'Colorado',
                 region: 'West',
                 x: 4,
                 y: 3,
-                value: 2998384
+                value: 46338
             }, {
                 'hc-a2': 'CT',
                 name: 'Connecticut',
                 region: 'Northeast',
                 x: 3,
                 y: 11,
-                value: 4388525
+                value: 49670
             }, {
                 'hc-a2': 'DE',
                 name: 'Delaware',
                 region: 'South',
                 x: 4,
                 y: 9,
-                value: 1006764
+                value: 14689
             }, {
                 'hc-a2': 'DC',
                 name: 'District of Columbia',
                 region: 'South',
                 x: 4,
                 y: 10,
-                value: 914117
+                value: 12057
             }, {
                 'hc-a2': 'FL',
                 name: 'Florida',
                 region: 'South',
                 x: 8,
                 y: 8,
-                value: 14016659
+                value: 461371
             }, {
                 'hc-a2': 'GA',
                 name: 'Georgia',
                 region: 'South',
                 x: 7,
                 y: 8,
-                value: 6942391
+                value: 167545
             }, {
                 'hc-a2': 'HI',
                 name: 'Hawaii',
                 region: 'West',
                 x: 8,
                 y: 0,
-                value: 97440
+                value: 1966
             }, {
                 'hc-a2': 'ID',
                 name: 'Idaho',
                 region: 'West',
                 x: 3,
                 y: 2,
-                value: 631656
+                value:  20378
             }, {
                 'hc-a2': 'IL',
                 name: 'Illinois',
                 region: 'Midwest',
                 x: 3,
                 y: 6,
-                value: 12490874
+                value: 178832
             }, {
                 'hc-a2': 'IN',
                 name: 'Indiana',
                 region: 'Midwest',
                 x: 3,
                 y: 7,
-                value: 4078381
+                value: 66883
             }, {
                 'hc-a2': 'IA',
                 name: 'Iowa',
                 region: 'Midwest',
                 x: 3,
                 y: 5,
-                value: 2366798
+                value: 44285
             }, {
                 'hc-a2': 'KS',
                 name: 'Kansas',
                 region: 'Midwest',
                 x: 5,
                 y: 5,
-                value: 1290020
+                value: 27244
             }, {
                 'hc-a2': 'KY',
                 name: 'Kentucky',
                 region: 'South',
                 x: 4,
                 y: 6,
-                value: 1365731
+                value: 30132
             }, {
                 'hc-a2': 'LA',
                 name: 'Louisiana',
                 region: 'South',
                 x: 6,
                 y: 5,
-                value: 5732696
+                value: 114595
             }, {
                 'hc-a2': 'ME',
                 name: 'Maine',
                 region: 'Northeast',
                 x: 0,
                 y: 11,
-                value: 268805
+                value: 3888
             }, {
                 'hc-a2': 'MD',
                 name: 'Maryland',
                 region: 'South',
                 x: 4,
                 y: 8,
-                value: 5696893
+                value: 87740
             }, {
                 'hc-a2': 'MA',
                 name: 'Massachusetts',
                 region: 'Northeast',
                 x: 2,
                 y: 10,
-                value: 10140701
+                value: 117098
             }, {
                 'hc-a2': 'MI',
                 name: 'Michigan',
                 region: 'Midwest',
                 x: 2,
                 y: 7,
-                value: 6790230
+                value: 89926
             }, {
                 'hc-a2': 'MN',
                 name: 'Minnesota',
                 region: 'Midwest',
                 x: 2,
                 y: 4,
-                value: 2798608
+                value: 53732
             }, {
                 'hc-a2': 'MS',
                 name: 'Mississippi',
                 region: 'South',
                 x: 6,
                 y: 6,
-                value: 2294571
+                value: 57579
             }, {
                 'hc-a2': 'MO',
                 name: 'Missouri',
                 region: 'Midwest',
                 x: 4,
                 y: 5,
-                value: 2005918
+                value: 49671
             }, {
                 'hc-a2': 'MT',
                 name: 'Montana',
                 region: 'West',
                 x: 2,
                 y: 2,
-                value: 114170
+                value: 3829
             }, {
                 'hc-a2': 'NE',
                 name: 'Nebraska',
                 region: 'Midwest',
                 x: 4,
                 y: 4,
-                value: 1525892
+                value: 25766
             }, {
                 'hc-a2': 'NV',
                 name: 'Nevada',
                 region: 'West',
                 x: 4,
                 y: 2,
-                value: 1650121
+                value: 47034
             }, {
                 'hc-a2': 'NH',
                 name: 'New Hampshire',
                 region: 'Northeast',
                 x: 1,
                 y: 11,
-                value: 492211
+                value: 6544
             }, {
                 'hc-a2': 'NJ',
                 name: 'New Jersey',
                 region: 'Northeast',
                 x: 3,
                 y: 10,
-                value: 17115258
+                value: 182845
             }, {
                 'hc-a2': 'NM',
                 name: 'New Mexico',
                 region: 'West',
                 x: 6,
                 y: 3,
-                value: 1011270
+                value: 20388
             }, {
                 'hc-a2': 'NY',
                 name: 'New York',
                 region: 'Northeast',
                 x: 2,
                 y: 9,
-                value: 41571810
+                value: 419081
             }, {
                 'hc-a2': 'NC',
                 name: 'North Carolina',
                 region: 'South',
                 x: 5,
                 y: 9,
-                value: 4920440
+                value: 120463
             }, {
                 'hc-a2': 'ND',
                 name: 'North Dakota',
                 region: 'Midwest',
                 x: 2,
                 y: 3,
-                value: 309928
+                value: 6305
             }, {
                 'hc-a2': 'OH',
                 name: 'Ohio',
                 region: 'Midwest',
                 x: 3,
                 y: 8,
-                value: 4539737
+                value: 89626
             }, {
                 'hc-a2': 'OK',
                 name: 'Oklahoma',
                 region: 'South',
                 x: 6,
                 y: 4,
-                value: 1210800
+                value: 35710
             }, {
                 'hc-a2': 'OR',
                 name: 'Oregon',
                 region: 'West',
                 x: 4,
                 y: 1,
-                value: 750875
+                value: 18166
             }, {
                 'hc-a2': 'PA',
                 name: 'Pennsylvania',
                 region: 'Northeast',
                 x: 3,
                 y: 9,
-                value: 8450949
+                value: 115853
             }, {
                 'hc-a2': 'RI',
                 name: 'Rhode Island',
                 region: 'Northeast',
                 x: 2,
                 y: 11,
-                value: 1515607
+                value: 18950
             }, {
                 'hc-a2': 'SC',
                 name: 'South Carolina',
                 region: 'South',
                 x: 6,
                 y: 8,
-                value: 2915267
+                value: 87572
             }, {
                 'hc-a2': 'SD',
                 name: 'South Dakota',
                 region: 'Midwest',
                 x: 3,
                 y: 4,
-                value: 565146
+                value: 8685
             }, {
                 'hc-a2': 'TN',
                 name: 'Tennessee',
                 region: 'South',
                 x: 5,
                 y: 7,
-                value: 3794491
+                value: 100166
             }, {
                 'hc-a2': 'TX',
                 name: 'Texas',
                 region: 'South',
                 x: 7,
                 y: 4,
-                value: 14122466
+                value:  432029
             }, {
                 'hc-a2': 'UT',
                 name: 'Utah',
                 region: 'West',
                 x: 5,
                 y: 4,
-                value: 1722012
+                value: 39714
             }, {
                 'hc-a2': 'VT',
                 name: 'Vermont',
                 region: 'Northeast',
                 x: 1,
                 y: 10,
-                value: 125178
+                value: 1407
             }, {
                 'hc-a2': 'VA',
                 name: 'Virginia',
                 region: 'South',
                 x: 5,
                 y: 8,
-                value: 5041543
+                value: 88904
             }, {
                 'hc-a2': 'WA',
                 name: 'Washington',
                 region: 'West',
                 x: 2,
                 y: 1,
-                value: 3194672
+                value: 58100
             }, {
                 'hc-a2': 'WV',
                 name: 'West Virginia',
                 region: 'South',
                 x: 4,
                 y: 7,
-                value: 280451
+                value: 6422
             }, {
                 'hc-a2': 'WI',
                 name: 'Wisconsin',
                 region: 'Midwest',
                 x: 2,
                 y: 5,
-                value: 2573030
+                value: 56111
             }, {
                 'hc-a2': 'WY',
                 name: 'Wyoming',
                 region: 'West',
                 x: 3,
                 y: 3,
-                value: 129511
+                value: 2686
             }]
         }]
     });
 
     //                      /// Atlantic Honey Comb  ///                          //
     d3.json(honey_atlantic).then((data)=>{
-        console.log("Hello my Atlantic Honey Comb")
-        console.log(data)
+        //console.log("Atlantic Honey Comb")
+        //console.log(data)
+        //Pull out only state and positive test keys for easier reading in console
+        // var cases_by_state=data.map(function(d){
+        //     console.log( `State ${d.State}, Positive cases ${d.PositiveTests}`);
+        // })
     })
-    Highcharts.chart('state-timeseries', {
+
+    Highcharts.chart('atl-country-honeycomb', {
         chart: {
             type: 'tilemap',
             inverted: true,
@@ -904,6 +931,337 @@ function updateDash(){
             }]
         }]
     });
+
+
+ //////////////////////////////////////////////////////////////////////////////////////////////
+ //                 S E L E C T   S T A T E                ///
+ d3.select('form').on('change',function(d){
+    /////////  T i m e  s e r i e s  f o r  N Y T  d a t a ////////
+    d3.json(time_nyt).then((d2)=>{
+            
+        covid_data=d2
+        //console.log(covid_data)
+
+        var userSelection=d3.select("#state-selector").node().value;
+        //console.log(userSelection)
+        selectedState=covid_data.filter(c=>c.State==userSelection)
+        
+        console.log("Time series testing here")
+        //console.log(selectedCovid)
+        var timeseries_dates=selectedState.map(t=>t.date).reverse()
+        //console.log(timeseries_dates)
+        var timeseries_cases=selectedState.map(t=>t.cases).reverse()
+        //console.log(timeseries_cases)
+        var timeseries_deaths=selectedState.map(t=>t.deaths).reverse()
+        //console.log(timeseries_deaths)
+
+
+        var trace1 = {
+            type: "scatter",
+            mode: "lines",
+            name: 'COVID cases',
+            x: timeseries_dates,
+            y: timeseries_cases,
+            line: {color: '#17BECF'}
+        }
+
+        var trace2 = {
+            type: "scatter",
+            mode: "lines",
+            name: 'COVID deaths',
+            x: timeseries_dates,
+            y: timeseries_deaths,
+            line: {color: '#7F7F7F'}
+        }
+
+        var data = [trace1,trace2];
+
+        var layout = {
+        title: 'Time Series of COVID Related Cases and deaths',
+        xaxis:{
+            autorange:true,
+            range:['03-05-2020','07-28-2020'],
+            rangeselector:{buttons:[
+                {
+                    count:1,
+                    lanel:'1m',
+                    step:'month',
+                    stepmode:'backward'
+                },
+                {
+                    count:6,
+                    labels:'6m',
+                    step:'month',
+                    stepmode:'backward'
+                },
+                {step:'all'}
+            ]},
+            rangeslider:{range: ['03-05-2020','07-28-2020']},
+            type: 'date'
+        },
+        yaxis: {
+            autorange: true,
+            //range: [86.8700008333, 138.870004167],
+            type: 'linear'
+        }
+
+
+        };
+
+        Plotly.newPlot('nyt-state-timeseries', data, layout);
+          
+
+
+
+
+
+
+
+    })
+
+    ///////// T i m e  S e r i e s  f o r  A t l a n t i c  D a t a ///////////////////////
+    d3.json(time_atlantic).then((atl_data)=>{
+        console.log("Atlantic data here")
+        console.log(atl_data)
+     
+
+     //console.log(casesStateTotals)
+
+
+     var userSelection=d3.select("#state-selector").node().value;
+     console.log(userSelection)
+     selectedCovid=atl_data.filter(c=>c.State==userSelection)
+     
+     console.log(" Atlantic Time series testing here")
+     //console.log(selectedCovid)
+     var timeseries_dates=selectedCovid.map(t=>t.Date).reverse()
+     console.log(timeseries_dates)
+     var timeseries_cases=selectedCovid.map(t=>t.PositiveTests).reverse()
+     //console.log(timeseries_cases)
+     var timeseries_deaths=selectedCovid.map(t=>t.Deaths).reverse()
+
+
+     var trace1 = {
+         type: "scatter",
+         mode: "lines",
+         name: 'COVID cases',
+         x: timeseries_dates,
+         y: timeseries_cases,
+         line: {color: '#17BECF'}
+     }
+
+     var trace2 = {
+         type: "scatter",
+         mode: "lines",
+         name: 'COVID deaths',
+         x: timeseries_dates,
+         y: timeseries_deaths,
+         line: {color: '#7F7F7F'}
+     }
+
+     var data = [trace1,trace2];
+
+     var layout = {
+     title: 'Time Series of COVID Related Cases and deaths (Atlantic)',
+     xaxis:{
+         autorange:true,
+         range:['03-05-2020','07-28-2020'],
+         rangeselector:{buttons:[
+             {
+                 count:1,
+                 lanel:'1m',
+                 step:'month',
+                 stepmode:'backward'
+             },
+             {
+                 count:6,
+                 labels:'6m',
+                 step:'month',
+                 stepmode:'backward'
+             },
+             {step:'all'}
+         ]},
+         rangeslider:{range: ['03-05-2020','07-28-2020']},
+         type: 'date'
+     },
+     yaxis: {
+         autorange: true,
+         //range: [86.8700008333, 138.870004167],
+         type: 'linear'
+     }
+
+
+     };
+
+     Plotly.newPlot('atl-state-timeseries', data, layout);
+
+
+    })
+
+    /////// Top 10 
+    d3.json(nyt_covid_county).then((data)=>{
+        //console.log("-----N Y T  C O U N T Y  D A T A -----")
+        covid_county_data=data
+        console.log(covid_county_data)
+        var userSelection=d3.select("#state-selector").node().value;
+        //console.log(userSelection)
+        selectedCovid=covid_county_data.filter(c=>c.state==userSelection)
+        //console.log(selectedCovid)
+
+        /// Total Cases by County
+        var casesCountyTotals = [];
+
+        selectedCovid.reduce(function(res, value) {
+        if (!res[value.County]) {
+            res[value.County] = { County: value.County, cases: 0 };
+            casesCountyTotals.push(res[value.County])
+        }
+        res[value.County].cases += value.cases;
+        return res;
+        }, {});
+        //console.log("Total cases by county");
+        //console.log(casesCountyTotals);
+
+        // Sorting dictionary
+        function compare(a, b) {
+            const caseA = a.cases;
+            const caseB = b.cases;
+          
+            let comparison = 0;
+            if (caseA > caseB) {
+              comparison = 1;
+            } else if (caseA < caseB) {
+              comparison = -1;
+            }
+            return comparison * -1;
+        }
+          
+        var sort_cases_desc=casesCountyTotals.sort(compare)
+        //console.log("Sort by case") 
+        //console.log(sort_cases_desc);
+
+        var top_ten_counties=sort_cases_desc.slice(0,11)
+        //console.log(top_ten_counties)
+
+
+        var bar_labels=top_ten_counties.map(s=>s.County)
+        var bar_values=top_ten_counties.map(s=>s.cases)
+
+        //console.log(bar_labels);
+        //console.log(bar_values);
+
+         //  Create  trace.
+         var data = [{
+            type: 'bar',
+            x: bar_values,
+            y: bar_labels,
+            orientation: 'h',
+            transforms: [{
+                type: 'sort',
+                target: 'x',
+                order: 'ascending'
+              }]
+          }];
+        var layout = {
+            title: `Top 10 counties by total number of cases (NYT)`,
+            xaxis: {title:"Total number of cases",size: 18},
+            yaxis: {title:"counties",automargin: true,},
+            autosize: false,
+            width: 800,
+            height: 500,
+            margin: {
+                l: 250,
+                r: 50,
+                b: 100,
+                t: 100,
+                pad: 4
+            }
+        };
+        var config = {responsive: true}           
+        Plotly.newPlot('nyt-10-counties', data,layout,config);
+
+
+    //     /// Total deaths by County
+    //     var deathCountyTotals = [];
+
+    //     selectedCovid.reduce(function(res, value) {
+    //     if (!res[value.County]) {
+    //         res[value.County] = { County: value.County, deaths: 0 };
+    //         deathCountyTotals.push(res[value.County])
+    //     }
+    //     res[value.County].deaths += value.deaths;
+    //     return res;
+    //     }, {});
+    //     //console.log("Total deaths by county");
+    //     //console.log(deathCountyTotals);
+
+    //     // Sorting dictionary
+    //     function compare(a, b) {
+    //         const deathA = a.deaths;
+    //         const deathB = b.deaths;
+          
+    //         let comparison = 0;
+    //         if (deathA > deathB) {
+    //           comparison = 1;
+    //         } else if (deathA < deathB) {
+    //           comparison = -1;
+    //         }
+    //         return comparison * -1;
+    //     }
+          
+    //     var sort_deaths_desc=deathCountyTotals.sort(compare)
+    //     //console.log("Sort by death") 
+    //     //console.log(sort_deaths_desc);
+
+    //     var top_ten_counties_deaths=sort_deaths_desc.slice(0,11)
+    //     //console.log(top_ten_counties_deaths)
+
+
+    //     var bar_labels=top_ten_counties_deaths.map(s=>s.County)
+    //     var bar_values=top_ten_counties_deaths.map(s=>s.deaths)
+
+    //     //console.log(bar_labels);
+    //     //console.log(bar_values);
+
+    //      //  Create  trace.
+    //      var data = [{
+    //         type: 'bar',
+    //         x: bar_values,
+    //         y: bar_labels,
+            
+    //         orientation: 'h',
+    //         transforms: [{
+    //             type: 'sort',
+    //             target: 'x',
+    //             order: 'ascending'
+    //           }]
+    //       }];
+    //     var layout = {
+    //         title: `Top 10 counties by total number of deaths (NYT)`,
+    //         xaxis: {title:"Total number of deaths",size: 18},
+    //         yaxis: {title:"counties",automargin: true,},
+    //         autosize: false,
+    //         width: 800,
+    //         height: 500,
+    //         margin: {
+    //             l: 250,
+    //             r: 50,
+    //             b: 100,
+    //             t: 100,
+    //             pad: 4
+    //         }
+    //     };
+    //     var config = {responsive: true}
+    //     Plotly.newPlot('nyt-10-counties', data,layout,config);
+
+        
+    // })
+
+
+    
+
+ })
+
 
 }
 updateDash()
