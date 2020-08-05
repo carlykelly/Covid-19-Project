@@ -30,11 +30,10 @@
         <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css' rel='stylesheet' />
         
         <!--For honeycomb to work-->
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+        <script src="https://code.highcharts.com/maps/highmaps.js"></script>
         <script src="https://code.highcharts.com/modules/tilemap.js"></script>
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
-        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
         <script src="https://code.highcharts.com/modules/accessibility.js"></script>
         
         
@@ -91,7 +90,7 @@
     </nav>
     <!-- Hamburger -->
     <nav class="hamburger navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="WebDesignChallenge.html">Latitude</a>
+        <a class="navbar-brand" href="WebDesignChallenge.html">Just a COVID Dashboard</a>
 
         <button class="hamburger navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -189,17 +188,23 @@
                     </div>
                 </div>
                 <div class='col-12 jumbotron text-center' id='total-cases-banner'>
-                    <h2>Total U.S. COVID-19 Cases</h2>
-                    <h2>Total number here</h2>
+                    <h3>Total U.S. COVID-19 Cases</h3>
+                    <h3>Total number here</h3>
                 </div>
                 <div class='col-12 jumbotron text-center' id='total-deaths-banner'>
-                    <h2>Total U.S. COVID-19 Deaths</h2>
-                    <h2>Total number here</h2>
+                    <h3>Total U.S. COVID-19 Deaths</h3>
+                    <h3>Total number here</h3>
                 </div>
             </div>
             <div class='col-8' id='total-county-cloropleth'>
-                <h2>US Cloropleth</h2>
-                <p>US case Cloropleth here</p>
+                <div class='white'>
+                    <h1 class="page-header">US Cloropleth</h1>
+                    <hr>
+                    <section class="figure" id='us-cloropleth'>
+                        <p>us county cloropleth will go here
+                        </p>
+                    </section>
+                </div>
             </div>
             <div class='col-12'>
                 <div class="white">
@@ -226,8 +231,6 @@
                     <h1 class="page-header">NYT Timeseries</h1>
                     <hr>
                     <section class="figure" id='nyt-state-timeseries'>
-                        <p>NYT Timeseries will go here
-                        </p>
                     </section>
                 </div>
             </div>
@@ -236,8 +239,6 @@
                     <h1 class="page-header">Atlantic Timeseries</h1>
                     <hr>
                     <section class="figure" id='atl-state-timeseries'>
-                        <p>Atlantic Timeseries will go here
-                        </p>
                     </section>
                 </div>
             </div>
@@ -352,9 +353,9 @@
     <!--MODIFIED THE NEXT TWO SCRIPT FILE PATHS-->
     <script src="../static/js/config.py"></script>
     <script src="../static/js/app.js"></script>
-    <script src="../static/js/app_CK.js"></script>
+    <!--<script src="../static/js/app_CK.js"></script>
     <script src="../static/js/app_CM.js"></script>
-    <script src="../static/js/app_SS.js"></script>
+    <script src="../static/js/app_SS.js"></script>-->
 
 </body>
 

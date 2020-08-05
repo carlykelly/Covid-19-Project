@@ -20961,12 +20961,12 @@
         "fips": 36061,
         "cases": 229551,
         "deaths": 22996,
-        "death_pop_percent": 4.5518786694,
+        "death_pop_percent": 0.2643218391,
         "death_case_percent": 10.0178173913,
-        "case_pop_percent": 45.4378283366,
-        "death_pop_per_10000": 455.1878669353,
+        "case_pop_percent": 2.6385172414,
+        "death_pop_per_10000": 26.432183908,
         "death_case_per_10000": 1001.7817391342,
-        "case_pop_per_10000": 4543.7828336613
+        "case_pop_per_10000": 263.8517241379
     },
     {
         "County": "Chautauqua",
@@ -36496,12 +36496,12 @@
         "fips": 38000,
         "cases": 432,
         "deaths": 19,
-        "death_pop_percent": null,
+        "death_pop_percent": 0.0037609017,
         "death_case_percent": 4.3981481481,
-        "case_pop_percent": null,
-        "death_pop_per_10000": null,
+        "case_pop_percent": 0.0855110274,
+        "death_pop_per_10000": 0.3760901666,
         "death_case_per_10000": 439.8148148148,
-        "case_pop_per_10000": null
+        "case_pop_per_10000": 8.551102736
     },
     {
         "County": "Kansas City",
