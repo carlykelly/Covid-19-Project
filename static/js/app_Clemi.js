@@ -1,10 +1,6 @@
 function updateDash(){
 
     /// route names for different data sets
-    var state_pop="/api/state_population";
-    var county_pop="/api/county_population";
-    
-   
     var nyt_state="/nyt_covid_state_latest";
     var nyt_covid_county="/nyt_covid_county_latest";
 
@@ -1118,33 +1114,33 @@ function updateDash(){
             var userSelection=d3.select("#state-selector").node().value;
             //console.log(userSelection)
             selectedCovid=data.filter(c=>c.state==userSelection)
-            //console.log(selectedCovid)
+            console.log(selectedCovid)
 
 
             // Sorting dictionary
             function compare(a, b) {
-                const caseA = a.cases;
-                const caseB = b.cases;
+                const deathpopA = a.death_pop_percent;
+                const deathpopB = b.death_pop_percent;
             
                 let comparison = 0;
-                if (caseA > caseB) {
+                if (deathpopA > deathpopB) {
                 comparison = 1;
-                } else if (caseA < caseB) {
+                } else if (deathpopA < deathpopB) {
                 comparison = -1;
                 }
                 return comparison * -1;
             }
             
-            var sort_cases_desc=selectedCovid.sort(compare)
-            //console.log("Sort by case") 
-            //console.log(sort_cases_desc);
+            var sort_deathpop_desc=selectedCovid.sort(compare)
+            //console.log("Sort by death_pop_percent") 
+            //console.log(sort_deathpop_desc);
 
-            var top_ten_counties=sort_cases_desc.slice(0,11)
+            var top_ten_counties_death_pop=sort_deathpop_desc.slice(0,11)
             //console.log(top_ten_counties)
 
 
-            var bar_labels=top_ten_counties.map(s=>s.County)
-            var bar_values=top_ten_counties.map(s=>s.cases)
+            var bar_labels=top_ten_counties_death_pop.map(s=>s.County)
+            var bar_values=top_ten_counties_death_pop.map(s=>s.death_pop_percent)
 
             //console.log(bar_labels);
             //console.log(bar_values);
@@ -1162,7 +1158,7 @@ function updateDash(){
                 }]
             }];
             var layout = {
-                title: `Top 10 counties by total number of cases (NYT)`,
+                title: `Top 10 counties by percent of Population who have died from COVID (NYT)`,
                 xaxis: {title:"Total number of cases",size: 18},
                 yaxis: {title:"counties",automargin: true,},
                 autosize: false,
