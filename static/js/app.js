@@ -946,7 +946,7 @@ function updateDash(){
         //console.log(userSelection)
         selectedState=covid_data.filter(c=>c.State==userSelection)
         
-        console.log("Time series testing here")
+        //console.log("Time series testing here")
         //console.log(selectedCovid)
         var timeseries_dates=selectedState.map(t=>t.date).reverse()
         //console.log(timeseries_dates)
@@ -1011,31 +1011,22 @@ function updateDash(){
         Plotly.newPlot('nyt-state-timeseries', data, layout);
           
 
-
-
-
-
-
-
     })
 
     ///////// T i m e  S e r i e s  f o r  A t l a n t i c  D a t a ///////////////////////
     d3.json(time_atlantic).then((atl_data)=>{
-        console.log("Atlantic data here")
-        console.log(atl_data)
+        //console.log("Atlantic data here")
+        //console.log(atl_data)
      
-
      //console.log(casesStateTotals)
-
 
      var userSelection=d3.select("#state-selector").node().value;
      console.log(userSelection)
      selectedCovid=atl_data.filter(c=>c.State==userSelection)
      
-     console.log(" Atlantic Time series testing here")
      //console.log(selectedCovid)
      var timeseries_dates=selectedCovid.map(t=>t.Date).reverse()
-     console.log(timeseries_dates)
+     //console.log(timeseries_dates)
      var timeseries_cases=selectedCovid.map(t=>t.PositiveTests).reverse()
      //console.log(timeseries_cases)
      var timeseries_deaths=selectedCovid.map(t=>t.Deaths).reverse()
@@ -1098,29 +1089,28 @@ function updateDash(){
 
     })
 
-    /////// Top 10 
+    /////// Top 10 cases by county
     d3.json(nyt_covid_county).then((data)=>{
         //console.log("-----N Y T  C O U N T Y  D A T A -----")
         covid_county_data=data
-        console.log(covid_county_data)
+        //console.log("Cases by county")
+        //console.log(covid_county_data)
+
+        latest_data=[]
+        for (var i = 0; i<data.length; i++){
+            if (data[i].date==="07/30/2020"){
+                latest_data.push(data[i])
+
+            }
+        }
+
+        console.log("Only July 30th data")
+        //console.log(latest_data)
         var userSelection=d3.select("#state-selector").node().value;
         //console.log(userSelection)
-        selectedCovid=covid_county_data.filter(c=>c.state==userSelection)
+        selectedCovid=latest_data.filter(c=>c.state==userSelection)
         //console.log(selectedCovid)
 
-        /// Total Cases by County
-        var casesCountyTotals = [];
-
-        selectedCovid.reduce(function(res, value) {
-        if (!res[value.County]) {
-            res[value.County] = { County: value.County, cases: 0 };
-            casesCountyTotals.push(res[value.County])
-        }
-        res[value.County].cases += value.cases;
-        return res;
-        }, {});
-        //console.log("Total cases by county");
-        //console.log(casesCountyTotals);
 
         // Sorting dictionary
         function compare(a, b) {
@@ -1136,7 +1126,7 @@ function updateDash(){
             return comparison * -1;
         }
           
-        var sort_cases_desc=casesCountyTotals.sort(compare)
+        var sort_cases_desc=selectedCovid.sort(compare)
         //console.log("Sort by case") 
         //console.log(sort_cases_desc);
 
@@ -1181,81 +1171,69 @@ function updateDash(){
         Plotly.newPlot('nyt-10-counties', data,layout,config);
 
 
-    //     /// Total deaths by County
-    //     var deathCountyTotals = [];
-
-    //     selectedCovid.reduce(function(res, value) {
-    //     if (!res[value.County]) {
-    //         res[value.County] = { County: value.County, deaths: 0 };
-    //         deathCountyTotals.push(res[value.County])
-    //     }
-    //     res[value.County].deaths += value.deaths;
-    //     return res;
-    //     }, {});
-    //     //console.log("Total deaths by county");
-    //     //console.log(deathCountyTotals);
-
-    //     // Sorting dictionary
-    //     function compare(a, b) {
-    //         const deathA = a.deaths;
-    //         const deathB = b.deaths;
+        /// Total deaths by County
+            // Sorting dictionary
+        function compare(a, b) {
+            const deathA = a.deaths;
+            const deathB = b.deaths;
           
-    //         let comparison = 0;
-    //         if (deathA > deathB) {
-    //           comparison = 1;
-    //         } else if (deathA < deathB) {
-    //           comparison = -1;
-    //         }
-    //         return comparison * -1;
-    //     }
+            let comparison = 0;
+            if (deathA > deathB) {
+              comparison = 1;
+            } else if (deathA < deathB) {
+              comparison = -1;
+            }
+            return comparison * -1;
+        }
           
-    //     var sort_deaths_desc=deathCountyTotals.sort(compare)
-    //     //console.log("Sort by death") 
-    //     //console.log(sort_deaths_desc);
+        var sort_deaths_desc=selectedCovid.sort(compare)
+        console.log("Total deaths by county");
+        console.log("Sort by death") 
+        console.log(sort_deaths_desc);
 
-    //     var top_ten_counties_deaths=sort_deaths_desc.slice(0,11)
-    //     //console.log(top_ten_counties_deaths)
+        var top_ten_counties_deaths=sort_deaths_desc.slice(0,11)
+        //console.log(top_ten_counties_deaths)
 
 
-    //     var bar_labels=top_ten_counties_deaths.map(s=>s.County)
-    //     var bar_values=top_ten_counties_deaths.map(s=>s.deaths)
+        var bar_labels=top_ten_counties_deaths.map(s=>s.County)
+        var bar_values=top_ten_counties_deaths.map(s=>s.deaths)
 
-    //     //console.log(bar_labels);
-    //     //console.log(bar_values);
+        //console.log(bar_labels);
+        //console.log(bar_values);
 
-    //      //  Create  trace.
-    //      var data = [{
-    //         type: 'bar',
-    //         x: bar_values,
-    //         y: bar_labels,
+         //  Create  trace.
+         var data = [{
+            type: 'bar',
+            x: bar_values,
+            y: bar_labels,
             
-    //         orientation: 'h',
-    //         transforms: [{
-    //             type: 'sort',
-    //             target: 'x',
-    //             order: 'ascending'
-    //           }]
-    //       }];
-    //     var layout = {
-    //         title: `Top 10 counties by total number of deaths (NYT)`,
-    //         xaxis: {title:"Total number of deaths",size: 18},
-    //         yaxis: {title:"counties",automargin: true,},
-    //         autosize: false,
-    //         width: 800,
-    //         height: 500,
-    //         margin: {
-    //             l: 250,
-    //             r: 50,
-    //             b: 100,
-    //             t: 100,
-    //             pad: 4
-    //         }
-    //     };
-    //     var config = {responsive: true}
-    //     Plotly.newPlot('nyt-10-counties', data,layout,config);
+            orientation: 'h',
+            transforms: [{
+                type: 'sort',
+                target: 'x',
+                order: 'ascending'
+              }]
+          }];
+        var layout = {
+            title: `Top 10 counties by total number of deaths (NYT)`,
+            xaxis: {title:"Total number of deaths",size: 18},
+            yaxis: {title:"counties",automargin: true,},
+            autosize: false,
+            width: 800,
+            height: 500,
+            margin: {
+                l: 250,
+                r: 50,
+                b: 100,
+                t: 100,
+                pad: 4
+            }
+        };
+        var config = {responsive: true}
+        Plotly.newPlot('atlantic-10-counties', data,layout,config);
 
         
-    // })
+    })
 
 
     
