@@ -5,38 +5,26 @@ function updateDash(){
     var county_pop="/api/county_population";
     
    
-    var nyt_daily="/nyt_covid_state_daily";
+    var nyt_state="/nyt_covid_state_latest";
     var nyt_covid_county="/nyt_covid_county_latest";
 
     var time_nyt ="/timeseries_nyt";
 
     var honey_atlantic="/atlantic_covid_latest";
-    var time_atlantic="/atlantic_covid_daily";
+    var time_atlantic="/timeseries_atlantic";
 
 
 
 //////////////////////////// H o n e y  C o m b s ////////////////////////////////////////////////
     //                       /// New York Times Honey Comb ///                     //
-    d3.json(nyt_daily).then((data)=>{
+    d3.json(nyt_state).then((data)=>{
         //console.log("NYT Honey Comb")
         //console.log(data)
 
-        /*This pulls out only data from 07/30 which is the total cases and  deaths 
-        since the pandemic started as the data is cumulative for each day*/
-        latest_data=[]
-        for (var i = 0; i<data.length; i++){
-            if (data[i].date==="07/30/2020"){
-                latest_data.push(data[i])
-
-            }
-        }
-        //console.log(latest_data)
-
         //Pull out only state and positive test keys for easier reading in console
-        var cases_by_state=latest_data.map(function(d){
+        var cases_by_state=data.map(function(d){
            // console.log( `State: ${d.State}, Positive cases: ${d.cases}`);
         }) 
-
 
     })
    
@@ -933,20 +921,10 @@ function updateDash(){
     });
 
 
-//////////////////////   T o p  3  c o u n t i e s  i n   t h e   U  S  /////////////////////////
+//////////////////////   T o p  10  c o u n t i e s  i n   t h e   U  S  /////////////////////////
     d3.json(nyt_covid_county).then((data)=>{
-        console.log(data)
+        //console.log(data)
         /// State, county  cases, death
-      
-      
-        // //   Pulling out only latest data //
-        // latest_data_county=[]
-        // for (var i = 0; i<data.length; i++){
-        //     if (data[i].date==="07/30/2020"){
-        //         latest_data_county.push(data[i])
-        //     }
-        // }
-
         // //console.log(latest_data_county)
 
         // Sorting dictionary cases
@@ -964,10 +942,10 @@ function updateDash(){
         }
             
         var sort_cases_desc=data.sort(compare)
-        var top_3_counties_us=sort_cases_desc.slice(0,10)
-        console.log(top_3_counties_us)
+        var top_10_counties_us=sort_cases_desc.slice(0,10)
+        console.log(top_10_counties_us)
 
-        var display_top_3_counties=top_3_counties_us.map(function(d){
+        var display_top_10_counties=top_10_counties_us.map(function(d){
             console.log(`${d.County}, ${d.state} ${d.cases} cases, ${d.deaths} deaths `);
          }) 
 
@@ -977,310 +955,299 @@ function updateDash(){
 
  //////////////////////////////////////////////////////////////////////////////////////////////
  //                 S E L E C T   S T A T E                ///
- d3.select('form').on('change',function(d){
-    /////////  T i m e  s e r i e s  f o r  N Y T  d a t a ////////
-    d3.json(time_nyt).then((d2)=>{
+    d3.select('form').on('change',function(d){
+        /////////  T i m e  s e r i e s  f o r  N Y T  d a t a ////////
+        d3.json(time_nyt).then((d2)=>{
+                
+            covid_data=d2
+            //console.log(covid_data)
+
+            var userSelection=d3.select("#state-selector").node().value;
+            //console.log(userSelection)
+            selectedState=covid_data.filter(c=>c.State==userSelection)
             
-        covid_data=d2
-        //console.log(covid_data)
+            //console.log("Time series testing here")
+            //console.log(selectedCovid)
+            var timeseries_dates=selectedState.map(t=>t.date).reverse()
+            //console.log(timeseries_dates)
+            var timeseries_cases=selectedState.map(t=>t.cases).reverse()
+            //console.log(timeseries_cases)
+            var timeseries_deaths=selectedState.map(t=>t.deaths).reverse()
+            //console.log(timeseries_deaths)
 
-        var userSelection=d3.select("#state-selector").node().value;
-        //console.log(userSelection)
-        selectedState=covid_data.filter(c=>c.State==userSelection)
+
+            var trace1 = {
+                type: "scatter",
+                mode: "lines",
+                name: 'COVID cases',
+                x: timeseries_dates,
+                y: timeseries_cases,
+                line: {color: '#17BECF'}
+            }
+
+            var trace2 = {
+                type: "scatter",
+                mode: "lines",
+                name: 'COVID deaths',
+                x: timeseries_dates,
+                y: timeseries_deaths,
+                line: {color: '#7F7F7F'}
+            }
+
+            var data = [trace1,trace2];
+
+            var layout = {
+            title: 'Time Series of COVID Related Cases and deaths',
+            xaxis:{
+                autorange:true,
+                range:['03-05-2020','07-28-2020'],
+                rangeselector:{buttons:[
+                    {
+                        count:1,
+                        lanel:'1m',
+                        step:'month',
+                        stepmode:'backward'
+                    },
+                    {
+                        count:6,
+                        labels:'6m',
+                        step:'month',
+                        stepmode:'backward'
+                    },
+                    {step:'all'}
+                ]},
+                rangeslider:{range: ['03-05-2020','07-28-2020']},
+                type: 'date'
+            },
+            yaxis: {
+                autorange: true,
+                type: 'linear'
+            }
+
+
+            };
+
+            Plotly.newPlot('nyt-state-timeseries', data, layout);
+            
+
+        })
+
+        ///////// T i m e  S e r i e s  f o r  A t l a n t i c  D a t a ///////////////////////
+        d3.json(time_atlantic).then((atl_data)=>{
+            //console.log("Atlantic data here")
+            //console.log(atl_data)
         
-        //console.log("Time series testing here")
-        //console.log(selectedCovid)
-        var timeseries_dates=selectedState.map(t=>t.date).reverse()
-        //console.log(timeseries_dates)
-        var timeseries_cases=selectedState.map(t=>t.cases).reverse()
-        //console.log(timeseries_cases)
-        var timeseries_deaths=selectedState.map(t=>t.deaths).reverse()
-        //console.log(timeseries_deaths)
+        //console.log(casesStateTotals)
+
+            var userSelection=d3.select("#state-selector").node().value;
+            console.log(userSelection)
+            selectedCovid=atl_data.filter(c=>c.State==userSelection)
+            
+            //console.log(selectedCovid)
+            var timeseries_dates=selectedCovid.map(t=>t.Date).reverse()
+            //console.log(timeseries_dates)
+            var timeseries_cases=selectedCovid.map(t=>t.PositiveTests).reverse()
+            //console.log(timeseries_cases)
+            var timeseries_deaths=selectedCovid.map(t=>t.Deaths).reverse()
 
 
-        var trace1 = {
-            type: "scatter",
-            mode: "lines",
-            name: 'COVID cases',
-            x: timeseries_dates,
-            y: timeseries_cases,
-            line: {color: '#17BECF'}
-        }
+            var trace1 = {
+                type: "scatter",
+                mode: "lines",
+                name: 'COVID cases',
+                x: timeseries_dates,
+                y: timeseries_cases,
+                line: {color: '#17BECF'}
+            }
 
-        var trace2 = {
-            type: "scatter",
-            mode: "lines",
-            name: 'COVID deaths',
-            x: timeseries_dates,
-            y: timeseries_deaths,
-            line: {color: '#7F7F7F'}
-        }
+            var trace2 = {
+                type: "scatter",
+                mode: "lines",
+                name: 'COVID deaths',
+                x: timeseries_dates,
+                y: timeseries_deaths,
+                line: {color: '#7F7F7F'}
+            }
 
-        var data = [trace1,trace2];
+            var data = [trace1,trace2];
 
-        var layout = {
-        title: 'Time Series of COVID Related Cases and deaths',
-        xaxis:{
-            autorange:true,
-            range:['03-05-2020','07-28-2020'],
-            rangeselector:{buttons:[
-                {
-                    count:1,
-                    lanel:'1m',
-                    step:'month',
-                    stepmode:'backward'
+            var layout = {
+                title: 'Time Series of COVID Related Cases and deaths (Atlantic)',
+                xaxis:{
+                    autorange:true,
+                    range:['03-05-2020','07-28-2020'],
+                    rangeselector:{buttons:[
+                        {
+                            count:1,
+                            lanel:'1m',
+                            step:'month',
+                            stepmode:'backward'
+                        },
+                        {
+                            count:6,
+                            labels:'6m',
+                            step:'month',
+                            stepmode:'backward'
+                        },
+                        {step:'all'}
+                    ]},
+                    rangeslider:{range: ['03-05-2020','07-28-2020']},
+                    type: 'date'
                 },
-                {
-                    count:6,
-                    labels:'6m',
-                    step:'month',
-                    stepmode:'backward'
-                },
-                {step:'all'}
-            ]},
-            rangeslider:{range: ['03-05-2020','07-28-2020']},
-            type: 'date'
-        },
-        yaxis: {
-            autorange: true,
-            //range: [86.8700008333, 138.870004167],
-            type: 'linear'
-        }
+                yaxis: {
+                    autorange: true,
+                    type: 'linear'
+                }
 
 
-        };
+            };
 
-        Plotly.newPlot('nyt-state-timeseries', data, layout);
-          
-
-    })
-
-    ///////// T i m e  S e r i e s  f o r  A t l a n t i c  D a t a ///////////////////////
-    d3.json(time_atlantic).then((atl_data)=>{
-        //console.log("Atlantic data here")
-        //console.log(atl_data)
-     
-     //console.log(casesStateTotals)
-
-     var userSelection=d3.select("#state-selector").node().value;
-     console.log(userSelection)
-     selectedCovid=atl_data.filter(c=>c.State==userSelection)
-     
-     //console.log(selectedCovid)
-     var timeseries_dates=selectedCovid.map(t=>t.Date).reverse()
-     //console.log(timeseries_dates)
-     var timeseries_cases=selectedCovid.map(t=>t.PositiveTests).reverse()
-     //console.log(timeseries_cases)
-     var timeseries_deaths=selectedCovid.map(t=>t.Deaths).reverse()
+            Plotly.newPlot('atl-state-timeseries', data, layout);
 
 
-     var trace1 = {
-         type: "scatter",
-         mode: "lines",
-         name: 'COVID cases',
-         x: timeseries_dates,
-         y: timeseries_cases,
-         line: {color: '#17BECF'}
-     }
+        })
 
-     var trace2 = {
-         type: "scatter",
-         mode: "lines",
-         name: 'COVID deaths',
-         x: timeseries_dates,
-         y: timeseries_deaths,
-         line: {color: '#7F7F7F'}
-     }
+        /////// Top 10 cases by county
+        d3.json(nyt_covid_county).then((data)=>{
+            //console.log("-----N Y T  C O U N T Y  D A T A -----")
+            //covid_county_data=data
+            //console.log("Cases by county")
+            //console.log(data)
 
-     var data = [trace1,trace2];
-
-     var layout = {
-     title: 'Time Series of COVID Related Cases and deaths (Atlantic)',
-     xaxis:{
-         autorange:true,
-         range:['03-05-2020','07-28-2020'],
-         rangeselector:{buttons:[
-             {
-                 count:1,
-                 lanel:'1m',
-                 step:'month',
-                 stepmode:'backward'
-             },
-             {
-                 count:6,
-                 labels:'6m',
-                 step:'month',
-                 stepmode:'backward'
-             },
-             {step:'all'}
-         ]},
-         rangeslider:{range: ['03-05-2020','07-28-2020']},
-         type: 'date'
-     },
-     yaxis: {
-         autorange: true,
-         //range: [86.8700008333, 138.870004167],
-         type: 'linear'
-     }
+            //console.log(latest_data)
+            var userSelection=d3.select("#state-selector").node().value;
+            //console.log(userSelection)
+            selectedCovid=data.filter(c=>c.state==userSelection)
+            //console.log(selectedCovid)
 
 
-     };
-
-     Plotly.newPlot('atl-state-timeseries', data, layout);
-
-
-    })
-
-    /////// Top 10 cases by county
-    d3.json(nyt_covid_county).then((data)=>{
-        //console.log("-----N Y T  C O U N T Y  D A T A -----")
-        covid_county_data=data
-        //console.log("Cases by county")
-        //console.log(covid_county_data)
-
-        latest_data=[]
-        for (var i = 0; i<data.length; i++){
-            if (data[i].date==="07/30/2020"){
-                latest_data.push(data[i])
-
-            }
-        }
-
-        console.log("Only July 30th data")
-        //console.log(latest_data)
-        var userSelection=d3.select("#state-selector").node().value;
-        //console.log(userSelection)
-        selectedCovid=latest_data.filter(c=>c.state==userSelection)
-        //console.log(selectedCovid)
-
-
-        // Sorting dictionary
-        function compare(a, b) {
-            const caseA = a.cases;
-            const caseB = b.cases;
-          
-            let comparison = 0;
-            if (caseA > caseB) {
-              comparison = 1;
-            } else if (caseA < caseB) {
-              comparison = -1;
-            }
-            return comparison * -1;
-        }
-          
-        var sort_cases_desc=selectedCovid.sort(compare)
-        //console.log("Sort by case") 
-        //console.log(sort_cases_desc);
-
-        var top_ten_counties=sort_cases_desc.slice(0,11)
-        //console.log(top_ten_counties)
-
-
-        var bar_labels=top_ten_counties.map(s=>s.County)
-        var bar_values=top_ten_counties.map(s=>s.cases)
-
-        //console.log(bar_labels);
-        //console.log(bar_values);
-
-         //  Create  trace.
-         var data = [{
-            type: 'bar',
-            x: bar_values,
-            y: bar_labels,
-            orientation: 'h',
-            transforms: [{
-                type: 'sort',
-                target: 'x',
-                order: 'ascending'
-              }]
-          }];
-        var layout = {
-            title: `Top 10 counties by total number of cases (NYT)`,
-            xaxis: {title:"Total number of cases",size: 18},
-            yaxis: {title:"counties",automargin: true,},
-            autosize: false,
-            width: 800,
-            height: 500,
-            margin: {
-                l: 250,
-                r: 50,
-                b: 100,
-                t: 100,
-                pad: 4
-            }
-        };
-        var config = {responsive: true}           
-        Plotly.newPlot('nyt-10-counties', data,layout,config);
-
-
-        /// Total deaths by County
             // Sorting dictionary
-        function compare(a, b) {
-            const deathA = a.deaths;
-            const deathB = b.deaths;
-          
-            let comparison = 0;
-            if (deathA > deathB) {
-              comparison = 1;
-            } else if (deathA < deathB) {
-              comparison = -1;
-            }
-            return comparison * -1;
-        }
-          
-        var sort_deaths_desc=selectedCovid.sort(compare)
-        console.log("Total deaths by county");
-        console.log("Sort by death") 
-        console.log(sort_deaths_desc);
-
-        var top_ten_counties_deaths=sort_deaths_desc.slice(0,11)
-        //console.log(top_ten_counties_deaths)
-
-
-        var bar_labels=top_ten_counties_deaths.map(s=>s.County)
-        var bar_values=top_ten_counties_deaths.map(s=>s.deaths)
-
-        //console.log(bar_labels);
-        //console.log(bar_values);
-
-         //  Create  trace.
-         var data = [{
-            type: 'bar',
-            x: bar_values,
-            y: bar_labels,
+            function compare(a, b) {
+                const caseA = a.cases;
+                const caseB = b.cases;
             
-            orientation: 'h',
-            transforms: [{
-                type: 'sort',
-                target: 'x',
-                order: 'ascending'
-              }]
-          }];
-        var layout = {
-            title: `Top 10 counties by total number of deaths (NYT)`,
-            xaxis: {title:"Total number of deaths",size: 18},
-            yaxis: {title:"counties",automargin: true,},
-            autosize: false,
-            width: 800,
-            height: 500,
-            margin: {
-                l: 250,
-                r: 50,
-                b: 100,
-                t: 100,
-                pad: 4
+                let comparison = 0;
+                if (caseA > caseB) {
+                comparison = 1;
+                } else if (caseA < caseB) {
+                comparison = -1;
+                }
+                return comparison * -1;
             }
-        };
-        var config = {responsive: true}
-        Plotly.newPlot('atlantic-10-counties', data,layout,config);
+            
+            var sort_cases_desc=selectedCovid.sort(compare)
+            //console.log("Sort by case") 
+            //console.log(sort_cases_desc);
+
+            var top_ten_counties=sort_cases_desc.slice(0,11)
+            //console.log(top_ten_counties)
+
+
+            var bar_labels=top_ten_counties.map(s=>s.County)
+            var bar_values=top_ten_counties.map(s=>s.cases)
+
+            //console.log(bar_labels);
+            //console.log(bar_values);
+
+            //  Create  trace.
+            var data = [{
+                type: 'bar',
+                x: bar_values,
+                y: bar_labels,
+                orientation: 'h',
+                transforms: [{
+                    type: 'sort',
+                    target: 'x',
+                    order: 'ascending'
+                }]
+            }];
+            var layout = {
+                title: `Top 10 counties by total number of cases (NYT)`,
+                xaxis: {title:"Total number of cases",size: 18},
+                yaxis: {title:"counties",automargin: true,},
+                autosize: false,
+                width: 800,
+                height: 500,
+                margin: {
+                    l: 250,
+                    r: 50,
+                    b: 100,
+                    t: 100,
+                    pad: 4
+                }
+            };
+            var config = {responsive: true}           
+            Plotly.newPlot('nyt-10-counties', data,layout,config);
+
+
+            /// Total deaths by County
+                // Sorting dictionary
+            function compare(a, b) {
+                const deathA = a.deaths;
+                const deathB = b.deaths;
+            
+                let comparison = 0;
+                if (deathA > deathB) {
+                comparison = 1;
+                } else if (deathA < deathB) {
+                comparison = -1;
+                }
+                return comparison * -1;
+            }
+            
+            var sort_deaths_desc=selectedCovid.sort(compare)
+            //console.log("Total deaths by county");
+            //console.log("Sort by death") 
+            //console.log(sort_deaths_desc);
+
+            var top_ten_counties_deaths=sort_deaths_desc.slice(0,11)
+            //console.log(top_ten_counties_deaths)
+
+
+            var bar_labels=top_ten_counties_deaths.map(s=>s.County)
+            var bar_values=top_ten_counties_deaths.map(s=>s.deaths)
+
+            //console.log(bar_labels);
+            //console.log(bar_values);
+
+            //  Create  trace.
+            var data = [{
+                type: 'bar',
+                x: bar_values,
+                y: bar_labels,
+                
+                orientation: 'h',
+                transforms: [{
+                    type: 'sort',
+                    target: 'x',
+                    order: 'ascending'
+                }]
+            }];
+            var layout = {
+                title: `Top 10 counties by total number of deaths (NYT)`,
+                xaxis: {title:"Total number of deaths",size: 18},
+                yaxis: {title:"counties",automargin: true,},
+                autosize: false,
+                width: 800,
+                height: 500,
+                margin: {
+                    l: 250,
+                    r: 50,
+                    b: 100,
+                    t: 100,
+                    pad: 4
+                }
+            };
+            var config = {responsive: true}
+            Plotly.newPlot('atlantic-10-counties', data,layout,config);
+
+            
+        })
+
 
         
+
     })
-
-
-    
-
- })
 
 
 }

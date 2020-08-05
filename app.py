@@ -110,7 +110,7 @@ def county_population():
 @app.route("/nyt_covid_state_latest")
 def nytcovid_st_latest():
     nyt_db = client['nyt_covid_db']
-    collection_state_nyt = nyt_db['nyt_state_covid_latest']
+    collection_state_nyt = nyt_db['NYT_state_covid_latest']
     documents=collection_state_nyt.find()
     df = pd.DataFrame(list(documents))
     df_json = df.to_json(default_handler=str,orient='records') 
@@ -155,7 +155,7 @@ def nytcovidcountylatest():
     
     return df_json
 
-@app.route("/atlantic_covid_daily")
+@app.route("/timeseries_atlantic")
 def atlanticcovid():
     Atlantic_db = client['Atlantic_db']
     collection_state_atlantic = Atlantic_db['Atlantic_covid_daily']
