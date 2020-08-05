@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Covid in the USA</title>
+    <!--<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">-->
+    <link rel="shortcut icon" type="image/x-icon" href="../static/favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+        <!--<script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.select-to-autocomplete.js') }}"></script>-->
+        <script src="../static/js/jquery-1.11.1.min.js"></script>
+        <script src="../static/js/jquery-ui.min.js"></script>
+        <script src="../static/js/jquery.select-to-autocomplete.js"></script>
+        <!--For Mapbox GL to work -->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css' rel='stylesheet' />
+        
+        <!--For honeycomb to work-->
+        <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+        <script src="https://code.highcharts.com/modules/tilemap.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        
+        
+        <!-- <script src="jquery-ui.min.js"></script>
+        <script src="jquery.select-to-autocomplete.js"></script> -->
+        <!-- May want to put the below in our Javascript. For sure want to change the alert. -->
+        <script>
+            (function($){
+              $(function(){
+                $('select').selectToAutocomplete();
+                $('form').submit(function(){
+                  alert( $(this).serialize() );
+                  return false;
+                });
+              });
+            })(jQuery);
+          </script>
+          <script src="https://code.highcharts.com/highcharts.js"></script>
+          <!--MODIFIED THE HREF FOR THE CSS FILE-->
+          <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+    <nav class="nonburger navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand mr-auto" href="#">
+            <h1 id="logo">Just a COVID Dashboard</h1>
+        </a>
+        <a class='navbar-data-links mr-data' href='#'>
+            <h3 id='our-data' href='#'>Our Data</h3>
+        </a>
+        <a class='navbar-data-links mr-data' href='#'>
+            <h3 id='atlantic-data' href='#'>Atlantic Data</h3>
+        </a>
+        <a class='navbar-data-links mr-data' href='#'>
+            <h3 id='nyt-data' href='#'>NYT Data</h3>
+        </a>
+        <a class='navbar-data-links mr-data' href='#'>
+            <h3 id='additional-data' href='#'>Add'l Data</h3>
+        </a>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                API Data
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/api/state_population">Census API State Data</a>
+                <a class="dropdown-item" href="/api/county_population">Census API County Data</a>
+                <a class="dropdown-item" href="/nyt_covid_state">New York Times API State Data</a>
+                <a class="dropdown-item" href="/nyt_covid_county">New York Times API County Data</a>
+            </div>
+        </div>
+        <a class="navbar-links" href="Comparison.html">Comparison</a>
+        <a class="navbar-links" href="Data.html">Data</a>
+    </nav>
+    <!-- Hamburger -->
+    <nav class="hamburger navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="WebDesignChallenge.html">Just a COVID Dashboard</a>
+
+        <button class="hamburger navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <p class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Plots
+                    </p>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="Temp-Page.html">Max Temperature</a>
+                        <a class="dropdown-item" href="Cloudiness.html">Cloudiness</a>
+                        <a class="dropdown-item" href="Humidity.html">Humidity</a>
+                        <a class="dropdown-item" href="Windspeed.html">Wind Speed</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="Comparison.html">Comparison <span class="sr-only">(current)</span></a>
+                </li>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="Data.html">Data <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End Hamburger -->
+    <div class='container'>
+        <div class='row'>
+            <!-- <div class='col-md-1'><br></div> -->
+            <div class='col-4 text-center' id='totals-banner'>
+                <div class="col-12 jumbotron">
+                    <h4>Select a Location</h4>
+                    <div class="row">
+                        <div class="col-12">
+                            <form>
+                            <select name="State" class='selector' id="state-selector" autofocus="autofocus" autocorrect="off" autocomplete="off" placeholder='Enter a State'>
+                                <option value=''data-alternative-spellings='US' selected>All States</option>
+                                <option value='us'data-alternative-spellings='US'>All States</option>
+                                <option value="Alabama" data-alternative-spellings='AL'>Alabama</option>
+                                <option value="Alaska" data-alternative-spellings= 'AK'>Alaska</option>
+                                <option value="Arizona" data-alternative-spellings='AZ'>Arizona</option>
+                                <option value="Arkansas" data-alternative-spellings='AS'>Arkansas</option>
+                                <option value="California" data-alternative-spellings='CA'>California</option>
+                                <option value="Colorado" data-alternative-spellings='CO'>Colorado</option>
+                                <option value="Connecticut" data-alternative-spellings='CT'>Connecticut</option>
+                                <option value="Delaware" data-alternative-spellings='DE'>Delaware</option>
+                                <option value="Florida" data-alternative-spellings='FL'>Florida</option>
+                                <option value="Georgia" data-alternative-spellings='GA'>Georgia</option>
+                                <option value="Hawaii" data-alternative-spellings='HI'>Hawaii</option>
+                                <option value="Idaho" data-alternative-spellings='ID'>Idaho</option>
+                                <option value="Illinois" data-alternative-spellings='IL'>Illinois</option>
+                                <option value="Indiana" data-alternative-spellings='IN'>Indiana</option>
+                                <option value="Iowa" data-alternative-spellings='IA'>Iowa</option>
+                                <option value="Kansas" data-alternative-spellings='KS'>Kansas</option>
+                                <option value="Kentucky" data-alternative-spellings='KY'>Kentucky</option>
+                                <option value="Louisiana" data-alternative-spellings='LA'>Louisiana</option>
+                                <option value="Maine" data-alternative-spellings='ME'>Maine</option>
+                                <option value="Maryland" data-alternative-spellings='MD'>Maryland</option>
+                                <option value="Massachusetts" data-alternative-spellings='MA'>Massachusetts</option>
+                                <option value="Michigan" data-alternative-spellings='MI'>Michigan</option>
+                                <option value="Minnesota" data-alternative-spellings='MN'>Minnesota</option>
+                                <option value="Mississippi" data-alternative-spellings='MS'>Mississippi</option>
+                                <option value="Missouri" data-alternative-spellings='MO'>Missouri</option>
+                                <option value="Montana" data-alternative-spellings='MT'>Montana</option>
+                                <option value="Nebraska" data-alternative-spellings='NE'>Nebraska</option>
+                                <option value="Nevada" data-alternative-spellings='NV'>Nevada</option>
+                                <option value="New Hampshire" data-alternative-spellings='NH'>New Hampshire</option>
+                                <option value="New Jersey" data-alternative-spellings='NJ'>New Jersey</option>
+                                <option value="New Mexico" data-alternative-spellings='NM'>New Mexico</option>
+                                <option value="New York" data-alternative-spellings='NY'>New York</option>
+                                <option value="North Carolina" data-alternative-spellings='NC'>North Carolina</option>
+                                <option value="North Dakota" data-alternative-spellings='ND'>North Dakota</option>
+                                <option value="Ohio" data-alternative-spellings='OH'>Ohio</option>
+                                <option value="Oklahoma" data-alternative-spellings='OK'>Oklahoma</option>
+                                <option value="Oregon" data-alternative-spellings='OR'>Oregon</option>
+                                <option value="Pennsylvania" data-alternative-spellings='PA'>Pennsylvania</option>
+                                <option value="Rhode Island" data-alternative-spellings='RI'>Rhode Island</option>
+                                <option value="South Carolina" data-alternative-spellings='SC'>South Carolina</option>
+                                <option value="South Dakota" data-alternative-spellings='SD'>South Dakota</option>
+                                <option value="Tennessee" data-alternative-spellings='TN'>Tennessee</option>
+                                <option value="Texas" data-alternative-spellings='TX'>Texas</option>
+                                <option value="Utah" data-alternative-spellings='UT'>Utah</option>
+                                <option value="Vermont" data-alternative-spellings='VT'>Vermont</option>
+                                <option value="Virginia" data-alternative-spellings='VA'>Virginia</option>
+                                <option value="Washington" data-alternative-spellings='WA'>Washington</option>
+                                <option value="West Virginia" data-alternative-spellings='WV'>West Virginia</option>
+                                <option value="Wisconsin" data-alternative-spellings='WI'>Wisconsin</option>
+                                <option value="Wyoming" data-alternative-spellings='WY'>Wyoming</option>
+                            </select>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-12 jumbotron text-center' id='total-cases-banner'>
+                    <h3>Total U.S. COVID-19 Cases</h3>
+                    <h3>Total number here</h3>
+                </div>
+                <div class='col-12 jumbotron text-center' id='total-deaths-banner'>
+                    <h3>Total U.S. COVID-19 Deaths</h3>
+                    <h3>Total number here</h3>
+                </div>
+            </div>
+            <div class='col-8' id='total-county-cloropleth'>
+                <div class='white'>
+                    <h1 class="page-header">US Cloropleth</h1>
+                    <hr>
+                    <section class="figure" id='us-cloropleth'>
+                        <p>us county cloropleth will go here
+                        </p>
+                    </section>
+                </div>
+            </div>
+            <div class='col-12'>
+                <div class="white">
+                    <h1 class="page-header">New York Times Map</h1>
+                    <hr>
+                    <section class="figure" id='nyt-country-honeycomb'>
+                        <p>NYT Honeycomb Map will go here
+                        </p>
+                    </section>
+                </div>
+            </div>
+            <div class='col-12'>
+                <div class="white">
+                    <h1 class="page-header">Atlantic Map</h1>
+                    <hr>
+                    <section class="figure" id='atl-country-honeycomb'>
+                        <p>Atlantic Honeycomb Map will go here
+                        </p>
+                    </section>
+                </div>
+            </div>
+            <div class='col-12'>
+                <div class = 'white'>
+                    <h1 class="page-header">NYT Timeseries</h1>
+                    <hr>
+                    <section class="figure" id='nyt-state-timeseries'>
+                    </section>
+                </div>
+            </div>
+            <div class='col-12'>
+                <div class = 'white'>
+                    <h1 class="page-header">Atlantic Timeseries</h1>
+                    <hr>
+                    <section class="figure" id='atl-state-timeseries'>
+                    </section>
+                </div>
+            </div>
+            <div class='col-12'>
+                <div class = 'white'>
+                    <h1 class="page-header">NYT Top 10 Counties</h1>
+                    <hr>
+                    <section class="figure" id='nyt-10-counties'>
+                        <p>Atlantic Timeseries will go here
+                        </p>
+                    </section>
+                </div>
+            </div>
+            <div class='col-12'>
+                <div class = 'white'>
+                    <h1 class="page-header">Atlantic Top 10 Counties</h1>
+                    <hr>
+                    <section class="figure" id='atlantic-10-counties'>
+                        <p>Atlantic Timeseries will go here
+                        </p>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+        <!-- This row is only needed when a state is selected. Perhaps we need a media or listener to show this. -->
+        <!-- <div class="row">
+            
+            <div class="col-md-3 col-12">
+                <div class = 'white'>
+                <h1 class="page-header">Gauge</h1>
+                <hr>
+                <section class="figure" id='gauge'>
+                    <p>State Guage Map will go here
+                    </p>
+                </section>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class='row'>
+            <div class = "col-md-6 col-12">
+                <div class ='white'>
+                    <h1 class="page-header">Chloroplast Graph</h1>
+                    <hr>
+                    <section class ='figure' id = 'chloropleth'>
+                        <p>Chloroplast graph will go here.</p>
+                    </section>
+                </div>
+            </div>
+            <div class = "col-md-6 col-12">
+                <div class ='white'>
+                    <h1 class="page-header">Bubble Chart</h1>
+                    <hr>
+                    <section class ='figure' id = 'cases-bar'>
+                        <p>Bubble chart will go here.</p>
+                    </section>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class ='row'>
+            <div class = "col-md-4 col-12">
+                <div class = 'white'>
+                    <h1 class = 'page-header'>Forecasting Info</h1>
+                    <hr>
+                    <p>Put forcasting info in here!</p>
+                </div>
+            </div>
+            <div class = "col-md-4 col-12">
+                <div class = 'white'>
+                    <h1 class = 'page-header'>Forecasting Info</h1>
+                    <hr>
+                    <p>Put forecasting info in here!</p>
+                </div>
+            </div>
+            <div class = "col-md-4 col-12">
+                <div class = 'white'>
+                    <h1 class = 'page-header'>Forecasting Info</h1>
+                    <hr>
+                    <p>Put forecasting info in here</p>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class='row'>
+            <div class='col-md-2'>
+                <div class="well">
+                  </div>
+                  <div class="panel panel-primary">
+                    <div class="panel-heading" style="background-color:maroon; border-color:maroon">
+                      <span class="panel-title" style="color: white">State Bio</span>
+                    </div>
+                    <div id="sample-metadata" class="panel-body" style='background-color:white; border:1px solid maroon;'>
+                    <p id='state-name'>State: </p>
+                    <p id='population'>Population: </p>
+                    <p id='covid-tests'>Covid Tests: </p>
+                    <p id='covid-pos'>Positive Covid Tests: </p>
+                    <p id='covid-deaths'>Covid Deaths: </p>
+                  </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div id="top-cases">
+
+        </div>
+        <div id="top-deaths">
+
+        </div>
+        <div id="timeseries"> -->
+
+        </div>
+    </div>
+    <!-- <script src="../StarterCode/static/js/app.js"></script> -->
+    <!--MODIFIED THE NEXT TWO SCRIPT FILE PATHS-->
+    <script src="../static/js/choropleth.js"></script>
+    <script src="../static/js/config.py"></script>
+    <script src="../static/js/app_Clemi.js"></script>
+    <script src="../static/js/app_CK.js"></script>
+    <!--<script src="../static/js/app_CM.js"></script>
+    <script src="../static/js/app_SS.js"></script>-->
+
+</body>
+
+    <!-- Start of footer -->
+    <footer class="footer navbar-fixed-bottom">
+        <div class="two-toned-footer-color"></div>
+        <p class="text-muted text-muted-footer text-center">
+          <br><br>
+        </p>
+      </footer>
+      <!-- End of footer -->
+
+</html>
