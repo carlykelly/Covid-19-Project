@@ -87,7 +87,7 @@ a:hover, #dropdownMenuButton:hover{
 }
 
 .white{
-    background-color: rgb(83, 83, 83);
+    background-color: #E8E8E8;
     padding: 32px;
 }
 
@@ -104,7 +104,7 @@ a:hover, #dropdownMenuButton:hover{
     color: maroon;
     font-size: 28px;
     margin-top: 20px;
-    background-color:rgb(83, 83, 83);
+    background-color:#e8e8e8;
 }
 
 .graph-left{
