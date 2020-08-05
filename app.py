@@ -146,7 +146,7 @@ def nytcovidcounty():
 @app.route("/nyt_covid_county_latest")
 def nytcovidcountylatest():
     nyt_db = client['nyt_covid_db']
-    collection_county_nyt = nyt_db['nyt_county_json_latest']
+    collection_county_nyt = nyt_db['NYT_county_json_latest']
     documents=collection_county_nyt.find()
     df = pd.DataFrame(list(documents))
     df_json = df.to_json(default_handler=str,orient='records') 

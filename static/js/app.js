@@ -5,19 +5,18 @@ function updateDash(){
     var county_pop="/api/county_population";
     
    
-    var nyt_daily="/nyt_covid_state_daily"
-    var nyt_covid_county="/nyt_covid_county";
+    var nyt_daily="/nyt_covid_state_daily";
+    var nyt_covid_county="/nyt_covid_county_latest";
 
     var time_nyt ="/timeseries_nyt";
 
     var honey_atlantic="/atlantic_covid_latest";
-    var time_atlantic="/atlantic_covid_daily"
+    var time_atlantic="/atlantic_covid_daily";
 
 
 
 //////////////////////////// H o n e y  C o m b s ////////////////////////////////////////////////
     //                       /// New York Times Honey Comb ///                     //
-    // Indian and Illinois are switch so get back to this and check both data sets
     d3.json(nyt_daily).then((data)=>{
         //console.log("NYT Honey Comb")
         //console.log(data)
@@ -36,7 +35,8 @@ function updateDash(){
         //Pull out only state and positive test keys for easier reading in console
         var cases_by_state=latest_data.map(function(d){
            // console.log( `State: ${d.State}, Positive cases: ${d.cases}`);
-        })  
+        }) 
+
 
     })
    
@@ -932,6 +932,48 @@ function updateDash(){
         }]
     });
 
+
+//////////////////////   T o p  3  c o u n t i e s  i n   t h e   U  S  /////////////////////////
+    d3.json(nyt_covid_county).then((data)=>{
+        console.log(data)
+        /// State, county  cases, death
+      
+      
+        // //   Pulling out only latest data //
+        // latest_data_county=[]
+        // for (var i = 0; i<data.length; i++){
+        //     if (data[i].date==="07/30/2020"){
+        //         latest_data_county.push(data[i])
+        //     }
+        // }
+
+        // //console.log(latest_data_county)
+
+        // Sorting dictionary cases
+        function compare(a, b) {
+            const caseA = a.cases;
+            const caseB = b.cases;
+            
+            let comparison = 0;
+            if (caseA > caseB) {
+                comparison = 1;
+            } else if (caseA < caseB) {
+                comparison = -1;
+            }
+            return comparison * -1;
+        }
+            
+        var sort_cases_desc=data.sort(compare)
+        var top_3_counties_us=sort_cases_desc.slice(0,10)
+        console.log(top_3_counties_us)
+
+        var display_top_3_counties=top_3_counties_us.map(function(d){
+            console.log(`${d.County}, ${d.state} ${d.cases} cases, ${d.deaths} deaths `);
+         }) 
+
+
+
+    })
 
  //////////////////////////////////////////////////////////////////////////////////////////////
  //                 S E L E C T   S T A T E                ///
