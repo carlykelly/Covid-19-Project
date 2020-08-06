@@ -929,33 +929,45 @@ function updateDash(){
                 selectedCovidnyt=NYT.filter(c=>c.State==default_state)
                 console.log(selectedCovidnyt)
                 var NYT_cases=selectedCovidnyt[0].cases
-                console.log(NYT_cases)
+                var NYT_deaths=selectedCovidnyt[0].deaths
+                console.log(NYT_deaths)
 
                 selectedCovid_atl=ATL.filter(a=>a.State==default_state)
                 console.log(selectedCovid_atl)
                 var ATL_cases=selectedCovid_atl[0].PositiveTests
-                console.log(ATL_cases)
+                var ATL_deaths=selectedCovid_atl[0].Deaths
+                console.log(ATL_deaths)
 
                 selectedCovid_pop=POP.filter(a=>a.State==default_state)
                 console.log( selectedCovid_pop)
                 var population=selectedCovid_pop[0].Population
                 console.log(population)
 
-                var calculation=(Math.abs(NYT_cases-ATL_cases)/population)*100
+                //// Calculating percent different in cases
+                var calculation_cases=(Math.abs(NYT_cases-ATL_cases)/population)*100
                 /// round to 4 decimal places
-                var percent_difference=calculation.toFixed(4)
-                console.log(percent_difference)
+                var percent_difference_cases=calculation_cases.toFixed(4)
+                console.log(percent_difference_cases)
+
+                /// Calculating percent different in deaths
+                var calculation_deaths=(Math.abs(NYT_deaths-ATL_deaths)/population)*100
+                /// round to 4 decimal places
+                var percent_difference_deaths=calculation_deaths.toFixed(4)
+                console.log(percent_difference_deaths)
+
 
                 // Make table//
                 var values=[
                     ["New York Times","The Atlantic", "% Difference per population"],
-                    [NYT_cases,ATL_cases,percent_difference]
+                    [NYT_cases,ATL_cases,percent_difference_cases],
+                    [NYT_deaths,ATL_deaths,percent_difference_deaths]
+
                 ]
                 
                 var data=[{
                     type:'table',
                     header:{
-                        values:[ ["<b> </b>"],["<b>Cases</b>"]],
+                        values:[["<b> </b>"],["<b>Cases</b>"],["<b>Deaths</b>"]],
                         
                         align: "center",
                         line: {width: 1, color: 'black'},
