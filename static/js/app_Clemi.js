@@ -356,5 +356,22 @@ function updateDash(){
     })
 
 
+    ///////// Test for honey. Delete after use
+    d3.json(nyt_state).then(function(nyt){
+        console.log("NYT Data")
+        console.log(nyt)
+
+        d3.json(honey_atlantic).then(function(atl){
+            console.log("Atlantic Data")
+            console.log(atl)
+
+        })
+
+    })
+
+
+
+
+
 }
 updateDash()
