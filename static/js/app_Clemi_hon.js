@@ -968,22 +968,35 @@ function updateDash(){
                     type:'table',
                     columnwidth: [8000,4000,4000],
                     header:{
-                        values:[["<b> </b>"],["<b>Cases</b>"],["<b>Deaths</b>"]],
+                        values:[[`<b>${default_state} </b>`],["<b>Cases</b>"],["<b>Deaths</b>"]],
                         
                         align: "center",
                         line: {width: 1, color: 'black'},
                         fill: {color: "grey"},
-                        font: {family: "Arial", size: 20, color: "white"}
+                        font: {family: "Arial", size: 14, color: "white"}
                         },
                     cells: {
                         values: values,
                         align: "center",
                         line: {color: "black", width: 1},
-                        font: {family: "Arial", size: 16, color: ["black"]}
+                        font: {family: "Arial", size: 16, color: ["black"]},
+                        height:50
                     }
                 }]
 
-                Plotly.newPlot('honeycomb-difference-table', data);
+                var layout={
+                    width:350,
+                    height:300,
+                    margin: {
+                        l: 20,
+                        r: 20,
+                        b: 20,
+                        t: 20,
+                        pad: 0
+                    }
+                }
+
+                Plotly.newPlot('honeycomb-difference-table', data, layout);
                     
 
             })
@@ -1200,21 +1213,21 @@ function updateDash(){
                     //console.log(ATL)
                     //console.log(POP)
 
-                    var default_state="Alaska"
+                    var userSelection=d3.select("#state-selector").node().value;
                 
-                    selectedCovidnyt=NYT.filter(c=>c.State==default_state)
+                    selectedCovidnyt=NYT.filter(c=>c.State==userSelection)
                     //console.log(selectedCovidnyt)
                     var NYT_cases=selectedCovidnyt[0].cases
                     var NYT_deaths=selectedCovidnyt[0].deaths
                     //console.log(NYT_deaths)
 
-                    selectedCovid_atl=ATL.filter(a=>a.State==default_state)
+                    selectedCovid_atl=ATL.filter(a=>a.State==userSelection)
                     //console.log(selectedCovid_atl)
                     var ATL_cases=selectedCovid_atl[0].PositiveTests
                     var ATL_deaths=selectedCovid_atl[0].Deaths
                     //console.log(ATL_deaths)
 
-                    selectedCovid_pop=POP.filter(a=>a.State==default_state)
+                    selectedCovid_pop=POP.filter(a=>a.State==userSelection)
                     //console.log( selectedCovid_pop)
                     var population=selectedCovid_pop[0].Population
                     //console.log(population)
@@ -1243,22 +1256,35 @@ function updateDash(){
                     var data=[{
                         type:'table',
                         header:{
-                            values:[["<b> </b>"],["<b>Cases</b>"],["<b>Deaths</b>"]],
+                            values:[[`<b>${userSelection}</b>`],["<b>Cases</b>"],["<b>Deaths</b>"]],
                             
                             align: "center",
                             line: {width: 1, color: 'black'},
                             fill: {color: "grey"},
-                            font: {family: "Arial", size: 12, color: "white"}
+                            font: {family: "Arial", size: 14, color: "white"}
                             },
                         cells: {
                             values: values,
                             align: "center",
                             line: {color: "black", width: 1},
-                            font: {family: "Arial", size: 11, color: ["black"]}
+                            font: {family: "Arial", size: 16, color: ["black"]},
+                            height:50
                         }
                     }]
 
-                    Plotly.newPlot('honeycomb-difference-table', data);
+                    var layout={
+                        width:350,
+                        height:350,
+                        margin: {
+                            l: 20,
+                            r: 20,
+                            b: 20,
+                            t: 20,
+                            pad: 0
+                        }
+                    }
+    
+                    Plotly.newPlot('honeycomb-difference-table', data,layout);
                         
 
                 })
@@ -1416,6 +1442,7 @@ function updateDash(){
             
                 Plotly.newPlot('case-timeseries', data, layout);
                 Plotly.newPlot('death-timeseries', data2, layout2);
+
 
 
             })

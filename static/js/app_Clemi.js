@@ -54,17 +54,30 @@ function updateDash(){
               align: "center",
               line: {width: 1, color: 'black'},
               fill: {color: "grey"},
-              font: {family: "Arial", size: 14, color: "white"}
+              font: {family: "Arial", size: 18, color: "white"}
             },
             cells: {
               values: values,
               align: "center",
               line: {color: "black", width: 1},
-              font: {family: "Arial", size: 11, color: ["black"]}
+              font: {family: "Arial", size: 16, color: ["black"]},
+              height:50
             }
         }]
+
+        var layout={
+            width:500,
+            height:650,
+            margin: {
+                l: 20,
+                r: 20,
+                b: 20,
+                t: 20,
+                pad: 0
+            }
+        }
           
-        Plotly.newPlot('top-ten-us-counties', data);
+        Plotly.newPlot('top-ten-us-counties', data,layout);
 
 
     })
@@ -76,7 +89,7 @@ function updateDash(){
         //console.log("Cases by county")
         //console.log(data)
 
-        selectedCovid=data.filter(c=>c.state=="Alabama")
+        selectedCovid=data.filter(c=>c.state=="Alaska")
         //console.log("Default Selection")
         //console.log(selectedCovid)
 
@@ -123,11 +136,11 @@ function updateDash(){
             }]
         }];
         var layout = {
-            title: `Top 10 Counties by COVID Deaths per Population in ${stateName} (NYT) `,
-            xaxis: {title:"Total number of cases",size: 18},
+            title: `Top 10 Counties by COVID Deaths per <br> Population in ${stateName}<br> (New York Times) `,
+            xaxis: {title:"Total Deaths per County Population (%)",size: 18},
             yaxis: {title:"counties",automargin: true,},
             autosize: false,
-            width: 800,
+            width: 500,
             height: 500,
             margin: {
                 l: 250,
@@ -186,8 +199,8 @@ function updateDash(){
             }]
         }];
         var layout = {
-            title: `Top 10 Counties by COVID Deaths per Cases in ${stateName} (NYT) `,
-            xaxis: {title:"Total number of cases",size: 18},
+            title: `Top 10 Counties by COVID Deaths per Cases <br> in ${stateName} <br> (New York Times) `,
+            xaxis: {title:"Total deaths per recorded cases",size: 18},
             yaxis: {title:"counties",automargin: true,},
             autosize: false,
             width: 500,
@@ -268,11 +281,11 @@ function updateDash(){
                 }]
             }];
             var layout = {
-                title: `Top 10 Counties by COVID Deaths per Population in ${userSelection} (NYT) `,
-                xaxis: {title:"Total number of cases",size: 18},
+                title: `Top 10 Counties by COVID Deaths per <br> Population in ${stateName}<br> (New York Times) `,
+                xaxis: {title:"Total Deaths per County Population (%)",size: 18},
                 yaxis: {title:"counties",automargin: true,},
                 autosize: false,
-                width: 800,
+                width: 500,
                 height: 500,
                 margin: {
                     l: 250,
@@ -287,7 +300,7 @@ function updateDash(){
 
 
 
-         ///////////////////// Cases per population  ////////////////////
+         ///////////////////// Deaths per cases ////////////////////
         
             console.log(selectedCovid)
 
@@ -332,8 +345,8 @@ function updateDash(){
                 }]
             }];
             var layout = {
-                title: `Top 10 Counties by COVID Deaths per Cases in ${userSelection} (NYT) `,
-                xaxis: {title:"Total number of cases",size: 18},
+                title: `Top 10 Counties by COVID Deaths per Cases <br> in ${stateName} <br> (New York Times) `,
+                xaxis: {title:"Total deaths per recorded cases",size: 18},
                 yaxis: {title:"counties",automargin: true,},
                 autosize: false,
                 width: 500,
