@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(83, 83, 83);
+    background-color: white;
     /* background-color: #E8E8E8; */
     font-family: "Montserrat","Segoe UI","Helvetica Neue", Arial, sans-serif;
 }
@@ -40,7 +40,9 @@ h4 {
 /* End of styling */
 
 .navbar {
-    background-color: white}
+    background-color: white;
+    outline: black;
+}
 .navbar-brand{
     background-color:maroon;
 }
@@ -87,7 +89,7 @@ a:hover, #dropdownMenuButton:hover{
 }
 
 .white{
-    background-color: #E8E8E8;
+    background-color: white;
     padding: 32px;
 }
 
@@ -104,7 +106,7 @@ a:hover, #dropdownMenuButton:hover{
     color: maroon;
     font-size: 28px;
     margin-top: 20px;
-    background-color:#e8e8e8;
+    background-color: white;
 }
 
 .graph-left{
@@ -130,9 +132,8 @@ table {
     font-family: arial, sans-serif;
     margin: 20px;
     border:none;
-  }
+}
 
-  
   th {
       text-align:left;
       padding:8px;
@@ -159,6 +160,26 @@ table {
       display:none;
   }
 
+  .center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  #total-county-cloropleth{ 
+    width: 95%;
+    height: 95%;
+    min-width: 700px;
+    min-height: 700px;
+  }
+  #us-cloropleth{ 
+    min-width: 700px;
+    min-height: 700px;
+}
+#total-cases-banner{
+    outline: medium solid black;
+}
 
   @media (max-width: 768px) {
       .hamburger{

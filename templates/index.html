@@ -110,138 +110,136 @@
         </div>
     </nav>
     <!-- End Hamburger -->
-    <div class='container'>
-        <div class='row'>
-            <div class='row col-8 text-center'>
-                <div class='col-6' id='total-cases-banner'>
-                    <h3>Total U.S. COVID-19 Cases</h3>
-                    <hr>
-                    <h3>Total number here</h3>
-                </div>
-                <div class='col-6' id='total-cases-banner'>
-                    <h3>Total U.S. COVID-19 Deaths</h3>
-                    <hr>
-                    <h3>Total number here</h3>
-                </div>
+    <div class='white row'>
+        <div class='row col-8 text-center'>
+            <div class='col-6' id='total-cases-banner'>
+                <h3>Total U.S. COVID-19 Cases</h3>
+                <hr>
+                <h3>Total number here</h3>
             </div>
-            <div class='col-4' id='totals-banner'>
-                <div class="col-12">
-                    <h4>Select a State</h4>
-                    <div class="row">
-                        <div class="col-12">
-                            <form>
-                                <select name="State" class='selector' id="state-selector" autofocus="autofocus"
-                                    autocorrect="off" autocomplete="off" placeholder='Enter a State'>
-                                    <option value='' data-alternative-spellings='US' selected>All States</option>
-                                    <option value='us' data-alternative-spellings='US'>All States</option>
-                                    <option value="Alabama" data-alternative-spellings='AL'>Alabama</option>
-                                    <option value="Alaska" data-alternative-spellings='AK'>Alaska</option>
-                                    <option value="Arizona" data-alternative-spellings='AZ'>Arizona</option>
-                                    <option value="Arkansas" data-alternative-spellings='AS'>Arkansas</option>
-                                    <option value="California" data-alternative-spellings='CA'>California</option>
-                                    <option value="Colorado" data-alternative-spellings='CO'>Colorado</option>
-                                    <option value="Connecticut" data-alternative-spellings='CT'>Connecticut</option>
-                                    <option value="Delaware" data-alternative-spellings='DE'>Delaware</option>
-                                    <option value="Florida" data-alternative-spellings='FL'>Florida</option>
-                                    <option value="Georgia" data-alternative-spellings='GA'>Georgia</option>
-                                    <option value="Hawaii" data-alternative-spellings='HI'>Hawaii</option>
-                                    <option value="Idaho" data-alternative-spellings='ID'>Idaho</option>
-                                    <option value="Illinois" data-alternative-spellings='IL'>Illinois</option>
-                                    <option value="Indiana" data-alternative-spellings='IN'>Indiana</option>
-                                    <option value="Iowa" data-alternative-spellings='IA'>Iowa</option>
-                                    <option value="Kansas" data-alternative-spellings='KS'>Kansas</option>
-                                    <option value="Kentucky" data-alternative-spellings='KY'>Kentucky</option>
-                                    <option value="Louisiana" data-alternative-spellings='LA'>Louisiana</option>
-                                    <option value="Maine" data-alternative-spellings='ME'>Maine</option>
-                                    <option value="Maryland" data-alternative-spellings='MD'>Maryland</option>
-                                    <option value="Massachusetts" data-alternative-spellings='MA'>Massachusetts</option>
-                                    <option value="Michigan" data-alternative-spellings='MI'>Michigan</option>
-                                    <option value="Minnesota" data-alternative-spellings='MN'>Minnesota</option>
-                                    <option value="Mississippi" data-alternative-spellings='MS'>Mississippi</option>
-                                    <option value="Missouri" data-alternative-spellings='MO'>Missouri</option>
-                                    <option value="Montana" data-alternative-spellings='MT'>Montana</option>
-                                    <option value="Nebraska" data-alternative-spellings='NE'>Nebraska</option>
-                                    <option value="Nevada" data-alternative-spellings='NV'>Nevada</option>
-                                    <option value="New Hampshire" data-alternative-spellings='NH'>New Hampshire</option>
-                                    <option value="New Jersey" data-alternative-spellings='NJ'>New Jersey</option>
-                                    <option value="New Mexico" data-alternative-spellings='NM'>New Mexico</option>
-                                    <option value="New York" data-alternative-spellings='NY'>New York</option>
-                                    <option value="North Carolina" data-alternative-spellings='NC'>North Carolina
-                                    </option>
-                                    <option value="North Dakota" data-alternative-spellings='ND'>North Dakota</option>
-                                    <option value="Ohio" data-alternative-spellings='OH'>Ohio</option>
-                                    <option value="Oklahoma" data-alternative-spellings='OK'>Oklahoma</option>
-                                    <option value="Oregon" data-alternative-spellings='OR'>Oregon</option>
-                                    <option value="Pennsylvania" data-alternative-spellings='PA'>Pennsylvania</option>
-                                    <option value="Rhode Island" data-alternative-spellings='RI'>Rhode Island</option>
-                                    <option value="South Carolina" data-alternative-spellings='SC'>South Carolina
-                                    </option>
-                                    <option value="South Dakota" data-alternative-spellings='SD'>South Dakota</option>
-                                    <option value="Tennessee" data-alternative-spellings='TN'>Tennessee</option>
-                                    <option value="Texas" data-alternative-spellings='TX'>Texas</option>
-                                    <option value="Utah" data-alternative-spellings='UT'>Utah</option>
-                                    <option value="Vermont" data-alternative-spellings='VT'>Vermont</option>
-                                    <option value="Virginia" data-alternative-spellings='VA'>Virginia</option>
-                                    <option value="Washington" data-alternative-spellings='WA'>Washington</option>
-                                    <option value="West Virginia" data-alternative-spellings='WV'>West Virginia</option>
-                                    <option value="Wisconsin" data-alternative-spellings='WI'>Wisconsin</option>
-                                    <option value="Wyoming" data-alternative-spellings='WY'>Wyoming</option>
-                                </select>
-                            </form>
-                        </div>
+            <div class='col-6' id='total-cases-banner'>
+                <h3>Total U.S. COVID-19 Deaths</h3>
+                <hr>
+                <h3>Total number here</h3>
+            </div>
+        </div>
+        <div class='col-4' id='state-selector-box'>
+            <div class="col-12">
+                <h4>Select a State</h4>
+                <div class="row">
+                    <div class="col-12">
+                        <form>
+                            <select name="State" class='selector' id="state-selector" autofocus="autofocus"
+                                autocorrect="off" autocomplete="off" placeholder='Enter a State'>
+                                <option value='' data-alternative-spellings='US' selected>All States</option>
+                                <option value='us' data-alternative-spellings='US'>All States</option>
+                                <option value="Alabama" data-alternative-spellings='AL'>Alabama</option>
+                                <option value="Alaska" data-alternative-spellings='AK'>Alaska</option>
+                                <option value="Arizona" data-alternative-spellings='AZ'>Arizona</option>
+                                <option value="Arkansas" data-alternative-spellings='AS'>Arkansas</option>
+                                <option value="California" data-alternative-spellings='CA'>California</option>
+                                <option value="Colorado" data-alternative-spellings='CO'>Colorado</option>
+                                <option value="Connecticut" data-alternative-spellings='CT'>Connecticut</option>
+                                <option value="Delaware" data-alternative-spellings='DE'>Delaware</option>
+                                <option value="Florida" data-alternative-spellings='FL'>Florida</option>
+                                <option value="Georgia" data-alternative-spellings='GA'>Georgia</option>
+                                <option value="Hawaii" data-alternative-spellings='HI'>Hawaii</option>
+                                <option value="Idaho" data-alternative-spellings='ID'>Idaho</option>
+                                <option value="Illinois" data-alternative-spellings='IL'>Illinois</option>
+                                <option value="Indiana" data-alternative-spellings='IN'>Indiana</option>
+                                <option value="Iowa" data-alternative-spellings='IA'>Iowa</option>
+                                <option value="Kansas" data-alternative-spellings='KS'>Kansas</option>
+                                <option value="Kentucky" data-alternative-spellings='KY'>Kentucky</option>
+                                <option value="Louisiana" data-alternative-spellings='LA'>Louisiana</option>
+                                <option value="Maine" data-alternative-spellings='ME'>Maine</option>
+                                <option value="Maryland" data-alternative-spellings='MD'>Maryland</option>
+                                <option value="Massachusetts" data-alternative-spellings='MA'>Massachusetts</option>
+                                <option value="Michigan" data-alternative-spellings='MI'>Michigan</option>
+                                <option value="Minnesota" data-alternative-spellings='MN'>Minnesota</option>
+                                <option value="Mississippi" data-alternative-spellings='MS'>Mississippi</option>
+                                <option value="Missouri" data-alternative-spellings='MO'>Missouri</option>
+                                <option value="Montana" data-alternative-spellings='MT'>Montana</option>
+                                <option value="Nebraska" data-alternative-spellings='NE'>Nebraska</option>
+                                <option value="Nevada" data-alternative-spellings='NV'>Nevada</option>
+                                <option value="New Hampshire" data-alternative-spellings='NH'>New Hampshire</option>
+                                <option value="New Jersey" data-alternative-spellings='NJ'>New Jersey</option>
+                                <option value="New Mexico" data-alternative-spellings='NM'>New Mexico</option>
+                                <option value="New York" data-alternative-spellings='NY'>New York</option>
+                                <option value="North Carolina" data-alternative-spellings='NC'>North Carolina
+                                </option>
+                                <option value="North Dakota" data-alternative-spellings='ND'>North Dakota</option>
+                                <option value="Ohio" data-alternative-spellings='OH'>Ohio</option>
+                                <option value="Oklahoma" data-alternative-spellings='OK'>Oklahoma</option>
+                                <option value="Oregon" data-alternative-spellings='OR'>Oregon</option>
+                                <option value="Pennsylvania" data-alternative-spellings='PA'>Pennsylvania</option>
+                                <option value="Rhode Island" data-alternative-spellings='RI'>Rhode Island</option>
+                                <option value="South Carolina" data-alternative-spellings='SC'>South Carolina
+                                </option>
+                                <option value="South Dakota" data-alternative-spellings='SD'>South Dakota</option>
+                                <option value="Tennessee" data-alternative-spellings='TN'>Tennessee</option>
+                                <option value="Texas" data-alternative-spellings='TX'>Texas</option>
+                                <option value="Utah" data-alternative-spellings='UT'>Utah</option>
+                                <option value="Vermont" data-alternative-spellings='VT'>Vermont</option>
+                                <option value="Virginia" data-alternative-spellings='VA'>Virginia</option>
+                                <option value="Washington" data-alternative-spellings='WA'>Washington</option>
+                                <option value="West Virginia" data-alternative-spellings='WV'>West Virginia</option>
+                                <option value="Wisconsin" data-alternative-spellings='WI'>Wisconsin</option>
+                                <option value="Wyoming" data-alternative-spellings='WY'>Wyoming</option>
+                            </select>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <div class='col-md-1'><br></div> -->
-    <div class='container'>
-        <div class='col-12' id='total-county-cloropleth'>
+    <div class='row'>
+        <div class='col-12' id='us-cloropleth'>
             <div class='white'>
-                <h1 class="page-header">US Cloropleth</h1>
-                <div class="col-12 figure" id='us-cloropleth'>
+                <h1 class="page-header text-center">US Cloropleth</h1>
+                <p class='text-center'>Select a layer to cycle between available statistics | Enter a state above to zoom to selection and generate state data | Click a county to view county data for selected layer.</p>
+                <hr>
+                <div class="figure center" id='total-county-cloropleth'>
                 </div>
             </div>
         </div>
     </div>
-    <div class='container'>
-        <div class='row'>
-            <div class='col-6'>
+    <div class='row'>
+        <div class='col-6'>
+            <div class='white'>
                 <h1 class="page-header">[State] County Cases: Top Ten</h1>
                 <hr>
-                <section class="figure">
-                    <table class='figure' id='top-cases-counties'>
-                    </table>
-                </section>
+                <div class='figure' id='top-cases-counties'>
+                </div>
             </div>
-            <div class='col-6'>
+        </div>
+        <div class='col-6'>
+            <div class='white'>
                 <h1 class="page-header">[State] County Death Rate: Top Ten</h1>
                 <hr>
-                <section class="figure">
-                    <table class=' table table-striped' id='top-death-counties'>
-                    </table>
-                </section>
+                <div class='figure' id='top-death-counties'>
+                </div>
             </div>
         </div>
     </div>
-    <div class='container'>
-        <div class='row'>
-            <div class='col-6'>
+    <div class='row'>
+        <div class='col-6'>
+            <div class='white'>
                 <h1 class="page-header">US Counties with Highest Death Rates</h1>
                 <hr>
-                <section class="figure">
-                    <div id='top-ten-us-counties'>
-                    </div>
-                </section>
+                <div id='top-ten-us-counties'>
+                </div>
             </div>
-            <div class='col-6'>
+            
+        </div>
+        <div class='col-6'>
+            <div class='white'>
                 <h1 class="page-header">[State] COVID-19 News</h1>
                 <hr>
-                <section class="figure">
-                    <table class='figure' id='nyt-state-timeseries'>
-                    </table>
-                </section>
-            </div>
+                <div>
+                    <table class='table table-striped' id='rss-news-scrape'>
+                    </table> 
+                </div>
+            </div>  
         </div>
     </div>
     

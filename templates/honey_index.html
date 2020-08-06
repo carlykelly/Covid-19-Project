@@ -45,77 +45,40 @@
     
         <!-- <script src="jquery-ui.min.js"></script>
             <script src="jquery.select-to-autocomplete.js"></script> -->
-        <!-- May want to put the below in our Javascript. For sure want to change the alert. -->
-        <script>
-            (function ($) {
-                $(function () {
-                    $('select').selectToAutocomplete();
-                    $('form').submit(function () {
-                        alert($(this).serialize());
-                        return false;
-                    });
+    <!-- May want to put the below in our Javascript. For sure want to change the alert. -->
+    <script>
+        (function ($) {
+            $(function () {
+                $('select').selectToAutocomplete();
+                $('form').submit(function () {
+                    alert($(this).serialize());
+                    return false;
                 });
-            })(jQuery);
-        </script>
-      
-        <!--MODIFIED THE HREF FOR THE CSS FILE-->
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+            });
+        })(jQuery);
+    </script>
+    <!--MODIFIED THE HREF FOR THE CSS FILE-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
 
-       
-    </head>
-    
-    <body>
-        <nav class="nonburger navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand mr-auto" href="{{ url_for('home') }}">
-                <h1 id="logo">Just a COVID Dashboard</h1>
-            </a>
-            <a class='navbar-data-links mr-auto' href="{{ url_for('home') }}">
-                <h3 href="{{ url_for('home') }}">Data</h3>
-            </a>
-            <a class='navbar-data-links mr-auto' href="{{ url_for('honey_index') }}">
-                <h3 href="{{ url_for('honey_index') }}">Data Comparison</h3>
-            </a>
-            <a class='navbar-data-links mr-auto' href="{{ url_for('integrity_index') }}">
-                <h3 href="{{ url_for('integrity_index') }}">Data Integrity</h3>
-            </a>
-            <a class='navbar-data-links mr-auto' href="{{ url_for('about_index') }}">
-                <h3 href="{{ url_for('about_index') }}">About Us</h3>
-            </a>
-        </nav>
-        <!-- Hamburger -->
-        <nav class="hamburger navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="WebDesignChallenge.html">Just a COVID Dashboard</a>
-            <button class="hamburger navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class='navbar-data-links mr-auto' href="{{ url_for('home') }}">
-                            <h3>Data</h3>
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class='navbar-data-links mr-auto' href="{{ url_for('honey_index') }}">
-                            <h3 href="{{ url_for('honey_index') }}">Data Comparison</h3>
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class='navbar-data-links mr-auto' href="{{ url_for('integrity_index') }}">
-                            <h3 href="{{ url_for('integrity_index') }}">Data Integrity</h3>
-                        </a>
-                    </li>
-                    </li>
-                    <li class="nav-item active">
-                        <a class='navbar-data-links mr-auto' href="{{ url_for('about_index') }}">
-                            <h3 href="{{ url_for('about_index') }}">About Us</h3>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+<body>
+    <nav class="nonburger navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand mr-auto" href="{{ url_for('home') }}">
+            <h1 id="logo">Just a COVID Dashboard</h1>
+        </a>
+        <a class='navbar-data-links mr-auto' href="{{ url_for('home') }}">
+            <h3 href="{{ url_for('home') }}">Data</h3>
+        </a>
+        <a class='navbar-data-links mr-auto' href="{{ url_for('honey_index') }}">
+            <h3 href="{{ url_for('honey_index') }}">Data Comparison</h3>
+        </a>
+        <a class='navbar-data-links mr-auto' href="{{ url_for('integrity_index') }}">
+            <h3 href="{{ url_for('integrity_index') }}">Data Integrity</h3>
+        </a>
+        <a class='navbar-data-links mr-auto' href="{{ url_for('about_index') }}">
+            <h3 href="{{ url_for('about_index') }}">About Us</h3>
+        </a>
+    </nav>
     <!-- Hamburger -->
     <nav class="hamburger navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="WebDesignChallenge.html">Just a COVID Dashboard</a>
@@ -128,23 +91,23 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class='navbar-data-links mr-auto' href="{{ url_for('home') }}">
-                        <h3 id='our-data'>Data</h3>
+                        <h3>Data</h3>
                     </a>
                 </li>
                 <li class="nav-item active">
                     <a class='navbar-data-links mr-auto' href="{{ url_for('honey_index') }}">
-                        <h3 id='atlantic-data' href="{{ url_for('honey_index') }}">Data Comparison</h3>
+                        <h3 href="{{ url_for('honey_index') }}">Data Comparison</h3>
                     </a>
                 </li>
                 <li class="nav-item active">
                     <a class='navbar-data-links mr-auto' href="{{ url_for('integrity_index') }}">
-                        <h3 id='nyt-data' href="{{ url_for('integrity_index') }}">Data Integrity</h3>
+                        <h3 href="{{ url_for('integrity_index') }}">Data Integrity</h3>
                     </a>
                 </li>
                 </li>
                 <li class="nav-item active">
                     <a class='navbar-data-links mr-auto' href="{{ url_for('about_index') }}">
-                        <h3 id='additional-data' href="{{ url_for('about_index') }}">About Us</h3>
+                        <h3 href="{{ url_for('about_index') }}">About Us</h3>
                     </a>
                 </li>
             </ul>
@@ -233,12 +196,13 @@
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
     <div class='container'>
         <div class='row'>
             <div class='col-8'>
-                <h1 class="page-header">New York Times Honeycomb: Ideally, we can get tabs for both honeycombs to populate here</h1>
+                <h1 class="page-header">New York Times Honeycomb: Ideally, we can get tabs for both honeycombs to
+                    populate here</h1>
                 <hr>
                 <section class="figure" id='nyt-country-honeycomb'>
                     <p>NYT Honeycomb Map will go here
@@ -248,16 +212,17 @@
             <div class='col-4'>
                 <h1 class="page-header">NYT/Atlantic Data Comparison</h1>
                 <hr>
-                <section class="table" >
-                  <div id='honeycomb-difference-table'>
+                <section class="table">
+                    <div id='honeycomb-difference-table'>
 
-                  </div>
+                    </div>
                 </section>
             </div>
         </div>
         <div class='row'>
             <div class='col-8'>
-                <h1 class="page-header">Atlantic Honeycomb: ideally, this will be display the differences in the data (or Honeycomb of the data score)</h1>
+                <h1 class="page-header">Atlantic Honeycomb: ideally, this will be display the differences in the data
+                    (or Honeycomb of the data score)</h1>
                 <hr>
                 <section class="figure" id='atl-country-honeycomb'>
                     <p>Atlantic Honeycomb Map will go here
@@ -275,7 +240,8 @@
         </div>
         <div class='row'>
             <div class='col-6'>
-                <h1 class="page-header">Case Timeseries: ideally, this will show NYT/ATL/Both depending on selection</h1>
+                <h1 class="page-header">Case Timeseries: ideally, this will show NYT/ATL/Both depending on selection
+                </h1>
                 <hr>
                 <section class="figure">
                     <div class='figure ' id='case-timeseries'></div>
@@ -289,11 +255,12 @@
                 </section>
             </div>
             <div class='col-6'>
-                <h1 class="page-header">Death Timeseries: ideally, this will show NYT/ATL/Both depending on selection</h1>
+                <h1 class="page-header">Death Timeseries: ideally, this will show NYT/ATL/Both depending on selection
+                </h1>
                 <hr>
                 <section class="figure">
                     <div class='figure' id='death-timeseries'></div>
-                    
+
 
                 </section>
             </div>
