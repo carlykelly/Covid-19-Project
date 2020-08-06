@@ -91,7 +91,7 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class='navbar-data-links mr-auto' href='index.html'>
-                        <h3 id='our-data'>Data</h3>
+                        <h3 id='our-data' href='#'>Data</h3>
                     </a>
                 </li>
                 <li class="nav-item active">
@@ -123,7 +123,7 @@
                     <h3>Total number here</h3>
                 </div>
                 <div class='col-6' id='total-cases-banner'>
-                    <h3>Total U.S. COVID-19 Deaths</h3>
+                    <h3>Total U.S. COVID-19 Cases</h3>
                     <hr>
                     <h3>Total number here</h3>
                 </div>
@@ -196,68 +196,72 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- <div class='col-md-1'><br></div> -->
-    <div class='container'>
-        <div class='col-12' id='total-county-cloropleth'>
-            <div class='white'>
-                <h1 class="page-header">US Cloropleth</h1>
-                <div class="col-12 figure" id='us-cloropleth'>
-                </div>
-            </div>
-        </div>
+        </div>  
     </div>
     <div class='container'>
         <div class='row'>
-            <div class='col-6'>
-                <h1 class="page-header"> Top Ten State Counties</h1>
+            <div class='col-8'>
+                <h1 class="page-header">New York Times Honeycomb: Ideally, we can get tabs for both honeycombs to populate here</h1>
                 <hr>
-                <section class="figure">
-                    <table class='figure' id='top-five-counties'>
-                    </table>
+                <section class="figure" id='nyt-country-honeycomb'>
+                    <p>NYT Honeycomb Map will go here
+                    </p>
                 </section>
             </div>
-            <div class='col-6'>
-                <h1 class="page-header">County Information</h1>
+            <div class='col-4'>
+                <h1 class="page-header">NYT/Atlantic Data Comparison</h1>
                 <hr>
-                <section class="figure">
-                    <table class=' table table-striped' id='county-info'>
-                    </table>
+                <section class="table" id='honeycomb-difference-table'>
+                    <p>table to compare the NYT to the Atlantic data (statistics for both, maybe percent difference based on population) for the state selected
+                    </p>
                 </section>
             </div>
         </div>
-    </div>
-    <div class='container'>
+        <div class='row'>
+            <div class='col-8'>
+                <h1 class="page-header">Atlantic Honeycomb: ideally, this will be display the differences in the data (or Honeycomb of the data score)</h1>
+                <hr>
+                <section class="figure" id='atl-country-honeycomb'>
+                    <p>Atlantic Honeycomb Map will go here
+                    </p>
+                </section>
+            </div>
+            <div class='col-4'>
+                <h1 class="page-header">Data Reliability</h1>
+                <hr>
+                <section class="jumbotron" id='data-reliability-score'>
+                    <p>provides the data score provided by the Atlantic for the state selected
+                    </p>
+                </section>
+            </div>
+        </div>
         <div class='row'>
             <div class='col-6'>
-                <h1 class="page-header"> Top Ten US Counties</h1>
+                <h1 class="page-header">Case Timeseries: ideally, this will show NYT/ATL/Both depending on selection</h1>
                 <hr>
                 <section class="figure">
-                    <div id='top-five-us-counties'>
-                    </div>
+                    <table class='figure' id='case-timeseries'>
+                    </table>
                 </section>
             </div>
             <div class='col-6'>
-                <h1 class="page-header">NYT Timeseries</h1>
+                <h1 class="page-header">Death Timeseries: ideally, this will show NYT/ATL/Both depending on selection</h1>
                 <hr>
                 <section class="figure">
-                    <table class='figure' id='nyt-state-timeseries'>
+                    <table class='figure' id='death-timeseries'>
                     </table>
                 </section>
             </div>
         </div>
     </div>
-    
     <!-- <script src="../StarterCode/static/js/app.js"></script> -->
     <!--MODIFIED THE NEXT TWO SCRIPT FILE PATHS-->
     <script src="../static/js/choropleth.js"></script>
     <script src="../static/js/config.js"></script>
-    <script src="../static/js/app_Clemi.js"></script>
-    <!--<script src="../static/js/app_CK.js"></script>
-    <script src="../static/js/app_CM.js"></script>
+    <script src="../static/js/app_Clemi_hon.js"></script>
+    <script src="../static/js/app_CK.js"></script>
+    <!--<script src="../static/js/app_CM.js"></script>
     <script src="../static/js/app_SS.js"></script>-->
-
 </body>
 
 <!-- Start of footer -->
