@@ -80,6 +80,18 @@ from pymongo import MongoClient
 @app.route("/")
 def home():
     return render_template("index.html")
+    
+@app.route('/honey_index/')
+def honey_index():
+    return render_template("honey_index.html")
+
+@app.route('/integrity_index/')
+def integrity_index():
+    return render_template("integrity_index.html")
+    
+@app.route('/about_index/')
+def about_index():
+    return render_template("about_index.html")
 
 @app.route("/api/state_population")
 def state_population():

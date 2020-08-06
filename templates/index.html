@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Covid in the USA</title>
-    <!--<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">-->
-    <link rel="shortcut icon" type="image/x-icon" href="../static/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -25,12 +24,9 @@
     <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
         integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
         crossorigin=""></script>
-    <!--<script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/jquery.select-to-autocomplete.js') }}"></script>-->
-    <script src="../static/js/jquery-1.11.1.min.js"></script>
-    <script src="../static/js/jquery-ui.min.js"></script>
-    <script src="../static/js/jquery.select-to-autocomplete.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.select-to-autocomplete.js') }}"></script>
     <!--For Mapbox GL to work -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css' rel='stylesheet' />
@@ -58,25 +54,25 @@
         })(jQuery);
     </script>
     <!--MODIFIED THE HREF FOR THE CSS FILE-->
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
     <nav class="nonburger navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand mr-auto" href="index.html">
+        <a class="navbar-brand mr-auto" href="{{ url_for('home') }}">
             <h1 id="logo">Just a COVID Dashboard</h1>
         </a>
-        <a class='navbar-data-links mr-auto' href='index.html'>
-            <h3 id='our-data' href='#'>Data</h3>
+        <a class='navbar-data-links mr-auto' href="{{ url_for('home') }}">
+            <h3 href="{{ url_for('home') }}">Data</h3>
         </a>
-        <a class='navbar-data-links mr-auto' href='honey_index.html'>
-            <h3 id='atlantic-data' href='#'>Data Comparison</h3>
+        <a class='navbar-data-links mr-auto' href="{{ url_for('honey_index') }}">
+            <h3 href="{{ url_for('honey_index') }}">Data Comparison</h3>
         </a>
-        <a class='navbar-data-links mr-auto' href='integrity_index.html'>
-            <h3 id='nyt-data' href='#'>Data Integrity</h3>
+        <a class='navbar-data-links mr-auto' href="{{ url_for('integrity_index') }}">
+            <h3 href="{{ url_for('integrity_index') }}">Data Integrity</h3>
         </a>
-        <a class='navbar-data-links mr-auto' href='about_index.html'>
-            <h3 id='additional-data' href='#'>About Us</h3>
+        <a class='navbar-data-links mr-auto' href="{{ url_for('about_index') }}">
+            <h3 href="{{ url_for('about_index') }}">About Us</h3>
         </a>
     </nav>
     <!-- Hamburger -->
@@ -90,24 +86,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class='navbar-data-links mr-auto' href='index.html'>
-                        <h3 id='our-data'>Data</h3>
+                    <a class='navbar-data-links mr-auto' href="{{ url_for('home') }}">
+                        <h3>Data</h3>
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a class='navbar-data-links mr-auto' href='honey_index.html'>
-                        <h3 id='atlantic-data' href='#'>Data Comparison</h3>
+                    <a class='navbar-data-links mr-auto' href="{{ url_for('honey_index') }}">
+                        <h3 href="{{ url_for('honey_index') }}">Data Comparison</h3>
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a class='navbar-data-links mr-auto' href='integrity_index.html'>
-                        <h3 id='nyt-data' href='#'>Data Integrity</h3>
+                    <a class='navbar-data-links mr-auto' href="{{ url_for('integrity_index') }}">
+                        <h3 href="{{ url_for('integrity_index') }}">Data Integrity</h3>
                     </a>
                 </li>
                 </li>
                 <li class="nav-item active">
-                    <a class='navbar-data-links mr-auto' href='about_index.html'>
-                        <h3 id='additional-data' href='#'>About Us</h3>
+                    <a class='navbar-data-links mr-auto' href="{{ url_for('about_index') }}">
+                        <h3 href="{{ url_for('about_index') }}">About Us</h3>
                     </a>
                 </li>
             </ul>
@@ -211,18 +207,18 @@
     <div class='container'>
         <div class='row'>
             <div class='col-6'>
-                <h1 class="page-header"> Top Ten State Counties</h1>
+                <h1 class="page-header">[State] County Cases: Top Ten</h1>
                 <hr>
                 <section class="figure">
-                    <table class='figure' id='top-five-counties'>
+                    <table class='figure' id='top-cases-counties'>
                     </table>
                 </section>
             </div>
             <div class='col-6'>
-                <h1 class="page-header">County Information</h1>
+                <h1 class="page-header">[State] County Death Rate: Top Ten</h1>
                 <hr>
                 <section class="figure">
-                    <table class=' table table-striped' id='county-info'>
+                    <table class=' table table-striped' id='top-death-counties'>
                     </table>
                 </section>
             </div>
@@ -231,15 +227,15 @@
     <div class='container'>
         <div class='row'>
             <div class='col-6'>
-                <h1 class="page-header"> Top Ten US Counties</h1>
+                <h1 class="page-header">US Counties with Highest Death Rates</h1>
                 <hr>
                 <section class="figure">
-                    <div id='top-five-us-counties'>
+                    <div id='top-ten-us-counties'>
                     </div>
                 </section>
             </div>
             <div class='col-6'>
-                <h1 class="page-header">NYT Timeseries</h1>
+                <h1 class="page-header">[State] COVID-19 News</h1>
                 <hr>
                 <section class="figure">
                     <table class='figure' id='nyt-state-timeseries'>
