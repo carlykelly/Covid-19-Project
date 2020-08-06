@@ -10,6 +10,8 @@ var baseMaps
   var geojson;
   var cases;
   var patient_mortality;
+  var outlineLayer
+  var outline
   
   // Grab data with d3
   d3.json(geoData).then(function(data) {
@@ -182,6 +184,10 @@ var baseMaps
           this.removeControl(legend)
           this.removeControl(legendMort)
           this.removeControl(legendCase)
+          if(outline){
+            myMap.removeLayer(outline)
+            outline.addTo(myMap)
+            }
           if(eventlayer.name == 'Cases Rate'){
             legendCase.addTo(myMap)
           }
@@ -201,30 +207,47 @@ var baseMaps
           state = d3.select("#state-selector").node().value;
           //console.log(state)
           var poly = data2.features.filter(a => a.properties.name == state)
-          //console.log(poly)
+          var stategeo = {"type":"FeatureCollection","features":poly}
+          console.log(poly)
+          console.log(poly[0].geometry.coordinates)
+          geoCords = poly[0].geometry.coordinates
+          console.log(stategeo)
           var coordinates = stateCoordDict[state]
           //console.log(coordinates)
-          var zoom = myMap.options.zoom
           var graphCoords = myMap.options.center
           //console.log(graphCoords)
           //console.log(zoom)
           graphCoords = coordinates
           //myMap.panTo(new L.LatLng(coordinates[0],coordinates[1]))
-          if(state != 'us' && state != 'Alaska'){
-            //myMap.setZoom(7)
+          if(state != 'us' && state != 'Alaska' && state != 'California' && state !='Texas' && state !='Hawaii' && state != 'Nevada' && state != 'New Mexico' && state != 'Idaho' && state != 'Montana' && state != 'Minnesota' && state != 'North Dakota' && state != 'South Dakota' && state != 'Illinois' && state != 'Oklahoma' && state != 'Arizona'&& state != 'Colorado' && state != "Kansas"){
             myMap.setView(coordinates, 7)
-            var stateCoords = []
-            var lotsOfCords = poly[0].geometry.coordinates
-            for(i=0; i<lotsOfCords.length; i++){
-              stateCoords.push(lotsOfCords[i])
-            }
-            console.log(stateCoords[0])
-            L.polygon(stateCoords[0],
-              {
-                color: "blue",
-                fillColor: "blue",
-                fillOpacity: 100
+            if(outline){
+            myMap.removeLayer(outline)
+            };
+            outline = L.geoJSON(poly[0].geometry, {
+              color: "black",
+              weight: 5,
+              opacity: 2,
+              interactive: false,
+              fillOpacity: 0
+            }).addTo(myMap)
+          }
+
+          else if(state == 'Texas' || state == 'California' || state == 'Nevada' || state == 'New Mexico'|| state == 'Idaho' || state == 'Montana' || state == 'Minnesota'|| state == 'North Dakota'|| state == 'South Dakota'|| state == 'Illinois'|| state == 'Oklahoma'|| state == 'Arizona'|| state == 'Colorado'|| state == "Kansas"){
+            myMap.setView(coordinates, 6)
+            if(outline){
+              myMap.removeLayer(outline)
+              };
+              outline = L.geoJSON(poly[0].geometry, {
+                color: "black",
+                weight: 5,
+                opacity: 2,
+                interactive: false,
+                fillOpacity: 0
               }).addTo(myMap)
+          }
+          else if(state == 'Hawaii'){
+            myMap.setView(coordinates, 6)
           }
           else{
             //myMap.setZoom(4)
@@ -267,24 +290,24 @@ stateCoordDict = {
   "New Hampshire": [43.1939, -71.5724] ,
   "New Jersey": [40.0583, -74.4057],
   "New Mexico": [34.5199, -105.8701],
-  "New York": [40.7128, -74.0060],
-  "North Carolina": [35.7596, -79.0193],
+  "New York": [42.9128, -76.0060],
+  "North Carolina": [35.7596, -80.0193],
   "North Dakota": [47.5515, -101.0020],
   "Ohio": [40.4173, -82.9071],
-  "Oklahoma": [35.0078, 97.0929],
+  "Oklahoma": [35.0078, -97.0929],
   "Oregon": [43.8041, -120.5542],
   "Pennsylvania": [41.2033, -77.1945],
   "Rhode Island": [41.5801, -71.4774],
   "South Carolina": [33.8361, -81.1637],
   "South Dakota": [43.9695, -99.9018],
   "Tennessee": [35.5175, -86.5804],
-  "Texas": [31.9686, -99.9018],
+  "Texas": [30.9686, -99.9018],
   "Utah": [39.3210, -111.0937],
   "Vermont": [44.5588, -72.5778],
-  "Virginia": [37.4316, -78.6569],
-  "Washington": [47.7511, -120.7401],
+  "Virginia": [37.4316, -79.6569],
+  "Washington": [46.7511, -120.7401],
   "West Virginia": [38.5976, -80.4549],
-  "Wisconsin": [43.7844, -88.7879],
+  "Wisconsin": [44.2844, -88.7879],
   "Wyoming": [43.0760, -107.2903],
   "us": [38.7003, -93.7095]
 }
