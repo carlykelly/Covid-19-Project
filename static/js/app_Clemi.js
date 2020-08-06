@@ -64,7 +64,7 @@ function updateDash(){
             }
         }]
           
-        Plotly.newPlot('top-five-us-counties', data);
+        Plotly.newPlot('top-ten-us-counties', data);
 
 
     })
@@ -138,7 +138,7 @@ function updateDash(){
             }
         };
         var config = {responsive: true}           
-        Plotly.newPlot('top-five-counties', data,layout,config);
+        Plotly.newPlot('top-death-counties', data,layout,config);
 
 
         ///////////////////// Cases per population  ////////////////////
@@ -201,7 +201,7 @@ function updateDash(){
             }
         };
         var config = {responsive: true}           
-        Plotly.newPlot('county-info', data,layout,config);
+        Plotly.newPlot('top-cases-counties', data,layout,config);
 
 
     })
@@ -354,21 +354,6 @@ function updateDash(){
 
 
     })
-
-
-    ///////// Test for honey. Delete after use
-    d3.json(nyt_state).then(function(nyt){
-        console.log("NYT Data")
-        console.log(nyt)
-
-        d3.json(honey_atlantic).then(function(atl){
-            console.log("Atlantic Data")
-            console.log(atl)
-
-        })
-
-    })
-
 
 
 
