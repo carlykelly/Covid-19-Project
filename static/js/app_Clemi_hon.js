@@ -916,7 +916,7 @@ function updateDash(){
         }]
     });
 
-    // Data Sources Comparison
+    //Honey Comb Difference Table
     d3.json(nyt_state).then(function(NYT){
         d3.json(honey_atlantic).then(function(ATL){
             d3.json(population).then(function(POP){
@@ -927,33 +927,33 @@ function updateDash(){
                 var default_state="Alaska"
             
                 selectedCovidnyt=NYT.filter(c=>c.State==default_state)
-                console.log(selectedCovidnyt)
+                //console.log(selectedCovidnyt)
                 var NYT_cases=selectedCovidnyt[0].cases
                 var NYT_deaths=selectedCovidnyt[0].deaths
-                console.log(NYT_deaths)
+                //console.log(NYT_deaths)
 
                 selectedCovid_atl=ATL.filter(a=>a.State==default_state)
-                console.log(selectedCovid_atl)
+                //console.log(selectedCovid_atl)
                 var ATL_cases=selectedCovid_atl[0].PositiveTests
                 var ATL_deaths=selectedCovid_atl[0].Deaths
-                console.log(ATL_deaths)
+                //console.log(ATL_deaths)
 
                 selectedCovid_pop=POP.filter(a=>a.State==default_state)
-                console.log( selectedCovid_pop)
+                //console.log( selectedCovid_pop)
                 var population=selectedCovid_pop[0].Population
-                console.log(population)
+                //console.log(population)
 
                 //// Calculating percent different in cases
                 var calculation_cases=(Math.abs(NYT_cases-ATL_cases)/population)*100
                 /// round to 4 decimal places
                 var percent_difference_cases=calculation_cases.toFixed(4)
-                console.log(percent_difference_cases)
+                //console.log(percent_difference_cases)
 
                 /// Calculating percent different in deaths
                 var calculation_deaths=(Math.abs(NYT_deaths-ATL_deaths)/population)*100
                 /// round to 4 decimal places
                 var percent_difference_deaths=calculation_deaths.toFixed(4)
-                console.log(percent_difference_deaths)
+                //console.log(percent_difference_deaths)
 
 
                 // Make table//
@@ -966,19 +966,20 @@ function updateDash(){
                 
                 var data=[{
                     type:'table',
+                    columnwidth: [8000,4000,4000],
                     header:{
                         values:[["<b> </b>"],["<b>Cases</b>"],["<b>Deaths</b>"]],
                         
                         align: "center",
                         line: {width: 1, color: 'black'},
                         fill: {color: "grey"},
-                        font: {family: "Arial", size: 12, color: "white"}
+                        font: {family: "Arial", size: 20, color: "white"}
                         },
                     cells: {
                         values: values,
                         align: "center",
                         line: {color: "black", width: 1},
-                        font: {family: "Arial", size: 11, color: ["black"]}
+                        font: {family: "Arial", size: 16, color: ["black"]}
                     }
                 }]
 
@@ -1039,7 +1040,7 @@ function updateDash(){
             var trace1 = {
                 type: "scatter",
                 mode: "lines",
-                name: 'COVID cases NYT',
+                name: 'The New York Times   ',
                 x: nyt_timeseries_dates,
                 y: nyt_timeseries_cases,
                 line: {color: '#B123FF'}
@@ -1048,7 +1049,7 @@ function updateDash(){
             var trace2 = {
                 type: "scatter",
                 mode: "lines",
-                name: 'COVID Deaths NYT',
+                name: 'The New York Times   ',
                 x: nyt_timeseries_dates,
                 y: nyt_timeseries_deaths,
                 line: {color: '#FF2371'}
@@ -1057,7 +1058,7 @@ function updateDash(){
             var trace3 = {
                 type: "scatter",
                 mode: "lines",
-                name: 'COVID Cases Atlantic',
+                name: 'The Atlantic   ',
                 x: atl_timeseries_dates,
                 y: atl_timeseries_cases,
                 line: {color: '#71FF23'}
@@ -1066,7 +1067,7 @@ function updateDash(){
             var trace4 = {
                 type: "scatter",
                 mode: "lines",
-                name: 'COVID Deaths Atlantic',
+                name: 'The Atlantic   ',
                 x: atl_timeseries_dates,
                 y: atl_timeseries_deaths,
                 line: {color: '#23FFB1'}
@@ -1077,8 +1078,15 @@ function updateDash(){
              ///// Deaths  //////////
             var data2 = [trace2,trace4];
 
+    
+
             var layout = {
-                title: `Time Series of COVID Related Cases in ${default_state} (NYT and ATL)`,
+                showlegend:true,
+                legend:{"orientation":"h",
+                y:-1
+            },
+                width:500,
+                title: `Time Series of COVID Related Cases in ${default_state} <br> (New York Times and The Atlantic)`,
                 xaxis:{
                     autorange:true,
                     range:['03-05-2020','07-28-2020'],
@@ -1109,7 +1117,12 @@ function updateDash(){
 
 
             var layout2 = {
-                title: `Time Series of COVID Related Deaths in ${default_state} (NYT and ATL)`,
+                showlegend:true,
+                legend:{"orientation":"h",
+                y:-1
+                },
+                width:500,
+                title: `Time Series of COVID Related Deaths in ${default_state}<br> (New York Times and The Atlantic)`,
                 xaxis:{
                     autorange:true,
                     range:['03-05-2020','07-28-2020'],
@@ -1138,12 +1151,33 @@ function updateDash(){
 
             };
 
+
         
             Plotly.newPlot('case-timeseries', data, layout);
             Plotly.newPlot('death-timeseries', data2, layout2);
 
-        
 
+            $('.hideshow button').click(function(){
+                var btn_id = this.parentNode.id,
+                    data_index = ( btn_id === 'top' ) ? 0 : 1,
+                    myDiv = document.getElementById("case-timeseries"),
+                    visible = myDiv.data[data_index].visible;
+              
+                if( visible === undefined ) visible = true;
+              
+                Plotly.restyle("case-timeseries", 'visible', !visible, data_index);
+            });
+
+            $('.hideshow button').click(function(){
+                var btn_id = this.parentNode.id,
+                    data_index = ( btn_id === 'top' ) ? 0 : 1,
+                    myDiv = document.getElementById("death-timeseries"),
+                    visible = myDiv.data[data_index].visible;
+              
+                if( visible === undefined ) visible = true;
+              
+                Plotly.restyle("death-timeseries", 'visible', !visible, data_index);
+            });
 
 
 
@@ -1154,14 +1188,87 @@ function updateDash(){
     
 
 
-
-
-
  //////////////////////////////////////////////////////////////////////////////////////////////
  //                 S E L E C T   S T A T E                ///
     d3.select('form').on('change',function(d){
-      
-        
+
+            //Honey Comb Difference Table
+        d3.json(nyt_state).then(function(NYT){
+            d3.json(honey_atlantic).then(function(ATL){
+                d3.json(population).then(function(POP){
+                    //console.log(NYT)
+                    //console.log(ATL)
+                    //console.log(POP)
+
+                    var default_state="Alaska"
+                
+                    selectedCovidnyt=NYT.filter(c=>c.State==default_state)
+                    //console.log(selectedCovidnyt)
+                    var NYT_cases=selectedCovidnyt[0].cases
+                    var NYT_deaths=selectedCovidnyt[0].deaths
+                    //console.log(NYT_deaths)
+
+                    selectedCovid_atl=ATL.filter(a=>a.State==default_state)
+                    //console.log(selectedCovid_atl)
+                    var ATL_cases=selectedCovid_atl[0].PositiveTests
+                    var ATL_deaths=selectedCovid_atl[0].Deaths
+                    //console.log(ATL_deaths)
+
+                    selectedCovid_pop=POP.filter(a=>a.State==default_state)
+                    //console.log( selectedCovid_pop)
+                    var population=selectedCovid_pop[0].Population
+                    //console.log(population)
+
+                    //// Calculating percent different in cases
+                    var calculation_cases=(Math.abs(NYT_cases-ATL_cases)/population)*100
+                    /// round to 4 decimal places
+                    var percent_difference_cases=calculation_cases.toFixed(4)
+                    //console.log(percent_difference_cases)
+
+                    /// Calculating percent different in deaths
+                    var calculation_deaths=(Math.abs(NYT_deaths-ATL_deaths)/population)*100
+                    /// round to 4 decimal places
+                    var percent_difference_deaths=calculation_deaths.toFixed(4)
+                    //console.log(percent_difference_deaths)
+
+
+                    // Make table//
+                    var values=[
+                        ["New York Times","The Atlantic", "% Difference per population"],
+                        [NYT_cases,ATL_cases,percent_difference_cases],
+                        [NYT_deaths,ATL_deaths,percent_difference_deaths]
+
+                    ]
+                    
+                    var data=[{
+                        type:'table',
+                        header:{
+                            values:[["<b> </b>"],["<b>Cases</b>"],["<b>Deaths</b>"]],
+                            
+                            align: "center",
+                            line: {width: 1, color: 'black'},
+                            fill: {color: "grey"},
+                            font: {family: "Arial", size: 12, color: "white"}
+                            },
+                        cells: {
+                            values: values,
+                            align: "center",
+                            line: {color: "black", width: 1},
+                            font: {family: "Arial", size: 11, color: ["black"]}
+                        }
+                    }]
+
+                    Plotly.newPlot('honeycomb-difference-table', data);
+                        
+
+                })
+
+
+            })
+        })
+
+
+       ////////////////// Time series //////////////////// 
         d3.json(time_nyt).then(function(nyt){
             //console.log("NYT Data")
             //console.log(nyt)
@@ -1197,7 +1304,7 @@ function updateDash(){
                 var trace1 = {
                     type: "scatter",
                     mode: "lines",
-                    name: 'COVID cases NYT',
+                    name: 'The New York Times   ',
                     x: nyt_timeseries_dates,
                     y: nyt_timeseries_cases,
                     line: {color: '#B123FF'}
@@ -1206,7 +1313,7 @@ function updateDash(){
                 var trace2 = {
                     type: "scatter",
                     mode: "lines",
-                    name: 'COVID Deaths NYT',
+                    name: 'The New York Times   ',
                     x: nyt_timeseries_dates,
                     y: nyt_timeseries_deaths,
                     line: {color: '#FF2371'}
@@ -1215,7 +1322,7 @@ function updateDash(){
                 var trace3 = {
                     type: "scatter",
                     mode: "lines",
-                    name: 'COVID Cases Atlantic',
+                    name: 'The Atlantic   ',
                     x: atl_timeseries_dates,
                     y: atl_timeseries_cases,
                     line: {color: '#71FF23'}
@@ -1224,7 +1331,7 @@ function updateDash(){
                 var trace4 = {
                     type: "scatter",
                     mode: "lines",
-                    name: 'COVID Deaths Atlantic',
+                    name: 'The Atlantic   ',
                     x: atl_timeseries_dates,
                     y: atl_timeseries_deaths,
                     line: {color: '#23FFB1'}
@@ -1236,7 +1343,12 @@ function updateDash(){
                 var data2 = [trace2,trace4];
 
                 var layout = {
-                    title: `Time Series of COVID Related Cases in ${userSelection} (NYT and ATL)`,
+                    showlegend:true,
+                    legend:{"orientation":"h",
+                        y:-1
+                    },
+                    width:500,
+                    title: `Time Series of COVID Related Cases in ${userSelection}<br> (New York Times and The Atlantic)`,
                     xaxis:{
                         autorange:true,
                         range:['03-05-2020','07-28-2020'],
@@ -1267,7 +1379,12 @@ function updateDash(){
 
 
                 var layout2 = {
-                    title: `Time Series of COVID Related Deaths in ${userSelection} (NYT and ATL)`,
+                    showlegend:true,
+                    legend:{"orientation":"h",
+                        y:-1
+                    },
+                    width:500,
+                    title: `Time Series of COVID Related Deaths in ${userSelection} <br> (New York Times and The Atlantic)`,
                     xaxis:{
                         autorange:true,
                         range:['03-05-2020','07-28-2020'],
@@ -1304,8 +1421,6 @@ function updateDash(){
             })
 
         })
-
-            
 
 
     })

@@ -241,7 +241,7 @@
             <div class='col-4'>
                 <h1 class="page-header">NYT/Atlantic Data Comparison</h1>
                 <hr>
-                <section class="table">
+                <section class="table" >
                   <div id='honeycomb-difference-table'>
 
                   </div>
@@ -271,16 +271,23 @@
                 <h1 class="page-header">Case Timeseries: ideally, this will show NYT/ATL/Both depending on selection</h1>
                 <hr>
                 <section class="figure">
-                    <table class='figure' id='case-timeseries'>
-                    </table>
+                    <div class='figure ' id='case-timeseries'></div>
+                    <div class="hideshow" id="top" style="margin-left:0px;">
+                        <button style="background:white;">The New York Times</button>
+                    </div>
+                    <div class="hideshow" id="bottom" style="margin-left:0px;">
+                        <button style="background:white;">The Atlantic</button>
+                    </div>
+
                 </section>
             </div>
             <div class='col-6'>
                 <h1 class="page-header">Death Timeseries: ideally, this will show NYT/ATL/Both depending on selection</h1>
                 <hr>
                 <section class="figure">
-                    <table class='figure' id='death-timeseries'>
-                    </table>
+                    <div class='figure' id='death-timeseries'></div>
+                    
+
                 </section>
             </div>
         </div>
