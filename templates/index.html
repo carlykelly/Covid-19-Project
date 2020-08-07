@@ -110,24 +110,13 @@
         </div>
     </nav>
     <!-- End Hamburger -->
-    <div class='white row'>
-        <div class='row col-8 text-center'>
-            <div class='col-6' id='total-cases-banner'>
-                <h3>Total U.S. COVID-19 Cases</h3>
-                <hr>
-                <h3>{{scraped_stats.cdc_confirmed}}</h3>
-            </div>
-            <div class='col-6' id='total-cases-banner'>
-                <h3>Total U.S. COVID-19 Deaths</h3>
-                <hr>
-                <h3>{{scraped_stats.cdc_deaths}}</h3>
-            </div>
-        </div>
-        <div class='col-4' id='state-selector-box'>
-            <div class="col-12">
-                <h4>Select a State</h4>
-                <div class="row">
+    <div class='col-12'>
+        <div class='row'>
+            <div class='col-2 text-center'>
+                <div class='white col-12' id='state-selector-box'>
                     <div class="col-12">
+                        <h4>Select a State</h4>
+                        <hr>
                         <form>
                             <select name="State" class='selector' id="state-selector" autofocus="autofocus"
                                 autocorrect="off" autocomplete="off" placeholder='Enter a State'>
@@ -189,16 +178,23 @@
                         </form>
                     </div>
                 </div>
+                <div class='white col-12' id='total-cases-banner'>
+                    <h3>Total U.S. COVID-19 Cases</h3>
+                    <hr>
+                    <h3>{{scraped_stats.cdc_confirmed}}</h3>
+                </div>
+                <div class='white col-12' id='total-cases-banner'>
+                    <h3>Total U.S. COVID-19 Deaths</h3>
+                    <hr>
+                    <h3>{{scraped_stats.cdc_deaths}}</h3>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class='row'>
-        <div class='col-12' id='us-cloropleth'>
-            <div class='white'>
-                <h1 class="page-header text-center">US Cloropleth</h1>
-                <p class='text-center'>Select a layer to cycle between available statistics | Enter a state above to zoom to selection and generate state data | Click a county to view county data for selected layer.</p>
-                <hr>
-                <div class="figure center" id='total-county-cloropleth'>
+            <div class='col-10' id='us-cloropleth'>
+                <div class='white col-12'>
+                    <h1 class="page-header text-center">US Cloropleth</h1>
+                    <p class='text-center'>Select a layer to cycle between available statistics | Enter a state above to zoom to selection and generate state data | Click a county to view county data for selected layer.</p>
+                    <hr>
+                    <div class="figure center" id='total-county-cloropleth'></div>
                 </div>
             </div>
         </div>
@@ -235,7 +231,7 @@
             <div class='white'>
                 <h1 class="page-header" id='state-name'> Recent U.S. COVID-19 News</h1>
                 <hr>
-                <table>
+                <table class='table table-striped'>
                     <thead>
                         <th>Title</th>
                         <th>Date</th>
@@ -283,10 +279,6 @@
                         </tr>
                     </tbody>
                 </table>
-                <div>
-                    <table class='table table-striped' id='rss-news-scrape'>
-                    </table> 
-                </div>
             </div>  
         </div>
     </div>

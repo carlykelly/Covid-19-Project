@@ -1,6 +1,5 @@
 body{
-    background-color: white;
-    /* background-color: #E8E8E8; */
+    background-color: #e8cec9;
     font-family: "Montserrat","Segoe UI","Helvetica Neue", Arial, sans-serif;
 }
 
@@ -82,6 +81,9 @@ a:hover, #dropdownMenuButton:hover{
 
 .row {
     margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .bi {
@@ -90,8 +92,17 @@ a:hover, #dropdownMenuButton:hover{
 
 .white{
     background-color: white;
-    padding: 32px;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
 }
+
+.white-header{
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+}
+
 
 .viz{
     width: 100%;
@@ -176,9 +187,6 @@ table {
   #us-cloropleth{ 
     min-width: 700px;
     min-height: 700px;
-}
-#total-cases-banner{
-    outline: medium solid black;
 }
 
   @media (max-width: 768px) {
