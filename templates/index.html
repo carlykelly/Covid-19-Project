@@ -115,12 +115,12 @@
             <div class='col-6' id='total-cases-banner'>
                 <h3>Total U.S. COVID-19 Cases</h3>
                 <hr>
-                <h3>Total number here</h3>
+                <h3>{{scraped_stats.cdc_confirmed}}</h3>
             </div>
             <div class='col-6' id='total-cases-banner'>
                 <h3>Total U.S. COVID-19 Deaths</h3>
                 <hr>
-                <h3>Total number here</h3>
+                <h3>{{scraped_stats.cdc_deaths}}</h3>
             </div>
         </div>
         <div class='col-4' id='state-selector-box'>
@@ -235,6 +235,54 @@
             <div class='white'>
                 <h1 class="page-header">[State] COVID-19 News</h1>
                 <hr>
+                <table>
+                    <thead>
+                        <th>Title</th>
+                        <th>Date</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href={{scraped_news.Link[0]}}>{{scraped_news.Title[0]}}</a></td>
+                            <td>{{scraped_news.Published[0]}}</td>
+                        </tr>
+                        <tr>
+                            <td><a href={{scraped_news.Link[1]}}>{{scraped_news.Title[1]}}</a></td>
+                            <td>{{scraped_news.Published[1]}}</td>
+                        </tr>
+                        <tr>
+                            <td><a href={{scraped_news.Link[2]}}>{{scraped_news.Title[2]}}</a></td>
+                            <td>{{scraped_news.Published[2]}}</td>
+                        </tr>
+                        <tr>
+                            <td><a href={{scraped_news.Link[3]}}>{{scraped_news.Title[3]}}</a></td>
+                            <td>{{scraped_news.Published[3]}}</td>
+                        </tr>
+                        <tr>
+                            <td><a href={{scraped_news.Link[4]}}>{{scraped_news.Title[4]}}</a></td>
+                            <td>{{scraped_news.Published[4]}}</td>
+                        </tr>
+                        <tr>
+                            <td><a href={{scraped_news.Link[5]}}>{{scraped_news.Title[5]}}</a></td>
+                            <td>{{scraped_news.Published[5]}}</td>
+                        </tr>
+                        <tr>
+                            <td><a href={{scraped_news.Link[6]}}>{{scraped_news.Title[6]}}</a></td>
+                            <td>{{scraped_news.Published[6]}}</td>
+                        </tr>
+                        <tr>
+                            <td><a href={{scraped_news.Link[7]}}>{{scraped_news.Title[7]}}</a></td>
+                            <td>{{scraped_news.Published[7]}}</td>
+                        </tr>
+                        <tr>
+                            <td><a href={{scraped_news.Link[8]}}>{{scraped_news.Title[8]}}</a></td>
+                            <td>{{scraped_news.Published[8]}}</td>
+                        </tr>
+                        <tr>
+                            <td><a href={{scraped_news.Link[9]}}>{{scraped_news.Title[9]}}</a></td>
+                            <td>{{scraped_news.Published[9]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
                 <div>
                     <table class='table table-striped' id='rss-news-scrape'>
                     </table> 

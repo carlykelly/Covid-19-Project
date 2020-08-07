@@ -82,7 +82,9 @@ from pymongo import MongoClient
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    scraped_stats = mongo.db.scraped_stats.find_one()
+    scraped_news = mongo.db.scraped_news.find_one()
+    return render_template("index.html", scraped_stats=scraped_stats, scraped_news=scraped_news)
     
 @app.route('/honey_index/')
 def honey_index():
@@ -238,7 +240,7 @@ def scrape_now():
 
     client.close()
 
-    return files
+    return redirect("/", code=302)
 
 @app.route("/pull_mongo")
 def scrape_it():

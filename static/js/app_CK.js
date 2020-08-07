@@ -199,7 +199,7 @@ var baseMaps
           }
         })
 
-        d3.select('form').on('change', function(d){
+        d3.select('form').on('change.carly', function(d){
           d3.json(stateData).then(function(data2){
             //console.log(data2.features[0].properties)
             
