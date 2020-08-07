@@ -67,21 +67,18 @@
             <h1 id="logo">Just a COVID Dashboard</h1>
         </a>
         <a class='navbar-data-links mr-auto' href="{{ url_for('home') }}">
-            <h3 href="{{ url_for('home') }}">Data</h3>
+            <h3 href="{{ url_for('home') }}">State/County Data</h3>
         </a>
         <a class='navbar-data-links mr-auto' href="{{ url_for('honey_index') }}">
-            <h3 href="{{ url_for('honey_index') }}">Data Comparison</h3>
-        </a>
-        <a class='navbar-data-links mr-auto' href="{{ url_for('integrity_index') }}">
-            <h3 href="{{ url_for('integrity_index') }}">Data Integrity</h3>
+            <h3 href="{{ url_for('honey_index') }}">Data Comparison and Integrity</h3>
         </a>
         <a class='navbar-data-links mr-auto' href="{{ url_for('about_index') }}">
             <h3 href="{{ url_for('about_index') }}">About Us</h3>
         </a>
     </nav>
     <!-- Hamburger -->
-    <nav class="hamburger navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="WebDesignChallenge.html">Just a COVID Dashboard</a>
+    <nav class="hamburger navbar">
+        <a class="navbar-brand" href="#">Just a COVID Dashboard</a>
         <button class="hamburger navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -91,19 +88,13 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class='navbar-data-links mr-auto' href="{{ url_for('home') }}">
-                        <h3>Data</h3>
+                        <h3>State/County Data</h3>
                     </a>
                 </li>
                 <li class="nav-item active">
                     <a class='navbar-data-links mr-auto' href="{{ url_for('honey_index') }}">
-                        <h3 href="{{ url_for('honey_index') }}">Data Comparison</h3>
+                        <h3 href="{{ url_for('honey_index') }}">Data Comparison and Integrity</h3>
                     </a>
-                </li>
-                <li class="nav-item active">
-                    <a class='navbar-data-links mr-auto' href="{{ url_for('integrity_index') }}">
-                        <h3 href="{{ url_for('integrity_index') }}">Data Integrity</h3>
-                    </a>
-                </li>
                 </li>
                 <li class="nav-item active">
                     <a class='navbar-data-links mr-auto' href="{{ url_for('about_index') }}">
