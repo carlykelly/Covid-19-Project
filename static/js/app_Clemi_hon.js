@@ -28,7 +28,7 @@ function updateDash(){
         chart: {
             type: 'tilemap',
             inverted: true,
-            height: '80%'
+            height: '80%',
         },
     
         accessibility: {
@@ -480,6 +480,7 @@ function updateDash(){
             type: 'tilemap',
             inverted: true,
             height: '80%'
+           
         },
     
         accessibility: {
@@ -1044,74 +1045,42 @@ function updateDash(){
             console.log(count)
 
 
-            var trace1 = {
-            type: 'scatter',
-            x: grades,
-            y: count,
-            mode: 'markers',
-            name: 'Data Quality Grade Frequency',
-            marker: {
-                color: '#B123FF',
-                line: {
-                color: 'rgba(156, 165, 196, 1.0)',
-                width: 1,
-                },
-                symbol: 'circle',
-                size: 16
-                }
-            };
-
-
-            var data = [trace1];
+            var data = [{
+                values: count,
+                labels: grades,
+                domain: {column: 0},
+                name: 'Data Quality Grade',
+                hoverinfo: 'label+percent',
+                hole: .5,
+                type: 'pie'
+            }];
 
             var layout = {
-            title: `Frequency of Daily Reported <br> Data Quality Grade <br>(${default_state})`,
-            yaxis: {
-                showgrid: false,
-                showline: true,
-                linecolor: 'rgb(102, 102, 102)',
-                titlefont: {
-                font: {
-                    color: 'rgb(204, 204, 204)'
+               
+                annotations: [
+                  {
+                    font: {
+                      size: 20
+                    },
+                    showarrow: false,
+                    text: 'Grade',
+                    x: 0.5,
+                    y: 0.5
+                  }
+                ],
+                height: 400,
+                width: 400,
+                showlegend: true,
+                grid: {rows: 1, columns: 1},
+                margin: {
+                    l: 5,
+                    r: 40,
+                    b: 50,
+                    t: 50
                 }
-                },
-                tickfont: {
-                font: {
-                    color: 'rgb(102, 102, 102)'
-                }
-                },
-                autotick: false,
-                dtick: 10,
-                ticks: 'outside',
-                tickcolor: 'rgb(102, 102, 102)'
-            },
-            margin: {
-                l: 50,
-                r: 40,
-                b: 50,
-                t: 80
-            },
-            legend: {
-                font: {
-                size: 10,
-                },
-                yanchor: 'middle',
-                xanchor: 'right'
-            },
-            width: 350,
-            height: 350,
-            paper_bgcolor: 'rgb(254, 247, 234)',
-            plot_bgcolor: 'rgb(254, 247, 234)',
-            hovermode: 'closest'
-            };
-
-            Plotly.newPlot('data-reliability-score', data, layout);
-
-            
-
-
-
-
+              };
+              
+              Plotly.newPlot('data-reliability-score', data, layout);
 
 
 
@@ -1184,7 +1153,6 @@ function updateDash(){
                 y:-1
             },
                 width:500,
-                title: `Time Series of COVID Related Cases in ${default_state} <br> (New York Times and The Atlantic)`,
                 xaxis:{
                     autorange:true,
                     range:['03-05-2020','07-28-2020'],
@@ -1220,7 +1188,6 @@ function updateDash(){
                 y:-1
                 },
                 width:500,
-                title: `Time Series of COVID Related Deaths in ${default_state}<br> (New York Times and The Atlantic)`,
                 xaxis:{
                     autorange:true,
                     range:['03-05-2020','07-28-2020'],
@@ -1419,69 +1386,42 @@ function updateDash(){
                 var count=Object.values(result)
                 console.log(count)
 
-
-                var trace1 = {
-                type: 'scatter',
-                x: grades,
-                y: count,
-                mode: 'markers',
-                name: 'Data Quality Grade Frequency',
-                marker: {
-                    color: '#B123FF',
-                    line: {
-                    color: 'rgba(156, 165, 196, 1.0)',
-                    width: 1,
-                    },
-                    symbol: 'circle',
-                    size: 16
-                    }
-                };
-
-
-                var data = [trace1];
-
+                var data = [{
+                    values: count,
+                    labels: grades,
+                    domain: {column: 0},
+                    name: 'Data Quality Grade',
+                    hoverinfo: 'label+percent',
+                    hole: .5,
+                    type: 'pie'
+                }];
+    
                 var layout = {
-                title: `Frequency of Daily Reported <br> Data Quality Grade <br> (${userSelection})`,
-                yaxis: {
-                    showgrid: false,
-                    showline: true,
-                    linecolor: 'rgb(102, 102, 102)',
-                    titlefont: {
-                    font: {
-                        color: 'rgb(204, 204, 204)'
-                    }
-                    },
-                    tickfont: {
-                    font: {
-                        color: 'rgb(102, 102, 102)'
-                    }
-                    },
-                    autotick: false,
-                    dtick: 10,
-                    ticks: 'outside',
-                    tickcolor: 'rgb(102, 102, 102)'
-                },
-                margin: {
-                    l: 50,
-                    r: 40,
-                    b: 50,
-                    t: 80
-                },
-                legend: {
-                    font: {
-                    size: 10,
-                    },
-                    yanchor: 'middle',
-                    xanchor: 'right'
-                },
-                width: 350,
-                height: 350,
-                paper_bgcolor: 'rgb(254, 247, 234)',
-                plot_bgcolor: 'rgb(254, 247, 234)',
-                hovermode: 'closest'
-                };
-
-                Plotly.newPlot('data-reliability-score', data, layout);
+                    annotations: [
+                        {
+                          font: {
+                            size: 20
+                          },
+                          showarrow: false,
+                          text: 'Grade',
+                          x: 0.5,
+                          y: 0.5
+                        }
+                      ],
+                      height: 400,
+                      width: 400,
+                      showlegend: true,
+                      grid: {rows: 1, columns: 1},
+                      margin: {
+                          l: 5,
+                          r: 40,
+                          b: 50,
+                          t: 50
+                      }
+                  };
+                  
+                  Plotly.newPlot('data-reliability-score', data, layout);          
+              
 
 
                 /////////  Time  Series ////////////
@@ -1550,7 +1490,6 @@ function updateDash(){
                         y:-1
                     },
                     width:500,
-                    title: `Time Series of COVID Related Cases in ${userSelection}<br> (New York Times and The Atlantic)`,
                     xaxis:{
                         autorange:true,
                         range:['03-05-2020','07-28-2020'],
@@ -1586,7 +1525,6 @@ function updateDash(){
                         y:-1
                     },
                     width:500,
-                    title: `Time Series of COVID Related Deaths in ${userSelection} <br> (New York Times and The Atlantic)`,
                     xaxis:{
                         autorange:true,
                         range:['03-05-2020','07-28-2020'],

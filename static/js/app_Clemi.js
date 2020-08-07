@@ -89,9 +89,15 @@ function updateDash(){
         //console.log("Cases by county")
         //console.log(data)
 
-        selectedCovid=data.filter(c=>c.state=="Alaska")
-        //console.log("Default Selection")
-        //console.log(selectedCovid)
+        selectedCovid_null=data.filter(c=>c.state=="Alaska")
+        console.log("Default Selection")
+        console.log(selectedCovid_null)
+
+        var selectedCovid=selectedCovid_null.filter(c=>c.death_pop_percent!=null)
+        console.log(selectedCovid)
+
+      
+
 
         stateName=selectedCovid[0].state
 
@@ -118,7 +124,8 @@ function updateDash(){
 
 
         var bar_labels=top_ten_counties_death_pop.map(s=>s.County)
-        var bar_values=top_ten_counties_death_pop.map(s=>s.death_pop_percent)
+        var bar_values=top_ten_counties_death_pop.map(s=>s.death_pop_percent.toFixed(4))
+     
 
         //console.log(bar_labels);
         //console.log(bar_values);
@@ -128,7 +135,10 @@ function updateDash(){
             type: 'bar',
             x: bar_values,
             y: bar_labels,
+            text: bar_values.map(String),
+            textposition: 'auto',
             orientation: 'h',
+            marker:{color:'#800000'},
             transforms: [{
                 type: 'sort',
                 target: 'x',
@@ -136,14 +146,13 @@ function updateDash(){
             }]
         }];
         var layout = {
-            title: `Top 10 Counties by COVID Deaths per <br> Population in ${stateName}<br> (New York Times) `,
             xaxis: {title:"Total Deaths per County Population (%)",size: 18},
             yaxis: {title:"counties",automargin: true,},
             autosize: false,
             width: 500,
             height: 500,
             margin: {
-                l: 250,
+                l: 100,
                 r: 50,
                 b: 100,
                 t: 100,
@@ -172,7 +181,7 @@ function updateDash(){
             return comparison * -1;
         }
         
-        var sort_deathcase_desc=selectedCovid.sort(compare)
+        var sort_deathcase_desc=selectedCovid_null.sort(compare)
         //console.log("Sort by death_case_percent") 
         //console.log(sort_deathcase_desc);
 
@@ -181,7 +190,8 @@ function updateDash(){
 
 
         var bar_labels=top_ten_counties_death_case.map(s=>s.County)
-        var bar_values=top_ten_counties_death_case.map(s=>s.death_case_percent)
+        var bar_values=top_ten_counties_death_case.map(s=>s.death_case_percent.toFixed(4))
+   
 
         //console.log(bar_labels);
         //console.log(bar_values);
@@ -191,7 +201,10 @@ function updateDash(){
             type: 'bar',
             x: bar_values,
             y: bar_labels,
+            text: bar_values.map(String),
+            textposition: 'auto',
             orientation: 'h',
+            marker:{color:'#800000'},
             transforms: [{
                 type: 'sort',
                 target: 'x',
@@ -199,20 +212,21 @@ function updateDash(){
             }]
         }];
         var layout = {
-            title: `Top 10 Counties by COVID Deaths per Cases <br> in ${stateName} <br> (New York Times) `,
             xaxis: {title:"Total deaths per recorded cases",size: 18},
             yaxis: {title:"counties",automargin: true,},
             autosize: false,
             width: 500,
             height: 500,
             margin: {
-                l: 150,
+                l: 100,
                 r: 50,
                 b: 100,
                 t: 100,
                 pad: 4
             }
+           
         };
+        
         var config = {responsive: true}           
         Plotly.newPlot('top-cases-counties', data,layout,config);
 
@@ -222,7 +236,7 @@ function updateDash(){
  //                 S E L E C T   S T A T E                ///
     d3.select('form').on('change.clemi',function(d){
 
-        ///////// T i m e  S e r i e s  f o r  A t l a n t i c  D a t a ///////////////////////
+        
 
         /////// Top 10 cases by county
         d3.json(nyt_covid_county).then((data)=>{
@@ -233,10 +247,14 @@ function updateDash(){
 
             //console.log(latest_data)
             var userSelection=d3.select("#state-selector").node().value;
-            //console.log(userSelection)
-            selectedCovid=data.filter(c=>c.state==userSelection)
-            console.log("User has made a selection")
+            selectedCovid_null=data.filter(c=>c.state==userSelection)
+            console.log("Default Selection")
+            console.log(selectedCovid_null)
+    
+            var selectedCovid=selectedCovid_null.filter(c=>c.death_pop_percent!=null)
             console.log(selectedCovid)
+
+        
 
 
             // Sorting dictionary
@@ -262,8 +280,8 @@ function updateDash(){
 
 
             var bar_labels=top_ten_counties_death_pop.map(s=>s.County)
-            var bar_values=top_ten_counties_death_pop.map(s=>s.death_pop_percent)
-
+            var bar_values=top_ten_counties_death_pop.map(s=>s.death_pop_percent.toFixed(4))
+            
             //console.log(bar_labels);
             //console.log(bar_values);
 
@@ -272,7 +290,9 @@ function updateDash(){
                 type: 'bar',
                 x: bar_values,
                 y: bar_labels,
-                color:'#FB0D0D',
+                text: bar_values.map(String),
+                textposition: 'auto',
+                marker:{color:'#800000'},
                 orientation: 'h',
                 transforms: [{
                     type: 'sort',
@@ -281,14 +301,14 @@ function updateDash(){
                 }]
             }];
             var layout = {
-                title: `Top 10 Counties by COVID Deaths per <br> Population in ${selectedCovid[0].state}<br> (New York Times) `,
+
                 xaxis: {title:"Total Deaths per County Population (%)",size: 18},
                 yaxis: {title:"counties",automargin: true,},
                 autosize: false,
-                width: 500,
+                width: 550,
                 height: 500,
                 margin: {
-                    l: 250,
+                    l: 150,
                     r: 50,
                     b: 100,
                     t: 100,
@@ -302,7 +322,7 @@ function updateDash(){
 
          ///////////////////// Deaths per cases ////////////////////
         
-            console.log(selectedCovid)
+            console.log(selectedCovid_null)
 
             // Sorting dictionary
             function compare(a, b) {
@@ -318,7 +338,7 @@ function updateDash(){
                 return comparison * -1;
             }
             
-            var sort_deathcase_desc=selectedCovid.sort(compare)
+            var sort_deathcase_desc=selectedCovid_null.sort(compare)
             //console.log("Sort by death_case_percent") 
             //console.log(sort_deathcase_desc);
 
@@ -327,7 +347,8 @@ function updateDash(){
 
 
             var bar_labels=top_ten_counties_death_case.map(s=>s.County)
-            var bar_values=top_ten_counties_death_case.map(s=>s.death_case_percent)
+            var bar_values=top_ten_counties_death_case.map(s=>s.death_case_percent.toFixed(4))
+       
 
             //console.log(bar_labels);
             //console.log(bar_values);
@@ -337,7 +358,10 @@ function updateDash(){
                 type: 'bar',
                 x: bar_values,
                 y: bar_labels,
+                text: bar_values.map(String),
+                textposition: 'auto',
                 orientation: 'h',
+                marker:{color:'#800000'},
                 transforms: [{
                     type: 'sort',
                     target: 'x',
@@ -349,7 +373,7 @@ function updateDash(){
                 xaxis: {title:"Total deaths per recorded cases",size: 18},
                 yaxis: {title:"counties",automargin: true,},
                 autosize: false,
-                width: 500,
+                width: 550,
                 height: 500,
                 margin: {
                     l: 150,
