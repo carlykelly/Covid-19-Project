@@ -138,7 +138,7 @@ function updateDash(){
             text: bar_values.map(String),
             textposition: 'auto',
             orientation: 'h',
-            marker:{color:'#800000'},
+            marker:{color:'#FF6347'},
             transforms: [{
                 type: 'sort',
                 target: 'x',
@@ -204,7 +204,7 @@ function updateDash(){
             text: bar_values.map(String),
             textposition: 'auto',
             orientation: 'h',
-            marker:{color:'#800000'},
+            marker:{color:'#FF6347'},
             transforms: [{
                 type: 'sort',
                 target: 'x',
@@ -247,6 +247,7 @@ function updateDash(){
 
             //console.log(latest_data)
             var userSelection=d3.select("#state-selector").node().value;
+            if(userSelection != 'us'){
             selectedCovid_null=data.filter(c=>c.state==userSelection)
             console.log("Default Selection")
             console.log(selectedCovid_null)
@@ -292,7 +293,7 @@ function updateDash(){
                 y: bar_labels,
                 text: bar_values.map(String),
                 textposition: 'auto',
-                marker:{color:'#800000'},
+                marker:{color:'#FF6347'},
                 orientation: 'h',
                 transforms: [{
                     type: 'sort',
@@ -361,7 +362,7 @@ function updateDash(){
                 text: bar_values.map(String),
                 textposition: 'auto',
                 orientation: 'h',
-                marker:{color:'#800000'},
+                marker:{color:'#FF6347'},
                 transforms: [{
                     type: 'sort',
                     target: 'x',
@@ -369,7 +370,6 @@ function updateDash(){
                 }]
             }];
             var layout = {
-                title: `Top 10 Counties by COVID Deaths per Cases <br> in ${selectedCovid[0].state} <br> (New York Times) `,
                 xaxis: {title:"Total deaths per recorded cases",size: 18},
                 yaxis: {title:"counties",automargin: true,},
                 autosize: false,
@@ -385,7 +385,7 @@ function updateDash(){
             };
             var config = {responsive: true}           
             Plotly.newPlot('top-cases-counties', data,layout,config);
-
+        }
                 
          })
 
