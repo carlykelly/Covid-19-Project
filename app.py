@@ -14,8 +14,19 @@ from flask import (
 from flask_pymongo import PyMongo
 from config import mongoURL 
 from pymongo import MongoClient
+from flask_caching import Cache
+
+cache_config = {
+    "DEBUG": True,          # some Flask specific configs
+    "CACHE_TYPE": "simple", # Flask-Caching related configs
+    "CACHE_DEFAULT_TIMEOUT": 18000
+}
 
 app = Flask(__name__)
+
+# tell Flask to use the above defined config
+app.config.from_mapping(cache_config)
+cache = Cache(app)
 
 # client = MongoClient('localhost', 27017)
 client = MongoClient(mongoURL)
@@ -99,6 +110,7 @@ def about_index():
     return render_template("about_index.html")
 
 @app.route("/api/state_population")
+@cache.cached()
 def state_population():
 
     db=client['population_db']
@@ -112,6 +124,7 @@ def state_population():
     return df_json
 
 @app.route("/api/county_population")
+@cache.cached()
 def county_population():
 
     db=client['population_db']
@@ -125,6 +138,7 @@ def county_population():
     return df_json
 
 @app.route("/nyt_covid_state_latest")
+@cache.cached()
 def nytcovid_st_latest():
     nyt_db = client['nyt_covid_db']
     collection_state_nyt = nyt_db['NYT_state_covid_latest']
@@ -137,6 +151,7 @@ def nytcovid_st_latest():
     return df_json
 
 @app.route("/nyt_covid_state_daily")
+@cache.cached()
 def nytcovid_st_daily():
     nyt_db = client['nyt_covid_db']
     collection_state_nyt = nyt_db['NYT_state_covid_daily']
@@ -149,6 +164,7 @@ def nytcovid_st_daily():
     return df_json
 
 @app.route("/nyt_covid_county")
+@cache.cached()
 def nytcovidcounty():
     nyt_db = client['nyt_covid_db']
     collection_county_nyt = nyt_db['nyt_county_covid']
@@ -161,6 +177,7 @@ def nytcovidcounty():
     return df_json
 
 @app.route("/nyt_covid_county_latest")
+@cache.cached()
 def nytcovidcountylatest():
     nyt_db = client['nyt_covid_db']
     collection_county_nyt = nyt_db['NYT_county_json_latest']
@@ -173,6 +190,7 @@ def nytcovidcountylatest():
     return df_json
 
 @app.route("/timeseries_atlantic")
+@cache.cached()
 def atlanticcovid():
     Atlantic_db = client['Atlantic_db']
     collection_state_atlantic = Atlantic_db['Atlantic_covid_daily']
@@ -185,7 +203,9 @@ def atlanticcovid():
     return df_json
 
 @app.route("/atlantic_covid_latest")
+@cache.cached()
 def atlantic_covid_latest():
+    
     Atlantic_db = client['Atlantic_db']
     collection_state_atlantic = Atlantic_db['Atlantic_covid_latest']
     documents=collection_state_atlantic.find()
@@ -197,6 +217,7 @@ def atlantic_covid_latest():
     return df_json
 
 @app.route("/unemployment_by_state")
+@cache.cached()
 def stateUnemp():
     st_unemp_db = client['unemp_db']
     collection_st_unemp = st_unemp_db['unemp_by_state']
@@ -209,6 +230,7 @@ def stateUnemp():
     return df_json
 
 @app.route("/unemployment_by_county")
+@cache.cached()
 def countyUnemp():
     county_unemp_db = client['unemp_db']
     collection_county_unemp = county_unemp_db['unemp_by_county']
@@ -221,6 +243,7 @@ def countyUnemp():
     return df_json
 
 @app.route("/timeseries_nyt")
+@cache.cached()
 def timeseries():
     timeseries_db = client['timeseries_db']
     collection_timeseries = timeseries_db['timeseries_covid']
@@ -233,6 +256,7 @@ def timeseries():
     return df_json
 
 @app.route("/active_scrape")
+@cache.cached(timeout = 300)
 def scrape_now(): 
     scraped_stats = mongo.db.scraped_stats
     files = scraping_project.scrape_all()
@@ -243,6 +267,7 @@ def scrape_now():
     return redirect("/", code=302)
 
 @app.route("/pull_mongo")
+@cache.cached(timeout = 300)
 def scrape_it():
     
     scraped_stats = client["scraped_stats"]
@@ -256,6 +281,7 @@ def scrape_it():
     return df_json 
 
 @app.route("/scrape_the_news")
+@cache.cached(timeout = 300)
 def scrape_news():
     scraped_news = mongo.db.scraped_news
     files = scraping_project2.google_scrape()
@@ -266,6 +292,7 @@ def scrape_news():
     return files
     
 @app.route("/pull_news")
+@cache.cached(timeout = 300)
 def scrape_it_real_good():
     
     scraped_news = client["scraped_news"]
@@ -279,6 +306,7 @@ def scrape_it_real_good():
     return df_json
 
 @app.route("/county_geojson")
+@cache.cached()
 def lots_o_geo():
     
     geojson = client["geojson"]
