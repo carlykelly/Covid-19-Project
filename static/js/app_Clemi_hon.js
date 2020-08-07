@@ -1119,7 +1119,7 @@ function updateDash(){
                 name: 'The New York Times   ',
                 x: nyt_timeseries_dates,
                 y: nyt_timeseries_deaths,
-                line: {color: '#FF2371'}
+                line: {color: '#B123FF'}
             }
 
             var trace3 = {
@@ -1137,7 +1137,7 @@ function updateDash(){
                 name: 'The Atlantic   ',
                 x: atl_timeseries_dates,
                 y: atl_timeseries_deaths,
-                line: {color: '#23FFB1'}
+                line: {color: '#71FF23'}
             }
 
             ////// Cases //////////
