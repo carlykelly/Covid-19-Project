@@ -1,5 +1,8 @@
 # importing necessary libraries
 import pandas as pd
+import json
+import scraping_project
+import scraping_project2
 
 from flask import (
     Flask,
@@ -10,15 +13,15 @@ from flask import (
 
 from flask_pymongo import PyMongo
 from config import mongoURL 
+from pymongo import MongoClient
 
 app = Flask(__name__)
 
-
-from pymongo import MongoClient
-import json
 # client = MongoClient('localhost', 27017)
 client = MongoClient(mongoURL)
 
+app.config['MONGO_URI'] = mongoURL
+mongo = PyMongo(app)
 
 
 # db = client['population_db']
@@ -226,6 +229,53 @@ def timeseries():
     client.close()
 
     return df_json
+
+@app.route("/active_scrape")
+def scrape_now(): 
+    scraped_stats = mongo.db.scraped_stats
+    files = scraping_project.scrape_all()
+    scraped_stats.update({}, files, upsert=True)
+
+    client.close()
+
+    return files
+
+@app.route("/pull_mongo")
+def scrape_it():
+    
+    scraped_stats = client["scraped_stats"]
+    collection_scraped = scraped_stats["source_scrape"]
+    documents=collection_scraped.find()
+    df = pd.DataFrame(list(documents))
+    df_json = df.to_json(default_handler=str,orient='records')
+    
+    client.close()
+
+    return df_json 
+
+@app.route("/scrape_the_news")
+def scrape_news():
+    scraped_news = mongo.db.scraped_news
+    files = scraping_project2.google_scrape()
+    scraped_news.update({}, files, upsert=True)
+
+    client.close()
+
+    return files
+    
+@app.route("/pull_news")
+def scrape_it_real_good():
+    
+    scraped_news = client["scraped_news"]
+    collection_news_scrape = scraped_news["google_scrape"]
+    documents=collection_news_scrape.find()
+    df = pd.DataFrame(list(documents))
+    df_json = df.to_json(default_handler=str,orient='records')
+    
+    client.close()
+
+    return df_json
+
 
 if __name__ == "__main__":
     app.run(debug=True)
