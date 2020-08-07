@@ -210,8 +210,8 @@ var baseMaps
           var poly = data2.features.filter(a => a.properties.name == state)
           var stategeo = {"type":"FeatureCollection","features":poly}
           console.log(poly)
-          console.log(poly[0].geometry.coordinates)
-          geoCords = poly[0].geometry.coordinates
+          //console.log(poly[0].geometry.coordinates)
+          //geoCords = poly[0].geometry.coordinates
           console.log(stategeo)
           var coordinates = stateCoordDict[state]
           //console.log(coordinates)
@@ -250,9 +250,12 @@ var baseMaps
           else if(state == 'Hawaii'){
             myMap.setView(coordinates, 6)
           }
-          else{
+          else if(state == 'us' || state=='Alaska'){
             //myMap.setZoom(4)
-            myMap.setView(coordinates, 4)
+            if(outline){
+              myMap.removeLayer(outline)
+              };
+            myMap.setView(coordinates, 5)
           }
 
         })
