@@ -1025,9 +1025,94 @@ function updateDash(){
             
             /////////// DATA RELIABILITY //////////////////
             //get back to this. There are several for one state
-            //console.log("DATA QUALITY GRADE")
+            console.log("DATA QUALITY GRADE")
             //console.log(selectedCovid_atl)
-            //console.log(selectedCovid_atl.map(t=>t.DataQualityGrade))
+            var DataGrade=selectedCovid_atl.map(t=>t.DataQualityGrade)
+            //console.log(DataGrade)
+
+            var result = { };
+            for(var i = 0; i < DataGrade.length; ++i) {
+                if(!result[DataGrade[i]])
+                    result[DataGrade[i]] = 0;
+                ++result[DataGrade[i]];
+            }
+
+            console.log(result)
+            var grades=Object.keys(result)
+            console.log(grades)
+            var count=Object.values(result)
+            console.log(count)
+
+
+            var trace1 = {
+            type: 'scatter',
+            x: grades,
+            y: count,
+            mode: 'markers',
+            name: 'Data Quality Grade Frequency',
+            marker: {
+                color: '#B123FF',
+                line: {
+                color: 'rgba(156, 165, 196, 1.0)',
+                width: 1,
+                },
+                symbol: 'circle',
+                size: 16
+                }
+            };
+
+
+            var data = [trace1];
+
+            var layout = {
+            title: `Frequency of Daily Reported <br> Data Quality Grade <br>(${default_state})`,
+            yaxis: {
+                showgrid: false,
+                showline: true,
+                linecolor: 'rgb(102, 102, 102)',
+                titlefont: {
+                font: {
+                    color: 'rgb(204, 204, 204)'
+                }
+                },
+                tickfont: {
+                font: {
+                    color: 'rgb(102, 102, 102)'
+                }
+                },
+                autotick: false,
+                dtick: 10,
+                ticks: 'outside',
+                tickcolor: 'rgb(102, 102, 102)'
+            },
+            margin: {
+                l: 50,
+                r: 40,
+                b: 50,
+                t: 80
+            },
+            legend: {
+                font: {
+                size: 10,
+                },
+                yanchor: 'middle',
+                xanchor: 'right'
+            },
+            width: 350,
+            height: 350,
+            paper_bgcolor: 'rgb(254, 247, 234)',
+            plot_bgcolor: 'rgb(254, 247, 234)',
+            hovermode: 'closest'
+            };
+
+            Plotly.newPlot('data-reliability-score', data, layout);
+
+            
+
+
+
+
+
 
 
             //////////////// Time series //////////////////////
@@ -1285,6 +1370,9 @@ function updateDash(){
                     }
     
                     Plotly.newPlot('honeycomb-difference-table', data,layout);
+
+
+
                         
 
                 })
@@ -1294,7 +1382,9 @@ function updateDash(){
         })
 
 
-       ////////////////// Time series //////////////////// 
+
+
+       ////////////////// Time series  and data reliability//////////////////// 
         d3.json(time_nyt).then(function(nyt){
             //console.log("NYT Data")
             //console.log(nyt)
@@ -1308,7 +1398,93 @@ function updateDash(){
                 console.log(userSelection)
                 selectedCovidnyt=nyt.filter(c=>c.State==userSelection)
                 selectedCovid_atl=atlantic.filter(a=>a.State==userSelection)
-                
+
+                /////////// DATA RELIABILITY //////////////////
+                //get back to this. There are several for one state
+                console.log("DATA QUALITY GRADE")
+                //console.log(selectedCovid_atl)
+                var DataGrade=selectedCovid_atl.map(t=>t.DataQualityGrade)
+                //console.log(DataGrade)
+
+                var result = { };
+                for(var i = 0; i < DataGrade.length; ++i) {
+                    if(!result[DataGrade[i]])
+                        result[DataGrade[i]] = 0;
+                    ++result[DataGrade[i]];
+                }
+
+                console.log(result)
+                var grades=Object.keys(result)
+                console.log(grades)
+                var count=Object.values(result)
+                console.log(count)
+
+
+                var trace1 = {
+                type: 'scatter',
+                x: grades,
+                y: count,
+                mode: 'markers',
+                name: 'Data Quality Grade Frequency',
+                marker: {
+                    color: '#B123FF',
+                    line: {
+                    color: 'rgba(156, 165, 196, 1.0)',
+                    width: 1,
+                    },
+                    symbol: 'circle',
+                    size: 16
+                    }
+                };
+
+
+                var data = [trace1];
+
+                var layout = {
+                title: `Frequency of Daily Reported <br> Data Quality Grade <br> (${userSelection})`,
+                yaxis: {
+                    showgrid: false,
+                    showline: true,
+                    linecolor: 'rgb(102, 102, 102)',
+                    titlefont: {
+                    font: {
+                        color: 'rgb(204, 204, 204)'
+                    }
+                    },
+                    tickfont: {
+                    font: {
+                        color: 'rgb(102, 102, 102)'
+                    }
+                    },
+                    autotick: false,
+                    dtick: 10,
+                    ticks: 'outside',
+                    tickcolor: 'rgb(102, 102, 102)'
+                },
+                margin: {
+                    l: 50,
+                    r: 40,
+                    b: 50,
+                    t: 80
+                },
+                legend: {
+                    font: {
+                    size: 10,
+                    },
+                    yanchor: 'middle',
+                    xanchor: 'right'
+                },
+                width: 350,
+                height: 350,
+                paper_bgcolor: 'rgb(254, 247, 234)',
+                plot_bgcolor: 'rgb(254, 247, 234)',
+                hovermode: 'closest'
+                };
+
+                Plotly.newPlot('data-reliability-score', data, layout);
+
+
+                /////////  Time  Series ////////////
                 
                 //console.log("Time series NYT")
                 //console.log(selectedCovid)
