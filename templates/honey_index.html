@@ -106,31 +106,33 @@
     </nav>
     <!-- End Hamburger -->
     <div class='row'>
-        <div class='col-4'>
+        <div class='col-3'>
+            <a class="btn btn-primary" href="/comparison_scrape" role="button">Update Information</a>
             <div class='white no-pad' id='total-cases-banner'>
-                <h3>Johns Hopkins Total U.S. COVID-19 Cases</h3>
+                <h5>Johns Hopkins Data</h5>
                 <hr>
-                <h3>{{scraped_stats.jhu_confirmed}}</h3>
+                <h6>Total US Cases: {{scraped_stats.jhu_confirmed}}</h6>
+                <h6>Total US Deaths: {{scraped_stats.jhu_deaths}}</h6>
             </div>
         </div>
-        <div class='col-4'>
+        <div class='col-3'>
             <div class='white no-pad' id='total-cases-banner'>
-                <h3>Atlantic Total U.S. COVID-19 Cases</h3>
+                <h5>The Atlantic Data</h5>
                 <hr>
-                <h3>{{scraped_stats.atlantic_confirmed}}</h3>
+                <h6>Total US Cases: {{scraped_stats.atlantic_confirmed}}</h6>
+                <h6>Total US Deaths: {{scraped_stats.atlantic_death}}</h6>
             </div>
         </div>
-        <div class='col-4'>
+        <div class='col-3'>
         <div class='white no-pad' id='total-cases-banner'>
-            <h3>The CDC Total U.S. COVID-19 Cases</h3>
+            <h5>The CDC Data</h5>
             <hr>
-            <h3>{{scraped_stats.cdc_confirmed}}</h3>
+            <h6>Total US Cases: {{scraped_stats.cdc_confirmed}}</h6>
+            <h6>Total US Deaths: {{scraped_stats.cdc_deaths}}</h6>
         </div>
     </div>
     </div>
     </div>
-    </div>
-    <div class='row'>
         <div class='col-4' id='totals-banner'>
             <div class="col-12">
                 <h4>Select a State</h4>

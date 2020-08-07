@@ -267,6 +267,17 @@ def scrape_now():
 
     return redirect("/", code=302)
 
+@app.route("/comparison_scrape")
+@cache.cached(timeout = 300)
+def scrape_now2(): 
+    scraped_stats = mongo.db.scraped_stats
+    files = scraping_project.scrape_all()
+    scraped_stats.update({}, files, upsert=True)
+
+    client.close()
+
+    return redirect("/honey_index/", code=302)
+
 @app.route("/pull_mongo")
 @cache.cached(timeout = 300)
 def scrape_it():

@@ -24,7 +24,7 @@ import requests
 def scrape_all():
 
     executable_path = {"executable_path": "/usr/local/bin/chromedriver"}
-    browser = Browser('chrome', **executable_path, headless=False)
+    browser = Browser('chrome', **executable_path, headless=True)
 
     url = "https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/cases-in-us.html/"
     browser.visit(url)
