@@ -5,7 +5,8 @@ var baseMaps
 
   
   // Load in geojson data
-  var geoData = "static/js/final_geojson.json";
+  //var geoData = "static/js/final_geojson.json";
+  var geoData = "/county_geojson";
   
   var geojson;
   var cases;
@@ -18,7 +19,7 @@ var baseMaps
   
       console.log(data)
     // Create a new choropleth layer
-    geojson = L.choropleth(data, {
+    geojson = L.choropleth(data[0], {
   
       // Define what  property in the features to use
       valueProperty: "death_pop_percent",
@@ -65,7 +66,7 @@ var baseMaps
     // Adding legend to the map
 
 
-      cases = L.choropleth(data, {
+      cases = L.choropleth(data[0], {
   
         // Define what  property in the features to use
         valueProperty: "case_pop_percent",
@@ -111,7 +112,7 @@ var baseMaps
         return div;
       };
 
-      patient_mortality = L.choropleth(data, {
+      patient_mortality = L.choropleth(data[0], {
   
         // Define what  property in the features to use
         valueProperty: "death_case_percent",

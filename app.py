@@ -278,6 +278,19 @@ def scrape_it_real_good():
 
     return df_json
 
+@app.route("/county_geojson")
+def lots_o_geo():
+    
+    geojson = client["geojson"]
+    collection_county_geo = geojson["county_geojson"]
+    documents=collection_county_geo.find()
+    df = pd.DataFrame(list(documents))
+    df_json = df.to_json(default_handler=str,orient='records')
+    
+    client.close()
+
+    return df_json
+
 
 if __name__ == "__main__":
     app.run(debug=True)

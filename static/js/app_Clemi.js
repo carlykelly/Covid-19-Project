@@ -281,7 +281,7 @@ function updateDash(){
                 }]
             }];
             var layout = {
-                title: `Top 10 Counties by COVID Deaths per <br> Population in ${stateName}<br> (New York Times) `,
+                title: `Top 10 Counties by COVID Deaths per <br> Population in ${selectedCovid[0].state}<br> (New York Times) `,
                 xaxis: {title:"Total Deaths per County Population (%)",size: 18},
                 yaxis: {title:"counties",automargin: true,},
                 autosize: false,
@@ -345,7 +345,7 @@ function updateDash(){
                 }]
             }];
             var layout = {
-                title: `Top 10 Counties by COVID Deaths per Cases <br> in ${stateName} <br> (New York Times) `,
+                title: `Top 10 Counties by COVID Deaths per Cases <br> in ${selectedCovid[0].state} <br> (New York Times) `,
                 xaxis: {title:"Total deaths per recorded cases",size: 18},
                 yaxis: {title:"counties",automargin: true,},
                 autosize: false,
