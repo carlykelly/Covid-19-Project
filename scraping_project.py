@@ -78,14 +78,13 @@ def scrape_all():
     atlantic_death = atlantic_death.replace(',',"")
     atlantic_death = int(atlantic_death)
 
-    mongo_push = {"CDC reported cases":cdc_confirmed,
-              "CDC reported deaths":cdc_deaths,
-              "Johns Hopkins reported cases":jhu_confirmed,
-              "Johns Hopkins reported deaths":jhu_deaths,
-              "Covid Tracker reported cases":atlantic_confirmed,
-              "Covid Tracker reported deaths":atlantic_death
+    mongo_push = {"cdc_confirmed":cdc_confirmed,
+              "cdc_deaths":cdc_deaths,
+              "jhu_confirmed":jhu_confirmed,
+              "jhu_deaths":jhu_deaths,
+              "atlantic_confirmed":atlantic_confirmed,
+              "atlantic_death":atlantic_death
             }
-    
 
     return mongo_push
 
