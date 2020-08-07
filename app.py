@@ -99,7 +99,8 @@ def home():
     
 @app.route('/honey_index/')
 def honey_index():
-    return render_template("honey_index.html")
+    scraped_stats = mongo.db.scraped_stats.find_one()
+    return render_template("honey_index.html", scraped_stats=scraped_stats)
 
 @app.route('/integrity_index/')
 def integrity_index():

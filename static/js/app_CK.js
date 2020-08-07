@@ -39,7 +39,7 @@ var baseMaps
         fillOpacity: 0.7
       },
       onEachFeature: function(feature, layer) {
-        layer.bindPopup(feature.properties.NAME +", "+ feature.properties.State_Name + "<br>Percent of Populatin who has died from Covid:<br>" +
+        layer.bindPopup(feature.properties.NAME +", "+ feature.properties.State_Name + "<br>Percent of Population who has died from Covid:<br>" +
          feature.properties.death_pop_percent);
       }
     });
