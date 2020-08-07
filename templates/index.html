@@ -69,7 +69,7 @@
             <h3 href="{{ url_for('honey_index') }}">Data Comparison and Integrity</h3>
         </a>
         <a class='navbar-data-links mr-auto' href="{{ url_for('about_index') }}">
-            <h3 href="{{ url_for('about_index') }}">About Us</h3>
+            <h3 href="{{ url_for('about_index') }}">About</h3>
         </a>
     </nav>
     <!-- Hamburger -->
@@ -94,7 +94,7 @@
                 </li>
                 <li class="nav-item active">
                     <a class='navbar-data-links mr-auto' href="{{ url_for('about_index') }}">
-                        <h3 href="{{ url_for('about_index') }}">About Us</h3>
+                        <h3 href="{{ url_for('about_index') }}">About</h3>
                     </a>
                 </li>
             </ul>
@@ -106,11 +106,11 @@
             <div class='col-2 text-center'>
                 <div class='white col-12 no-pad' id='state-selector-box'>
                     <div class="col-12">
-                        <h4>Select a State</h4>
+                        <h3 class='page-header'>Select a State</h3>
                         <hr>
                         <form>
                             <select name="State" class='selector' id="state-selector" autofocus="autofocus"
-                                autocorrect="off" autocomplete="off" placeholder='Enter a State or Abbreviation'>
+                                autocorrect="off" autocomplete="off" placeholder='Enter a State or Abbr.'>
                                 <option value='' data-alternative-spellings='US' selected>All States</option>
                                 <option value='us' data-alternative-spellings='US, The United States'>All States</option>
                                 <option value="Alabama" data-alternative-spellings='AL'>Alabama</option>
@@ -170,106 +170,122 @@
                     </div>
                 </div>
                 <div class='white col-12 no-pad' id='total-cases-banner'>
-                    <h3>Total U.S. COVID-19 Cases</h3>
+                    <h3 class='page-header'>Total U.S. COVID-19 Cases</h3>
                     <hr>
                     <h3>{{scraped_stats.cdc_confirmed}}</h3>
                 </div>
                 <div class='white col-12 no-pad' id='total-cases-banner'>
-                    <h3>Total U.S. COVID-19 Deaths</h3>
+                    <h3 class='page-header'>Total U.S. COVID-19 Deaths</h3>
                     <hr>
                     <h3>{{scraped_stats.cdc_deaths}}</h3>
                 </div>
+                <div class='white col-12 no-pad' id='total-cases-banner'>
+                    <h3 class='page-header'>Map Tips</h3>
+                    <hr>
+                    <p>Select a layer in the top left to cycle between available statistics.<br>Type a state (or abbreviation) into the state selector to zoom to the state and regenerate the bar charts below.<br>Click on a county in the map to view county statistics for the selected layer.</p>
+                </div>
             </div>
             <div class='col-10' id='us-cloropleth'>
-                <div class='white col-12'>
-                    <h1 class="page-header text-center">US Cloropleth</h1>
-                    <p class='text-center'>Select a layer to cycle between available statistics | Enter a state above to zoom to selection and generate state data | Click a county to view county data for selected layer.</p>
+                <div class='white col-12 no-pad'>
+                    <h1 class="page-header text-center">Impact of COVID-19 on the Counties of the United States</h1>
                     <hr>
                     <div class="figure center" id='total-county-cloropleth'></div>
                 </div>
             </div>
         </div>
     </div>
-    <div class='row'>
-        <div class='col-6'>
-            <div class='white'>
-                <h1 class="page-header" id="state-name-cases">Alaska Reported Cases: Top Ten Counties</h1>
-                <hr>
-                <div class='figure' id='top-cases-counties'>
+    <div class='col-12'>
+        <div class='row'>
+            <div class='col-6 text-center'>
+                <div class='white col-12 no-pad'>
+                    <div class='col-12'>
+                        <h1 class="page-header" id="state-name-cases">Counties of Alaska with Highest Death Rate by Total Reported Cases</h1>
+                        <hr>
+                        <div class='figure center' id='top-cases-counties'>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class='col-6'>
-            <div class='white'>
-                <h1 class="page-header" id="state-name-deaths">Alaska Reported Deaths: Top Ten Counties</h1>
-                <hr>
-                <div class='figure' id='top-death-counties'>
+            <div class='col-6 text-center'>
+                <div class='white col 12 no-pad'>
+                    <div class='col-12'>
+                        <h1 class="page-header" id="state-name-deaths">Counties of Alaska with Highest Death Rate by Total Population</h1>
+                        <hr>
+                        <div class='figure center' id='top-death-counties'>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class='row'>
-        <div class='col-6'>
-            <div class='white'>
-                <h1 class="page-header">US Counties with Highest Death Rates</h1>
-                <hr>
-                <div id='top-ten-us-counties'>
+    <div class='col-12'>
+        <div class='row'>
+            <div class='col-6 text-center'>
+                <div class='white col-12 no-pad'>
+                    <div class='col-12 text-center'>
+                        <h1 class="page-header">US Counties with Highest Total Cases</h1>
+                        <hr>
+                        <div class='figure center' id='top-ten-us-counties'>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class='col-6'>
-            <div class='white'>
-                <h1 class="page-header" id='state-name'> Recent U.S. COVID-19 News</h1>
-                <hr>
-                <table class='table table-striped'>
-                    <thead>
-                        <th>Title</th>
-                        <th>Date</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><a href={{scraped_news.Link[0]}}>{{scraped_news.Title[0]}}</a></td>
-                            <td>{{scraped_news.Published[0]}}</td>
-                        </tr>
-                        <tr>
-                            <td><a href={{scraped_news.Link[1]}}>{{scraped_news.Title[1]}}</a></td>
-                            <td>{{scraped_news.Published[1]}}</td>
-                        </tr>
-                        <tr>
-                            <td><a href={{scraped_news.Link[2]}}>{{scraped_news.Title[2]}}</a></td>
-                            <td>{{scraped_news.Published[2]}}</td>
-                        </tr>
-                        <tr>
-                            <td><a href={{scraped_news.Link[3]}}>{{scraped_news.Title[3]}}</a></td>
-                            <td>{{scraped_news.Published[3]}}</td>
-                        </tr>
-                        <tr>
-                            <td><a href={{scraped_news.Link[4]}}>{{scraped_news.Title[4]}}</a></td>
-                            <td>{{scraped_news.Published[4]}}</td>
-                        </tr>
-                        <tr>
-                            <td><a href={{scraped_news.Link[5]}}>{{scraped_news.Title[5]}}</a></td>
-                            <td>{{scraped_news.Published[5]}}</td>
-                        </tr>
-                        <tr>
-                            <td><a href={{scraped_news.Link[6]}}>{{scraped_news.Title[6]}}</a></td>
-                            <td>{{scraped_news.Published[6]}}</td>
-                        </tr>
-                        <tr>
-                            <td><a href={{scraped_news.Link[7]}}>{{scraped_news.Title[7]}}</a></td>
-                            <td>{{scraped_news.Published[7]}}</td>
-                        </tr>
-                        <tr>
-                            <td><a href={{scraped_news.Link[8]}}>{{scraped_news.Title[8]}}</a></td>
-                            <td>{{scraped_news.Published[8]}}</td>
-                        </tr>
-                        <tr>
-                            <td><a href={{scraped_news.Link[9]}}>{{scraped_news.Title[9]}}</a></td>
-                            <td>{{scraped_news.Published[9]}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>  
+            <div class='col-6 text-center'>
+                <div class='white col-12 no-pad'>
+                    <div class='col-12'>
+                        <h1 class="page-header" id='state-name'> Recent U.S. COVID-19 News</h1>
+                        <hr>
+                        <table class='table table-striped'>
+                            <thead>
+                                <th>Title</th>
+                                <th>Date</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href={{scraped_news.Link[0]}}>{{scraped_news.Title[0]}}</a></td>
+                                    <td>{{scraped_news.Published[0]}}</td>
+                                </tr>
+                                <tr>
+                                    <td><a href={{scraped_news.Link[1]}}>{{scraped_news.Title[1]}}</a></td>
+                                    <td>{{scraped_news.Published[1]}}</td>
+                                </tr>
+                                <tr>
+                                    <td><a href={{scraped_news.Link[2]}}>{{scraped_news.Title[2]}}</a></td>
+                                    <td>{{scraped_news.Published[2]}}</td>
+                                </tr>
+                                <tr>
+                                    <td><a href={{scraped_news.Link[3]}}>{{scraped_news.Title[3]}}</a></td>
+                                    <td>{{scraped_news.Published[3]}}</td>
+                                </tr>
+                                <tr>
+                                    <td><a href={{scraped_news.Link[4]}}>{{scraped_news.Title[4]}}</a></td>
+                                    <td>{{scraped_news.Published[4]}}</td>
+                                </tr>
+                                <tr>
+                                    <td><a href={{scraped_news.Link[5]}}>{{scraped_news.Title[5]}}</a></td>
+                                    <td>{{scraped_news.Published[5]}}</td>
+                                </tr>
+                                <tr>
+                                    <td><a href={{scraped_news.Link[6]}}>{{scraped_news.Title[6]}}</a></td>
+                                    <td>{{scraped_news.Published[6]}}</td>
+                                </tr>
+                                <tr>
+                                    <td><a href={{scraped_news.Link[7]}}>{{scraped_news.Title[7]}}</a></td>
+                                    <td>{{scraped_news.Published[7]}}</td>
+                                </tr>
+                                <tr>
+                                    <td><a href={{scraped_news.Link[8]}}>{{scraped_news.Title[8]}}</a></td>
+                                    <td>{{scraped_news.Published[8]}}</td>
+                                </tr>
+                                <tr>
+                                    <td><a href={{scraped_news.Link[9]}}>{{scraped_news.Title[9]}}</a></td>
+                                    <td>{{scraped_news.Published[9]}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>  
+            </div>
         </div>
     </div>
     

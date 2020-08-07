@@ -6,6 +6,15 @@ body{
 h4 {
     color: maroon;
 }
+hr{
+    color: #e8cec9;
+}
+.container{
+    margin-top: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+}
 
 
 /* styling for state dropdown */
@@ -116,7 +125,7 @@ a:hover, #dropdownMenuButton:hover{
 .page-header{
     color: maroon;
     font-size: 28px;
-    margin-top: 20px;
+    margin-top: 10px;
     background-color: white;
 }
 
@@ -141,21 +150,20 @@ p{
 
 table {
     font-family: arial, sans-serif;
-    margin: 20px;
-    border:none;
+    color: maroon;
 }
-
   th {
       text-align:left;
+      color: maroon;
       padding:8px;
-      border-bottom: solid lightgray 3px;
+      border-bottom: solid maroon 3px;
       border-top:none;
       border-left:none;
       border-right:none
   }
 
   td {
-    border-bottom:solid lightgray 2px;
+    border-bottom:solid #e8cec9 2px;
     text-align: left;
     border-left:none;
     border-right:none;
@@ -177,17 +185,28 @@ table {
     margin-right: auto;
     width: 50%;
   }
-
-  #total-county-cloropleth{ 
+#us-cloropleth{ 
+    min-width: 750px;
+    min-height: 750px;
+    padding-bottom: 20px;
+}
+#total-county-cloropleth{ 
     width: 95%;
     height: 95%;
     min-width: 700px;
     min-height: 700px;
   }
-  #us-cloropleth{ 
-    min-width: 700px;
-    min-height: 700px;
+
+#total-cases-banner{
+    min-width:150px;
 }
+#state-selector-box{
+    min-width:150px;
+}
+.visual-min{
+    min-width:525px !important;
+}
+
 .no-pad{
     padding:5px;
 }
