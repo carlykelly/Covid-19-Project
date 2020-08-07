@@ -1,3 +1,4 @@
+var stateName
 function updateDash(){
 
     /// route names for different data sets
@@ -83,7 +84,6 @@ function updateDash(){
     })
 
 ////////////////    Top 10 counties   ///////////////////////////
-
     d3.json(nyt_covid_county).then((data)=>{
         //console.log("-----N Y T  C O U N T Y  D A T A -----")
         //console.log("Cases by county")
@@ -93,7 +93,7 @@ function updateDash(){
         //console.log("Default Selection")
         //console.log(selectedCovid)
 
-        var stateName=selectedCovid[0].state
+        stateName=selectedCovid[0].state
 
         // Sorting dictionary
         function compare(a, b) {
@@ -218,10 +218,9 @@ function updateDash(){
 
 
     })
-
  //////////////////////////////////////////////////////////////////////////////////////////////
  //                 S E L E C T   S T A T E                ///
-    d3.select('form').on('change',function(d){
+    d3.select('form').on('change.clemi',function(d){
 
         ///////// T i m e  S e r i e s  f o r  A t l a n t i c  D a t a ///////////////////////
 
@@ -297,7 +296,7 @@ function updateDash(){
                 }
             };
             var config = {responsive: true}           
-            Plotly.newPlot('top-five-counties', data,layout,config);
+            Plotly.newPlot('top-death-counties', data,layout,config);
 
 
 
@@ -361,7 +360,7 @@ function updateDash(){
                 }
             };
             var config = {responsive: true}           
-            Plotly.newPlot('county-info', data,layout,config);
+            Plotly.newPlot('top-cases-counties', data,layout,config);
 
                 
          })
