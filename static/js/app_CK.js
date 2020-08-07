@@ -186,8 +186,13 @@ var baseMaps
           this.removeControl(legendMort)
           this.removeControl(legendCase)
           if(outline){
+            if(state == 'us'){
+              myMap.removeLayer(outline)
+            }
+            else{
             myMap.removeLayer(outline)
             outline.addTo(myMap)
+            }
             }
           if(eventlayer.name == 'Cases Rate'){
             legendCase.addTo(myMap)
