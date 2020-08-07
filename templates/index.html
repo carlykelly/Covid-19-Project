@@ -113,13 +113,13 @@
     <div class='col-12'>
         <div class='row'>
             <div class='col-2 text-center'>
-                <div class='white col-12' id='state-selector-box'>
+                <div class='white col-12 no-pad' id='state-selector-box'>
                     <div class="col-12">
                         <h4>Select a State</h4>
                         <hr>
                         <form>
                             <select name="State" class='selector' id="state-selector" autofocus="autofocus"
-                                autocorrect="off" autocomplete="off" placeholder='Enter a State'>
+                                autocorrect="off" autocomplete="off" placeholder='Enter a State or Abbreviation'>
                                 <option value='' data-alternative-spellings='US' selected>All States</option>
                                 <option value='us' data-alternative-spellings='US'>All States</option>
                                 <option value="Alabama" data-alternative-spellings='AL'>Alabama</option>
@@ -178,12 +178,12 @@
                         </form>
                     </div>
                 </div>
-                <div class='white col-12' id='total-cases-banner'>
+                <div class='white col-12 no-pad' id='total-cases-banner'>
                     <h3>Total U.S. COVID-19 Cases</h3>
                     <hr>
                     <h3>{{scraped_stats.cdc_confirmed}}</h3>
                 </div>
-                <div class='white col-12' id='total-cases-banner'>
+                <div class='white col-12 no-pad' id='total-cases-banner'>
                     <h3>Total U.S. COVID-19 Deaths</h3>
                     <hr>
                     <h3>{{scraped_stats.cdc_deaths}}</h3>

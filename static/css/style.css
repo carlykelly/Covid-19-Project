@@ -188,6 +188,9 @@ table {
     min-width: 700px;
     min-height: 700px;
 }
+.no-pad{
+    padding:5px;
+}
 
   @media (max-width: 768px) {
       .hamburger{
