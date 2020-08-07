@@ -273,6 +273,7 @@ function updateDash(){
                 type: 'bar',
                 x: bar_values,
                 y: bar_labels,
+                color:'#FB0D0D',
                 orientation: 'h',
                 transforms: [{
                     type: 'sort',
