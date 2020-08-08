@@ -19,8 +19,10 @@ if 'IS_HEROKU' in os.environ:
 # Import your config file(s) and variable(s)
 if is_heroku == False:
     from config import mongoURL
+    API_Key = "Hello!"
 else:
     mongoURL = os.environ.get('mongoURL')
+    API_Key = os.enviorn.get('API_Key')
     # consumer_key = os.environ.get('consumer_key')
     # consumer_secret = os.environ.get('consumer_secret')
     # access_token = os.environ.get('access_token')
@@ -346,6 +348,12 @@ def lots_o_geo():
     client.close()
 
     return df_json
+
+@app.route("/api_get_key")
+@cache.cached()
+def key():
+
+    return json.dumps({"key":API_Key})
 
 
 if __name__ == "__main__":
