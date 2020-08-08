@@ -6,5 +6,6 @@ pymongo==3.10.1
 bs4==0.0.1
 flask_caching==1.9.0
 feedparser==5.2.1
+requests==2.22.0
 
 
