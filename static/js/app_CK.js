@@ -6,7 +6,7 @@ var baseMaps
   
   // Load in geojson data
   //var geoData = "static/js/final_geojson.json";
-  var geoData = "/county_geojson";
+  var geoData = "/static/js/final_geojson.json";
   
   var geojson;
   var cases;
@@ -19,7 +19,7 @@ var baseMaps
   
       console.log(data)
     // Create a new choropleth layer
-    geojson = L.choropleth(data[0], {
+    geojson = L.choropleth(data, {
   
       // Define what  property in the features to use
       valueProperty: "death_pop_percent",
@@ -66,7 +66,7 @@ var baseMaps
     // Adding legend to the map
 
 
-      cases = L.choropleth(data[0], {
+      cases = L.choropleth(data, {
   
         // Define what  property in the features to use
         valueProperty: "case_pop_percent",
@@ -112,7 +112,7 @@ var baseMaps
         return div;
       };
 
-      patient_mortality = L.choropleth(data[0], {
+      patient_mortality = L.choropleth(data, {
   
         // Define what  property in the features to use
         valueProperty: "death_case_percent",
@@ -170,16 +170,16 @@ var baseMaps
           layers: geojson
         });
         legend.addTo(myMap);
-        d3.json("/api_get_key", function(data) {
+
           L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
             attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
             tileSize: 512,
             maxZoom: 18,
             zoomOffset: -1,
             id: "mapbox/light-v9",
-            accessToken: data.key
+            accessToken: 'sk.eyJ1IjoiY2FybHlma2VsbHkiLCJhIjoiY2tkZ3U4Z3B3Mmx6dDJ4cG16Y2l6eWQ1bCJ9.ewwhVCi9nw45LL2iNZ1hbA'
           }).addTo(myMap);
-        })
+
         L.control.layers(baseMaps, null, {collapsed:false}).addTo(myMap);
 
         myMap.on('baselayerchange',function(eventlayer){
