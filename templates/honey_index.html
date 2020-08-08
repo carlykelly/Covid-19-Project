@@ -73,7 +73,7 @@
             <h3 href="{{ url_for('honey_index') }}">Data Comparison and Integrity</h3>
         </a>
         <a class='navbar-data-links mr-auto' href="{{ url_for('about_index') }}">
-            <h3 href="{{ url_for('about_index') }}">About Us</h3>
+            <h3 href="{{ url_for('about_index') }}">About</h3>
         </a>
     </nav>
     <!-- Hamburger -->
@@ -98,176 +98,174 @@
                 </li>
                 <li class="nav-item active">
                     <a class='navbar-data-links mr-auto' href="{{ url_for('about_index') }}">
-                        <h3 href="{{ url_for('about_index') }}">About Us</h3>
+                        <h3 href="{{ url_for('about_index') }}">About</h3>
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
     <!-- End Hamburger -->
-    <div class='row'>
-        <div class='col-3'>
-            <a class="btn btn-primary" href="/comparison_scrape" role="button">Update Information</a>
-            <div class='white no-pad' id='total-cases-banner'>
-                <h5>Johns Hopkins Data</h5>
-                <hr>
-                <h6>Total US Cases: {{scraped_stats.jhu_confirmed}}</h6>
-                <h6>Total US Deaths: {{scraped_stats.jhu_deaths}}</h6>
+    <div class='col-12'>
+        <div class='row'>
+            <div class='col-3 text-center'>
+                <div class='white col-12 no-pad'>
+                    <h3 class='page-header'>Refresh Information</h3>
+                    <hr>
+                    <a class="btn btn-primary" href="/comparison_scrape" role="button">Update</a>
+                </div>
+            </div>
+            <div class='col-3 text-center' id='total-cases-banner'>
+                <div class='white col-12 no-pad'>
+                    <h3 class='page-header'>Johns Hopkins Data</h3>
+                    <hr>
+                    <h5>Total US Cases: {{scraped_stats.jhu_confirmed}}</h5>
+                    <h5>Total US Deaths: {{scraped_stats.jhu_deaths}}</h5>
+                </div>
+            </div>
+            <div class='col-3 text-center' id='total-cases-banner'>
+                <div class='white col-12 no-pad'>
+                    <h3 class='page-header'>The Atlantic Data</h3>
+                    <hr>
+                    <h5>Total US Cases: {{scraped_stats.atlantic_confirmed}}</h5>
+                    <h5>Total US Deaths: {{scraped_stats.atlantic_death}}</h5>
+                </div>
+            </div>
+            <div class='col-3 text-center' id='total-cases-banner'>
+                <div class='white col-12 no-pad'>
+                    <h3 class='page-header'>The CDC Data</h3>
+                    <hr>
+                    <h5>Total US Cases: {{scraped_stats.cdc_confirmed}}</h5>
+                    <h5>Total US Deaths: {{scraped_stats.cdc_deaths}}</h5>
+                </div>
             </div>
         </div>
-        <div class='col-3'>
-            <div class='white no-pad' id='total-cases-banner'>
-                <h5>The Atlantic Data</h5>
-                <hr>
-                <h6>Total US Cases: {{scraped_stats.atlantic_confirmed}}</h6>
-                <h6>Total US Deaths: {{scraped_stats.atlantic_death}}</h6>
-            </div>
-        </div>
-        <div class='col-3'>
-        <div class='white no-pad' id='total-cases-banner'>
-            <h5>The CDC Data</h5>
-            <hr>
-            <h6>Total US Cases: {{scraped_stats.cdc_confirmed}}</h6>
-            <h6>Total US Deaths: {{scraped_stats.cdc_deaths}}</h6>
-        </div>
     </div>
-    </div>
-    </div>
-        <div class='col-4' id='totals-banner'>
-            <div class="col-12">
-                <h4>Select a State</h4>
-                <div class="row">
+    <div class='col-12'>
+        <div class='row'>
+            <div class='col-4 text-center'>
+                <div class='white col-12 text-center' id='totals-banner'>
+                    <h4>Select a State</h4>
+                    <hr>
                     <div class="col-12">
                         <form>
                             <select name="State" class='selector' id="state-selector" autofocus="autofocus"
-                                autocorrect="off" autocomplete="off" placeholder='Enter a State'>
-                                <option value='' data-alternative-spellings='US' selected>All States</option>
-                                <option value="Alabama" data-alternative-spellings='AL'>Alabama</option>
-                                <option value="Alaska" data-alternative-spellings='AK'>Alaska</option>
-                                <option value="Arizona" data-alternative-spellings='AZ'>Arizona</option>
-                                <option value="Arkansas" data-alternative-spellings='AS'>Arkansas</option>
-                                <option value="California" data-alternative-spellings='CA'>California</option>
-                                <option value="Colorado" data-alternative-spellings='CO'>Colorado</option>
-                                <option value="Connecticut" data-alternative-spellings='CT'>Connecticut</option>
-                                <option value="Delaware" data-alternative-spellings='DE'>Delaware</option>
-                                <option value="Florida" data-alternative-spellings='FL'>Florida</option>
-                                <option value="Georgia" data-alternative-spellings='GA'>Georgia</option>
-                                <option value="Hawaii" data-alternative-spellings='HI'>Hawaii</option>
-                                <option value="Idaho" data-alternative-spellings='ID'>Idaho</option>
-                                <option value="Illinois" data-alternative-spellings='IL'>Illinois</option>
-                                <option value="Indiana" data-alternative-spellings='IN'>Indiana</option>
-                                <option value="Iowa" data-alternative-spellings='IA'>Iowa</option>
-                                <option value="Kansas" data-alternative-spellings='KS'>Kansas</option>
-                                <option value="Kentucky" data-alternative-spellings='KY'>Kentucky</option>
-                                <option value="Louisiana" data-alternative-spellings='LA'>Louisiana</option>
-                                <option value="Maine" data-alternative-spellings='ME'>Maine</option>
-                                <option value="Maryland" data-alternative-spellings='MD'>Maryland</option>
-                                <option value="Massachusetts" data-alternative-spellings='MA'>Massachusetts</option>
-                                <option value="Michigan" data-alternative-spellings='MI'>Michigan</option>
-                                <option value="Minnesota" data-alternative-spellings='MN'>Minnesota</option>
-                                <option value="Mississippi" data-alternative-spellings='MS'>Mississippi</option>
-                                <option value="Missouri" data-alternative-spellings='MO'>Missouri</option>
-                                <option value="Montana" data-alternative-spellings='MT'>Montana</option>
-                                <option value="Nebraska" data-alternative-spellings='NE'>Nebraska</option>
-                                <option value="Nevada" data-alternative-spellings='NV'>Nevada</option>
-                                <option value="New Hampshire" data-alternative-spellings='NH'>New Hampshire</option>
-                                <option value="New Jersey" data-alternative-spellings='NJ'>New Jersey</option>
-                                <option value="New Mexico" data-alternative-spellings='NM'>New Mexico</option>
-                                <option value="New York" data-alternative-spellings='NY'>New York</option>
-                                <option value="North Carolina" data-alternative-spellings='NC'>North Carolina
-                                </option>
-                                <option value="North Dakota" data-alternative-spellings='ND'>North Dakota</option>
-                                <option value="Ohio" data-alternative-spellings='OH'>Ohio</option>
-                                <option value="Oklahoma" data-alternative-spellings='OK'>Oklahoma</option>
-                                <option value="Oregon" data-alternative-spellings='OR'>Oregon</option>
-                                <option value="Pennsylvania" data-alternative-spellings='PA'>Pennsylvania</option>
-                                <option value="Rhode Island" data-alternative-spellings='RI'>Rhode Island</option>
-                                <option value="South Carolina" data-alternative-spellings='SC'>South Carolina
-                                </option>
-                                <option value="South Dakota" data-alternative-spellings='SD'>South Dakota</option>
-                                <option value="Tennessee" data-alternative-spellings='TN'>Tennessee</option>
-                                <option value="Texas" data-alternative-spellings='TX'>Texas</option>
-                                <option value="Utah" data-alternative-spellings='UT'>Utah</option>
-                                <option value="Vermont" data-alternative-spellings='VT'>Vermont</option>
-                                <option value="Virginia" data-alternative-spellings='VA'>Virginia</option>
-                                <option value="Washington" data-alternative-spellings='WA'>Washington</option>
-                                <option value="West Virginia" data-alternative-spellings='WV'>West Virginia</option>
-                                <option value="Wisconsin" data-alternative-spellings='WI'>Wisconsin</option>
-                                <option value="Wyoming" data-alternative-spellings='WY'>Wyoming</option>
+                                    autocorrect="off" autocomplete="off" placeholder='Enter a State'>
+                                    <option value='' data-alternative-spellings='US' selected>All States</option>
+                                    <option value="Alabama" data-alternative-spellings='AL'>Alabama</option>
+                                    <option value="Alaska" data-alternative-spellings='AK'>Alaska</option>
+                                    <option value="Arizona" data-alternative-spellings='AZ'>Arizona</option>
+                                    <option value="Arkansas" data-alternative-spellings='AS'>Arkansas</option>
+                                    <option value="California" data-alternative-spellings='CA'>California</option>
+                                    <option value="Colorado" data-alternative-spellings='CO'>Colorado</option>
+                                    <option value="Connecticut" data-alternative-spellings='CT'>Connecticut</option>
+                                    <option value="Delaware" data-alternative-spellings='DE'>Delaware</option>
+                                    <option value="Florida" data-alternative-spellings='FL'>Florida</option>
+                                    <option value="Georgia" data-alternative-spellings='GA'>Georgia</option>
+                                    <option value="Hawaii" data-alternative-spellings='HI'>Hawaii</option>
+                                    <option value="Idaho" data-alternative-spellings='ID'>Idaho</option>
+                                    <option value="Illinois" data-alternative-spellings='IL'>Illinois</option>
+                                    <option value="Indiana" data-alternative-spellings='IN'>Indiana</option>
+                                    <option value="Iowa" data-alternative-spellings='IA'>Iowa</option>
+                                    <option value="Kansas" data-alternative-spellings='KS'>Kansas</option>
+                                    <option value="Kentucky" data-alternative-spellings='KY'>Kentucky</option>
+                                    <option value="Louisiana" data-alternative-spellings='LA'>Louisiana</option>
+                                    <option value="Maine" data-alternative-spellings='ME'>Maine</option>
+                                    <option value="Maryland" data-alternative-spellings='MD'>Maryland</option>
+                                    <option value="Massachusetts" data-alternative-spellings='MA'>Massachusetts</option>
+                                    <option value="Michigan" data-alternative-spellings='MI'>Michigan</option>
+                                    <option value="Minnesota" data-alternative-spellings='MN'>Minnesota</option>
+                                    <option value="Mississippi" data-alternative-spellings='MS'>Mississippi</option>
+                                    <option value="Missouri" data-alternative-spellings='MO'>Missouri</option>
+                                    <option value="Montana" data-alternative-spellings='MT'>Montana</option>
+                                    <option value="Nebraska" data-alternative-spellings='NE'>Nebraska</option>
+                                    <option value="Nevada" data-alternative-spellings='NV'>Nevada</option>
+                                    <option value="New Hampshire" data-alternative-spellings='NH'>New Hampshire</option>
+                                    <option value="New Jersey" data-alternative-spellings='NJ'>New Jersey</option>
+                                    <option value="New Mexico" data-alternative-spellings='NM'>New Mexico</option>
+                                    <option value="New York" data-alternative-spellings='NY'>New York</option>
+                                    <option value="North Carolina" data-alternative-spellings='NC'>North Carolina</option>
+                                    <option value="North Dakota" data-alternative-spellings='ND'>North Dakota</option>
+                                    <option value="Ohio" data-alternative-spellings='OH'>Ohio</option>
+                                    <option value="Oklahoma" data-alternative-spellings='OK'>Oklahoma</option>
+                                    <option value="Oregon" data-alternative-spellings='OR'>Oregon</option>
+                                    <option value="Pennsylvania" data-alternative-spellings='PA'>Pennsylvania</option>
+                                    <option value="Rhode Island" data-alternative-spellings='RI'>Rhode Island</option>
+                                    <option value="South Carolina" data-alternative-spellings='SC'>South Carolina</option>
+                                    <option value="South Dakota" data-alternative-spellings='SD'>South Dakota</option>
+                                    <option value="Tennessee" data-alternative-spellings='TN'>Tennessee</option>
+                                    <option value="Texas" data-alternative-spellings='TX'>Texas</option>
+                                    <option value="Utah" data-alternative-spellings='UT'>Utah</option>
+                                    <option value="Vermont" data-alternative-spellings='VT'>Vermont</option>
+                                    <option value="Virginia" data-alternative-spellings='VA'>Virginia</option>
+                                    <option value="Washington" data-alternative-spellings='WA'>Washington</option>
+                                    <option value="West Virginia" data-alternative-spellings='WV'>West Virginia</option>
+                                    <option value="Wisconsin" data-alternative-spellings='WI'>Wisconsin</option>
+                                    <option value="Wyoming" data-alternative-spellings='WY'>Wyoming</option>
                             </select>
                         </form>
+                    </div>
+                </div>
+                <div class='white col-12 text-center' id='honeycomb-difference-box'>
+                    <h4 class="page-header">Reported Data Comparison</h4>
+                    <hr>
+                    <div class='figure center' id='honeycomb-difference-table'>
+                    </div>
+                </div>
+                <div class='white col-12 text-center' id='data-reliability-box'>
+                    <h4 class="page-header">Data Reliability Score</h4>
+                    <hr>
+                    <div class="figure center" id='data-reliability-score'>
+                    </div>
+                </div>
+            </div>
+            <div class='col-8 text-center'>
+                <div class='white col-12 no-pad' id='nyt-honey-box'>
+                    <h1 class="page-header">Total Cases Reported by New York Times</h1>
+                    <hr>
+                    <div class="figure center" id='nyt-country-honeycomb'>
+                    </div>
+                </div>
+                <div class='white col-12 no-pad' id='atl-honey-box'>
+                    <h1 class="page-header">Total Cases Reported by The Atlantic</h1>
+                    <hr>
+                    <div class="figure" id='atl-country-honeycomb'>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-    </div>
-    <div class='container'>
+    <div class='col-12'>
         <div class='row'>
-            <div class='col-8'>
-                <h1 class="page-header">New York Times Honeycomb: Ideally, we can get tabs for both honeycombs to
-                    populate here</h1>
-                <hr>
-                <section class="figure" id='nyt-country-honeycomb'>
-                    <p>NYT Honeycomb Map will go here
-                    </p>
-                </section>
-            </div>
-            <div class='col-4'>
-                <h1 class="page-header">NYT/Atlantic Data Comparison</h1>
-                <hr>
-                <section class="table">
-                    <div id='honeycomb-difference-table'>
-
-                    </div>
-                </section>
-            </div>
-        </div>
-        <div class='row'>
-            <div class='col-8'>
-                <h1 class="page-header">Atlantic Honeycomb: ideally, this will be display the differences in the data
-                    (or Honeycomb of the data score)</h1>
-                <hr>
-                <section class="figure" id='atl-country-honeycomb'>
-                    <p>Atlantic Honeycomb Map will go here
-                    </p>
-                </section>
-            </div>
-            <div class='col-4'>
-                <h1 class="page-header">Data Reliability</h1>
-                <hr>
-                <section class="figure" id='data-reliability-score'>
-                </section>
-            </div>
-        </div>
-        <div class='row'>
-            <div class='col-6'>
-                <h1 class="page-header">Case Timeseries: ideally, this will show NYT/ATL/Both depending on selection
-                </h1>
-                <hr>
-                <section class="figure">
-                    <div class='figure ' id='case-timeseries'></div>
+            <div class='col-2 text-center'>
+                <div class='white col-12 no-pad' id='showhide-box'>
+                    <h4 class='page-header'>Show/Hide Sources</h4>
+                    <hr>
                     <div class="hideshow" id="top" style="margin-left:0px;">
-                        <button style="background:white;">The New York Times</button>
+                        <button style="background:maroon;">The New York Times</button>
                     </div>
                     <div class="hideshow" id="bottom" style="margin-left:0px;">
-                        <button style="background:white;">The Atlantic</button>
+                        <button style="background:maroon;">The Atlantic</button>
                     </div>
-
-                </section>
+                </div>
             </div>
-            <div class='col-6'>
-                <h1 class="page-header">Death Timeseries: ideally, this will show NYT/ATL/Both depending on selection
-                </h1>
-                <hr>
-                <section class="figure">
-                    <div class='figure' id='death-timeseries'></div>
-
-
-                </section>
+            <div class='col-5 text-center'>
+                <div class='white col-12 no-pad' id='case-timeseries-box'>
+                    <h1 class="page-header">Timeseries of Cases Reported by NYT and Atlantic</h1>
+                    <hr>
+                    <div class='figure center' id='case-timeseries'>
+                    </div>
+                </div>
+            </div>
+            <div class='col-5 text-center'>
+                <div class='white col-12 no-pad' id='death-timeseries-box'>
+                    <h1 class="page-header">Timeseries of Deaths Reported by NYT and Atlantic</h1>
+                    <hr>
+                    <div class='figure center' id='death-timeseries'>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
         <!-- <script src="../StarterCode/static/js/app.js"></script> -->
         <!--MODIFIED THE NEXT TWO SCRIPT FILE PATHS-->
         <!--<script src="../static/js/choropleth.js"></script>-->

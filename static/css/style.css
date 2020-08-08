@@ -196,17 +196,32 @@ table {
     min-width: 700px;
     min-height: 700px;
   }
-
+#state-name-box {
+    height: 724px;
+    overflow-y: auto;
+}
 #total-cases-banner{
     min-width:150px;
 }
 #state-selector-box{
     min-width:150px;
 }
-.visual-min{
-    min-width:525px !important;
+#top-cases-counties{
+    width: 95%;
+    height: 95%;
 }
-
+#top-death-counties{
+    width: 95%;
+    height: 95%;
+}
+#top-ten-us-counties{
+    width:95%;
+    height:95%;
+}
+#case-timeseries{
+    width:95%;
+    height:95%;
+}
 .no-pad{
     padding:5px;
 }
@@ -295,3 +310,6 @@ table {
   .legend .max {
     float: right;
   }
+  .ui-helper-hidden-accessible {
+    display: none;
+}
