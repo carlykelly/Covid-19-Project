@@ -1,1 +1,2 @@
+worker: python app.py
 web: gunicorn gwu-covid-dashboard.app:app
