@@ -37,11 +37,11 @@ def scrape_all():
     cdc_confirmed = cdc_callouts[0].text
     cdc_deaths = cdc_callouts[1].text
 
-    cdc_confirmed = cdc_confirmed.replace(',',"")
-    cdc_confirmed = int(cdc_confirmed)
+    # cdc_confirmed = cdc_confirmed.replace(',',"")
+    # cdc_confirmed = int(cdc_confirmed)
 
-    cdc_deaths = cdc_deaths.replace(',',"")
-    cdc_deaths = int(cdc_deaths)
+    # cdc_deaths = cdc_deaths.replace(',',"")
+    # cdc_deaths = int(cdc_deaths)
 
     url = 'https://coronavirus.jhu.edu/'
     browser.visit(url)
@@ -53,13 +53,13 @@ def scrape_all():
     cdc = cdc_callouts[2].text
 
     jhu_confirmed = cdc[14:]
-    jhu_confirmed = jhu_confirmed.replace(',',"")
-    jhu_confirmed = int(jhu_confirmed)
+    # jhu_confirmed = jhu_confirmed.replace(',',"")
+    # jhu_confirmed = int(jhu_confirmed)
 
     cdc = cdc_callouts[3].text
     jhu_deaths = cdc[11:]
-    jhu_deaths = jhu_deaths.replace(',',"")
-    jhu_deaths = int(jhu_deaths)
+    # jhu_deaths = jhu_deaths.replace(',',"")
+    # jhu_deaths = int(jhu_deaths)
   
     url = 'https://covidtracking.com/'
     browser.visit(url)
@@ -70,13 +70,13 @@ def scrape_all():
 
     atlantic_confirmed = news_soup.find_all('div', class_="total-module--number--2XxWt")
     atlantic_confirmed = atlantic_confirmed[1].text
-    atlantic_confirmed = atlantic_confirmed.replace(',',"")
-    atlantic_confirmed = int(atlantic_confirmed)
+    # atlantic_confirmed = atlantic_confirmed.replace(',',"")
+    # atlantic_confirmed = int(atlantic_confirmed)
 
     atlantic_death = news_soup.find_all('div', class_="total-module--number--2XxWt")
     atlantic_death = atlantic_death[2].text
-    atlantic_death = atlantic_death.replace(',',"")
-    atlantic_death = int(atlantic_death)
+    # atlantic_death = atlantic_death.replace(',',"")
+    # atlantic_death = int(atlantic_death)
 
     mongo_push = {"cdc_confirmed":cdc_confirmed,
               "cdc_deaths":cdc_deaths,
