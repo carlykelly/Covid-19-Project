@@ -47,7 +47,6 @@
             $(function () {
                 $('select').selectToAutocomplete();
                 $('form').submit(function () {
-                    alert($(this).serialize());
                     return false;
                 });
             });
@@ -110,7 +109,7 @@
                         <hr>
                         <form>
                             <select name="State" class='selector' id="state-selector" autofocus="autofocus"
-                                autocorrect="off" autocomplete="off" placeholder='Enter a State or Abbr.'>
+                                autocorrect="off" autocomplete="off" placeholder='Enter state or abb'>
                                 <option value='' data-alternative-spellings='US' selected>All States</option>
                                 <option value='us' data-alternative-spellings='US, The United States'>All States</option>
                                 <option value="Alabama" data-alternative-spellings='AL'>Alabama</option>
