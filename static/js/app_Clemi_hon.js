@@ -1290,7 +1290,7 @@ function updateDash(){
 
  //////////////////////////////////////////////////////////////////////////////////////////////
  //                 S E L E C T   S T A T E                ///
-    d3.select('form').on('change',function(d){
+    d3.select('form').on('change.clemi',function(d){
 
             //Honey Comb Difference Table
         d3.json(nyt_state).then(function(NYT){
