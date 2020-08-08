@@ -1,10 +1,8 @@
 pandas==0.25.1
 json==0.8.5
 json5==0.8.5
-Flask==0.12.2
 flask==1.1.1
 flask_pymongo==2.3.0
-flask-pymongo==2.3.0
 gunicorn==19.9.0
 requests==2.22.0
 time==3.8
