@@ -22,7 +22,7 @@ if is_heroku == False:
     API_Key = "Hello!"
 else:
     mongoURL = os.environ.get('mongoURL')
-    API_Key = os.enviorn.get('API_Key')
+    API_Key = os.environ.get('API_Key')
     # consumer_key = os.environ.get('consumer_key')
     # consumer_secret = os.environ.get('consumer_secret')
     # access_token = os.environ.get('access_token')
