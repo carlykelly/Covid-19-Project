@@ -3,6 +3,7 @@ import pandas as pd
 import json
 import scraping_project
 import scraping_project2
+import os
 
 from flask import (
     Flask,
@@ -11,8 +12,23 @@ from flask import (
     request,
     redirect)
 
+is_heroku = False
+if 'IS_HEROKU' in os.environ:
+    is_heroku = True
+
+# Import your config file(s) and variable(s)
+if is_heroku == False:
+    from config import mongoURL
+else:
+    mongoURL = os.environ.get('mongo_URL')
+    # consumer_key = os.environ.get('consumer_key')
+    # consumer_secret = os.environ.get('consumer_secret')
+    # access_token = os.environ.get('access_token')
+    # access_token_secret = os.environ.get('access_token_secret')
+    # weather_api_key = os.environ.get('weather_api_key')
+
 from flask_pymongo import PyMongo
-from config import mongoURL 
+#from config import mongoURL 
 from pymongo import MongoClient
 from flask_caching import Cache
 
