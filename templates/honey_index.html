@@ -149,7 +149,7 @@
                     <div class="col-12">
                         <form>
                             <select name="State" class='selector' id="state-selector" autofocus="autofocus"
-                                    autocorrect="off" autocomplete="off" placeholder='Enter a State'>
+                                    autocorrect="off" autocomplete="off" placeholder='Enter a State or Abbr.'>
                                     <option value='' data-alternative-spellings='US' selected>All States</option>
                                     <option value="Alabama" data-alternative-spellings='AL'>Alabama</option>
                                     <option value="Alaska" data-alternative-spellings='AK'>Alaska</option>
@@ -206,16 +206,20 @@
                     </div>
                 </div>
                 <div class='white col-12 text-center' id='honeycomb-difference-box'>
-                    <h4 class="page-header">Reported Data Comparison</h4>
+                    <h4 class="page-header" id='data-comp-state'>Reported Data Comparison for Alaska</h4>
                     <hr>
                     <div class='figure center' id='honeycomb-difference-table'>
                     </div>
                 </div>
                 <div class='white col-12 text-center' id='data-reliability-box'>
-                    <h4 class="page-header">Data Reliability Score</h4>
+                    <h4 class="page-header" id='reliability-state'>Data Reliability Score for Alaska</h4>
                     <hr>
                     <div class="figure center" id='data-reliability-score'>
                     </div>
+                    <hr>
+                    <h4 class="page-header">What Does This Mean?</h4>
+                    <hr>
+                    <p>Every day, each state is assessed by <i>The Atlantic</i> on the quality and reliability of their reported COVID-19 data. Factors for grading include consistency of reporting, testing/data completeness, detailed patient reporting (i.e. hospitalized, ICU, and recovered patients), and patient demographics. Machine readability is considered positively, but a grade of "A" can be achieved without this capability.</p>
                 </div>
             </div>
             <div class='col-8 text-center'>
@@ -238,19 +242,24 @@
         <div class='row'>
             <div class='col-2 text-center'>
                 <div class='white col-12 no-pad' id='showhide-box'>
-                    <h4 class='page-header'>Show/Hide Sources</h4>
+                    <h4 class='page-header'>Show Sources</h4>
                     <hr>
                     <div class="hideshow" id="top" style="margin-left:0px;">
-                        <button style="background:maroon;">The New York Times</button>
+                        <button style="background:#e8cec9;">The New York Times</button>
                     </div>
                     <div class="hideshow" id="bottom" style="margin-left:0px;">
-                        <button style="background:maroon;">The Atlantic</button>
+                        <button style="background:#e8cec9;">The Atlantic</button>
                     </div>
+                </div>
+                <div class='white col-12 no-pad' id='showhide-box'>
+                    <h4 class='page-header'>Graph Tips</h4>
+                    <hr>
+                    <p>Enter a state in the box above to see timeseries data for that state.<br>Use the drag bar at the bottom of the charts to zoom in on a particular section of the timeseries.</p>
                 </div>
             </div>
             <div class='col-5 text-center'>
                 <div class='white col-12 no-pad' id='case-timeseries-box'>
-                    <h1 class="page-header">Timeseries of Cases Reported by NYT and Atlantic</h1>
+                    <h1 class="page-header" id='cases-series-state'>Timeseries of Cases Reported by NYT and Atlantic for Alaska</h1>
                     <hr>
                     <div class='figure center' id='case-timeseries'>
                     </div>
@@ -258,7 +267,7 @@
             </div>
             <div class='col-5 text-center'>
                 <div class='white col-12 no-pad' id='death-timeseries-box'>
-                    <h1 class="page-header">Timeseries of Deaths Reported by NYT and Atlantic</h1>
+                    <h1 class="page-header" id='death-series-state'>Timeseries of Deaths Reported by NYT and Atlantic for Alaska</h1>
                     <hr>
                     <div class='figure center' id='death-timeseries'>
                     </div>
@@ -272,7 +281,7 @@
         <script src="../static/js/config.js"></script>
         <script src="../static/js/app_Clemi_hon.js"></script>
         <!--<script src="../static/js/app_CK.js"></script>-->
-        <!--<script src="../static/js/app_CM.js"></script>-->
+        <script src="../static/js/app_CM.js"></script>
         <!--<script src="../static/js/app_SS.js"></script>-->
 </body>
 
