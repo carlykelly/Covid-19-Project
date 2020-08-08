@@ -16,7 +16,9 @@ hr{
     margin-bottom: 1px;
 }
 
-
+#logo{
+    color: maroon;
+}
 /* styling for state dropdown */
 .ui-autocomplete {
     padding: 0;
@@ -52,7 +54,7 @@ hr{
     outline: black;
 }
 .navbar-brand{
-    background-color:maroon;
+    background-color:white;
 }
 
 .navbar-brand h1{
@@ -177,6 +179,7 @@ table {
 
   .hamburger{
       display:none;
+      color:black;
   }
 
   .center{
@@ -252,12 +255,12 @@ table {
           display: flex;
       }
       .navbar{
-          background-color: maroon !important;
+          background-color: white !important;
           padding:0px;
       } 
       .navbar-brand{
           color:rgb(83, 83, 83) !important;
-          background-color: maroon;
+          background-color: white;
           font-weight: bold;
           font-family: "Montserrat","Segoe UI","Helvetica Neue", Arial, sans-serif;
           padding:20px
@@ -268,12 +271,13 @@ table {
       }
 
       .navhead{
-          background-color:maroon !important;
+          background-color:white !important;
       }
 
       .navbar-toggler-icon{
           width: 1em;
           height:1.25em;
+          color:black;
       }
 
       .dropdown-menu{
@@ -285,7 +289,7 @@ table {
       }
 
       .navbar-light, .navbar-toggler{
-          border-color:white !important;
+          border-color:black !important;
       }
 
       .nav-item{

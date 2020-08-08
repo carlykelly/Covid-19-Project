@@ -63,8 +63,8 @@
 
 <body>
     <nav class="nonburger navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand mr-auto" href="{{ url_for('home') }}">
-            <h1 id="logo">Just a COVID Dashboard</h1>
+        <a class="navbar-data-links mr-auto" href="{{ url_for('home') }}">
+            <h1 id="logo"><strong>COVID in the United States</strong></h1>
         </a>
         <a class='navbar-data-links mr-auto' href="{{ url_for('home') }}">
             <h3 href="{{ url_for('home') }}">State/County Data</h3>
@@ -78,7 +78,7 @@
     </nav>
     <!-- Hamburger -->
     <nav class="hamburger navbar">
-        <a class="navbar-brand" href="#">Just a COVID Dashboard</a>
+        <a class="navbar-brand" id='logo' href="#">COVID in the United States</a>
         <button class="hamburger navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">

@@ -59,8 +59,8 @@
 
 <body>
     <nav class="nonburger navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand mr-auto" href="{{ url_for('home') }}">
-            <h1 id="logo">Just a COVID Dashboard</h1>
+        <a class="navbar-data-links mr-auto" href="{{ url_for('home') }}">
+            <h1 id="logo"><strong>COVID in the United States</strong></h1>
         </a>
         <a class='navbar-data-links mr-auto' href="{{ url_for('home') }}">
             <h3 href="{{ url_for('home') }}">State/County Data</h3>
@@ -74,7 +74,7 @@
     </nav>
     <!-- Hamburger -->
     <nav class="hamburger navbar">
-        <a class="navbar-brand" href="#">Just a COVID Dashboard</a>
+        <a class="navbar-brand" id='logo' href="#">COVID in the United States</a>
         <button class="hamburger navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -131,7 +131,7 @@
                 <div class='row'>
                     <div class='col-6'>
                         <p>Chris is a data analyst with a B.Sc. in chemical engineering from the University of Virginia.  Chris 
-                            enjoys developing visualizations based on hypotheses exploring trends and correlations that may not be 
+                            enjoys developing visualizations that explore trends and correlations that might not be 
                             initially apparent.  You can view Chris’s LinkedIn <a href='https://www.linkedin.com/in/christopher-mikus-a26a7311b'>here</a>.<br>On this site, 
                             Chris programmed the layout and functionality of the dashboard html, made the dashboard dynamic to user interaction, 
                             and prepared the app for deployment.</p>
@@ -150,7 +150,13 @@
                 <hr>
                 <div class='row'>
                     <div class='col-6'>
-                        <p>Sarah's Bio</p>
+                        <p>Sarah is a Data Analyst with a B.A. in Psychology from the University of Maryland, Baltimore County. She 
+                            is passionate about uncovering data bias and the subsequent necessary future improvements to data aggregation. Also 
+                            a certified nursing assistant, Sarah hopes that an understanding of healthcare environments will inform a unique 
+                            perspective in healthcare data analysis. You can view her LinkedIn <a href='www.linkedin.com/in/sarahqschulte'>here</a>.<br>On this site, 
+                            she was responsible for the creative direction of the project and managed the workflow among the group in the two 
+                            week project deadline. Sarah oversaw the curation of visualizations in addition to contributing to their creation. Lastly, 
+                            she provided the web scraping elements for the COVID totals and COVID comparative totals.</p>
                     </div>
                     <div class='col-6'>
                         <img src='../static/headshot_Sarah.jpg' alt="Sarah_Schulte" style=width:100%>
