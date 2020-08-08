@@ -47,7 +47,7 @@ function updateDash(){
 
         var data = [{
             type: 'table',
-            columnwidth: [100,100,100,100],
+            //columnwidth: [200,200,200,200],
             
             header: {
               values: [["<b>County</b>"], ["<b>State</b>"],
@@ -67,7 +67,8 @@ function updateDash(){
         }]
 
         var layout={
-            width:500,
+            autosize: true,
+            //width:500,
             height:650,
             margin: {
                 l: 20,
@@ -77,8 +78,8 @@ function updateDash(){
                 pad: 0
             }
         }
-          
-        Plotly.newPlot('top-ten-us-counties', data,layout);
+        var config = {responsive: true}
+        Plotly.newPlot('top-ten-us-counties', data,layout,config);
 
 
     })
@@ -148,9 +149,9 @@ function updateDash(){
         var layout = {
             xaxis: {title:"Total Deaths per County Population (%)",size: 18},
             yaxis: {title:"counties",automargin: true,},
-            autosize: false,
-            width: 500,
-            height: 500,
+            autosize: true,
+            //width: 500,
+            //height: 500,
             margin: {
                 l: 100,
                 r: 50,
@@ -214,9 +215,9 @@ function updateDash(){
         var layout = {
             xaxis: {title:"Total deaths per recorded cases",size: 18},
             yaxis: {title:"counties",automargin: true,},
-            autosize: false,
-            width: 500,
-            height: 500,
+            autosize: true,
+            //width: 500,
+            //height: 500,
             margin: {
                 l: 100,
                 r: 50,
@@ -305,9 +306,9 @@ function updateDash(){
 
                 xaxis: {title:"Total Deaths per County Population (%)",size: 18},
                 yaxis: {title:"counties",automargin: true,},
-                autosize: false,
-                width: 550,
-                height: 500,
+                autosize: true,
+                //width: 550,
+                //height: 500,
                 margin: {
                     l: 150,
                     r: 50,
@@ -372,9 +373,9 @@ function updateDash(){
             var layout = {
                 xaxis: {title:"Total deaths per recorded cases",size: 18},
                 yaxis: {title:"counties",automargin: true,},
-                autosize: false,
-                width: 550,
-                height: 500,
+                autosize: true,
+                //width: 550,
+                //height: 500,
                 margin: {
                     l: 150,
                     r: 50,

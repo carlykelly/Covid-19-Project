@@ -986,8 +986,9 @@ function updateDash(){
                 }]
 
                 var layout={
-                    width:350,
-                    height:300,
+                    autosize: true,
+                    //width:350,
+                    //height:300,
                     margin: {
                         l: 20,
                         r: 20,
@@ -996,8 +997,9 @@ function updateDash(){
                         pad: 0
                     }
                 }
+                var config = {responsive: true}
 
-                Plotly.newPlot('honeycomb-difference-table', data, layout);
+                Plotly.newPlot('honeycomb-difference-table', data, layout,config);
                     
 
             })
@@ -1056,7 +1058,7 @@ function updateDash(){
             }];
 
             var layout = {
-               
+                autosize: true,
                 annotations: [
                   {
                     font: {
@@ -1068,8 +1070,8 @@ function updateDash(){
                     y: 0.5
                   }
                 ],
-                height: 400,
-                width: 400,
+                //height: 400,
+                //width: 400,
                 showlegend: true,
                 grid: {rows: 1, columns: 1},
                 margin: {
@@ -1079,8 +1081,8 @@ function updateDash(){
                     t: 50
                 }
               };
-              
-              Plotly.newPlot('data-reliability-score', data, layout);
+              var config = {responsive: true}
+              Plotly.newPlot('data-reliability-score', data, layout,config);
 
 
 
@@ -1148,11 +1150,12 @@ function updateDash(){
     
 
             var layout = {
+                autosize: true,
                 showlegend:true,
                 legend:{"orientation":"h",
                 y:-1
             },
-                width:500,
+                //width:500,
                 xaxis:{
                     autorange:true,
                     range:['03-05-2020','07-28-2020'],
@@ -1187,7 +1190,7 @@ function updateDash(){
                 legend:{"orientation":"h",
                 y:-1
                 },
-                width:500,
+                //width:500,
                 xaxis:{
                     autorange:true,
                     range:['03-05-2020','07-28-2020'],
@@ -1217,9 +1220,9 @@ function updateDash(){
             };
 
 
-        
-            Plotly.newPlot('case-timeseries', data, layout);
-            Plotly.newPlot('death-timeseries', data2, layout2);
+            var config = {responsive: true}
+            Plotly.newPlot('case-timeseries', data, layout,config);
+            Plotly.newPlot('death-timeseries', data2, layout2,config);
 
 
             $('.hideshow button').click(function(){
@@ -1325,8 +1328,9 @@ function updateDash(){
                     }]
 
                     var layout={
-                        width:350,
-                        height:350,
+                        autosize: true,
+                        //width:350,
+                        //height:350,
                         margin: {
                             l: 20,
                             r: 20,
@@ -1335,8 +1339,8 @@ function updateDash(){
                             pad: 0
                         }
                     }
-    
-                    Plotly.newPlot('honeycomb-difference-table', data,layout);
+                    var config = {responsive: true}
+                    Plotly.newPlot('honeycomb-difference-table', data,layout, config);
 
 
 
@@ -1397,6 +1401,7 @@ function updateDash(){
                 }];
     
                 var layout = {
+                    autosize: true,
                     annotations: [
                         {
                           font: {
@@ -1408,8 +1413,8 @@ function updateDash(){
                           y: 0.5
                         }
                       ],
-                      height: 400,
-                      width: 400,
+                      //height: 400,
+                      //width: 400,
                       showlegend: true,
                       grid: {rows: 1, columns: 1},
                       margin: {
@@ -1419,8 +1424,9 @@ function updateDash(){
                           t: 50
                       }
                   };
+                  var config = {responsive: true}
                   
-                  Plotly.newPlot('data-reliability-score', data, layout);          
+                  Plotly.newPlot('data-reliability-score', data, layout,config);          
               
 
 
@@ -1485,11 +1491,12 @@ function updateDash(){
                 var data2 = [trace2,trace4];
 
                 var layout = {
+                    autosize: true,
                     showlegend:true,
                     legend:{"orientation":"h",
                         y:-1
                     },
-                    width:500,
+                    //width:500,
                     xaxis:{
                         autorange:true,
                         range:['03-05-2020','07-28-2020'],
@@ -1520,11 +1527,12 @@ function updateDash(){
 
 
                 var layout2 = {
+                    autosize: true,
                     showlegend:true,
                     legend:{"orientation":"h",
                         y:-1
                     },
-                    width:500,
+                    //width:500,
                     xaxis:{
                         autorange:true,
                         range:['03-05-2020','07-28-2020'],
@@ -1553,9 +1561,9 @@ function updateDash(){
 
                 };
 
-            
-                Plotly.newPlot('case-timeseries', data, layout);
-                Plotly.newPlot('death-timeseries', data2, layout2);
+                var config = {responsive: true}
+                Plotly.newPlot('case-timeseries', data, layout,config);
+                Plotly.newPlot('death-timeseries', data2, layout2,config);
 
 
 
