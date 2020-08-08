@@ -91,11 +91,11 @@ function updateDash(){
         //console.log(data)
 
         selectedCovid_null=data.filter(c=>c.state=="Alaska")
-        console.log("Default Selection")
-        console.log(selectedCovid_null)
+        //console.log("Default Selection")
+        //console.log(selectedCovid_null)
 
         var selectedCovid=selectedCovid_null.filter(c=>c.death_pop_percent!=null)
-        console.log(selectedCovid)
+        //console.log(selectedCovid)
 
       
 
@@ -244,17 +244,17 @@ function updateDash(){
             //console.log("-----N Y T  C O U N T Y  D A T A -----")
             //covid_county_data=data
             //console.log("Cases by county")
-            console.log(data)
+            //console.log(data)
 
             //console.log(latest_data)
             var userSelection=d3.select("#state-selector").node().value;
             if(userSelection != 'us'){
             selectedCovid_null=data.filter(c=>c.state==userSelection)
-            console.log("Default Selection")
-            console.log(selectedCovid_null)
+            //console.log("Default Selection")
+            //console.log(selectedCovid_null)
     
             var selectedCovid=selectedCovid_null.filter(c=>c.death_pop_percent!=null)
-            console.log(selectedCovid)
+            //console.log(selectedCovid)
 
         
 
@@ -324,7 +324,7 @@ function updateDash(){
 
          ///////////////////// Deaths per cases ////////////////////
         
-            console.log(selectedCovid_null)
+            //console.log(selectedCovid_null)
 
             // Sorting dictionary
             function compare(a, b) {

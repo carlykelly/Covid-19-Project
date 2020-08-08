@@ -10,7 +10,7 @@ function updateDash(){
     var time_atlantic="/timeseries_atlantic";
     var population ="/api/state_population";
 
-    console.log("Hello")
+    //console.log("Hello")
     //////////////////////////// H o n e y  C o m b s ////////////////////////////////////////////////
     //                       /// New York Times Honey Comb ///                     //
     d3.json(nyt_state).then((data)=>{
@@ -24,11 +24,12 @@ function updateDash(){
 
     })
    
-    Highcharts.chart('nyt-country-honeycomb', {
+    var chart_nyt=Highcharts.chart('nyt-country-honeycomb', {
         chart: {
             type: 'tilemap',
             inverted: true,
             height: '80%',
+    
         },
     
         accessibility: {
@@ -49,7 +50,7 @@ function updateDash(){
         },
     
         title: {
-            text: 'U.S. states by total number of positive Corona virus cases'
+            text: 'U.S. states by total number of positive Corona virus cases <br> (The New York Times)'
         },
 
     
@@ -462,8 +463,37 @@ function updateDash(){
                 y: 3,
                 value: 2686
             }]
-        }]
+        }],
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 1000
+                },
+                chartOptions: {
+                
+                    yAxis: {
+                        labels: {
+                            align: 'left',
+                            x: 0,
+                            y: -5
+                        },
+                        title: {
+                            text: null
+                        }
+                    },
+                    subtitle: {
+                        text: null
+                    },
+                    credits: {
+                        enabled: false
+                    }
+                }
+            }]
+        }
+
+       
     });
+    chart_nyt.setSize(null);
 
     //                      /// Atlantic Honey Comb  ///                          //
     d3.json(honey_atlantic).then((data)=>{
@@ -475,7 +505,7 @@ function updateDash(){
         // })
     })
 
-    Highcharts.chart('atl-country-honeycomb', {
+    var chart_atl =Highcharts.chart('atl-country-honeycomb', {
         chart: {
             type: 'tilemap',
             inverted: true,
@@ -916,6 +946,7 @@ function updateDash(){
             }]
         }]
     });
+    chart_atl.setSize(null);
 
     //Honey Comb Difference Table
     d3.json(nyt_state).then(function(NYT){
@@ -1028,7 +1059,7 @@ function updateDash(){
             
             /////////// DATA RELIABILITY //////////////////
             //get back to this. There are several for one state
-            console.log("DATA QUALITY GRADE")
+            //console.log("DATA QUALITY GRADE")
             //console.log(selectedCovid_atl)
             var DataGrade=selectedCovid_atl.map(t=>t.DataQualityGrade)
             //console.log(DataGrade)
@@ -1040,11 +1071,11 @@ function updateDash(){
                 ++result[DataGrade[i]];
             }
 
-            console.log(result)
+            //console.log(result)
             var grades=Object.keys(result)
-            console.log(grades)
+            //console.log(grades)
             var count=Object.values(result)
-            console.log(count)
+            //console.log(count)
 
 
             var data = [{
@@ -1154,8 +1185,8 @@ function updateDash(){
                 showlegend:true,
                 legend:{"orientation":"h",
                 y:-1
-            },
-                //width:500,
+                },
+                width:500,
                 xaxis:{
                     autorange:true,
                     range:['03-05-2020','07-28-2020'],
@@ -1186,11 +1217,12 @@ function updateDash(){
 
 
             var layout2 = {
+                autosize: true,
                 showlegend:true,
                 legend:{"orientation":"h",
                 y:-1
                 },
-                //width:500,
+                width:500,
                 xaxis:{
                     autorange:true,
                     range:['03-05-2020','07-28-2020'],
@@ -1302,7 +1334,7 @@ function updateDash(){
 
                     // Make table//
                     var values=[
-                        ["New York Times","The Atlantic", "% Difference per population"],
+                        ["The New York Times","The Atlantic", "% Difference per population"],
                         [NYT_cases,ATL_cases,percent_difference_cases],
                         [NYT_deaths,ATL_deaths,percent_difference_deaths]
 
@@ -1464,7 +1496,7 @@ function updateDash(){
                     name: 'The New York Times   ',
                     x: nyt_timeseries_dates,
                     y: nyt_timeseries_deaths,
-                    line: {color: '#FF2371'}
+                    line: {color: '#B123FF'}
                 }
 
                 var trace3 = {
@@ -1482,7 +1514,7 @@ function updateDash(){
                     name: 'The Atlantic   ',
                     x: atl_timeseries_dates,
                     y: atl_timeseries_deaths,
-                    line: {color: '#23FFB1'}
+                    line: {color: '#71FF23'}
                 }
 
                 ////// Cases //////////
