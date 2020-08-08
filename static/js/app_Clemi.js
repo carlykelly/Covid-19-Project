@@ -54,8 +54,8 @@ function updateDash(){
                            ["<b>Total Cases</b>"], ["<b>Total Deaths</b>"]],
               align: "center",
               line: {width: 1, color: 'black'},
-              fill: {color: "grey"},
-              font: {family: "Arial", size: 18, color: "white"}
+              fill: {color: '#E8CEC9'},
+              font: {family: "Arial", size: 18, color: "Black"}
             },
             cells: {
               values: values,

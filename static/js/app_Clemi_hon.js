@@ -1004,8 +1004,8 @@ function updateDash(){
                         
                         align: "center",
                         line: {width: 1, color: 'black'},
-                        fill: {color: "grey"},
-                        font: {family: "Arial", size: 14, color: "white"}
+                        fill: {color: '#E8CEC9'},
+                        font: {family: "Arial", size: 14, color: "black"}
                         },
                     cells: {
                         values: values,
@@ -1347,8 +1347,8 @@ function updateDash(){
                             
                             align: "center",
                             line: {width: 1, color: 'black'},
-                            fill: {color: "grey"},
-                            font: {family: "Arial", size: 14, color: "white"}
+                            fill: {color: "#E8CEC9"},
+                            font: {family: "Arial", size: 14, color: "black"}
                             },
                         cells: {
                             values: values,
