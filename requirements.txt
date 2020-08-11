@@ -9,5 +9,6 @@ feedparser==5.2.1
 requests==2.22.0
 splinter==0.13.0
 dnspython==1.16.0
+werkzeug<1.0
 
 
