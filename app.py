@@ -319,7 +319,7 @@ def scrape_news():
 
     client.close()
 
-    return files
+    return jsonify(files)
     
 @app.route("/pull_news")
 @cache.cached(timeout = 300)
