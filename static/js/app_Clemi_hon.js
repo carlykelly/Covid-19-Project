@@ -66,21 +66,21 @@ function updateDash(){
             dataClasses: [{
                 from: 0,
                 to: 10000,
-                color: '#23DFFF',
+                color: '#ffbdd4',
                 name: '< 10K'
             }, {
                 from: 10000,
                 to: 50000,
-                color: '#B123FF',
+                color: '#ff70a2',
                 name: '10K - 50K'
             }, {
                 from: 50000,
                 to: 100000,
-                color: '#71FF23',
+                color: '#ef0055',
                 name: '50K - 100K'
             }, {
                 from: 100000,
-                color: '#FF2371',
+                color: '#bc0043',
                 name: '> 100K'
             }]
         },
@@ -547,21 +547,21 @@ function updateDash(){
             dataClasses: [{
                 from: 0,
                 to: 10000,
-                color: '#23DFFF',
+                color: '#ffbdd4',
                 name: '< 10K'
             }, {
                 from: 10000,
                 to: 50000,
-                color: '#B123FF',
+                color: '#ff70a2',
                 name: '10K - 50K'
             }, {
                 from: 50000,
                 to: 100000,
-                color: '#71FF23',
+                color: '#ef0055',
                 name: '50K - 100K'
             }, {
                 from: 100000,
-                color: '#FF2371',
+                color: '#bc0043',
                 name: '> 100K'
             }]
         },

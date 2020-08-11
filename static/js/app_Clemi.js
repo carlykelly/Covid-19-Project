@@ -41,9 +41,29 @@ function updateDash(){
         var table_cases=top_10_counties_us.map(s=>s.cases)
         var table_deaths=top_10_counties_us.map(s=>s.deaths)
         //console.log(table_state)
+        function thousands_separators(num){
+                var num_parts = num.toString().split(".");
+                num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                return num_parts.join(".");
+            }
+        
+        table_cases_1=[]
+        for (i=0;i<table_cases.length;i++){
+            var a = thousands_separators(table_cases[i])
+            table_cases_1.push(a)
+            //console.log(a)
+        }
+
+        table_deaths_1=[]
+        for (i=0;i<table_deaths.length;i++){
+            var a = thousands_separators(table_deaths[i])
+            table_deaths_1.push(a)
+            //console.log(a)
+        }
+       
 
         ///// Building the table
-        var values = [table_county,table_state,table_cases,table_deaths]
+        var values = [table_county,table_state,table_cases_1,table_deaths_1]
 
         var data = [{
             type: 'table',
@@ -125,7 +145,7 @@ function updateDash(){
 
 
         var bar_labels=top_ten_counties_death_pop.map(s=>s.County)
-        var bar_values=top_ten_counties_death_pop.map(s=>s.death_pop_percent.toFixed(4))
+        var bar_values=top_ten_counties_death_pop.map(s=>s.death_pop_percent.toFixed(3))
      
 
         //console.log(bar_labels);
@@ -147,7 +167,7 @@ function updateDash(){
             }]
         }];
         var layout = {
-            xaxis: {title:"Total Deaths per County Population (%)",size: 18},
+            xaxis: {title:"Percent Deaths per County Population (%)",size: 18},
             yaxis: {title:"counties",automargin: true,},
             autosize: true,
             //width: 500,
@@ -191,7 +211,7 @@ function updateDash(){
 
 
         var bar_labels=top_ten_counties_death_case.map(s=>s.County)
-        var bar_values=top_ten_counties_death_case.map(s=>s.death_case_percent.toFixed(4))
+        var bar_values=top_ten_counties_death_case.map(s=>s.death_case_percent.toFixed(2))
    
 
         //console.log(bar_labels);
@@ -282,7 +302,7 @@ function updateDash(){
 
 
             var bar_labels=top_ten_counties_death_pop.map(s=>s.County)
-            var bar_values=top_ten_counties_death_pop.map(s=>s.death_pop_percent.toFixed(4))
+            var bar_values=top_ten_counties_death_pop.map(s=>s.death_pop_percent.toFixed(3))
             
             //console.log(bar_labels);
             //console.log(bar_values);
@@ -304,7 +324,7 @@ function updateDash(){
             }];
             var layout = {
 
-                xaxis: {title:"Total Deaths per County Population (%)",size: 18},
+                xaxis: {title:"Percent Deaths per County Population (%)",size: 18},
                 yaxis: {title:"counties",automargin: true,},
                 autosize: true,
                 //width: 550,
@@ -349,7 +369,7 @@ function updateDash(){
 
 
             var bar_labels=top_ten_counties_death_case.map(s=>s.County)
-            var bar_values=top_ten_counties_death_case.map(s=>s.death_case_percent.toFixed(4))
+            var bar_values=top_ten_counties_death_case.map(s=>s.death_case_percent.toFixed(2))
        
 
             //console.log(bar_labels);
