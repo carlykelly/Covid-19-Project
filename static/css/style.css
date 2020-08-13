@@ -66,9 +66,9 @@ hr{
 }
 
 #dropdownMenuButton{
-    background-color:white;
+    background-color:black;
     color: #6c757d;
-    border-color:white;
+    border-color:black;
     float:right;
 
 }
@@ -250,9 +250,10 @@ table {
     padding:5px;
 }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
       .hamburger{
           display: flex;
+          color: black;
       }
       .navbar{
           background-color: white !important;
@@ -268,20 +269,21 @@ table {
 
       .navbar-toggler{
           margin-right:20px;
+          color: black;
       }
 
       .navhead{
           background-color:white !important;
       }
 
-      .navbar-toggler-icon{
+      navbar-toggler-icon{
           width: 1em;
           height:1.25em;
-          color:black;
+          color:black !important;
       }
 
       .dropdown-menu{
-          background-color: white;
+          background-color: black;
           border:none;
       }
       .navbar-collapse{
@@ -290,6 +292,7 @@ table {
 
       .navbar-light, .navbar-toggler{
           border-color:black !important;
+          color: black;
       }
 
       .nav-item{
@@ -304,6 +307,9 @@ table {
       .nonburger{
           display: none;
       }
+      #map-tips-banner{
+        display: none !important;
+    }
   }
   
 /* CSS from the Leaflet-Choropleth documentation */

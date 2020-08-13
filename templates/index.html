@@ -74,10 +74,14 @@
     <!-- Hamburger -->
     <nav class="hamburger navbar">
         <a class="navbar-brand" id='logo' href="#">COVID in the United States</a>
-        <button class="hamburger navbar-toggler" type="button" data-toggle="collapse"
+        <button class="humburger navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -177,7 +181,7 @@
                     <hr>
                     <h3>{{scraped_stats.cdc_deaths}}</h3>
                 </div>
-                <div class='white col-12 no-pad' id='total-cases-banner'>
+                <div class='white col-12 no-pad' id='map-tips-banner'>
                     <h3 class='page-header'>Map Tips</h3>
                     <hr>
                     <p>Select a layer in the top left to cycle between available statistics.<br>Type a state (or abbreviation) into the state selector to zoom to the state and regenerate the bar charts below.<br>Click on a county in the map to view county statistics for the selected layer.</p>
