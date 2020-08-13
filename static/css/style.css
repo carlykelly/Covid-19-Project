@@ -351,3 +351,10 @@ table {
   .ui-helper-hidden-accessible {
     display: none;
 }
+#card-group{
+    display: flex;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
