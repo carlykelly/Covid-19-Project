@@ -20,10 +20,17 @@ import feedparser
 from pandas.io.json import json_normalize
 import pandas as pd
 import requests
+import os
+
+is_heroku = False
+if 'IS_HEROKU' in os.environ:
+    is_heroku = True
 
 def scrape_all():
-
-    executable_path = {"executable_path": "/usr/local/bin/chromedriver"}
+    if is_heroku == False:
+        executable_path = {"executable_path": "/usr/local/bin/chromedriver"}
+    else:
+        executable_path = {"executable_path": os.environ.get('CHROME_DRIVER_BIN')}
     browser = Browser('chrome', **executable_path, headless=True)
 
     url = "https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/cases-in-us.html/"

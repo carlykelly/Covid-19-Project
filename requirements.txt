@@ -1,4 +1,4 @@
-pandas==0.25.1
+pandas==1.1.0
 Flask==0.12.2
 flask_pymongo==2.3.0
 gunicorn==19.9.0
@@ -9,5 +9,6 @@ feedparser==5.2.1
 requests==2.22.0
 splinter==0.13.0
 dnspython==1.16.0
+werkzeug<1.0
 
 
