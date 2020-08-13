@@ -199,6 +199,10 @@ table {
     min-width: 700px;
     min-height: 700px;
   }
+#collapsed-container {
+    display:none;
+}
+
 #state-name-box {
     height: 724px;
     overflow-y: auto;
@@ -309,6 +313,9 @@ table {
       }
       #map-tips-banner{
         display: none !important;
+    }
+    #fix-container{
+        display:none;
     }
   }
   

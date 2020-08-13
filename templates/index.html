@@ -104,9 +104,89 @@
         </div>
     </nav>
     <!-- End Hamburger -->
+
+    <div class='col-12' id='collapsed-banner'>
+        <div class='row'>
+        <div class='col-12 text-center'>
+            <div class='white col-4 no-pad' id='state-selector-box'>
+                <div class="col-12">
+                    <h3 class='page-header'>Select a State</h3>
+                    <hr>
+                    <form>
+                        <select name="State" class='selector' id="state-selector" autofocus="autofocus"
+                            autocorrect="off" autocomplete="off" placeholder='Enter state or abb'>
+                            <option value='' data-alternative-spellings='US' selected>All States</option>
+                            <option value='us' data-alternative-spellings='US, The United States'>All States</option>
+                            <option value="Alabama" data-alternative-spellings='AL'>Alabama</option>
+                            <option value="Alaska" data-alternative-spellings='AK'>Alaska</option>
+                            <option value="Arizona" data-alternative-spellings='AZ'>Arizona</option>
+                            <option value="Arkansas" data-alternative-spellings='AS'>Arkansas</option>
+                            <option value="California" data-alternative-spellings='CA'>California</option>
+                            <option value="Colorado" data-alternative-spellings='CO'>Colorado</option>
+                            <option value="Connecticut" data-alternative-spellings='CT'>Connecticut</option>
+                            <option value="Delaware" data-alternative-spellings='DE'>Delaware</option>
+                            <option value="Florida" data-alternative-spellings='FL'>Florida</option>
+                            <option value="Georgia" data-alternative-spellings='GA'>Georgia</option>
+                            <option value="Hawaii" data-alternative-spellings='HI'>Hawaii</option>
+                            <option value="Idaho" data-alternative-spellings='ID'>Idaho</option>
+                            <option value="Illinois" data-alternative-spellings='IL'>Illinois</option>
+                            <option value="Indiana" data-alternative-spellings='IN'>Indiana</option>
+                            <option value="Iowa" data-alternative-spellings='IA'>Iowa</option>
+                            <option value="Kansas" data-alternative-spellings='KS'>Kansas</option>
+                            <option value="Kentucky" data-alternative-spellings='KY'>Kentucky</option>
+                            <option value="Louisiana" data-alternative-spellings='LA'>Louisiana</option>
+                            <option value="Maine" data-alternative-spellings='ME'>Maine</option>
+                            <option value="Maryland" data-alternative-spellings='MD'>Maryland</option>
+                            <option value="Massachusetts" data-alternative-spellings='MA'>Massachusetts</option>
+                            <option value="Michigan" data-alternative-spellings='MI'>Michigan</option>
+                            <option value="Minnesota" data-alternative-spellings='MN'>Minnesota</option>
+                            <option value="Mississippi" data-alternative-spellings='MS'>Mississippi</option>
+                            <option value="Missouri" data-alternative-spellings='MO'>Missouri</option>
+                            <option value="Montana" data-alternative-spellings='MT'>Montana</option>
+                            <option value="Nebraska" data-alternative-spellings='NE'>Nebraska</option>
+                            <option value="Nevada" data-alternative-spellings='NV'>Nevada</option>
+                            <option value="New Hampshire" data-alternative-spellings='NH'>New Hampshire</option>
+                            <option value="New Jersey" data-alternative-spellings='NJ'>New Jersey</option>
+                            <option value="New Mexico" data-alternative-spellings='NM'>New Mexico</option>
+                            <option value="New York" data-alternative-spellings='NY'>New York</option>
+                            <option value="North Carolina" data-alternative-spellings='NC'>North Carolina</option>
+                            <option value="North Dakota" data-alternative-spellings='ND'>North Dakota</option>
+                            <option value="Ohio" data-alternative-spellings='OH'>Ohio</option>
+                            <option value="Oklahoma" data-alternative-spellings='OK'>Oklahoma</option>
+                            <option value="Oregon" data-alternative-spellings='OR'>Oregon</option>
+                            <option value="Pennsylvania" data-alternative-spellings='PA'>Pennsylvania</option>
+                            <option value="Rhode Island" data-alternative-spellings='RI'>Rhode Island</option>
+                            <option value="South Carolina" data-alternative-spellings='SC'>South Carolina</option>
+                            <option value="South Dakota" data-alternative-spellings='SD'>South Dakota</option>
+                            <option value="Tennessee" data-alternative-spellings='TN'>Tennessee</option>
+                            <option value="Texas" data-alternative-spellings='TX'>Texas</option>
+                            <option value="Utah" data-alternative-spellings='UT'>Utah</option>
+                            <option value="Vermont" data-alternative-spellings='VT'>Vermont</option>
+                            <option value="Virginia" data-alternative-spellings='VA'>Virginia</option>
+                            <option value="Washington" data-alternative-spellings='WA'>Washington</option>
+                            <option value="West Virginia" data-alternative-spellings='WV'>West Virginia</option>
+                            <option value="Wisconsin" data-alternative-spellings='WI'>Wisconsin</option>
+                            <option value="Wyoming" data-alternative-spellings='WY'>Wyoming</option>
+                        </select>
+                    </form>
+                    <input type="button" class="btn btn-light" value ='Select'>
+                </div>
+            </div>
+            <div class='white col-4 no-pad' id='total-cases-banner'>
+                <h3 class='page-header'>Total U.S. COVID-19 Cases</h3>
+                <hr>
+                <h3>{{scraped_stats.cdc_confirmed}}</h3>
+            </div>
+            <div class='white col-4 no-pad' id='total-cases-banner'>
+                <h3 class='page-header'>Total U.S. COVID-19 Deaths</h3>
+                <hr>
+                <h3>{{scraped_stats.cdc_deaths}}</h3>
+            </div>
+        </div>
+    </div>
     <div class='col-12'>
         <div class='row'>
-            <div class='col-2 text-center'>
+            <div class='col-2 text-center' id='fix-container'>
                 <div class='white col-12 no-pad' id='state-selector-box'>
                     <div class="col-12">
                         <h3 class='page-header'>Select a State</h3>
@@ -187,6 +267,14 @@
                     <p>Select a layer in the top left to cycle between available statistics.<br>Type a state (or abbreviation) into the state selector to zoom to the state and regenerate the bar charts below.<br>Click on a county in the map to view county statistics for the selected layer.</p>
                 </div>
             </div>
+            
+           
+
+
+
+
+
+
             <div class='col-10' id='us-cloropleth'>
                 <div class='white col-12 no-pad'>
                     <h1 class="page-header text-center">Impact of COVID-19 on the Counties of the United States</h1>
