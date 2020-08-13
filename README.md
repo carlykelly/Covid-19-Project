@@ -19,8 +19,8 @@ On this site, she was responsible for the creative direction of the project and 
 On this site, Clementine created the following charts using JavaScript:
  > * [State] Reported Cases: Top Ten Counties
  > * [State] Reported Deaths: Top Ten Counties
-  - Re-arrangeable table of “US Counties with Highest Total Cases”
-  - Both Honeycomb/ Tile Diagrams
-  - Re-arrangeable New York Times and Atlantic Data Comparison Table
-  - Data Reliability Donut Chart
-  - Both Time Series Charts with buttons
+ > * Re-arrangeable table of “US Counties with Highest Total Cases”
+ > * Both Honeycomb/ Tile Diagrams
+ > * Re-arrangeable New York Times and Atlantic Data Comparison Table
+ > * Data Reliability Donut Chart
+ > * Both Time Series Charts with buttons
