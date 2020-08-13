@@ -17,10 +17,10 @@ On this site, she was responsible for the creative direction of the project and 
 ### Clementine Sraha
 > Clementine is Data Analyst with a B.Sc. in Environmental Science from Drexel University and a Masters Degree in Environmental Management from the Nicholas School of Environment at Duke University. Clementine loves coding and likes to learn new things in her free time. You can view Clementine’s LinkedIn here.
 On this site, Clementine created the following charts using JavaScript:
-- [State] Reported Cases: Top Ten Counties
-- [State] Reported Deaths: Top Ten Counties
-- Re-arrangeable table of “US Counties with Highest Total Cases”
-- Both Honeycomb/ Tile Diagrams
-- Re-arrangeable New York Times and Atlantic Data Comparison Table
-- Data Reliability Donut Chart
-- Both Time Series Charts with buttons
+  - [State] Reported Cases: Top Ten Counties
+  - [State] Reported Deaths: Top Ten Counties
+  - Re-arrangeable table of “US Counties with Highest Total Cases”
+  - Both Honeycomb/ Tile Diagrams
+  - Re-arrangeable New York Times and Atlantic Data Comparison Table
+  - Data Reliability Donut Chart
+  - Both Time Series Charts with buttons
