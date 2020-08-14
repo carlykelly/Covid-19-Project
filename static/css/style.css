@@ -104,9 +104,12 @@ a:hover, #dropdownMenuButton:hover{
 .white{
     background-color: white;
     border-radius: 15px;
-    padding: 20px;
-    margin: 20px;
+    padding: 10px;
 }
+
+.m-4 {
+    margin: 20 !important;
+  }
 
 .white-header{
     background-color: white;
