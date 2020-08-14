@@ -1115,6 +1115,8 @@ function updateDash(){
               var config = {responsive: true}
               Plotly.newPlot('data-reliability-score', data, layout,config);
 
+              Plotly.newPlot('data-reliability-score-small', data, layout,config);
+
 
 
             //////////////// Time series //////////////////////
@@ -1460,7 +1462,7 @@ function updateDash(){
                   
                   Plotly.newPlot('data-reliability-score', data, layout,config);          
               
-
+                  Plotly.newPlot('data-reliability-score-small', data, layout,config);
 
                 /////////  Time  Series ////////////
                 

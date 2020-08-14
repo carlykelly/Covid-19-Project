@@ -105,7 +105,7 @@
     <div class='col-12' id='collapsed-banner'></div>
     <div class='container'>
         <div class='row'>
-            <div class='white col-lg-4 no-pad' id='state-selector-box'>
+            <div class='white col-lg-3 no-pad cell' id='state-selector-box'>
                     <h3 class='page-header'>Select a State</h3>
                     <hr>
                     <form>
@@ -113,7 +113,7 @@
                             autocorrect="off" autocomplete="off" placeholder='Enter state or abb'>
                             <option value='' data-alternative-spellings='US' selected>All States</option>
                             <option value='us' data-alternative-spellings='US, The United States'>All States</option>
-                            <option value="Alabama" data-alternative-spellings='AL'>Alabamaaaaaaaaaaaaaaaaaaaa</option>
+                            <option value="Alabama" data-alternative-spellings='AL'>Alabama</option>
                             <option value="Alaska" data-alternative-spellings='AK'>Alaska</option>
                             <option value="Arizona" data-alternative-spellings='AZ'>Arizona</option>
                             <option value="Arkansas" data-alternative-spellings='AS'>Arkansas</option>
@@ -167,12 +167,14 @@
                     </form>
                     <input type="button" class="btn btn-light" value ='Select'>
             </div>
-            <div class='white col-lg-4 no-pad' id='total-cases-banner'>
+            <div class='col-lg-1 cell'><br/></div>
+            <div class='white col-lg-3 no-pad cell' id='total-cases-banner'>
                 <h3 class='page-header'>Total U.S. COVID-19 Cases</h3>
                 <hr>
                 <h3>{{scraped_stats.cdc_confirmed}}</h3>
             </div>
-            <div class='white col-lg-4 no-pad' id='total-cases-banner'>
+            <div class='col-lg-1 cell'><br/></div>
+            <div class='white col-lg-3 no-pad cell' id='total-cases-banner'>
                 <h3 class='page-header'>Total U.S. COVID-19 Deaths</h3>
                 <hr>
                 <h3>{{scraped_stats.cdc_deaths}}</h3>
@@ -182,7 +184,7 @@
     <div class='col-12'>
         <div class='row'>
             <div class='col-2 text-center' id='fix-container'>
-                <div class='white col-12 no-pad' id='state-selector-box'>
+                <div class='white col-12 nocell' id='state-selector-box'>
                     <div class="col-12">
                         <h3 class='page-header'>Select a State</h3>
                         <hr>
@@ -246,17 +248,17 @@
                         <input type="button" class="btn btn-light" value ='Select'>
                     </div>
                 </div>
-                <div class='white col-12 no-pad' id='total-cases-banner'>
+                <div class='white col-12 nocell' id='total-cases-banner'>
                     <h3 class='page-header'>Total U.S. COVID-19 Cases</h3>
                     <hr>
                     <h3>{{scraped_stats.cdc_confirmed}}</h3>
                 </div>
-                <div class='white col-12 no-pad' id='total-cases-banner'>
+                <div class='white col-12 nocell' id='total-cases-banner'>
                     <h3 class='page-header'>Total U.S. COVID-19 Deaths</h3>
                     <hr>
                     <h3>{{scraped_stats.cdc_deaths}}</h3>
                 </div>
-                <div class='white col-12 no-pad' id='map-tips-banner'>
+                <div class='white col-12 nocell' id='map-tips-banner'>
                     <h3 class='page-header'>Map Tips</h3>
                     <hr>
                     <p>Select a layer in the top left to cycle between available statistics.<br>Type a state (or abbreviation) into the state selector to zoom to the state and regenerate the bar charts below.<br>Click on a county in the map to view county statistics for the selected layer.</p>
