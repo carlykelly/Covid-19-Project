@@ -206,12 +206,12 @@ var baseMaps
           }
         })
 
-        d3.select('form').on('change.carly', function(d){
+        $('.state-btn').on('click.carly', function(d){
           d3.json(stateData).then(function(data2){
             //console.log(data2.features[0].properties)
             
 
-          state = d3.select("#state-selector").node().value;
+          state = d3.select("#state-selector-1").node().value || d3.select("#state-selector-2").node().value;
           //console.log(state)
           var poly = data2.features.filter(a => a.properties.name == state)
           var stategeo = {"type":"FeatureCollection","features":poly}

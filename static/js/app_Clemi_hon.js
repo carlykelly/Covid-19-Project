@@ -1124,6 +1124,7 @@ function updateDash(){
             
             //console.log("Time series NYT")
             //console.log(selectedCovid)
+            selectedCovidnyt = selectedCovidnyt.sort((a, b) => a.date - b.date);
             var nyt_timeseries_dates=selectedCovidnyt.map(t=>t.date).reverse()
             //console.log(nyt_timeseries_dates)
             var nyt_timeseries_cases=selectedCovidnyt.map(t=>t.cases).reverse()
@@ -1132,6 +1133,7 @@ function updateDash(){
 
             //// Atlantic
             //console.log("Time series ATL")
+            selectedCovid_atl = selectedCovid_atl.sort((a, b) => a.Date - b.Date);
             var atl_timeseries_dates=selectedCovid_atl.map(t=>t.Date).reverse()
             //console.log(atl_timeseries_dates)
             var atl_timeseries_cases=selectedCovid_atl.map(t=>t.PositiveTests).reverse()
@@ -1302,7 +1304,7 @@ function updateDash(){
                     //console.log(ATL)
                     //console.log(POP)
 
-                    var userSelection=d3.select("#state-selector").node().value;
+                    var userSelection=d3.select("#state-selector-1").node().value;
                 
                     selectedCovidnyt=NYT.filter(c=>c.State==userSelection)
                     //console.log(selectedCovidnyt)
@@ -1399,7 +1401,7 @@ function updateDash(){
                 //console.log(atlantic)
 
 
-                var userSelection=d3.select("#state-selector").node().value;
+                var userSelection=d3.select("#state-selector-1").node().value;
                 console.log(userSelection)
                 selectedCovidnyt=nyt.filter(c=>c.State==userSelection)
                 selectedCovid_atl=atlantic.filter(a=>a.State==userSelection)
@@ -1468,6 +1470,7 @@ function updateDash(){
                 
                 //console.log("Time series NYT")
                 //console.log(selectedCovid)
+                selectedCovidnyt = selectedCovidnyt.sort((a, b) => a.date - b.date);
                 var nyt_timeseries_dates=selectedCovidnyt.map(t=>t.date).reverse()
                 //console.log(nyt_timeseries_dates)
                 var nyt_timeseries_cases=selectedCovidnyt.map(t=>t.cases).reverse()
@@ -1476,6 +1479,7 @@ function updateDash(){
 
                 //// Atlantic
                 //console.log("Time series ATL")
+                selectedCovid_atl = selectedCovid_atl.sort((a, b) => a.Date - b.Date);
                 var atl_timeseries_dates=selectedCovid_atl.map(t=>t.Date).reverse()
                 //console.log(atl_timeseries_dates)
                 var atl_timeseries_cases=selectedCovid_atl.map(t=>t.PositiveTests).reverse()

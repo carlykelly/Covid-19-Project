@@ -255,7 +255,7 @@ function updateDash(){
     })
  //////////////////////////////////////////////////////////////////////////////////////////////
  //                 S E L E C T   S T A T E                ///
-    d3.select('form').on('change.clemi',function(d){
+    $('.state-btn').on('click.clemi', function(d){
 
         
 
@@ -267,7 +267,7 @@ function updateDash(){
             //console.log(data)
 
             //console.log(latest_data)
-            var userSelection=d3.select("#state-selector").node().value;
+            var userSelection = d3.select("#state-selector-1").node().value || d3.select("#state-selector-2").node().value;
             if(userSelection != 'us'){
             selectedCovid_null=data.filter(c=>c.state==userSelection)
             //console.log("Default Selection")
