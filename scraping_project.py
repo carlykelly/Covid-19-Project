@@ -38,11 +38,14 @@ def scrape_all():
     html = browser.html
 
     cdc_soup = BeautifulSoup(html, 'html.parser')
-    cdc_soup = cdc_soup.select_one('div.callouts-container')
-    cdc_callouts = cdc_soup.find_all("span", class_='count')
+    cdc_soup = cdc_soup.find_all("div", id="viz001_uscases")
+    cdc_viz001_uscases = cdc_soup.find_all("div", class_='card_number')
 
-    cdc_confirmed = cdc_callouts[0].text
-    cdc_deaths = cdc_callouts[1].text
+    cdc_death = cdc_soup.find_all("div", id="viz002_usdeaths")
+    cdc_viz002_usdeaths = cdc_death.find_all("div", class_="card_number")
+
+    cdc_confirmed = cdc_viz001_uscases[0].text
+    cdc_deaths = cdc_viz002_usdeaths[1].text
 
     # cdc_confirmed = cdc_confirmed.replace(',',"")
     # cdc_confirmed = int(cdc_confirmed)
@@ -75,12 +78,12 @@ def scrape_all():
 
     news_soup = BeautifulSoup(html, 'html.parser')
 
-    atlantic_confirmed = news_soup.find_all('div', class_="total-module--number--2XxWt")
+    atlantic_confirmed = news_soup.find_all('div', class_="_9083")
     atlantic_confirmed = atlantic_confirmed[1].text
     # atlantic_confirmed = atlantic_confirmed.replace(',',"")
     # atlantic_confirmed = int(atlantic_confirmed)
 
-    atlantic_death = news_soup.find_all('div', class_="total-module--number--2XxWt")
+    atlantic_death = news_soup.find_all('div', class_="_9083")
     atlantic_death = atlantic_death[2].text
     # atlantic_death = atlantic_death.replace(',',"")
     # atlantic_death = int(atlantic_death)
